@@ -21,7 +21,7 @@ public class UniCTest {
     public void addVisibilità(String codice, Visibilità v ){
         mappaVisibilità.put(codice, v);
     }
-    
+
     public static void setUnictest(UniCTest unictest) {
         UniCTest.unictest = unictest;
     }
