@@ -38,10 +38,6 @@ public class UniCTest {
         return mappaVisibilità;
     }
 
-    public void setMappaVisibilità(HashMap<String, Visibilità> mappaVisibilità) {
-        this.mappaVisibilità = mappaVisibilità;
-    }
-
     public Materia getCorrente() {
         return corrente;
     }
