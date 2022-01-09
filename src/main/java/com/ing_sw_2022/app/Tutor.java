@@ -47,4 +47,14 @@ public class Tutor {
         return materieInsegnate;
     }
 
+    ////////////////////////TOSTRING MOMENTANEO////////////////////
+    @Override
+    public String toString() {
+        return "Tutor{" +
+                "nome='" + nome + '\'' +
+                ", cognome='" + cognome + '\'' +
+                ", cf='" + cf + '\'' +
+                ", materieInsegnate=" + materieInsegnate +
+                '}';
+    }
 }

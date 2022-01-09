@@ -24,4 +24,13 @@ public class Visibilità {
     public void setCodice(String codice) {
         this.codice = codice;
     }
+
+    ////////////////////////TOSTRING MOMENTANEO////////////////////
+    @Override
+    public String toString() {
+        return "Visibilità{" +
+                "nome='" + nome + '\'' +
+                ", codice='" + codice + '\'' +
+                '}';
+    }
 }

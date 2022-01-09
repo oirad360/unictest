@@ -34,4 +34,14 @@ public class Risposta {
     public void setId(String id) {
         this.id = id;
     }
+
+    ////////////////////////TOSTRING MOMENTANEO////////////////////
+    @Override
+    public String toString() {
+        return "Risposta{" +
+                "testo='" + testo + "'\n" +
+                "valore='" + valore + "'\n" +
+                "id='" + id + "'\n" +
+                "}\n";
+    }
 }

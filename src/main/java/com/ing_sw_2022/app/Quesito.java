@@ -11,13 +11,9 @@ public class Quesito {
     private Visibilità visibilità;
     private ArrayList<Risposta> risposte;
 
-    public Quesito(String testo, int difficoltà, String fonte, String id, Tutor tutor, Visibilità visibilità) {
-        this.testo = testo;
-        this.difficoltà = difficoltà;
-        this.fonte = fonte;
+    public Quesito(String id, Tutor tutor) {
         this.id = id;
         this.tutor = tutor;
-        this.visibilità = visibilità;
         this.risposte = new ArrayList<>();
     }
 
@@ -77,7 +73,28 @@ public class Quesito {
         return risposte;
     }
 
-    public void inserisciRisposta(String testo, boolean valore){
 
+
+    public void inserisciRisposta(String testo, boolean valore){
+        //Setting id risposta
+        String newId;
+        if(risposte.isEmpty()) newId = id+"-0";
+        else newId = id+"-"+(Integer.parseInt(risposte.get(risposte.size()-1).getId().split("-")[2])+1);
+        Risposta r = new Risposta(testo, valore, newId);
+        risposte.add(r);
+    }
+
+    ////////////////////////TOSTRING MOMENTANEO////////////////////
+    @Override
+    public String toString() {
+        return "Quesito{" +
+                "testo='" + testo + "'\n" +
+                "difficoltà='" + difficoltà + "'\n" +
+                "fonte='" + fonte + "'\n" +
+                "id='" + id + "'\n" +
+                "tutor='" + tutor + "'\n" +
+                "visibilità='" + visibilità + "'\n" +
+                "risposte='" + risposte + "'\n" +
+                "}'\n";
     }
 }
