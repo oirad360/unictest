@@ -30,10 +30,6 @@ public class UniCTest {
         return mappaMaterie;
     }
 
-    public void setMappaMaterie(HashMap<String, Materia> mappaMaterie) {
-        this.mappaMaterie = mappaMaterie;
-    }
-
     public HashMap<String, Visibilità> getMappaVisibilità() {
         return mappaVisibilità;
     }
