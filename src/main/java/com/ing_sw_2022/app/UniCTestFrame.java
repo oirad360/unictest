@@ -20,13 +20,18 @@ public class UniCTestFrame extends JFrame{
         btnNuovoQuesito.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                NuovoQuesitoFrame frameQuesito = new NuovoQuesitoFrame();
+                NuovoQuesitoFrame frameQuesito = new NuovoQuesitoFrame(btnNuovoQuesito);
                 btnNuovoQuesito.removeActionListener(this);
+                btnNuovoQuesito.setEnabled(false);
             }
         });
     }
 
-    public static void main( String[] args )
+    public JButton getBtnNuovoQuesito() {
+        return btnNuovoQuesito;
+    }
+
+    public static void main(String[] args )
     {
         UniCTestFrame mainFrame = new UniCTestFrame();
     }
