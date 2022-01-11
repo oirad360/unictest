@@ -22,15 +22,11 @@ public class UniCTestFrame extends JFrame implements ActionListener{
         btnNuovoQuesito.addActionListener(this);
     }
     public static UniCTestFrame getInstance() {
-        if (unictestFrame == null)
-            unictestFrame = new UniCTestFrame();
-        else
-            System.out.println("Istanza già creata");
-
+        if (unictestFrame == null)  unictestFrame = new UniCTestFrame();
         return unictestFrame;
     }
     public void actionPerformed(ActionEvent e) {
-        JFrame quesitoFrame = new NuovoQuesitoFrame(new VisualizzaMateriePanel());
+        NuovoQuesitoFrame quesitoFrame = NuovoQuesitoFrame.getInstance();
         btnNuovoQuesito.removeActionListener(this);
         btnNuovoQuesito.setEnabled(false);
 
@@ -40,8 +36,8 @@ public class UniCTestFrame extends JFrame implements ActionListener{
             public void windowClosing(WindowEvent e)
             {
                 btnNuovoQuesito.setEnabled(true);
-                btnNuovoQuesito.addActionListener(unictestFrame);
-                e.getWindow().dispose();
+                btnNuovoQuesito.addActionListener(UniCTestFrame.getInstance());
+                NuovoQuesitoFrame.destroyInstance();
             }
         });
     }
@@ -69,7 +65,7 @@ public class UniCTestFrame extends JFrame implements ActionListener{
         unictest.addVisibilità(v3.getCodice(),v3);
 
         ////////// APERTURA GUI ////////////
-        UniCTestFrame mainFrame = new UniCTestFrame();
+        UniCTestFrame.getInstance();
 
     }
 }

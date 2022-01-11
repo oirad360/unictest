@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 import javax.swing.*;
 
-public class VisualizzaMateriePanel extends JPanel implements ActionListener {
+public class VisualizzaMateriePanel extends JPanel /*implements ActionListener*/ {
 
     private JPanel panel;
     private UniCTest unictest;
@@ -32,14 +32,8 @@ public class VisualizzaMateriePanel extends JPanel implements ActionListener {
         JLabel label = new JLabel("Scegli la materia", SwingConstants.CENTER);
         label.setFont(new Font("Verdana", Font.PLAIN, 28));
 
-        for (Iterator<Materia> i = materieInsegnate.iterator(); i.hasNext();) {
-            Materia materia = i.next();
-
-            JButton btnMateria = new JButton(materia.getNome());
-            btnMateria.setName(materia.getCodice());
-            btnMateria.setAlignmentX(Component.CENTER_ALIGNMENT);
-            btnMateria.addActionListener(this);
-
+        for (Iterator<JButton> i = buttons.iterator(); i.hasNext();) {
+            JButton btnMateria = i.next();
             panel.add(btnMateria,c);
         }
 
@@ -52,12 +46,12 @@ public class VisualizzaMateriePanel extends JPanel implements ActionListener {
     }
 
     /** Listens to the radio buttons. */
-    public void actionPerformed(ActionEvent e) {
+   /* public void actionPerformed(ActionEvent e) {
         JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
         topFrame.dispose();
         String codiceMateria=((JButton)e.getSource()).getName();
         unictest.nuovoQuesito(codiceMateria);
-        JFrame quesitoFrame = new NuovoQuesitoFrame(new NuovoQuesitoPanel());
+        JFrame quesitoFrame = new NuovoQuesitoFrame();
         quesitoFrame.addWindowListener(new WindowAdapter()
         {
             @Override
@@ -70,7 +64,7 @@ public class VisualizzaMateriePanel extends JPanel implements ActionListener {
             }
         });
 
-    }
+    }*/
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -99,7 +93,7 @@ public class VisualizzaMateriePanel extends JPanel implements ActionListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //Create and set up the content pane.
-        JComponent newContentPane = new VisualizzaMateriePanel();
+        JComponent newContentPane = new VisualizzaMateriePanel(null);
         newContentPane.setOpaque(true); //content panes must be opaque
         frame.setContentPane(newContentPane);
 
