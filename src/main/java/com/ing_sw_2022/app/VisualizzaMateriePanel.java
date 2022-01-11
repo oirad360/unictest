@@ -9,7 +9,7 @@ import javax.swing.*;
 
 public class VisualizzaMateriePanel extends JPanel /*implements ActionListener*/ {
 
-    private JPanel panel;
+    //private JPanel panel;
     private UniCTest unictest;
 
     public VisualizzaMateriePanel(ArrayList<JButton> buttons) {
@@ -19,7 +19,7 @@ public class VisualizzaMateriePanel extends JPanel /*implements ActionListener*/
 
         setLayout(new BorderLayout());
 
-        panel = new JPanel();
+        JPanel panel = new JPanel();
         panel.setLayout(new GridBagLayout());
 
         GridBagConstraints c = new GridBagConstraints();

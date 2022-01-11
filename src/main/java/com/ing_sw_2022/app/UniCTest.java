@@ -19,11 +19,7 @@ public class UniCTest {
     }
 
     public static UniCTest getInstance() {
-        if (unictest == null)
-            unictest = new UniCTest();
-        else
-            System.out.println("Istanza già creata");
-
+        if (unictest == null) unictest = new UniCTest();
         return unictest;
     }
 

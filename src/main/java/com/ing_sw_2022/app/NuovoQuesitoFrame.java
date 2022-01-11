@@ -52,7 +52,7 @@ class InserisciFonte implements ActionListener{
         NuovoQuesitoFrame nuovoQuesitoFrame = NuovoQuesitoFrame.getInstance();
         String codiceMateria=((JButton)e.getSource()).getName();
         unictest.nuovoQuesito(codiceMateria);
-        nuovoQuesitoFrame.setContentPane(new NuovoQuesitoPanel());
+        nuovoQuesitoFrame.setContentPane(new InserisciFontePanel());
     }
 }
 
