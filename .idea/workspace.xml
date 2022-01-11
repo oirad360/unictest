@@ -5,14 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="225c3c9e-492a-4307-b648-bc04a0874595" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/InserisciFontePanel.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/InserisciTestoPanel.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/InserisciTestoPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Iterazione 1/UniCTest_iterazione1.asta" beforeDir="false" afterPath="$PROJECT_DIR$/Iterazione 1/UniCTest_iterazione1.asta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Iterazione 1/UniCTest_iterazione1.asta.lock" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/InserisciFontePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/InserisciFontePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/NuovoQuesitoFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/NuovoQuesitoFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ProvaPane.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ProvaPane.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTestFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTestFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/VisualizzaMateriePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/VisualizzaMateriePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/InserisciFonte.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/InserisciFontePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/InserisciFontePanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/InserisciTesto.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/NuovoQuesitoFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/NuovoQuesitoFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/UniCTestFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/UniCTestFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/UniCTestFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/UniCTestFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ProvaPane.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/VisualizzaMateriePanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/VisualizzaMateriePanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/VisualizzaMateriePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/VisualizzaMateriePanel.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,10 +60,16 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="234" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Desktop/ingegneria del software/Esercitazione/Iterazione1/metropol" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\oirad\unictest\src\main\java\com\ing_sw_2022\app" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.UniCTestFrame">
     <configuration name="FormatterFactoryDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -143,7 +160,7 @@
       <workItem from="1641810532324" duration="8595000" />
       <workItem from="1641822732069" duration="1409000" />
       <workItem from="1641844185542" duration="7854000" />
-      <workItem from="1641898466438" duration="31741000" />
+      <workItem from="1641898466438" duration="39261000" />
     </task>
     <servers />
   </component>

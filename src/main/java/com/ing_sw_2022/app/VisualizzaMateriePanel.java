@@ -7,15 +7,9 @@ import java.util.Iterator;
 import java.util.List;
 import javax.swing.*;
 
-public class VisualizzaMateriePanel extends JPanel /*implements ActionListener*/ {
-
-    //private JPanel panel;
-    private UniCTest unictest;
+public class VisualizzaMateriePanel extends JPanel {
 
     public VisualizzaMateriePanel(ArrayList<JButton> buttons) {
-        unictest = UniCTest.getInstance();
-
-        List<Materia> materieInsegnate = unictest.visualizzaMaterieInsegnate();
 
         setLayout(new BorderLayout());
 
@@ -45,26 +39,7 @@ public class VisualizzaMateriePanel extends JPanel /*implements ActionListener*/
         add(scroller, BorderLayout.CENTER);
     }
 
-    /** Listens to the radio buttons. */
-   /* public void actionPerformed(ActionEvent e) {
-        JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
-        topFrame.dispose();
-        String codiceMateria=((JButton)e.getSource()).getName();
-        unictest.nuovoQuesito(codiceMateria);
-        JFrame quesitoFrame = new NuovoQuesitoFrame();
-        quesitoFrame.addWindowListener(new WindowAdapter()
-        {
-            @Override
-            public void windowClosing(WindowEvent e)
-            {
-                UniCTestFrame unictestFrame=UniCTestFrame.getInstance();
-                unictestFrame.getBtnNuovoQuesito().setEnabled(true);
-                unictestFrame.getBtnNuovoQuesito().addActionListener(unictestFrame);
-                e.getWindow().dispose();
-            }
-        });
 
-    }*/
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

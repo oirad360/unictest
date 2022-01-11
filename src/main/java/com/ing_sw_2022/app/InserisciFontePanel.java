@@ -1,26 +1,46 @@
 package com.ing_sw_2022.app;
 
 import javax.swing.*;
-import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class InserisciFontePanel extends JPanel {
+public class InserisciFontePanel implements ActionListener {
+    private JPanel mainPanel;
+    private JLabel label;
+    private JPanel panel;
+    private JTextField textField;
+    private JButton button;
 
     public InserisciFontePanel(){
-        setLayout(new BorderLayout());
-        JLabel label = new JLabel("Inserisci fonte", SwingConstants.CENTER);
-        label.setFont(new Font("Verdana", Font.PLAIN, 28));
+        button.addActionListener(this);
+    }
 
-        JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel,BoxLayout.X_AXIS));
+    public JPanel getMainPanel() {
+        return mainPanel;
+    }
 
-        JTextField textField = new JTextField();
-        textField.setBounds(50,50,150,20);
-        JButton btn = new JButton("OK");
+    public JLabel getLabel() {
+        return label;
+    }
 
-        panel.add(textField);
-        panel.add(btn);
+    public JPanel getPanel() {
+        return panel;
+    }
 
-        add(label, BorderLayout.PAGE_START);
-        add(panel, BorderLayout.CENTER);
+    public JTextField getTextField() {
+        return textField;
+    }
+
+    public JButton getButton() {
+        return button;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        UniCTest unictest = UniCTest.getInstance();
+        unictest.inserisciFonte(textField.getText());
+        NuovoQuesitoFrame nuovoQuesitoFrame= NuovoQuesitoFrame.getInstance();
+        nuovoQuesitoFrame.setContentPane(new InserisciTestoPanel().getMainPanel());
+        nuovoQuesitoFrame.revalidate();
     }
 }

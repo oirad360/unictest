@@ -4,17 +4,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class NuovoQuesitoFrame extends JFrame{
+public class NuovoQuesitoFrame extends JFrame implements  ActionListener{
     private UniCTest unictest;
     private static NuovoQuesitoFrame nuovoQuesitoFrame;
 
     private NuovoQuesitoFrame(){
+        //esegue il metodo visualizzaMaterieInsegnate di unictest e apre la panel per visualizzarle a schermo con dei bottoni
         unictest = UniCTest.getInstance();
         ArrayList<JButton> buttons = new ArrayList<JButton>();
         List<Materia> materieInsegnate = unictest.visualizzaMaterieInsegnate();
@@ -24,7 +23,7 @@ public class NuovoQuesitoFrame extends JFrame{
             JButton btnMateria = new JButton(materia.getNome());
             btnMateria.setName(materia.getCodice());
             btnMateria.setAlignmentX(Component.CENTER_ALIGNMENT);
-            btnMateria.addActionListener(new InserisciFonte());
+            btnMateria.addActionListener(this);
 
             buttons.add(btnMateria);
         }
@@ -43,27 +42,17 @@ public class NuovoQuesitoFrame extends JFrame{
     public static void destroyInstance() {
         nuovoQuesitoFrame = null;
     }
-}
 
-class InserisciFonte implements ActionListener{
-    @Override
     public void actionPerformed(ActionEvent e) {
+        //esegue il metodo nuovoQuesito di unictest e apre la nuova panel per il metodo inserisciFonte
         UniCTest unictest = UniCTest.getInstance();
         NuovoQuesitoFrame nuovoQuesitoFrame = NuovoQuesitoFrame.getInstance();
-        String codiceMateria=((JButton)e.getSource()).getName();
+        String codiceMateria=((JButton)e.getSource()).getName(); //prende il nome della materia dal bottone che ha scatenato l'evento "e"
         unictest.nuovoQuesito(codiceMateria);
-        nuovoQuesitoFrame.setContentPane(new InserisciFontePanel());
+        nuovoQuesitoFrame.setContentPane(new InserisciFontePanel().getMainPanel());
+        nuovoQuesitoFrame.revalidate(); //serve per far comparire la nuova panel, altrimenti compare solo dopo aver ridimensionato la finestra (boh)
     }
 }
 
-class InserisciTesto implements ActionListener{
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        UniCTest unictest = UniCTest.getInstance();
-        UniCTestFrame unictestFrame = UniCTestFrame.getInstance();
-        String codiceMateria=((JButton)e.getSource()).getName();
-        unictest.nuovoQuesito(codiceMateria);
-        unictestFrame.setContentPane(new InserisciFontePanel());
-    }
-}
+
 

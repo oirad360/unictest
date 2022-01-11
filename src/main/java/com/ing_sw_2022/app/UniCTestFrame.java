@@ -13,7 +13,6 @@ public class UniCTestFrame extends JFrame implements ActionListener{
     private static UniCTestFrame unictestFrame;
 
     private UniCTestFrame(){
-        unictestFrame=this;
         setContentPane(mainPanel);
         setTitle("UniCTest");
         setSize(450,300);
@@ -40,9 +39,6 @@ public class UniCTestFrame extends JFrame implements ActionListener{
                 NuovoQuesitoFrame.destroyInstance();
             }
         });
-    }
-    public JButton getBtnNuovoQuesito() {
-        return btnNuovoQuesito;
     }
 
     public static void main(String[] args )
