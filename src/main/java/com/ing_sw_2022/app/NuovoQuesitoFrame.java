@@ -1,34 +1,32 @@
 package com.ing_sw_2022.app;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class NuovoQuesitoFrame extends JFrame{
-    public NuovoQuesitoFrame(final JButton btn){
-        setContentPane(new NuovoQuesitoPanel());
+    //private UniCTest unictest;
+    public NuovoQuesitoFrame(final JPanel nextPanel){
+        /*unictest = UniCTest.getInstance();
+        ArrayList<JButton> buttons = new ArrayList<JButton>()
+        List<Materia> materieInsegnate = unictest.visualizzaMaterieInsegnate();
+        for (Iterator<Materia> i = materieInsegnate.iterator(); i.hasNext();) {
+            Materia materia = i.next();
+
+            JButton btnMateria = new JButton(materia.getNome());
+            btnMateria.setName(materia.getCodice());
+            btnMateria.setAlignmentX(Component.CENTER_ALIGNMENT);
+            btnMateria.addActionListener(this);
+
+            buttons.add(JButton);
+        }*/
+        setContentPane(nextPanel);
         setTitle("Nuovo quesito");
         setSize(450,300);
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setVisible(true);
-        addWindowListener(new WindowAdapter()
-        {
-            @Override
-            public void windowClosing(WindowEvent e)
-            {
-                btn.setEnabled(true);
-                btn.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        NuovoQuesitoFrame frameQuesito = new NuovoQuesitoFrame(btn);
-                        btn.removeActionListener(this);
-                        btn.setEnabled(false);
-                    }
-                });
-                e.getWindow().dispose();
-            }
-        });
+
     }
 }
