@@ -7,15 +7,17 @@ public class UniCTest {
     private static UniCTest unictest;
     private HashMap<String,Materia> mappaMaterie;
     private HashMap<String,Visibilità> mappaVisibilità;
-    private Materia corrente;
+    private Materia materiaCorrente;
     private Tutor tutorAutenticato;
     private HashMap<String, Tutor> mappaTutor;
 
     private UniCTest() {
-        this.mappaMaterie = new HashMap<>();
-        this.mappaVisibilità = new HashMap<>();
-        this.mappaTutor = new HashMap<>();
-        //this.corrente = corrente;
+        mappaMaterie = new HashMap<>();
+        mappaVisibilità = new HashMap<>();
+        mappaTutor = new HashMap<>();
+        loadMaterie();
+        loadTutor();
+        loadVisibilità();
     }
 
     public static UniCTest getInstance() {
@@ -31,8 +33,8 @@ public class UniCTest {
         mappaVisibilità.put(codice, v);
     }
 
-    public static void setUnictest(UniCTest unictest) {
-        UniCTest.unictest = unictest;
+    public void addTutor(String cf, Tutor t ){
+        mappaTutor.put(cf, t);
     }
 
     public HashMap<String, Materia> getMappaMaterie() {
@@ -43,12 +45,12 @@ public class UniCTest {
         return mappaVisibilità;
     }
 
-    public Materia getCorrente() {
-        return corrente;
+    public Materia getMateriaCorrente() {
+        return materiaCorrente;
     }
 
-    public void setCorrente(Materia corrente) {
-        this.corrente = corrente;
+    public void setMateriaCorrente(Materia materiaCorrente) {
+        this.materiaCorrente = materiaCorrente;
     }
 
     //Metodi nuovi
@@ -58,32 +60,57 @@ public class UniCTest {
 
     public void nuovoQuesito(String codiceMateria){
         Materia m = mappaMaterie.get(codiceMateria);
-        corrente = m; //m diventa corrente per UniCTest
+        materiaCorrente = m; //m diventa corrente per UniCTest
         m.nuovoQuesito(tutorAutenticato);
     }
 
     public void inserisciFonte(String fonte){
-        corrente.inserisciFonte(fonte);
+        materiaCorrente.inserisciFonte(fonte);
     }
 
     public void inserisciTesto(String testo){
-        corrente.inserisciTesto(testo);
+        materiaCorrente.inserisciTesto(testo);
     }
 
     public void inserisciRisposta(String testo, boolean valore){
-        corrente.inserisciRisposta(testo, valore);
+        materiaCorrente.inserisciRisposta(testo, valore);
     }
 
     public void inserisciDifficoltà(int difficoltà){
-        corrente.inserisciDifficoltà(difficoltà);
+        materiaCorrente.inserisciDifficoltà(difficoltà);
     }
 
     public void confermaQuesito(String codiceVisibilità){
         Visibilità v = mappaVisibilità.get(codiceVisibilità);
-        corrente.confermaQuesito(v);
+        materiaCorrente.confermaQuesito(v);
     }
 
-    //MOMENTANEO: Caso d'uso di avviamento
+    public void loadTutor(){
+        Tutor t = new Tutor("Mario", "Rossi", "RSSMRA80A01C351O");
+        addTutor(t.getCf(),t);
+        //MOMENTANEO per il caso d'uso di avviamento
+        t.addMateriaInsegnata(mappaMaterie.get("MAT01"));
+        t.addMateriaInsegnata(mappaMaterie.get("ITA02"));
+        setTutorAutenticato(t);
+    }
+
+    public void loadMaterie(){
+        Materia m1 = new Materia("Matematica", "MAT01");
+        Materia m2 = new Materia("Italiano", "ITA02");
+        addMateria(m1.getCodice(), m1);
+        addMateria(m2.getCodice(), m2);
+    }
+
+    public void loadVisibilità(){
+        Visibilità v1 = new Visibilità("Personale", "p1");
+        Visibilità v2 = new Visibilità("Privato", "p2");
+        Visibilità v3 = new Visibilità("Pubblico", "p3");
+        addVisibilità(v1.getCodice(),v1);
+        addVisibilità(v2.getCodice(),v2);
+        addVisibilità(v3.getCodice(),v3);
+    }
+
+    //MOMENTANEO per il caso d'uso di avviamento
     public void setTutorAutenticato(Tutor tutorAutenticato) {
         this.tutorAutenticato = tutorAutenticato;
     }

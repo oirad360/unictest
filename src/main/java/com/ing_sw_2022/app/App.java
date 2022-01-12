@@ -14,8 +14,6 @@ public class App
 {
     public static void main( String[] args )
     {
-        //System.out.println( "Hello World!" );
-
         //Caso d'uso di avviamento
         UniCTest unictest = UniCTest.getInstance();
         Tutor t = new Tutor("Mario", "Rossi", "CR7");
@@ -46,7 +44,7 @@ public class App
         unictest.confermaQuesito("P1");
 
         System.out.println("/////////////////////////////////////");
-        System.out.println("MATERIA CORRENTE: " + unictest.getCorrente());
+        System.out.println("MATERIA CORRENTE: " + unictest.getMateriaCorrente());
         System.out.println("MAPPA MATERIE:");
         System.out.println(unictest.getMappaMaterie());
         System.out.println("MAPPA VISIBILITà:");
@@ -54,27 +52,6 @@ public class App
         System.out.println("MAPPA QUESITI:");
         System.out.println(m.getMappaQuesiti());
         System.out.println("/////////////////////////////////////");
-
-        //Prove
-        /*ArrayList<Materia> a = t.getMaterieInsegnate();
-        List<Materia> a = unictest.visualizzaMaterieInsegnate();
-        System.out.println("Arraylist: " + a.toString());
-        Materia b = a.get(0);
-        Materia c = a.get(1);
-        System.out.println("Elemento0: " + b.toString());
-        System.out.println("Elemento1: " + c.toString());
-        System.out.println("Fine");
-
-        unictest.nuovoQuesito(b.getCodice());
-        unictest.nuovoQuesito(b.getCodice());
-        unictest.nuovoQuesito(b.getCodice());
-        unictest.nuovoQuesito(b.getCodice());
-        unictest.nuovoQuesito(b.getCodice());
-
-        Map<String, Quesito> mappa = b.getMappaQuesiti();
-        System.out.println("Ecco la mappa dei quesiti: ");
-        System.out.println(mappa.toString());*/
-
 
     }
 }

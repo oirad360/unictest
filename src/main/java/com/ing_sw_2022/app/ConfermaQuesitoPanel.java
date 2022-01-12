@@ -6,17 +6,16 @@ import javax.swing.event.DocumentListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class InserisciFontePanel implements ActionListener {
+public class ConfermaQuesitoPanel implements ActionListener {
     private JPanel mainPanel;
     private JLabel label;
     private JPanel panel;
-    private JTextField textField;
+    private JScrollPane scroller;
     private JButton button;
+    private JTextField textField;
 
-    public InserisciFontePanel(){
-        button.addActionListener(this);
-        button.setEnabled(false);
-
+    public ConfermaQuesitoPanel(){
+        textField.setText("p1");
         textField.getDocument().addDocumentListener(new DocumentListener() {
             public void changedUpdate(DocumentEvent e) {
                 action();
@@ -32,19 +31,18 @@ public class InserisciFontePanel implements ActionListener {
                 button.setEnabled(!textField.getText().trim().isEmpty());
             }
         });
+        button.addActionListener(this);
     }
 
-    public JPanel getMainPanel() {
+    public JPanel getMainPanel(){
         return mainPanel;
     }
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
-        UniCTest unictest = UniCTest.getInstance();
-        unictest.inserisciFonte(textField.getText());
-        NuovoQuesitoFrame nuovoQuesitoFrame= NuovoQuesitoFrame.getInstance();
-        nuovoQuesitoFrame.setContentPane(new InserisciTestoPanel().getMainPanel());
-        nuovoQuesitoFrame.revalidate();
+        UniCTest.getInstance().confermaQuesito(textField.getText());
+        NuovoQuesitoFrame.getInstance().dispose();
+        System.out.println(UniCTest.getInstance().getMappaMaterie().get("MAT01").getMappaQuesiti());
+        System.out.println(UniCTest.getInstance().getMappaMaterie().get("ITA02").getMappaQuesiti());
     }
 }

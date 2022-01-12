@@ -11,8 +11,8 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
 
-public class NuovoQuesitoPanel extends JPanel {
-    public NuovoQuesitoPanel() {
+public class TabbedPanel extends JPanel {
+    public TabbedPanel() {
         super(new GridLayout(1, 1));
 
         JTabbedPane tabbedPane = new JTabbedPane();
@@ -59,7 +59,7 @@ public class NuovoQuesitoPanel extends JPanel {
 
     /** Returns an ImageIcon, or null if the path was invalid. */
     protected static ImageIcon createImageIcon(String path) {
-        java.net.URL imgURL = NuovoQuesitoPanel.class.getResource(path);
+        java.net.URL imgURL = TabbedPanel.class.getResource(path);
         if (imgURL != null) {
             return new ImageIcon(imgURL);
         } else {
@@ -79,7 +79,7 @@ public class NuovoQuesitoPanel extends JPanel {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //Add content to the window.
-        frame.add(new NuovoQuesitoPanel(), BorderLayout.CENTER);
+        frame.add(new TabbedPanel(), BorderLayout.CENTER);
 
         //Display the window.
         frame.pack();

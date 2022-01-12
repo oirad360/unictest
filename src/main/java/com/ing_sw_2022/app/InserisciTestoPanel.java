@@ -1,10 +1,12 @@
 package com.ing_sw_2022.app;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class InserisciTestoPanel extends JPanel implements ActionListener {
+public class InserisciTestoPanel implements ActionListener {
     private JLabel label;
     private JTextArea textArea;
     private JButton button;
@@ -12,18 +14,23 @@ public class InserisciTestoPanel extends JPanel implements ActionListener {
 
     public InserisciTestoPanel(){
         button.addActionListener(this);
-    }
+        button.setEnabled(false);
 
-    public JLabel getLabel() {
-        return label;
-    }
+        textArea.getDocument().addDocumentListener(new DocumentListener() {
+            public void changedUpdate(DocumentEvent e) {
+                action();
+            }
+            public void removeUpdate(DocumentEvent e) {
+                action();
+            }
+            public void insertUpdate(DocumentEvent e) {
+                action();
+            }
 
-    public JTextArea getTextArea() {
-        return textArea;
-    }
-
-    public JButton getButton() {
-        return button;
+            public void action() {
+                button.setEnabled(!textArea.getText().trim().isEmpty());
+            }
+        });
     }
 
     public JPanel getMainPanel() {
@@ -34,6 +41,8 @@ public class InserisciTestoPanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         UniCTest unictest = UniCTest.getInstance();
         unictest.inserisciTesto(textArea.getText());
-        System.out.println(unictest.getCorrente().getCorrente());
+        NuovoQuesitoFrame nuovoQuesitoFrame= NuovoQuesitoFrame.getInstance();
+        nuovoQuesitoFrame.setContentPane(new InserisciRispostePanel().getMainPanel());
+        nuovoQuesitoFrame.revalidate();
     }
 }
