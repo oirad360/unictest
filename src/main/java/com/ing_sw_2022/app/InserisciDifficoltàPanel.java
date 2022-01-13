@@ -16,7 +16,7 @@ public class InserisciDifficoltàPanel implements ActionListener {
         spinnerNumberModel = (SpinnerNumberModel) spinner.getModel();
         spinnerNumberModel.setMaximum(5);
         spinnerNumberModel.setMinimum(1);
-        spinner.setValue(1);
+        spinner.setValue(3);
         button.addActionListener(this);
     }
 

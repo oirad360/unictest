@@ -1,8 +1,9 @@
 package com.ing_sw_2022.app;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Quesito {
+public class Quesito implements Serializable {
     private String testo;
     private int difficoltà;
     private String fonte;
@@ -10,7 +11,7 @@ public class Quesito {
     private Tutor tutor;
     private Visibilità visibilità;
     private ArrayList<Risposta> risposte;
-
+    private static final long serialVersionUID = 1;
     public Quesito(String id, Tutor tutor) {
         this.id = id;
         this.tutor = tutor;

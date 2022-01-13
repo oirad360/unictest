@@ -1,12 +1,14 @@
 package com.ing_sw_2022.app;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Tutor {
+public class Tutor implements Serializable {
     private String nome;
     private String cognome;
     private String cf;
     private ArrayList<Materia> materieInsegnate;
+    private static final long serialVersionUID = 1;
 
     public Tutor(String nome, String cognome, String cf) {
         this.nome = nome;

@@ -44,5 +44,6 @@ public class ConfermaQuesitoPanel implements ActionListener {
         NuovoQuesitoFrame.getInstance().dispose();
         System.out.println(UniCTest.getInstance().getMappaMaterie().get("MAT01").getMappaQuesiti());
         System.out.println(UniCTest.getInstance().getMappaMaterie().get("ITA02").getMappaQuesiti());
+        UniCTest.getInstance().serialize();
     }
 }

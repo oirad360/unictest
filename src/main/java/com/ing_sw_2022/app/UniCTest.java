@@ -1,15 +1,17 @@
 package com.ing_sw_2022.app;
 
+import java.io.*;
 import java.util.HashMap;
 import java.util.List;
 
-public class UniCTest {
+public class UniCTest implements Serializable{
     private static UniCTest unictest;
     private HashMap<String,Materia> mappaMaterie;
     private HashMap<String,Visibilità> mappaVisibilità;
     private Materia materiaCorrente;
     private Tutor tutorAutenticato;
     private HashMap<String, Tutor> mappaTutor;
+    private static final long serialVersionUID = 1;
 
     private UniCTest() {
         mappaMaterie = new HashMap<>();
@@ -21,7 +23,13 @@ public class UniCTest {
     }
 
     public static UniCTest getInstance() {
-        if (unictest == null) unictest = new UniCTest();
+        if (unictest == null) {
+            int res=deserialize();
+            if(res==0){
+                unictest = new UniCTest();
+                serialize();
+            }
+        }
         return unictest;
     }
 
@@ -109,7 +117,45 @@ public class UniCTest {
         addVisibilità(v2.getCodice(),v2);
         addVisibilità(v3.getCodice(),v3);
     }
+     public static void serialize(){
+         try {
+             OutputStream fout = new FileOutputStream("ser.txt");
+             ObjectOutput oout = new ObjectOutputStream(fout);
+             System.out.println("Serialization process has started, serializing objects...");
+             oout.writeObject(unictest);
+             fout.close();
+             oout.close();
+             System.out.println("Object Serialization completed.");
+         } catch (IOException e) {
+             e.printStackTrace();
+         }
+     }
 
+     private static Integer deserialize(){
+         try {
+             //DeSerialization process >
+             InputStream fin=new FileInputStream("ser.txt");
+             ObjectInput oin=new ObjectInputStream(fin);
+             System.out.println("\nDeSerialization process has started, displaying objects...");
+             unictest=(UniCTest) oin.readObject();
+             System.out.println(unictest);
+             fin.close();
+             oin.close();
+             System.out.println("Object DeSerialization completed.");
+             return 1;
+         } catch (FileNotFoundException e) {
+             e.printStackTrace();
+             return 0;
+         } catch (IOException e) {
+             e.printStackTrace();
+             System.out.println("errore IO nella deserializzazione");
+             return -1;
+         } catch (ClassNotFoundException e) {
+             e.printStackTrace();
+             System.out.println("errore ClassNotFound nella deserializzazione");
+             return -1;
+         }
+     }
     //MOMENTANEO per il caso d'uso di avviamento
     public void setTutorAutenticato(Tutor tutorAutenticato) {
         this.tutorAutenticato = tutorAutenticato;

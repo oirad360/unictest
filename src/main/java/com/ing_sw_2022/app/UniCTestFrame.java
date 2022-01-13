@@ -11,13 +11,14 @@ public class UniCTestFrame extends JFrame{
     private JLabel mainLabel;
     private JButton btnNuovoQuesito;
     private static UniCTestFrame unictestFrame;
-
+    private static final Integer pos = 200;
     private UniCTestFrame(){
         setContentPane(mainPanel);
         setTitle("UniCTest");
         setSize(450,300);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
+        setLocation(pos,pos);
         btnNuovoQuesito.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -55,5 +56,9 @@ public class UniCTestFrame extends JFrame{
         ///////////////// APERTURA GUI ///////////////
         UniCTestFrame.getInstance();
 
+    }
+
+    public static int getPos(){
+        return pos;
     }
 }

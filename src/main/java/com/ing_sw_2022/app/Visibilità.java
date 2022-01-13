@@ -1,8 +1,11 @@
 package com.ing_sw_2022.app;
 
-public class Visibilità {
+import java.io.Serializable;
+
+public class Visibilità implements Serializable {
     private String nome;
     private String codice;
+    private static final long serialVersionUID = 1;
 
     public Visibilità(String nome, String codice) {
         this.nome = nome;

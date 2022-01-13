@@ -2,14 +2,16 @@ package com.ing_sw_2022.app;
 
 //import sun.reflect.generics.tree.Tree;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.TreeMap;
 
-public class Materia {
+public class Materia implements Serializable {
     private String nome;
     private String codice;
     private TreeMap<String,Quesito> mappaQuesiti;
     private Quesito corrente;
+    private static final long serialVersionUID = 1;
 
     public Materia(String nome, String codice) {
         this.nome = nome;

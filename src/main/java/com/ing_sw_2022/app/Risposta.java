@@ -1,9 +1,12 @@
 package com.ing_sw_2022.app;
 
-public class Risposta {
+import java.io.Serializable;
+
+public class Risposta implements Serializable {
     private String testo;
     private boolean valore;
     private String id;
+    private static final long serialVersionUID = 1;
 
     public Risposta(String testo, boolean valore, String id) {
         this.testo = testo;
