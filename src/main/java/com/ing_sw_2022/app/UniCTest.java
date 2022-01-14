@@ -1,8 +1,7 @@
 package com.ing_sw_2022.app;
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class UniCTest implements Serializable{
     private static UniCTest unictest;
@@ -24,11 +23,11 @@ public class UniCTest implements Serializable{
 
     public static UniCTest getInstance() {
         if (unictest == null) {
-            int res=deserialize();
-            if(res==0){
+            //int res=deserialize();
+            //if(res==0){
                 unictest = new UniCTest();
-                serialize();
-            }
+                //serialize();
+            //}
         }
         return unictest;
     }
@@ -55,10 +54,6 @@ public class UniCTest implements Serializable{
 
     public Materia getMateriaCorrente() {
         return materiaCorrente;
-    }
-
-    public void setMateriaCorrente(Materia materiaCorrente) {
-        this.materiaCorrente = materiaCorrente;
     }
 
     //Metodi nuovi
@@ -91,6 +86,10 @@ public class UniCTest implements Serializable{
     public void confermaQuesito(String codiceVisibilità){
         Visibilità v = mappaVisibilità.get(codiceVisibilità);
         materiaCorrente.confermaQuesito(v);
+        materiaCorrente = null;
+        Set<String> idMaterie = (Set<String>) mappaMaterie.keySet();
+        for (String key: idMaterie) System.out.println(mappaMaterie.get(key).getMappaQuesiti());
+        unictest.serialize();
     }
 
     public void loadTutor(){
@@ -117,7 +116,8 @@ public class UniCTest implements Serializable{
         addVisibilità(v2.getCodice(),v2);
         addVisibilità(v3.getCodice(),v3);
     }
-     public static void serialize(){
+
+    public static void serialize(){
          try {
              OutputStream fout = new FileOutputStream("ser.txt");
              ObjectOutput oout = new ObjectOutputStream(fout);
@@ -129,9 +129,9 @@ public class UniCTest implements Serializable{
          } catch (IOException e) {
              e.printStackTrace();
          }
-     }
+    }
 
-     private static Integer deserialize(){
+    private static Integer deserialize(){
          try {
              //DeSerialization process >
              InputStream fin=new FileInputStream("ser.txt");
@@ -144,7 +144,7 @@ public class UniCTest implements Serializable{
              System.out.println("Object DeSerialization completed.");
              return 1;
          } catch (FileNotFoundException e) {
-             e.printStackTrace();
+             //e.printStackTrace();
              return 0;
          } catch (IOException e) {
              e.printStackTrace();
@@ -155,7 +155,7 @@ public class UniCTest implements Serializable{
              System.out.println("errore ClassNotFound nella deserializzazione");
              return -1;
          }
-     }
+    }
     //MOMENTANEO per il caso d'uso di avviamento
     public void setTutorAutenticato(Tutor tutorAutenticato) {
         this.tutorAutenticato = tutorAutenticato;

@@ -6,16 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="225c3c9e-492a-4307-b648-bc04a0874595" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Iterazione 1/UniCTest_iterazione1.asta" beforeDir="false" afterPath="$PROJECT_DIR$/Iterazione 1/UniCTest_iterazione1.asta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ConfermaQuesitoPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ConfermaQuesitoPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/InserisciDifficoltàPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/InserisciDifficoltàPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Materia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Materia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/NuovoQuesitoFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/NuovoQuesitoFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Quesito.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Quesito.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Risposta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Risposta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Tutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Tutor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTestFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTestFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Visibilità.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Visibilità.java" afterDir="false" />
+    </list>
+    <list id="7ea49499-f9e0-4e7b-9a7d-d9884c30ea87" name="Changes by franc" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +36,22 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java">
+      <ranges>
+        <range start1="3" end1="5" start2="3" end2="4" changelist="7ea49499-f9e0-4e7b-9a7d-d9884c30ea87" />
+        <range start1="26" end1="28" start2="25" end2="27" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="29" end1="31" start2="28" end2="30" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="59" end1="63" start2="58" end2="58" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="93" end1="93" start2="88" end2="92" changelist="7ea49499-f9e0-4e7b-9a7d-d9884c30ea87" />
+        <range start1="119" end1="120" start2="118" end2="120" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="131" end1="132" start2="131" end2="132" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="133" end1="134" start2="133" end2="134" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="146" end1="147" start2="146" end2="147" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="157" end1="158" start2="157" end2="158" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -64,9 +77,8 @@
       <recent name="C:\Users\oirad\unictest\src\main\java\com\ing_sw_2022\app" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.UniCTestFrame">
-    <configuration name="FormatterFactoryDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.FormatterFactoryDemo" />
+  <component name="RunManager" selected="JUnit.TestNuovoQuesito">
+    <configuration name="TestNuovoQuesito" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="unictest" />
       <extension name="coverage">
         <pattern>
@@ -74,12 +86,14 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.ing_sw_2022.app" />
+      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestNuovoQuesito" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NuovoQuesito" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.NuovoQuesito" />
+    <configuration name="TestNuovoQuesito.testConfermaQuesito" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="unictest" />
       <extension name="coverage">
         <pattern>
@@ -87,12 +101,15 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.ing_sw_2022.app" />
+      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestNuovoQuesito" />
+      <option name="METHOD_NAME" value="testConfermaQuesito" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NuovoQuesitoPanel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.NuovoQuesitoPanel" />
+    <configuration name="TestNuovoQuesito.testInserisciRisposte" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="unictest" />
       <extension name="coverage">
         <pattern>
@@ -100,12 +117,15 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.ing_sw_2022.app" />
+      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestNuovoQuesito" />
+      <option name="METHOD_NAME" value="testInserisciRisposte" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UniCTestFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.UniCTestFrame" />
+    <configuration name="TestNuovoQuesito.testNuovoQuesito" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="unictest" />
       <extension name="coverage">
         <pattern>
@@ -113,12 +133,15 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.ing_sw_2022.app" />
+      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestNuovoQuesito" />
+      <option name="METHOD_NAME" value="testNuovoQuesito" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VisualizzaMateriePanel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.VisualizzaMateriePanel" />
+    <configuration name="TestNuovoQuesito.testVisualizzaMaterieInsegnate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="unictest" />
       <extension name="coverage">
         <pattern>
@@ -126,17 +149,21 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.ing_sw_2022.app" />
+      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestNuovoQuesito" />
+      <option name="METHOD_NAME" value="testVisualizzaMaterieInsegnate" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.UniCTestFrame" />
-        <item itemvalue="Application.VisualizzaMateriePanel" />
-        <item itemvalue="Application.NuovoQuesitoPanel" />
-        <item itemvalue="Application.FormatterFactoryDemo" />
-        <item itemvalue="Application.NuovoQuesito" />
+        <item itemvalue="JUnit.TestNuovoQuesito" />
+        <item itemvalue="JUnit.TestNuovoQuesito.testNuovoQuesito" />
+        <item itemvalue="JUnit.TestNuovoQuesito.testConfermaQuesito" />
+        <item itemvalue="JUnit.TestNuovoQuesito.testInserisciRisposte" />
+        <item itemvalue="JUnit.TestNuovoQuesito.testVisualizzaMaterieInsegnate" />
       </list>
     </recent_temporary>
   </component>
@@ -157,6 +184,7 @@
       <workItem from="1641982504536" duration="17975000" />
       <workItem from="1642002010444" duration="3562000" />
       <workItem from="1642090555383" duration="17110000" />
+      <workItem from="1642181699098" duration="9695000" />
     </task>
     <servers />
   </component>
@@ -173,5 +201,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

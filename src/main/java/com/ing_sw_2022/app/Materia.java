@@ -10,7 +10,7 @@ public class Materia implements Serializable {
     private String nome;
     private String codice;
     private TreeMap<String,Quesito> mappaQuesiti;
-    private Quesito corrente;
+    private Quesito quesitoCorrente;
     private static final long serialVersionUID = 1;
 
     public Materia(String nome, String codice) {
@@ -43,12 +43,8 @@ public class Materia implements Serializable {
         return mappaQuesiti;
     }
 
-    public Quesito getCorrente() {
-        return corrente;
-    }
-
-    public void setCorrente(Quesito corrente) {
-        this.corrente = corrente;
+    public Quesito getQuesitoCorrente() {
+        return quesitoCorrente;
     }
 
     public void nuovoQuesito(Tutor tutorAutenticato){
@@ -58,29 +54,30 @@ public class Materia implements Serializable {
         else newId = codice+"-"+(Integer.parseInt(mappaQuesiti.lastKey().split("-")[1])+1);
 
         Quesito q = new Quesito(newId,tutorAutenticato);
-        corrente = q; //q diventa corrente per Materia
+        quesitoCorrente = q; //q diventa corrente per Materia
     }
 
     public void inserisciFonte(String fonte){
-        corrente.setFonte(fonte);
+        quesitoCorrente.setFonte(fonte);
     }
 
     public void inserisciTesto(String testo){
-        corrente.setTesto(testo);
+        quesitoCorrente.setTesto(testo);
     }
 
     public void inserisciRisposta(String testo, boolean valore){
-        corrente.inserisciRisposta(testo, valore);
+        quesitoCorrente.inserisciRisposta(testo, valore);
     }
 
     public void inserisciDifficoltà(int difficoltà){
-        corrente.setDifficoltà(difficoltà);
+        quesitoCorrente.setDifficoltà(difficoltà);
     }
 
     public void confermaQuesito(Visibilità v){
-        corrente.setVisibilità(v);
-        String idQuesitoCorrente = corrente.getId();
-        mappaQuesiti.put(idQuesitoCorrente, corrente);
+        quesitoCorrente.setVisibilità(v);
+        String idQuesitoCorrente = quesitoCorrente.getId();
+        mappaQuesiti.put(idQuesitoCorrente, quesitoCorrente);
+        quesitoCorrente = null;
     }
 
     ///////////////////// TO STRING MOMENTANEO ////////////////////
