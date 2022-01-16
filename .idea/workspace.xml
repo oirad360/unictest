@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="225c3c9e-492a-4307-b648-bc04a0874595" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Materia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Materia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" afterDir="false" />
     </list>
-    <list id="7ea49499-f9e0-4e7b-9a7d-d9884c30ea87" name="Changes by franc" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -163,7 +160,7 @@
       <workItem from="1642090555383" duration="17110000" />
       <workItem from="1642181699098" duration="9695000" />
       <workItem from="1642263196175" duration="1429000" />
-      <workItem from="1642348398250" duration="9757000" />
+      <workItem from="1642348398250" duration="11443000" />
     </task>
     <servers />
   </component>
@@ -180,16 +177,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java</url>
-          <line>68</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
