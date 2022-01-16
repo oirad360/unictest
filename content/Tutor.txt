@@ -1,0 +1,3 @@
+cf nome cognome materieInsegnate
+ABCDKDDF~Luigi~Verdi~ITA02
+RSSMRA80A01C351O~Mario~Rossi~MAT01,ITA02
