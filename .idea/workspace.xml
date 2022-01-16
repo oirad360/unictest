@@ -8,8 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Materia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Materia.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/UniCTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/UniCTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestNuovoQuesito.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestNuovoQuesito.class" afterDir="false" />
     </list>
     <list id="7ea49499-f9e0-4e7b-9a7d-d9884c30ea87" name="Changes by franc" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -165,7 +163,7 @@
       <workItem from="1642090555383" duration="17110000" />
       <workItem from="1642181699098" duration="9695000" />
       <workItem from="1642263196175" duration="1429000" />
-      <workItem from="1642348398250" duration="9396000" />
+      <workItem from="1642348398250" duration="9757000" />
     </task>
     <servers />
   </component>
@@ -188,7 +186,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java</url>
-          <line>64</line>
+          <line>68</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

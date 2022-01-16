@@ -11,7 +11,8 @@ public class UniCTest implements Serializable{
     private Tutor tutorAutenticato;
     private HashMap<String, Tutor> mappaTutor;
     private static final long serialVersionUID = 1;
-    private static final String contentDir="content";
+    private final String contentDir="content";
+
     private UniCTest() {
         mappaMaterie = new HashMap<>();
         mappaVisibilità = new HashMap<>();
@@ -23,11 +24,11 @@ public class UniCTest implements Serializable{
 
     public static UniCTest getInstance() {
         if (unictest == null) {
-            //int res=deserialize();
-            //if(res==0){
+            int res=deserialize();
+            if(res==0){
                 unictest = new UniCTest();
-                //serialize();
-            //}
+                serialize();
+            }
         }
         return unictest;
     }
@@ -56,6 +57,9 @@ public class UniCTest implements Serializable{
         return materiaCorrente;
     }
 
+    public String getContentDir(){
+        return contentDir;
+    }
     //Metodi nuovi
     public List visualizzaMaterieInsegnate(){
         return tutorAutenticato.getMaterieInsegnate();
@@ -89,12 +93,11 @@ public class UniCTest implements Serializable{
         materiaCorrente = null;
         Set<String> idMaterie = (Set<String>) mappaMaterie.keySet();
         for (String key: idMaterie) System.out.println(mappaMaterie.get(key).getMappaQuesiti());
-
-        //unictest.serialize();
+        unictest.serialize();
     }
 
     public void loadTutor(){
-        try(BufferedReader bufferedReader = new BufferedReader(new FileReader(contentDir+File.separator+"Tutor.txt"))) {
+        /*try(BufferedReader bufferedReader = new BufferedReader(new FileReader(contentDir+File.separator+"Tutor.txt"))) {
             String[] nomiAttributi = bufferedReader.readLine().split(" ");
             String line= bufferedReader.readLine();
             String nome = "";
@@ -130,17 +133,17 @@ public class UniCTest implements Serializable{
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }
-        /*Tutor t = new Tutor("Mario", "Rossi", "RSSMRA80A01C351O");
+        }*/
+        Tutor t = new Tutor("Mario", "Rossi", "RSSMRA80A01C351O");
         addTutor(t.getCf(),t);
         //MOMENTANEO per il caso d'uso di avviamento
         t.addMateriaInsegnata(mappaMaterie.get("MAT01"));
         t.addMateriaInsegnata(mappaMaterie.get("ITA02"));
-        setTutorAutenticato(t);*/
+        setTutorAutenticato(t);
     }
 
     public void loadMaterie(){
-        try(BufferedReader bufferedReader = new BufferedReader(new FileReader(contentDir+File.separator+"Materie.txt"))) {
+        /*try(BufferedReader bufferedReader = new BufferedReader(new FileReader(contentDir+File.separator+"Materie.txt"))) {
             String[] nomiAttributi = bufferedReader.readLine().split(" ");
             String line= bufferedReader.readLine();
             String nome = "";
@@ -173,15 +176,15 @@ public class UniCTest implements Serializable{
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }
-        /*Materia m1 = new Materia("Matematica", "MAT01");
+        }*/
+        Materia m1 = new Materia("Matematica", "MAT01");
         Materia m2 = new Materia("Italiano", "ITA02");
         addMateria(m1.getCodice(), m1);
-        addMateria(m2.getCodice(), m2);*/
+        addMateria(m2.getCodice(), m2);
     }
 
     public void loadVisibilità(){
-        try(BufferedReader bufferedReader = new BufferedReader(new FileReader(contentDir+File.separator+"Visibilità.txt"))) {
+        /*try(BufferedReader bufferedReader = new BufferedReader(new FileReader(contentDir+File.separator+"Visibilità.txt"))) {
             String[] nomiAttributi = bufferedReader.readLine().split(" ");
             String line= bufferedReader.readLine();
             String nome = "";
@@ -204,13 +207,13 @@ public class UniCTest implements Serializable{
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }
-        /*Visibilità v1 = new Visibilità("Personale", "p1");
+        }*/
+        Visibilità v1 = new Visibilità("Personale", "p1");
         Visibilità v2 = new Visibilità("Privato", "p2");
         Visibilità v3 = new Visibilità("Pubblico", "p3");
         addVisibilità(v1.getCodice(),v1);
         addVisibilità(v2.getCodice(),v2);
-        addVisibilità(v3.getCodice(),v3);*/
+        addVisibilità(v3.getCodice(),v3);
     }
 
     public static void serialize(){
@@ -225,10 +228,6 @@ public class UniCTest implements Serializable{
          } catch (IOException e) {
              e.printStackTrace();
          }
-    }
-
-    public String getContentDir(){
-        return contentDir;
     }
 
     private static Integer deserialize(){

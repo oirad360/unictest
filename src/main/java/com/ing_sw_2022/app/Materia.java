@@ -79,7 +79,7 @@ public class Materia implements Serializable {
         quesitoCorrente.setVisibilità(v);
         String idQuesitoCorrente = quesitoCorrente.getId();
         mappaQuesiti.put(idQuesitoCorrente, quesitoCorrente);
-        String[] nomiAttributi= new String[1];
+        /*String[] nomiAttributi= new String[1];
         String fileName=UniCTest.getInstance().getContentDir()+File.separator+"Quesiti-"+codice+".txt";
         try(BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName))){
             nomiAttributi = bufferedReader.readLine().split(" ");
@@ -117,7 +117,7 @@ public class Materia implements Serializable {
             bufferedWriter.write(fileContent);
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
         quesitoCorrente = null;
     }
 
