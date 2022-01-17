@@ -9,7 +9,9 @@ public class UniCTest implements Serializable{
     private HashMap<String,Visibilità> mappaVisibilità;
     private Materia materiaCorrente;
     private Tutor tutorAutenticato;
+    private Studente studenteAutenticato;
     private HashMap<String, Tutor> mappaTutor;
+    private HashMap<String, Studente> mappaStudenti;
     private static final long serialVersionUID = 1;
     private final String contentDir="content";
 
@@ -17,9 +19,11 @@ public class UniCTest implements Serializable{
         mappaMaterie = new HashMap<>();
         mappaVisibilità = new HashMap<>();
         mappaTutor = new HashMap<>();
+        mappaStudenti = new HashMap<>();
         loadMaterie();
         loadTutor();
         loadVisibilità();
+        loadStudenti();
     }
 
     public static UniCTest getInstance() {
@@ -41,6 +45,10 @@ public class UniCTest implements Serializable{
         mappaVisibilità.put(codice, v);
     }
 
+    public void addStudente(String cf, Studente s){
+        mappaStudenti.put(cf,s);
+    }
+
     public void addTutor(String cf, Tutor t ){
         mappaTutor.put(cf, t);
     }
@@ -55,6 +63,10 @@ public class UniCTest implements Serializable{
 
     public Materia getMateriaCorrente() {
         return materiaCorrente;
+    }
+
+    public HashMap<String, Studente> getMappaStudenti(){
+        return mappaStudenti;
     }
 
     public String getContentDir(){
@@ -216,6 +228,10 @@ public class UniCTest implements Serializable{
         addVisibilità(v3.getCodice(),v3);
     }
 
+    public void loadStudenti(){
+        Studente s = new Studente("Luigi","Verdi","VRDLGI99R21C351J");
+    }
+
     public static void serialize(){
          try {
              OutputStream fout = new FileOutputStream("ser.txt");
@@ -258,5 +274,27 @@ public class UniCTest implements Serializable{
     //MOMENTANEO per il caso d'uso di avviamento
     public void setTutorAutenticato(Tutor tutorAutenticato) {
         this.tutorAutenticato = tutorAutenticato;
+    }
+
+    public void setStudenteAutenticato(Studente studenteAutenticato) {
+        this.studenteAutenticato = studenteAutenticato;
+    }
+
+    public HashMap<String,Materia> nuovoTemplate(String nome){
+        studenteAutenticato.nuovoTemplate(nome);
+        return mappaMaterie;
+    }
+
+    public void inserisciInfoTemplate(int puntiCorretta, int puntiErrata, int puntiNonData, int numRisposte, int numRisposteCorrette, int tempoMedio){
+        studenteAutenticato.inserisciInfoTemplate(puntiCorretta, puntiErrata, puntiNonData, numRisposte, numRisposteCorrette, tempoMedio);
+    }
+
+    public void creaSezione(String codiceMateria, int numQuesiti, int difficoltàMedia){
+        Materia m=mappaMaterie.get(codiceMateria);
+        studenteAutenticato.creaSezione(m,numQuesiti,difficoltàMedia);
+    }
+
+    public void confermaTemplate(){
+        studenteAutenticato.confermaTemplate();
     }
 }
