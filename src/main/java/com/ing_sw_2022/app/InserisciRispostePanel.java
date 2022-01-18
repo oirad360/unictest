@@ -71,16 +71,13 @@ public class InserisciRispostePanel {
         });
         textField.getDocument().addDocumentListener(new DocumentListener() {
             public void changedUpdate(DocumentEvent e) {
-                action();
+                btnInserisci.setEnabled(!textField.getText().trim().isEmpty());
             }
             public void removeUpdate(DocumentEvent e) {
-                action();
+                btnInserisci.setEnabled(!textField.getText().trim().isEmpty());
             }
             public void insertUpdate(DocumentEvent e) {
-                action();
-            }
-            public void action() {
-               btnInserisci.setEnabled(!textField.getText().trim().isEmpty());
+                btnInserisci.setEnabled(!textField.getText().trim().isEmpty());
             }
         });
     }

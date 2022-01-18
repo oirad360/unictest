@@ -18,16 +18,12 @@ public class InserisciTestoPanel implements ActionListener {
 
         textArea.getDocument().addDocumentListener(new DocumentListener() {
             public void changedUpdate(DocumentEvent e) {
-                action();
+                button.setEnabled(!textArea.getText().trim().isEmpty());
             }
             public void removeUpdate(DocumentEvent e) {
-                action();
+                button.setEnabled(!textArea.getText().trim().isEmpty());
             }
             public void insertUpdate(DocumentEvent e) {
-                action();
-            }
-
-            public void action() {
                 button.setEnabled(!textArea.getText().trim().isEmpty());
             }
         });

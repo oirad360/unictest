@@ -1,8 +1,9 @@
 package com.ing_sw_2022.app;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class TemplatePersonalizzato{
+public class TemplatePersonalizzato implements Serializable {
     private int id;
     private String nome;
     private int tempoMedio;
@@ -12,6 +13,7 @@ public class TemplatePersonalizzato{
     private float puntiErrata;
     private float puntiNonData;
     private ArrayList<Sezione> listaSezioni;
+    private static final long serialVersionUID = 1;
 
     public void creaSezione(Materia materia, int numQuesiti, int difficoltàMedia){
         String newId;

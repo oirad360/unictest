@@ -1,15 +1,15 @@
 package com.ing_sw_2022.app;
 
-import org.graalvm.compiler.lir.LIRInstruction;
-
+import java.io.Serializable;
 import java.util.TreeMap;
 
-public class Studente {
+public class Studente implements Serializable {
     private String nome;
     private String cognome;
     private String cf;
     private TemplatePersonalizzato templateCorrente;
     private TreeMap<Integer, TemplatePersonalizzato> mappaTemplatePersonalizzati;
+    private static final long serialVersionUID = 1;
 
     public Studente(String nome, String cognome, String cf) {
         this.nome = nome;
@@ -52,7 +52,7 @@ public class Studente {
         templateCorrente = new TemplatePersonalizzato(id, nome);
     }
 
-    public void inserisciInfoTemplate(int puntiCorretta, int puntiErrata, int puntiNonData, int numRisposte, int numRisposteCorrette, int tempoMedio){
+    public void inserisciInfoTemplate(float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int numRisposteCorrette, int tempoMedio){
         templateCorrente.setPuntiCorretta(puntiCorretta);
         templateCorrente.setPuntiErrata(puntiErrata);
         templateCorrente.setPuntiNonData(puntiNonData);

@@ -230,6 +230,7 @@ public class UniCTest implements Serializable{
 
     public void loadStudenti(){
         Studente s = new Studente("Luigi","Verdi","VRDLGI99R21C351J");
+        setStudenteAutenticato(s);
     }
 
     public static void serialize(){
@@ -271,22 +272,22 @@ public class UniCTest implements Serializable{
              return -1;
          }
     }
-    //MOMENTANEO per il caso d'uso di avviamento
+
     public void setTutorAutenticato(Tutor tutorAutenticato) {
         this.tutorAutenticato = tutorAutenticato;
-    }
+    }//MOMENTANEO per il caso d'uso di avviamento
 
     public void setStudenteAutenticato(Studente studenteAutenticato) {
         this.studenteAutenticato = studenteAutenticato;
-    }
+    }//MOMENTANEO per il caso d'uso di avviamento
 
-    public HashMap<String,Materia> nuovoTemplate(String nome){
+    public void nuovoTemplate(String nome){
         studenteAutenticato.nuovoTemplate(nome);
-        return mappaMaterie;
     }
 
-    public void inserisciInfoTemplate(int puntiCorretta, int puntiErrata, int puntiNonData, int numRisposte, int numRisposteCorrette, int tempoMedio){
+    public HashMap<String, Materia> inserisciInfoTemplate(float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int numRisposteCorrette, int tempoMedio){
         studenteAutenticato.inserisciInfoTemplate(puntiCorretta, puntiErrata, puntiNonData, numRisposte, numRisposteCorrette, tempoMedio);
+        return mappaMaterie;
     }
 
     public void creaSezione(String codiceMateria, int numQuesiti, int difficoltàMedia){

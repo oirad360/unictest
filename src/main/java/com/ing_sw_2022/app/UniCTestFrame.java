@@ -10,6 +10,8 @@ public class UniCTestFrame extends JFrame{
     private JPanel mainPanel;
     private JLabel mainLabel;
     private JButton btnNuovoQuesito;
+    private JPanel panel;
+    private JButton btnNuovoTemplate;
     private static UniCTestFrame unictestFrame;
     private static final Integer pos = 200;
     private UniCTestFrame(){
@@ -38,6 +40,30 @@ public class UniCTestFrame extends JFrame{
                     {
                         btnNuovoQuesito.setEnabled(true);
                         NuovoQuesitoFrame.destroyInstance();
+                    }
+                });
+            }
+        });
+
+        btnNuovoTemplate.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                NuovoTemplatePersFrame nuovoTemplatePersFrame = NuovoTemplatePersFrame.getInstance();
+                btnNuovoTemplate.setEnabled(false);
+
+                nuovoTemplatePersFrame.addWindowListener(new WindowAdapter()
+                {
+                    @Override
+                    public void windowClosing(WindowEvent e)
+                    {
+                        btnNuovoTemplate.setEnabled(true);
+                        NuovoTemplatePersFrame.destroyInstance();
+                    }
+                    @Override
+                    public void windowClosed(WindowEvent e)
+                    {
+                        btnNuovoTemplate.setEnabled(true);
+                        NuovoTemplatePersFrame.destroyInstance();
                     }
                 });
             }

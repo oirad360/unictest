@@ -1,10 +1,13 @@
 package com.ing_sw_2022.app;
 
-public class Sezione {
+import java.io.Serializable;
+
+public class Sezione implements Serializable {
     private int numQuesiti;
     private int difficoltàMedia;
     private String id;
     private Materia materia;
+    private static final long serialVersionUID = 1;
 
     public Sezione(String id, Materia materia, int numQuesiti, int difficoltàMedia) {
         this.numQuesiti = numQuesiti;
