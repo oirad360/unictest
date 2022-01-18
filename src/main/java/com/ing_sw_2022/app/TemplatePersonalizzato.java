@@ -8,7 +8,8 @@ public class TemplatePersonalizzato implements Serializable {
     private String nome;
     private int tempoMedio;
     private int numRisposte;
-    private int numRisposteCorrette;
+    private int minRisposteCorrette;
+    private int maxRisposteCorrette;
     private float puntiCorretta;
     private float puntiErrata;
     private float puntiNonData;
@@ -61,12 +62,20 @@ public class TemplatePersonalizzato implements Serializable {
         this.numRisposte = numRisposte;
     }
 
-    public int getNumRisposteCorrette() {
-        return numRisposteCorrette;
+    public int getMinRisposteCorrette() {
+        return minRisposteCorrette;
     }
 
-    public void setNumRisposteCorrette(int numRisposteCorrette) {
-        this.numRisposteCorrette = numRisposteCorrette;
+    public void setMinRisposteCorrette(int minRisposteCorrette) {
+        this.minRisposteCorrette = minRisposteCorrette;
+    }
+
+    public int getMaxRisposteCorrette() {
+        return maxRisposteCorrette;
+    }
+
+    public void setMaxRisposteCorrette(int maxRisposteCorrette) {
+        this.maxRisposteCorrette = maxRisposteCorrette;
     }
 
     public float getPuntiCorretta() {

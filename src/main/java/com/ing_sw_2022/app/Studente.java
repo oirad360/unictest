@@ -52,12 +52,13 @@ public class Studente implements Serializable {
         templateCorrente = new TemplatePersonalizzato(id, nome);
     }
 
-    public void inserisciInfoTemplate(float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int numRisposteCorrette, int tempoMedio){
+    public void inserisciInfoTemplate(float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoMedio){
         templateCorrente.setPuntiCorretta(puntiCorretta);
         templateCorrente.setPuntiErrata(puntiErrata);
         templateCorrente.setPuntiNonData(puntiNonData);
         templateCorrente.setNumRisposte(numRisposte);
-        templateCorrente.setNumRisposteCorrette(numRisposteCorrette);
+        templateCorrente.setMinRisposteCorrette(minRisposteCorrette);
+        templateCorrente.setMaxRisposteCorrette(maxRisposteCorrette);
         templateCorrente.setTempoMedio(tempoMedio);
     }
 
@@ -69,5 +70,6 @@ public class Studente implements Serializable {
         mappaTemplatePersonalizzati.put(templateCorrente.getId(),templateCorrente);
         templateCorrente=null;
         UniCTest.getInstance().serialize();
+        System.out.println(mappaTemplatePersonalizzati);
     }
 }

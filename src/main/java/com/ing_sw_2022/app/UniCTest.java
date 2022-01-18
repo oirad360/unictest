@@ -73,7 +73,7 @@ public class UniCTest implements Serializable{
         return contentDir;
     }
     //Metodi nuovi
-    public List visualizzaMaterieInsegnate(){
+    public List<Materia> visualizzaMaterieInsegnate(){
         return tutorAutenticato.getMaterieInsegnate();
     }
 
@@ -285,8 +285,8 @@ public class UniCTest implements Serializable{
         studenteAutenticato.nuovoTemplate(nome);
     }
 
-    public HashMap<String, Materia> inserisciInfoTemplate(float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int numRisposteCorrette, int tempoMedio){
-        studenteAutenticato.inserisciInfoTemplate(puntiCorretta, puntiErrata, puntiNonData, numRisposte, numRisposteCorrette, tempoMedio);
+    public HashMap<String, Materia> inserisciInfoTemplate(float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoMedio){
+        studenteAutenticato.inserisciInfoTemplate(puntiCorretta, puntiErrata, puntiNonData, numRisposte, minRisposteCorrette, maxRisposteCorrette, tempoMedio);
         return mappaMaterie;
     }
 
