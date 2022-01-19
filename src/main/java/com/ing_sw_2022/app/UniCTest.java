@@ -37,11 +37,11 @@ public class UniCTest implements Serializable{
         return unictest;
     }
 
-    public HashMap<String, Materia> getMappaMaterie() {
+    public Map<String, Materia> getMappaMaterie() {
         return mappaMaterie;
     }
 
-    public HashMap<String, Visibilità> getMappaVisibilità() {
+    public Map<String, Visibilità> getMappaVisibilità() {
         return mappaVisibilità;
     }
 
@@ -49,8 +49,16 @@ public class UniCTest implements Serializable{
         return materiaCorrente;
     }
 
-    public HashMap<String, Studente> getMappaStudenti(){
+    public Map<String, Studente> getMappaStudenti(){
         return mappaStudenti;
+    }
+
+    public Tutor getTutorAutenticato() {
+        return tutorAutenticato;
+    }
+
+    public Studente getStudenteAutenticato() {
+        return studenteAutenticato;
     }
 
     /*public String getContentDir(){

@@ -47,6 +47,10 @@ public class Studente implements Serializable {
         return mappaTemplatePersonalizzati;
     }
 
+    public TemplatePersonalizzato getTemplateCorrente() {
+        return templateCorrente;
+    }
+
     /////////////////////////////////////////////METODI DCD///////////////////////////////////////////////
                ////////////////////UC2 CREA TEMPLATE DI TEST PERSONALIZZATO/////////////////////
     public void nuovoTemplate(String nome){
