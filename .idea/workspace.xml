@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="225c3c9e-492a-4307-b648-bc04a0874595" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Studente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Studente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Iterazione 3/UniCTest_iterazione3.asta.lock" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +45,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="234" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Desktop/progettazione" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
   </component>
@@ -172,7 +170,7 @@
       <workItem from="1642525298235" duration="19598000" />
       <workItem from="1642583915757" duration="1034000" />
       <workItem from="1642596027024" duration="6439000" />
-      <workItem from="1642606027985" duration="1994000" />
+      <workItem from="1642606027985" duration="2419000" />
     </task>
     <servers />
   </component>
