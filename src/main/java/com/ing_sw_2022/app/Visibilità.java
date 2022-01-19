@@ -28,7 +28,6 @@ public class Visibilità implements Serializable {
         this.codice = codice;
     }
 
-    ////////////////////////TOSTRING MOMENTANEO////////////////////
     @Override
     public String toString() {
         return "Visibilità{" +

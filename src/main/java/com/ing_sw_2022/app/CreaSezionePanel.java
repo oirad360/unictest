@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class CreaSezionePanel implements ActionListener {
     private JPanel mainPanel;
@@ -19,18 +20,15 @@ public class CreaSezionePanel implements ActionListener {
     private JLabel numSezioni;
     private JButton buttonConferma;
     private Integer counter;
-    private HashMap<String, Materia> mappaMaterie;
-    private ArrayList<Item> itemsList;
-    public CreaSezionePanel(HashMap<String,Materia> mappaMaterie){
+    private List<Materia> listaMaterie;
+    public CreaSezionePanel(final List<Materia> listaMaterie){
+        this.listaMaterie=listaMaterie;
         counter=0;
         numSezioni.setText(counter.toString());
         buttonConferma.setEnabled(false);
-        this.mappaMaterie=mappaMaterie;
-        itemsList = new ArrayList<Item>();
-        Item items[]=new Item[mappaMaterie.size()];
+        Item items[]=new Item[listaMaterie.size()];
         int i=0;
-        for (Materia m : mappaMaterie.values()) {
-            itemsList.add(new Item(m.getCodice(),m.getNome()));
+        for (Materia m : listaMaterie) {
             items[i]=new Item(m.getCodice(),m.getNome());
             i++;
         }
@@ -45,15 +43,15 @@ public class CreaSezionePanel implements ActionListener {
                 buttonConferma.setEnabled(true);
                 numSezioni.setText(counter.toString());
                 UniCTest.getInstance().creaSezione(((Item)materiaBox.getSelectedItem()).getId(),(int)numQuesiti.getValue(),(int)difficoltàMedia.getValue());
-                itemsList.remove(materiaBox.getSelectedIndex());
-                Item items[]=new Item[itemsList.size()];
+                listaMaterie.remove(materiaBox.getSelectedIndex());
+                Item items[]=new Item[listaMaterie.size()];
                 int i=0;
-                for (Item it: itemsList) {
-                    items[i]=new Item(it.getId(),it.getDescription());
+                for (Materia m: listaMaterie) {
+                    items[i]=new Item(m.getCodice(),m.getNome());
                     i++;
                 }
                 materiaBox.setModel(new DefaultComboBoxModel<Item>(items));
-                if(itemsList.isEmpty()){
+                if(listaMaterie.isEmpty()){
                     buttonConferma.doClick();
                 }
             }
@@ -88,10 +86,10 @@ class Item
         return id;
     }
 
-    public String getDescription()
+    /*public String getDescription()
     {
         return description;
-    }
+    }*/
 
     public String toString()
     {

@@ -38,7 +38,6 @@ public class Risposta implements Serializable {
         this.id = id;
     }
 
-    ////////////////////////TOSTRING MOMENTANEO////////////////////
     @Override
     public String toString() {
         return "Risposta{" +

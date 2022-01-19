@@ -2,6 +2,7 @@ package com.ing_sw_2022.app;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Quesito implements Serializable {
     private String testo;
@@ -12,6 +13,7 @@ public class Quesito implements Serializable {
     private Visibilità visibilità;
     private ArrayList<Risposta> risposte;
     private static final long serialVersionUID = 1;
+
     public Quesito(String id, Tutor tutor) {
         this.id = id;
         this.tutor = tutor;
@@ -70,22 +72,10 @@ public class Quesito implements Serializable {
         this.visibilità = visibilità;
     }
 
-    public ArrayList<Risposta> getRisposte() {
+    public List<Risposta> getRisposte() {
         return risposte;
     }
 
-
-
-    public void inserisciRisposta(String testo, boolean valore){
-        //Setting id risposta
-        String newId;
-        if(risposte.isEmpty()) newId = id+"-0";
-        else newId = id+"-"+(Integer.parseInt(risposte.get(risposte.size()-1).getId().split("-")[2])+1);
-        Risposta r = new Risposta(testo, valore, newId);
-        risposte.add(r);
-    }
-
-    ////////////////////////TOSTRING MOMENTANEO////////////////////
     @Override
     public String toString() {
         return "Quesito{" +
@@ -98,4 +88,16 @@ public class Quesito implements Serializable {
                 "risposte='" + risposte + "'\n" +
                 "}'\n";
     }
+
+    /////////////////////////////////////////////METODI DCD///////////////////////////////////////////////
+                            ////////////////////UC7 INSERISCI QUESITO/////////////////////
+    public void inserisciRisposta(String testo, boolean valore){
+        //Setting id risposta
+        String newId;
+        if(risposte.isEmpty()) newId = id+"-0";
+        else newId = id+"-"+(Integer.parseInt(risposte.get(risposte.size()-1).getId().split("-")[2])+1);
+        Risposta r = new Risposta(testo, valore, newId);
+        risposte.add(r);
+    }
+
 }

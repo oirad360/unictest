@@ -2,6 +2,7 @@ package com.ing_sw_2022.app;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Tutor implements Serializable {
     private String nome;
@@ -45,11 +46,10 @@ public class Tutor implements Serializable {
         materieInsegnate.add(m);
     }
 
-    public ArrayList<Materia> getMaterieInsegnate() {
+    public List<Materia> getMaterieInsegnate() {
         return materieInsegnate;
     }
 
-    ////////////////////////TOSTRING MOMENTANEO////////////////////
     @Override
     public String toString() {
         return "Tutor{" +

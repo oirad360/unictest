@@ -3,10 +3,7 @@ package com.ing_sw_2022.app;
 //import sun.reflect.generics.tree.Tree;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.TreeMap;
+import java.util.*;
 
 public class Materia implements Serializable {
     private String nome;
@@ -41,7 +38,7 @@ public class Materia implements Serializable {
         this.codice = codice;
     }
 
-    public TreeMap<String, Quesito> getMappaQuesiti() {
+    public Map<String, Quesito> getMappaQuesiti() {
         return mappaQuesiti;
     }
 
@@ -49,6 +46,16 @@ public class Materia implements Serializable {
         return quesitoCorrente;
     }
 
+    @Override
+    public String toString() {
+        return "Materia{" +
+                "nome='" + nome + '\'' +
+                ", codice='" + codice + '\'' +
+                '}';
+    }
+
+    /////////////////////////////////////////////METODI DCD///////////////////////////////////////////////
+                        ////////////////////UC7 INSERISCI QUESITO/////////////////////
     public void nuovoQuesito(Tutor tutorAutenticato){
         //Setting id quesito
         String newId;
@@ -121,12 +128,4 @@ public class Materia implements Serializable {
         quesitoCorrente = null;
     }
 
-    ///////////////////// TO STRING MOMENTANEO ////////////////////
-    @Override
-    public String toString() {
-        return "Materia{" +
-                "nome='" + nome + '\'' +
-                ", codice='" + codice + '\'' +
-                '}';
-    }
 }

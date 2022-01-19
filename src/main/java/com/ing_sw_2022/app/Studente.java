@@ -1,6 +1,7 @@
 package com.ing_sw_2022.app;
 
 import java.io.Serializable;
+import java.util.Map;
 import java.util.TreeMap;
 
 public class Studente implements Serializable {
@@ -42,10 +43,12 @@ public class Studente implements Serializable {
         this.cf = cf;
     }
 
-    public TreeMap<Integer, TemplatePersonalizzato> getMappaTemplatePersonalizzati() {
+    public Map<Integer, TemplatePersonalizzato> getMappaTemplatePersonalizzati() {
         return mappaTemplatePersonalizzati;
     }
-    
+
+    /////////////////////////////////////////////METODI DCD///////////////////////////////////////////////
+               ////////////////////UC2 CREA TEMPLATE DI TEST PERSONALIZZATO/////////////////////
     public void nuovoTemplate(String nome){
         int id = 0;
         if(!mappaTemplatePersonalizzati.isEmpty()) id = mappaTemplatePersonalizzati.lastKey()+1;

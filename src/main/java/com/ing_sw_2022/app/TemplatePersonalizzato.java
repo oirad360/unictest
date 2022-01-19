@@ -16,14 +16,6 @@ public class TemplatePersonalizzato implements Serializable {
     private ArrayList<Sezione> listaSezioni;
     private static final long serialVersionUID = 1;
 
-    public void creaSezione(Materia materia, int numQuesiti, int difficoltàMedia){
-        String newId;
-        if(listaSezioni.isEmpty()) newId = id+"-0";
-        else newId = id+"-"+(Integer.parseInt(listaSezioni.get(listaSezioni.size()-1).getId().split("-")[1])+1);
-        Sezione s = new Sezione(newId, materia, numQuesiti, difficoltàMedia);
-        listaSezioni.add(s);
-    }
-
     public TemplatePersonalizzato(int id, String nome) {
         this.id = id;
         this.nome = nome;
@@ -104,6 +96,14 @@ public class TemplatePersonalizzato implements Serializable {
 
     public ArrayList<Sezione> getListaSezioni() {
         return listaSezioni;
+    }
+
+    public void creaSezione(Materia materia, int numQuesiti, int difficoltàMedia){
+        String newId;
+        if(listaSezioni.isEmpty()) newId = id+"-0";
+        else newId = id+"-"+(Integer.parseInt(listaSezioni.get(listaSezioni.size()-1).getId().split("-")[1])+1);
+        Sezione s = new Sezione(newId, materia, numQuesiti, difficoltàMedia);
+        listaSezioni.add(s);
     }
 
     @Override

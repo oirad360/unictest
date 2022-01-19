@@ -6,6 +6,7 @@ import javax.swing.event.ChangeListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
+import java.util.List;
 
 public class InsInfoTemplatePanel implements ActionListener, ChangeListener {
     private JPanel mainPanel;
@@ -45,8 +46,8 @@ public class InsInfoTemplatePanel implements ActionListener, ChangeListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        HashMap<String, Materia> mappaMaterie=UniCTest.getInstance().inserisciInfoTemplate(Float.parseFloat(puntiCorretta.getValue().toString()),Float.parseFloat(puntiErrata.getValue().toString()),Float.parseFloat(puntiNonData.getValue().toString()),(int)numRisposte.getValue(),(int)minRisposteCorrette.getValue(),(int)maxRisposteCorrette.getValue(),(int)tempoMedio.getValue());
-        NuovoTemplatePersFrame.getInstance().setContentPane(new CreaSezionePanel(mappaMaterie).getMainPanel());
+        List<Materia> listaMaterie=UniCTest.getInstance().inserisciInfoTemplate(Float.parseFloat(puntiCorretta.getValue().toString()),Float.parseFloat(puntiErrata.getValue().toString()),Float.parseFloat(puntiNonData.getValue().toString()),(int)numRisposte.getValue(),(int)minRisposteCorrette.getValue(),(int)maxRisposteCorrette.getValue(),(int)tempoMedio.getValue());
+        NuovoTemplatePersFrame.getInstance().setContentPane(new CreaSezionePanel(listaMaterie).getMainPanel());
         NuovoTemplatePersFrame.getInstance().revalidate();
     }
 

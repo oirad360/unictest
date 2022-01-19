@@ -25,6 +25,7 @@ public class VisualizzaMateriePanel extends JPanel implements ActionListener{
 
         UniCTest unictest = UniCTest.getInstance();
         List<Materia> materieInsegnate = unictest.visualizzaMaterieInsegnate();
+
         for (Iterator<Materia> i = materieInsegnate.iterator(); i.hasNext();) {
             Materia materia = i.next();
 
