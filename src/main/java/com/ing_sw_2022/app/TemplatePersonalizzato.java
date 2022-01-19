@@ -105,4 +105,20 @@ public class TemplatePersonalizzato implements Serializable {
     public ArrayList<Sezione> getListaSezioni() {
         return listaSezioni;
     }
+
+    @Override
+    public String toString() {
+        return "TemplatePersonalizzato{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", tempoMedio=" + tempoMedio +
+                ", numRisposte=" + numRisposte +
+                ", minRisposteCorrette=" + minRisposteCorrette +
+                ", maxRisposteCorrette=" + maxRisposteCorrette +
+                ", puntiCorretta=" + puntiCorretta +
+                ", puntiErrata=" + puntiErrata +
+                ", puntiNonData=" + puntiNonData +
+                ", listaSezioni=" + listaSezioni +
+                '}';
+    }
 }

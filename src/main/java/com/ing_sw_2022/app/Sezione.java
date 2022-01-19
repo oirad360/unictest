@@ -48,5 +48,13 @@ public class Sezione implements Serializable {
         this.materia = materia;
     }
 
-
+    @Override
+    public String toString() {
+        return "Sezione{" +
+                "numQuesiti=" + numQuesiti +
+                ", difficoltàMedia=" + difficoltàMedia +
+                ", id='" + id + '\'' +
+                ", materia=" + materia +
+                '}';
+    }
 }

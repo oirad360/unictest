@@ -3,6 +3,7 @@ package com.ing_sw_2022.app;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class CreaSezionePanel implements ActionListener {
@@ -19,15 +20,17 @@ public class CreaSezionePanel implements ActionListener {
     private JButton buttonConferma;
     private Integer counter;
     private HashMap<String, Materia> mappaMaterie;
-
+    private ArrayList<Item> itemsList;
     public CreaSezionePanel(HashMap<String,Materia> mappaMaterie){
         counter=0;
         numSezioni.setText(counter.toString());
         buttonConferma.setEnabled(false);
         this.mappaMaterie=mappaMaterie;
+        itemsList = new ArrayList<Item>();
         Item items[]=new Item[mappaMaterie.size()];
         int i=0;
         for (Materia m : mappaMaterie.values()) {
+            itemsList.add(new Item(m.getCodice(),m.getNome()));
             items[i]=new Item(m.getCodice(),m.getNome());
             i++;
         }
@@ -42,6 +45,17 @@ public class CreaSezionePanel implements ActionListener {
                 buttonConferma.setEnabled(true);
                 numSezioni.setText(counter.toString());
                 UniCTest.getInstance().creaSezione(((Item)materiaBox.getSelectedItem()).getId(),(int)numQuesiti.getValue(),(int)difficoltàMedia.getValue());
+                itemsList.remove(materiaBox.getSelectedIndex());
+                Item items[]=new Item[itemsList.size()];
+                int i=0;
+                for (Item it: itemsList) {
+                    items[i]=new Item(it.getId(),it.getDescription());
+                    i++;
+                }
+                materiaBox.setModel(new DefaultComboBoxModel<Item>(items));
+                if(itemsList.isEmpty()){
+                    buttonConferma.doClick();
+                }
             }
         });
     }
