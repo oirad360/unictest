@@ -4,21 +4,22 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Tutor implements Serializable {
-    private String nome;
+public class Tutor extends Utente /*implements Serializable */{
+    /*private String nome;
     private String cognome;
-    private String cf;
+    private String cf;*/
     private ArrayList<Materia> materieInsegnate;
-    private static final long serialVersionUID = 1;
+    //private static final long serialVersionUID = 1;
 
     public Tutor(String nome, String cognome, String cf) {
-        this.nome = nome;
+        /*this.nome = nome;
         this.cognome = cognome;
-        this.cf = cf;
+        this.cf = cf;*/
+        super(nome,cognome,cf);
         this.materieInsegnate = new ArrayList<>();
     }
 
-    public String getNome() {
+    /*public String getNome() {
         return nome;
     }
 
@@ -40,7 +41,7 @@ public class Tutor implements Serializable {
 
     public void setCf(String cf) {
         this.cf = cf;
-    }
+    }*/
 
     public void addMateriaInsegnata(Materia m){
         materieInsegnate.add(m);
@@ -53,9 +54,9 @@ public class Tutor implements Serializable {
     @Override
     public String toString() {
         return "Tutor{" +
-                "nome='" + nome + '\'' +
-                ", cognome='" + cognome + '\'' +
-                ", cf='" + cf + '\'' +
+                "nome='" + super.getNome() + '\'' +
+                ", cognome='" + super.getCognome() + '\'' +
+                ", cf='" + super.getCf() + '\'' +
                 ", materieInsegnate=" + materieInsegnate +
                 '}';
     }

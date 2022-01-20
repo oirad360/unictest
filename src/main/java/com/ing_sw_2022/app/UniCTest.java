@@ -8,22 +8,26 @@ public class UniCTest implements Serializable{
     private HashMap<String,Materia> mappaMaterie;
     private HashMap<String,Visibilità> mappaVisibilità;
     private Materia materiaCorrente;
-    private Tutor tutorAutenticato;
-    private Studente studenteAutenticato;
+    transient private Tutor tutorAutenticato;
+    transient private Studente studenteAutenticato;
+    static private Utente utenteAutenticato;
     private HashMap<String, Tutor> mappaTutor;
     private HashMap<String, Studente> mappaStudenti;
+    private HashMap<String, Utente> mappaUtenti;
     private static final long serialVersionUID = 1;
     //private final String contentDir="content";
 
     private UniCTest() {
         mappaMaterie = new HashMap<>();
         mappaVisibilità = new HashMap<>();
-        mappaTutor = new HashMap<>();
-        mappaStudenti = new HashMap<>();
+        /*mappaTutor = new HashMap<>();
+        mappaStudenti = new HashMap<>();*/
+        mappaUtenti = new HashMap<>();
         loadMaterie();
-        loadTutor();
+        //loadTutor();
         loadVisibilità();
-        loadStudenti();
+        //loadStudenti();
+        loadUtenti();
     }
 
     public static UniCTest getInstance() {
@@ -33,6 +37,9 @@ public class UniCTest implements Serializable{
                 unictest = new UniCTest();
                 serialize();
             }
+            utenteAutenticato = unictest.getMappaUtenti().get("VRDLGI99R21C351J");
+            //RSSMRA80A01C351O
+            //VRDLGI99R21C351J
         }
         return unictest;
     }
@@ -43,6 +50,10 @@ public class UniCTest implements Serializable{
 
     public Map<String, Visibilità> getMappaVisibilità() {
         return mappaVisibilità;
+    }
+
+    public Map<String, Utente> getMappaUtenti() {
+        return mappaUtenti;
     }
 
     public Materia getMateriaCorrente() {
@@ -108,13 +119,14 @@ public class UniCTest implements Serializable{
     /////////////////////////////////////////////METODI DCD///////////////////////////////////////////////
                      ////////////////////UC7 INSERISCI QUESITO/////////////////////
     public List<Materia> visualizzaMaterieInsegnate(){
-        return tutorAutenticato.getMaterieInsegnate();
+        //return tutorAutenticato.getMaterieInsegnate();
+        return ((Tutor) utenteAutenticato).getMaterieInsegnate();
     }
 
     public void nuovoQuesito(String codiceMateria){
         Materia m = mappaMaterie.get(codiceMateria);
         materiaCorrente = m; //m diventa corrente per UniCTest
-        m.nuovoQuesito(tutorAutenticato);
+        m.nuovoQuesito((Tutor)utenteAutenticato);
     }
 
     public void inserisciFonte(String fonte){
@@ -146,22 +158,24 @@ public class UniCTest implements Serializable{
                         ////////////////////UC2 CREA TEMPLATE DI TEST PERSONALIZZATO/////////////////////
 
     public void nuovoTemplate(String nome){
-        studenteAutenticato.nuovoTemplate(nome);
+        //studenteAutenticato.nuovoTemplate(nome);
+        ((Studente)utenteAutenticato).nuovoTemplate(nome);
     }
 
     public List<Materia> inserisciInfoTemplate(float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoMedio){
-        studenteAutenticato.inserisciInfoTemplate(puntiCorretta, puntiErrata, puntiNonData, numRisposte, minRisposteCorrette, maxRisposteCorrette, tempoMedio);
+        ((Studente)utenteAutenticato).inserisciInfoTemplate(puntiCorretta, puntiErrata, puntiNonData, numRisposte, minRisposteCorrette, maxRisposteCorrette, tempoMedio);
         List<Materia> list = new ArrayList<Materia>(mappaMaterie.values());
         return list;
     }
 
     public void creaSezione(String codiceMateria, int numQuesiti, int difficoltàMedia){
         Materia m=mappaMaterie.get(codiceMateria);
-        studenteAutenticato.creaSezione(m,numQuesiti,difficoltàMedia);
+        ((Studente)utenteAutenticato).creaSezione(m,numQuesiti,difficoltàMedia);
     }
 
     public void confermaTemplate(){
-        studenteAutenticato.confermaTemplate();
+        //studenteAutenticato.confermaTemplate();
+        ((Studente)utenteAutenticato).confermaTemplate();
     }
 
                         ////////////METODI PER CASO D'USO DI AVVIAMENTO//////////////
@@ -288,7 +302,22 @@ public class UniCTest implements Serializable{
 
     private void loadStudenti(){
         Studente s = new Studente("Luigi","Verdi","VRDLGI99R21C351J");
+        mappaStudenti.put(s.getCf(),s);
         setStudenteAutenticato(s);
+    }
+
+    private void loadUtenti(){
+        Tutor t = new Tutor("Mario", "Rossi", "RSSMRA80A01C351O");
+        Studente s = new Studente("Luigi","Verdi","VRDLGI99R21C351J");
+        mappaUtenti.put(t.getCf(),t);
+        mappaUtenti.put(s.getCf(),s);
+        t.addMateriaInsegnata(mappaMaterie.get("MAT01"));
+        t.addMateriaInsegnata(mappaMaterie.get("ITA02"));
+        //setUtenteAutenticato(t);
+    }
+
+    private void setUtenteAutenticato(Utente u){
+        utenteAutenticato=u;
     }
 
     private void setTutorAutenticato(Tutor tutorAutenticato) {

@@ -4,22 +4,23 @@ import java.io.Serializable;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class Studente implements Serializable {
-    private String nome;
+public class Studente extends Utente /*implements Serializable*/ {
+    /*private String nome;
     private String cognome;
-    private String cf;
+    private String cf;*/
     private TemplatePersonalizzato templateCorrente;
     private TreeMap<Integer, TemplatePersonalizzato> mappaTemplatePersonalizzati;
-    private static final long serialVersionUID = 1;
+    //private static final long serialVersionUID = 1;
 
     public Studente(String nome, String cognome, String cf) {
-        this.nome = nome;
+        /*this.nome = nome;
         this.cognome = cognome;
-        this.cf = cf;
+        this.cf = cf;*/
+        super(nome,cognome,cf);
         mappaTemplatePersonalizzati = new TreeMap<Integer,TemplatePersonalizzato>();
     }
 
-    public String getNome() {
+    /*public String getNome() {
         return nome;
     }
 
@@ -41,7 +42,7 @@ public class Studente implements Serializable {
 
     public void setCf(String cf) {
         this.cf = cf;
-    }
+    }*/
 
     public Map<Integer, TemplatePersonalizzato> getMappaTemplatePersonalizzati() {
         return mappaTemplatePersonalizzati;
@@ -49,6 +50,16 @@ public class Studente implements Serializable {
 
     public TemplatePersonalizzato getTemplateCorrente() {
         return templateCorrente;
+    }
+
+    @Override
+    public String toString() {
+        return "Tutor{" +
+                "nome='" + super.getNome() + '\'' +
+                ", cognome='" + super.getCognome() + '\'' +
+                ", cf='" + super.getCf() + '\'' +
+                ", mappaTemplatePersonalizzati=" + mappaTemplatePersonalizzati +
+                '}';
     }
 
     /////////////////////////////////////////////METODI DCD///////////////////////////////////////////////
