@@ -8,11 +8,11 @@ public class UniCTest implements Serializable{
     private HashMap<String,Materia> mappaMaterie;
     private HashMap<String,Visibilità> mappaVisibilità;
     private Materia materiaCorrente;
-    transient private Tutor tutorAutenticato;
-    transient private Studente studenteAutenticato;
+    //transient private Tutor tutorAutenticato;
+    //transient private Studente studenteAutenticato;
     static private Utente utenteAutenticato;
-    private HashMap<String, Tutor> mappaTutor;
-    private HashMap<String, Studente> mappaStudenti;
+    //private HashMap<String, Tutor> mappaTutor;
+    //private HashMap<String, Studente> mappaStudenti;
     private HashMap<String, Utente> mappaUtenti;
     private static final long serialVersionUID = 1;
     //private final String contentDir="content";
@@ -60,7 +60,7 @@ public class UniCTest implements Serializable{
         return materiaCorrente;
     }
 
-    public Map<String, Studente> getMappaStudenti(){
+    /*public Map<String, Studente> getMappaStudenti(){
         return mappaStudenti;
     }
 
@@ -70,7 +70,7 @@ public class UniCTest implements Serializable{
 
     public Studente getStudenteAutenticato() {
         return studenteAutenticato;
-    }
+    }*/
 
     /*public String getContentDir(){
         return contentDir;
@@ -126,6 +126,7 @@ public class UniCTest implements Serializable{
     public void nuovoQuesito(String codiceMateria){
         Materia m = mappaMaterie.get(codiceMateria);
         materiaCorrente = m; //m diventa corrente per UniCTest
+        //m.nuovoQuesito(tutorAutenticato);
         m.nuovoQuesito((Tutor)utenteAutenticato);
     }
 
@@ -163,6 +164,7 @@ public class UniCTest implements Serializable{
     }
 
     public List<Materia> inserisciInfoTemplate(float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoMedio){
+        //studenteAutenticato.inserisciInfoTemplate(puntiCorretta, puntiErrata, puntiNonData, numRisposte, minRisposteCorrette, maxRisposteCorrette, tempoMedio);
         ((Studente)utenteAutenticato).inserisciInfoTemplate(puntiCorretta, puntiErrata, puntiNonData, numRisposte, minRisposteCorrette, maxRisposteCorrette, tempoMedio);
         List<Materia> list = new ArrayList<Materia>(mappaMaterie.values());
         return list;
@@ -180,7 +182,7 @@ public class UniCTest implements Serializable{
 
                         ////////////METODI PER CASO D'USO DI AVVIAMENTO//////////////
 
-    private void loadTutor(){
+    /*private void loadTutor(){
         /*try(BufferedReader bufferedReader = new BufferedReader(new FileReader(contentDir+File.separator+"Tutor.txt"))) {
             String[] nomiAttributi = bufferedReader.readLine().split(" ");
             String line= bufferedReader.readLine();
@@ -217,14 +219,15 @@ public class UniCTest implements Serializable{
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }*/
+        }
+        ///////////////////////////////////////////////////
         Tutor t = new Tutor("Mario", "Rossi", "RSSMRA80A01C351O");
         mappaTutor.put(t.getCf(),t);
         //MOMENTANEO per il caso d'uso di avviamento
         t.addMateriaInsegnata(mappaMaterie.get("MAT01"));
         t.addMateriaInsegnata(mappaMaterie.get("ITA02"));
-        setTutorAutenticato(t);
-    }
+        tutorAutenticato=t;
+    }*/
 
     private void loadMaterie(){
         /*try(BufferedReader bufferedReader = new BufferedReader(new FileReader(contentDir+File.separator+"Materie.txt"))) {
@@ -300,11 +303,11 @@ public class UniCTest implements Serializable{
         mappaVisibilità.put(v3.getCodice(),v3);
     }
 
-    private void loadStudenti(){
+    /*private void loadStudenti(){
         Studente s = new Studente("Luigi","Verdi","VRDLGI99R21C351J");
         mappaStudenti.put(s.getCf(),s);
-        setStudenteAutenticato(s);
-    }
+        studenteAutenticato=s;
+    }*/
 
     private void loadUtenti(){
         Tutor t = new Tutor("Mario", "Rossi", "RSSMRA80A01C351O");
@@ -313,18 +316,13 @@ public class UniCTest implements Serializable{
         mappaUtenti.put(s.getCf(),s);
         t.addMateriaInsegnata(mappaMaterie.get("MAT01"));
         t.addMateriaInsegnata(mappaMaterie.get("ITA02"));
-        //setUtenteAutenticato(t);
     }
 
-    private void setUtenteAutenticato(Utente u){
-        utenteAutenticato=u;
-    }
-
-    private void setTutorAutenticato(Tutor tutorAutenticato) {
+    /*private void setTutorAutenticato(Tutor tutorAutenticato) {
         this.tutorAutenticato = tutorAutenticato;
     }//MOMENTANEO per il caso d'uso di avviamento
 
     private void setStudenteAutenticato(Studente studenteAutenticato) {
         this.studenteAutenticato = studenteAutenticato;
-    }//MOMENTANEO per il caso d'uso di avviamento
+    }//MOMENTANEO per il caso d'uso di avviamento*/
 }
