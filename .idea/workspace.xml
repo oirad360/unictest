@@ -7,6 +7,7 @@
     <list default="true" id="225c3c9e-492a-4307-b648-bc04a0874595" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Iterazione 3/UniCTest_iterazione3.asta" beforeDir="false" afterPath="$PROJECT_DIR$/Iterazione 3/UniCTest_iterazione3.asta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Iterazione 3/UniCTest_iterazione3.asta.lock" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +171,7 @@
       <workItem from="1642596027024" duration="6439000" />
       <workItem from="1642606027985" duration="2419000" />
       <workItem from="1642711775584" duration="2811000" />
-      <workItem from="1642769033170" duration="1477000" />
+      <workItem from="1642769033170" duration="1479000" />
     </task>
     <servers />
   </component>
