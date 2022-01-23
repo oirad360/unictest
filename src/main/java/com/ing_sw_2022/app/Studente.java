@@ -111,6 +111,7 @@ public class Studente extends Utente /*implements Serializable*/ {
 
     public Test terminaSimulazione(){
         Test t=templateSelezionato.terminaSimulazione();
+        templateSelezionato=null;
         return t;
     }
 

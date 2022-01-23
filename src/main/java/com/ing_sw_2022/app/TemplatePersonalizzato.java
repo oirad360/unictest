@@ -120,6 +120,7 @@ public class TemplatePersonalizzato implements Serializable {
         Test t = null;
         try {
             t = new Test(newId,this);
+            testCorrente=t;
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -56,6 +56,7 @@ public class Test {
 	public TreeMap<String, QuesitoReale> getMappaQuesiti() {
 		return mappaQuesiti;
 	}
+	/////////////////////////////////////////////////METODI DCD/////////////////////////////////////////////
 
 									////////////////////UC1 AVVIA SIMULAZIONE/////////////////////
 	public void selezionaRisposta(String idQuesitoReale, String idRisposta) {

@@ -131,15 +131,17 @@ public class Materia implements Serializable {
                  ///////////////////////////UC1 AVVIA SIMULAZIONE//////////////////////
     public List<QuesitoDescrizione> generaQuesiti(TemplatePersonalizzato tp, Sezione s) throws Exception{
         int n=s.getNumQuesiti();
+        int dim=mappaQuesiti.size();
+        if(n>dim) throw new Exception();
+
         int difficoltà=s.getDifficoltàMedia();
         int risposte=tp.getNumRisposte();
         int maxCorrette=tp.getMaxRisposteCorrette();
         int minCorrette=tp.getMinRisposteCorrette();
-        int dim=mappaQuesiti.size();
         ArrayList<QuesitoDescrizione> listaQuesiti=new ArrayList<QuesitoDescrizione>();
         ArrayList<Integer> oldIndex= new ArrayList<Integer>();
         ArrayList<QuesitoDescrizione> listaQD= new ArrayList<QuesitoDescrizione>(mappaQuesiti.values());
-        if(n>dim) throw new Exception();
+
         while(listaQuesiti.size()<n){
             if(dim-oldIndex.size()<n-listaQuesiti.size()) throw new Exception(); //se il numero di quesiti che ho ancora a disposizione è inferiore al numero di quesiti mancanti lancio un'eccezione
             //generazione numero random
@@ -159,11 +161,15 @@ public class Materia implements Serializable {
             QuesitoDescrizione qd=listaQD.get(randomNum);
             boolean error=false;
             if(qd.getRisposte().size()!=risposte) error=true; //Conto il numero di risposte
-            int countCorrette=0;
-            for(Risposta r: qd.getRisposte().values()) if(r.isValore()) countCorrette++; //Conto il numero di risposte vere
-            if(countCorrette>maxCorrette || countCorrette<minCorrette) error=true;
-            if(qd.getDifficoltà()!=difficoltà-1 && qd.getDifficoltà()!=difficoltà && qd.getDifficoltà()!=difficoltà+1) error=true;
-            if(!error) listaQuesiti.add(qd);
+            if(!error){
+                if(qd.getDifficoltà()!=difficoltà-1 && qd.getDifficoltà()!=difficoltà && qd.getDifficoltà()!=difficoltà+1) error=true;
+                if(!error){
+                    int countCorrette=0;
+                    for(Risposta r: qd.getRisposte().values()) if(r.isValore()) countCorrette++; //Conto il numero di risposte vere
+                    if(countCorrette>maxCorrette || countCorrette<minCorrette) error=true;
+                    if(!error) listaQuesiti.add(qd);
+                }
+            }
         }
         return listaQuesiti;
     }
