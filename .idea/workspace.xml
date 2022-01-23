@@ -6,58 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="225c3c9e-492a-4307-b648-bc04a0874595" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ser.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/QuesitoDescrizione.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/QuesitoDescrizione.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/QuesitoReale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/QuesitoReale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/TabbedPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/TabbedPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ser.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ser.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestCreaTemplatePers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestCreaTemplatePers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestNuovoQuesitoDescrizione.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestNuovoQuesito.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ConfermaQuesitoPanel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ConfermaQuesitoPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/CreaSezionePanel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/CreaSezionePanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Customer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/FormatterFactoryDemo$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/FormatterFactoryDemo$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/FormatterFactoryDemo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/InsInfoTemplatePanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/InserisciDifficoltàPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/InserisciFontePanel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/InserisciFontePanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/InserisciRispostePanel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/InserisciRispostePanel$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/InserisciRispostePanel$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/InserisciRispostePanel$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/InserisciRispostePanel$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/InserisciRispostePanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/InserisciTestoPanel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/InserisciTestoPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Item.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Main$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Materia.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Materia.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/NuovoQuesitoFrame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/NuovoTemplatePersFrame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/NuovoTemplatePersPanel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/NuovoTemplatePersPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Quesito.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/SpinnerDemo$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/SpinnerDemo$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/SpinnerDemo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Studente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Studente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/TabbedPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/TabbedPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/TemplatePersonalizzato.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/TemplatePersonalizzato.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/UniCTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/UniCTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/UniCTestFrame$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/UniCTestFrame$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/UniCTestFrame$2$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/UniCTestFrame$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/UniCTestFrame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/VisualizzaMateriePanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestCreaTemplatePers.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestCreaTemplatePers.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestNuovoQuesito.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestNuovoQuesito.class" afterDir="false" />
     </list>
     <list id="f783ecb6-0640-46ab-87d4-fee534d629cc" name="Changes by oirad" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -119,7 +70,7 @@
       <recent name="C:\Users\oirad\unictest\src\main\java\com\ing_sw_2022\app\finestre" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestNuovoQuesito">
+  <component name="RunManager" selected="JUnit.TestCreaTemplatePers">
     <configuration name="UniCTestFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.UniCTestFrame" />
       <module name="unictest" />
@@ -197,8 +148,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestNuovoQuesito" />
         <item itemvalue="JUnit.TestCreaTemplatePers" />
+        <item itemvalue="JUnit.TestNuovoQuesito" />
         <item itemvalue="Application.UniCTestFrame" />
         <item itemvalue="JUnit.TestCreaTemplatePers.testNuovoTemplate" />
         <item itemvalue="JUnit.TestCreaTemplatePers.testConfermaTemplate" />
@@ -236,7 +187,7 @@
       <workItem from="1642769033170" duration="1479000" />
       <workItem from="1642878552329" duration="1333000" />
       <workItem from="1642956385532" duration="8514000" />
-      <workItem from="1642965375740" duration="5461000" />
+      <workItem from="1642965375740" duration="6250000" />
     </task>
     <servers />
   </component>

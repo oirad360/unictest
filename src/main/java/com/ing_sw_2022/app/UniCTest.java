@@ -8,11 +8,7 @@ public class UniCTest implements Serializable{
     private HashMap<String,Materia> mappaMaterie;
     private HashMap<String,Visibilità> mappaVisibilità;
     private Materia materiaCorrente;
-    //transient private Tutor tutorAutenticato;
-    //transient private Studente studenteAutenticato;
     static private Utente utenteAutenticato;
-    //private HashMap<String, Tutor> mappaTutor;
-    //private HashMap<String, Studente> mappaStudenti;
     private HashMap<String, Utente> mappaUtenti;
     private static final long serialVersionUID = 1;
     //private final String contentDir="content";
@@ -20,13 +16,9 @@ public class UniCTest implements Serializable{
     private UniCTest() {
         mappaMaterie = new HashMap<>();
         mappaVisibilità = new HashMap<>();
-        /*mappaTutor = new HashMap<>();
-        mappaStudenti = new HashMap<>();*/
         mappaUtenti = new HashMap<>();
         loadMaterie();
-        //loadTutor();
         loadVisibilità();
-        //loadStudenti();
         loadUtenti();
     }
 
@@ -37,7 +29,7 @@ public class UniCTest implements Serializable{
                 unictest = new UniCTest();
                 serialize();
             }
-            utenteAutenticato = unictest.getMappaUtenti().get("RSSMRA80A01C351O");
+            utenteAutenticato = unictest.getMappaUtenti().get("VRDLGI99R21C351J");
             //RSSMRA80A01C351O
             //VRDLGI99R21C351J
         }
@@ -64,22 +56,6 @@ public class UniCTest implements Serializable{
         return utenteAutenticato;
     }
 
-    /*public Map<String, Studente> getMappaStudenti(){
-        return mappaStudenti;
-    }
-
-    public Tutor getTutorAutenticato() {
-        return tutorAutenticato;
-    }
-
-    public Studente getStudenteAutenticato() {
-        return studenteAutenticato;
-    }*/
-
-    /*public String getContentDir(){
-        return contentDir;
-    }*/
-
     public static void serialize(){
         try {
             OutputStream fout = new FileOutputStream("ser.txt");
@@ -96,7 +72,6 @@ public class UniCTest implements Serializable{
 
     private static Integer deserialize(){
         try {
-            //DeSerialization process >
             InputStream fin=new FileInputStream("ser.txt");
             ObjectInput oin=new ObjectInputStream(fin);
             System.out.println("\nDeSerialization process has started, displaying objects...");
@@ -107,7 +82,6 @@ public class UniCTest implements Serializable{
             System.out.println("Object DeSerialization completed.");
             return 1;
         } catch (FileNotFoundException e) {
-            //e.printStackTrace();
             return 0;
         } catch (IOException e) {
             e.printStackTrace();
@@ -123,14 +97,12 @@ public class UniCTest implements Serializable{
     /////////////////////////////////////////////METODI DCD///////////////////////////////////////////////
                      ////////////////////UC7 INSERISCI QUESITO/////////////////////
     public List<Materia> visualizzaMaterieInsegnate(){
-        //return tutorAutenticato.getMaterieInsegnate();
         return ((Tutor) utenteAutenticato).getMaterieInsegnate();
     }
 
     public void nuovoQuesito(String codiceMateria){
         Materia m = mappaMaterie.get(codiceMateria);
         materiaCorrente = m; //m diventa corrente per UniCTest
-        //m.nuovoQuesito(tutorAutenticato);
         m.nuovoQuesito((Tutor)utenteAutenticato);
     }
 
@@ -163,12 +135,10 @@ public class UniCTest implements Serializable{
                         ////////////////////UC2 CREA TEMPLATE DI TEST PERSONALIZZATO/////////////////////
 
     public void nuovoTemplate(String nome){
-        //studenteAutenticato.nuovoTemplate(nome);
         ((Studente)utenteAutenticato).nuovoTemplate(nome);
     }
 
     public List<Materia> inserisciInfoTemplate(float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoMedio){
-        //studenteAutenticato.inserisciInfoTemplate(puntiCorretta, puntiErrata, puntiNonData, numRisposte, minRisposteCorrette, maxRisposteCorrette, tempoMedio);
         ((Studente)utenteAutenticato).inserisciInfoTemplate(puntiCorretta, puntiErrata, puntiNonData, numRisposte, minRisposteCorrette, maxRisposteCorrette, tempoMedio);
         List<Materia> list = new ArrayList<Materia>(mappaMaterie.values());
         return list;
@@ -180,12 +150,11 @@ public class UniCTest implements Serializable{
     }
 
     public void confermaTemplate(){
-        //studenteAutenticato.confermaTemplate();
         ((Studente)utenteAutenticato).confermaTemplate();
     }
                         ////////////////////UC1 AVVIA SIMULAZIONE/////////////////////
     public ArrayList<TemplatePersonalizzato> visualizzaTemplate(){
-        ArrayList<TemplatePersonalizzato> lista =  ((Studente)utenteAutenticato).visualizzaTemplate();
+        ArrayList<TemplatePersonalizzato> lista = ((Studente)utenteAutenticato).visualizzaTemplate();
         return lista;
     }
 
@@ -202,54 +171,8 @@ public class UniCTest implements Serializable{
         Test t = ((Studente)utenteAutenticato).terminaSimulazione();
         return t;
     }
-                        ////////////METODI PER CASO D'USO DI AVVIAMENTO//////////////
 
-    /*private void loadTutor(){
-        /*try(BufferedReader bufferedReader = new BufferedReader(new FileReader(contentDir+File.separator+"Tutor.txt"))) {
-            String[] nomiAttributi = bufferedReader.readLine().split(" ");
-            String line= bufferedReader.readLine();
-            String nome = "";
-            String cognome = "";
-            String cf = "";
-            String materieInsegnate="";
-            Boolean flag = true;
-            while(line != null) {
-                String[] val = line.split("~");
-                for(int i = 0 ; i<4; i++){
-                    switch(nomiAttributi[i]){
-                        case "nome": nome = val[i];
-                            break;
-                        case "cognome": cognome = val[i];
-                            break;
-                        case "cf": cf = val[i];
-                            break;
-                        case "materieInsegnate": materieInsegnate = val[i];
-                        break;
-                    }
-                }
-                Tutor t = new Tutor(nome,cognome,cf);
-                addTutor(t.getCf(),t);
-                val = materieInsegnate.split(",");
-                for(int i = 0; i<val.length; i++){
-                    t.addMateriaInsegnata(mappaMaterie.get(val[i]));
-                }
-                if(flag) setTutorAutenticato(t);//MOMENTANEO
-                flag = false;
-                line = bufferedReader.readLine();
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        ///////////////////////////////////////////////////
-        Tutor t = new Tutor("Mario", "Rossi", "RSSMRA80A01C351O");
-        mappaTutor.put(t.getCf(),t);
-        //MOMENTANEO per il caso d'uso di avviamento
-        t.addMateriaInsegnata(mappaMaterie.get("MAT01"));
-        t.addMateriaInsegnata(mappaMaterie.get("ITA02"));
-        tutorAutenticato=t;
-    }*/
+                        ////////////METODI PER CASO D'USO DI AVVIAMENTO//////////////
 
     private void loadMaterie(){
         /*try(BufferedReader bufferedReader = new BufferedReader(new FileReader(contentDir+File.separator+"Materie.txt"))) {
@@ -325,13 +248,44 @@ public class UniCTest implements Serializable{
         mappaVisibilità.put(v3.getCodice(),v3);
     }
 
-    /*private void loadStudenti(){
-        Studente s = new Studente("Luigi","Verdi","VRDLGI99R21C351J");
-        mappaStudenti.put(s.getCf(),s);
-        studenteAutenticato=s;
-    }*/
-
     private void loadUtenti(){
+        /*try(BufferedReader bufferedReader = new BufferedReader(new FileReader(contentDir+File.separator+"Tutor.txt"))) {
+            String[] nomiAttributi = bufferedReader.readLine().split(" ");
+            String line= bufferedReader.readLine();
+            String nome = "";
+            String cognome = "";
+            String cf = "";
+            String materieInsegnate="";
+            Boolean flag = true;
+            while(line != null) {
+                String[] val = line.split("~");
+                for(int i = 0 ; i<4; i++){
+                    switch(nomiAttributi[i]){
+                        case "nome": nome = val[i];
+                            break;
+                        case "cognome": cognome = val[i];
+                            break;
+                        case "cf": cf = val[i];
+                            break;
+                        case "materieInsegnate": materieInsegnate = val[i];
+                        break;
+                    }
+                }
+                Tutor t = new Tutor(nome,cognome,cf);
+                addTutor(t.getCf(),t);
+                val = materieInsegnate.split(",");
+                for(int i = 0; i<val.length; i++){
+                    t.addMateriaInsegnata(mappaMaterie.get(val[i]));
+                }
+                if(flag) setTutorAutenticato(t);//MOMENTANEO
+                flag = false;
+                line = bufferedReader.readLine();
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
         Tutor t = new Tutor("Mario", "Rossi", "RSSMRA80A01C351O");
         Studente s = new Studente("Luigi","Verdi","VRDLGI99R21C351J");
         mappaUtenti.put(t.getCf(),t);
@@ -340,11 +294,4 @@ public class UniCTest implements Serializable{
         t.addMateriaInsegnata(mappaMaterie.get("ITA02"));
     }
 
-    /*private void setTutorAutenticato(Tutor tutorAutenticato) {
-        this.tutorAutenticato = tutorAutenticato;
-    }//MOMENTANEO per il caso d'uso di avviamento
-
-    private void setStudenteAutenticato(Studente studenteAutenticato) {
-        this.studenteAutenticato = studenteAutenticato;
-    }//MOMENTANEO per il caso d'uso di avviamento*/
 }
