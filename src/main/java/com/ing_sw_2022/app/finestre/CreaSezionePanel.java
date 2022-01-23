@@ -1,10 +1,11 @@
-package com.ing_sw_2022.app;
+package com.ing_sw_2022.app.finestre;
+
+import com.ing_sw_2022.app.Materia;
+import com.ing_sw_2022.app.UniCTest;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class CreaSezionePanel implements ActionListener {
@@ -85,11 +86,6 @@ class Item
     {
         return id;
     }
-
-    /*public String getDescription()
-    {
-        return description;
-    }*/
 
     public String toString()
     {

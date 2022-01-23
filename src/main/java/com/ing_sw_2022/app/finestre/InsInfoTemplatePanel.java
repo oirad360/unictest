@@ -1,11 +1,13 @@
-package com.ing_sw_2022.app;
+package com.ing_sw_2022.app.finestre;
+
+import com.ing_sw_2022.app.Materia;
+import com.ing_sw_2022.app.UniCTest;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.HashMap;
 import java.util.List;
 
 public class InsInfoTemplatePanel implements ActionListener, ChangeListener {
@@ -46,7 +48,7 @@ public class InsInfoTemplatePanel implements ActionListener, ChangeListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        List<Materia> listaMaterie=UniCTest.getInstance().inserisciInfoTemplate(Float.parseFloat(puntiCorretta.getValue().toString()),Float.parseFloat(puntiErrata.getValue().toString()),Float.parseFloat(puntiNonData.getValue().toString()),(int)numRisposte.getValue(),(int)minRisposteCorrette.getValue(),(int)maxRisposteCorrette.getValue(),(int)tempoMedio.getValue());
+        List<Materia> listaMaterie= UniCTest.getInstance().inserisciInfoTemplate(Float.parseFloat(puntiCorretta.getValue().toString()),Float.parseFloat(puntiErrata.getValue().toString()),Float.parseFloat(puntiNonData.getValue().toString()),(int)numRisposte.getValue(),(int)minRisposteCorrette.getValue(),(int)maxRisposteCorrette.getValue(),(int)tempoMedio.getValue());
         NuovoTemplatePersFrame.getInstance().setContentPane(new CreaSezionePanel(listaMaterie).getMainPanel());
         NuovoTemplatePersFrame.getInstance().revalidate();
     }

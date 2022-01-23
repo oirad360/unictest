@@ -1,4 +1,4 @@
-package com.ing_sw_2022.app;
+package com.ing_sw_2022.app.finestre;
 
 import javax.swing.*;
 

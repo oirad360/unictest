@@ -1,4 +1,6 @@
-package com.ing_sw_2022.app;
+package com.ing_sw_2022.app.finestre;
+
+import com.ing_sw_2022.app.UniCTest;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
@@ -6,17 +8,17 @@ import javax.swing.event.DocumentListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class NuovoTemplatePersPanel extends JPanel implements ActionListener {
+public class InserisciFontePanel implements ActionListener {
     private JPanel mainPanel;
-    private JLabel mainLabel;
-    private JScrollPane scroller;
+    private JLabel label;
     private JPanel panel;
     private JTextField textField;
     private JButton button;
 
-    public NuovoTemplatePersPanel(){
+    public InserisciFontePanel(){
         button.addActionListener(this);
         button.setEnabled(false);
+
         textField.getDocument().addDocumentListener(new DocumentListener() {
             public void changedUpdate(DocumentEvent e) {
                 button.setEnabled(!textField.getText().trim().isEmpty());
@@ -30,14 +32,17 @@ public class NuovoTemplatePersPanel extends JPanel implements ActionListener {
         });
     }
 
-    public JPanel getMainPanel(){
+    public JPanel getMainPanel() {
         return mainPanel;
     }
 
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        UniCTest.getInstance().nuovoTemplate(textField.getText());
-        NuovoTemplatePersFrame.getInstance().setContentPane(new InsInfoTemplatePanel().getMainPanel());
-        NuovoTemplatePersFrame.getInstance().revalidate();
+        UniCTest unictest = UniCTest.getInstance();
+        unictest.inserisciFonte(textField.getText());
+        NuovoQuesitoFrame nuovoQuesitoFrame= NuovoQuesitoFrame.getInstance();
+        nuovoQuesitoFrame.setContentPane(new InserisciTestoPanel().getMainPanel());
+        nuovoQuesitoFrame.revalidate();
     }
 }

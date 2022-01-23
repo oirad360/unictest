@@ -1,8 +1,10 @@
-package com.ing_sw_2022.app;
+package com.ing_sw_2022.app.finestre;
+
+import com.ing_sw_2022.app.Materia;
+import com.ing_sw_2022.app.UniCTest;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import javax.swing.*;
