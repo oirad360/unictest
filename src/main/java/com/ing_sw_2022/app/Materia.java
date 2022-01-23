@@ -139,16 +139,19 @@ public class Materia implements Serializable {
         ArrayList<QuesitoDescrizione> listaQuesiti=new ArrayList<QuesitoDescrizione>();
         ArrayList<Integer> oldIndex= new ArrayList<Integer>();
         ArrayList<QuesitoDescrizione> listaQD= new ArrayList<QuesitoDescrizione>(mappaQuesiti.values());
-        if(n>dim) { throw new Exception(); }
+        if(n>dim) throw new Exception();
         while(listaQuesiti.size()<n){
+            if(dim-oldIndex.size()<n-listaQuesiti.size()) throw new Exception(); //se il numero di quesiti che ho ancora a disposizione è inferiore al numero di quesiti mancanti lancio un'eccezione
             //generazione numero random
-            int lastIndex;
             boolean repeat=false;
             int randomNum;
             do{
                 randomNum = ThreadLocalRandom.current().nextInt(0, dim);
                 for(Integer i : oldIndex){
-                    if(i==randomNum) repeat=true;
+                    if(i==randomNum) {
+                        repeat=true;
+                        break;
+                    }
                 }
             } while(repeat); //Se esco sono riuscito a generare un numero random mai ripetuto.
             oldIndex.add(randomNum);

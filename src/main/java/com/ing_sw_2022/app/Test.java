@@ -13,7 +13,7 @@ public class Test {
 	private static final long serialVersionUID = 1;
 
 
-	public Test(String id, TemplatePersonalizzato templatePersonalizzato) {
+	public Test(String id, TemplatePersonalizzato templatePersonalizzato) throws Exception {
 		this.id = id;
 		this.templatePersonalizzato = templatePersonalizzato;
 		this.mappaQuesiti = new TreeMap<String, QuesitoReale>();
@@ -21,7 +21,8 @@ public class Test {
 		ArrayList<Sezione> listaSezioni = templatePersonalizzato.getListaSezioni();
 		for(Sezione s : listaSezioni){
 			Materia m = s.getMateria();
-			List<QuesitoDescrizione> listaQuesiti=m.generaQuesiti(templatePersonalizzato,s);
+			List<QuesitoDescrizione> listaQuesiti= null;
+			listaQuesiti = m.generaQuesiti(templatePersonalizzato,s);
 			for(QuesitoDescrizione qd : listaQuesiti){
 				String newId;
 				if(mappaQuesiti.isEmpty()) newId = id+"-0";

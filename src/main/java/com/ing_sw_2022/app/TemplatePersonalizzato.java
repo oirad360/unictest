@@ -117,7 +117,12 @@ public class TemplatePersonalizzato implements Serializable {
         String newId;
         if(mappaTest.isEmpty()) newId = id+"-0";
         else newId = id+"-"+(Integer.parseInt(mappaTest.lastKey().split("-")[1])+1);
-        Test t = new Test(newId,this);
+        Test t = null;
+        try {
+            t = new Test(newId,this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return t;
     }
 
