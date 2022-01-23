@@ -37,7 +37,7 @@ public class UniCTest implements Serializable{
                 unictest = new UniCTest();
                 serialize();
             }
-            utenteAutenticato = unictest.getMappaUtenti().get("VRDLGI99R21C351J");
+            utenteAutenticato = unictest.getMappaUtenti().get("RSSMRA80A01C351O");
             //RSSMRA80A01C351O
             //VRDLGI99R21C351J
         }
@@ -58,6 +58,10 @@ public class UniCTest implements Serializable{
 
     public Materia getMateriaCorrente() {
         return materiaCorrente;
+    }
+
+    public Utente getUtenteAutenticato(){
+        return utenteAutenticato;
     }
 
     /*public Map<String, Studente> getMappaStudenti(){

@@ -19,7 +19,7 @@ public class TabbedPanel extends JPanel {
         ImageIcon icon = createImageIcon("/images/middle.gif");
 
         //JComponent panel1 = makeTextPanel("Panel #1");
-        JComponent panel1 = new FormatterFactoryDemo();
+        JComponent panel1 = makeTextPanel("Panel #1");
         tabbedPane.addTab("Tab 1", icon, panel1,
                 "Does nothing");
         tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);

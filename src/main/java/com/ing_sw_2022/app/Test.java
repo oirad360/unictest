@@ -1,10 +1,11 @@
 package com.ing_sw_2022.app;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
-public class Test {
+public class Test implements Serializable {
 
 	private String id;
 	private float punteggioComplessivo;

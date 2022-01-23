@@ -1,6 +1,5 @@
 package com.ing_sw_2022.app;
 
-import sun.reflect.generics.tree.Tree;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -98,7 +97,7 @@ public class QuesitoDescrizione implements Serializable {
         //Setting id risposta
         String newId;
         if(risposte.isEmpty()) newId = id+"-0";
-        else newId = id+"-"+(Integer.parseInt(risposte.get(risposte.size()-1).getId().split("-")[2])+1);
+        else newId = id+"-"+(Integer.parseInt(risposte.lastKey().split("-")[2])+1);
         Risposta r = new Risposta(testo, valore, newId);
         risposte.put(r.getId(),r);
     }

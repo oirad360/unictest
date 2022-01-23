@@ -21,7 +21,7 @@ public class TestCreaTemplatePers {
     @Test
     public void testNuovoTemplate() {
         unictest.nuovoTemplate("Test template personalizzato");
-        TemplatePersonalizzato tp=unictest.getStudenteAutenticato().getTemplateCorrente();
+        TemplatePersonalizzato tp=((Studente)unictest.getUtenteAutenticato()).getTemplateCorrente();
         assertNotNull(tp);
         assertEquals(tp.getNome(),"Test template personalizzato");
     }
@@ -29,7 +29,7 @@ public class TestCreaTemplatePers {
     @Test
     public void testInserisciInfoTemplate() {
         unictest.nuovoTemplate("Test template personalizzato");
-        TemplatePersonalizzato tp=unictest.getStudenteAutenticato().getTemplateCorrente();
+        TemplatePersonalizzato tp=((Studente)unictest.getUtenteAutenticato()).getTemplateCorrente();
         assertNotNull(tp);
         assertEquals(tp.getNome(),"Test template personalizzato");
         List<Materia> listaMaterie=unictest.inserisciInfoTemplate((float)1.0,(float)0.0,(float)0.0,4,1,4,1);
@@ -47,7 +47,7 @@ public class TestCreaTemplatePers {
     @Test
     public void testCreaSezione() {
         unictest.nuovoTemplate("Test template personalizzato");
-        TemplatePersonalizzato tp=unictest.getStudenteAutenticato().getTemplateCorrente();
+        TemplatePersonalizzato tp=((Studente)unictest.getUtenteAutenticato()).getTemplateCorrente();
         assertNotNull(tp);
         assertEquals(tp.getNome(),"Test template personalizzato");
         List<Materia> listaMaterie=unictest.inserisciInfoTemplate((float)1.0,(float)0.0,(float)0.0,4,1,4,1);
@@ -77,7 +77,7 @@ public class TestCreaTemplatePers {
     @Test
     public void testConfermaTemplate(){
         unictest.nuovoTemplate("Test template personalizzato");
-        TemplatePersonalizzato tp=unictest.getStudenteAutenticato().getTemplateCorrente();
+        TemplatePersonalizzato tp=((Studente)unictest.getUtenteAutenticato()).getTemplateCorrente();
         assertNotNull(tp);
         assertEquals(tp.getNome(),"Test template personalizzato");
         List<Materia> listaMaterie=unictest.inserisciInfoTemplate((float)1.0,(float)0.0,(float)0.0,4,1,4,1);
@@ -102,8 +102,8 @@ public class TestCreaTemplatePers {
             i++;
         }
         unictest.confermaTemplate();
-        assertNull(unictest.getStudenteAutenticato().getTemplateCorrente());
-        assertTrue(unictest.getStudenteAutenticato().getMappaTemplatePersonalizzati().size()>0);
+        assertNull(((Studente)unictest.getUtenteAutenticato()).getTemplateCorrente());
+        assertTrue(((Studente)unictest.getUtenteAutenticato()).getMappaTemplatePersonalizzati().size()>0);
     }
 
 }

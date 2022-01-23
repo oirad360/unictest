@@ -1,10 +1,11 @@
 package com.ing_sw_2022.app;
 
+import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.TreeMap;
 
-public class QuesitoReale {
+public class QuesitoReale implements Serializable {
 
 	private String id;
 	private TreeMap<String,Risposta> risposteDate;
