@@ -1,6 +1,7 @@
 package com.ing_sw_2022.app;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -10,7 +11,8 @@ public class Studente extends Utente /*implements Serializable*/ {
     private String cf;*/
     private TemplatePersonalizzato templateCorrente;
     private TreeMap<Integer, TemplatePersonalizzato> mappaTemplatePersonalizzati;
-    //private static final long serialVersionUID = 1;
+    private TemplatePersonalizzato templateSelezionato;
+    private static final long serialVersionUID = 1;
 
     public Studente(String nome, String cognome, String cf) {
         /*this.nome = nome;
@@ -90,4 +92,27 @@ public class Studente extends Utente /*implements Serializable*/ {
         UniCTest.getInstance().serialize();
         System.out.println(mappaTemplatePersonalizzati);
     }
+
+               ////////////////////UC1 AVVIA SIMULAZIONE/////////////////////
+    public ArrayList<TemplatePersonalizzato> visualizzaTemplate(){
+        ArrayList<TemplatePersonalizzato> listaTemplate = new ArrayList<TemplatePersonalizzato>(mappaTemplatePersonalizzati.values());
+        return listaTemplate;
+    }
+    public Test avviaSimulazione(String idTemplate){
+        TemplatePersonalizzato tp=mappaTemplatePersonalizzati.get(idTemplate);
+        Test t = tp.avviaSimulazione();
+        templateSelezionato=tp;
+        return t;
+    }
+
+    public void selezionaRisposta(String idQuesitoReale, String idRisposta){
+        templateSelezionato.selezionaRisposta(idQuesitoReale, idRisposta);
+    }
+
+    public Test terminaSimulazione(){
+        Test t=templateSelezionato.terminaSimulazione();
+        return t;
+    }
+
+
 }

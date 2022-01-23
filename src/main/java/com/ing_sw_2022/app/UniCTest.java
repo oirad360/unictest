@@ -179,7 +179,25 @@ public class UniCTest implements Serializable{
         //studenteAutenticato.confermaTemplate();
         ((Studente)utenteAutenticato).confermaTemplate();
     }
+                        ////////////////////UC1 AVVIA SIMULAZIONE/////////////////////
+    public ArrayList<TemplatePersonalizzato> visualizzaTemplate(){
+        ArrayList<TemplatePersonalizzato> lista =  ((Studente)utenteAutenticato).visualizzaTemplate();
+        return lista;
+    }
 
+    public Test avviaSimulazione(String idTemplate){
+        Test t =((Studente)utenteAutenticato).avviaSimulazione(idTemplate);
+        return t;
+    }
+
+    public void selezionaRisposta(String idQuesitoReale, String idRisposta){
+        ((Studente)utenteAutenticato).selezionaRisposta(idQuesitoReale, idRisposta);
+    }
+
+    public Test terminaSimulazione(){
+        Test t = ((Studente)utenteAutenticato).terminaSimulazione();
+        return t;
+    }
                         ////////////METODI PER CASO D'USO DI AVVIAMENTO//////////////
 
     /*private void loadTutor(){

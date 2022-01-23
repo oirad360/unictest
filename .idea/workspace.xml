@@ -5,9 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="225c3c9e-492a-4307-b648-bc04a0874595" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Iterazione 3/2022_01_18_UniCTest_Elaborazione_3.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Iterazione 3/2022_01_18_UniCTest_Elaborazione_3.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Iterazione 3/UniCTest_iterazione3.asta" beforeDir="false" afterPath="$PROJECT_DIR$/Iterazione 3/UniCTest_iterazione3.asta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Materia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Materia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Quesito.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/QuesitoDescrizione.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/QuesitoReale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/QuesitoReale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Studente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Studente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestNuovoQuesito.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestNuovoQuesitoDescrizione.java" afterDir="false" />
+    </list>
+    <list id="f783ecb6-0640-46ab-87d4-fee534d629cc" name="Changes by oirad" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Materia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Materia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Quesito.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/QuesitoDescrizione.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/QuesitoReale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/QuesitoReale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Studente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Studente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/TemplatePersonalizzato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/TemplatePersonalizzato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +48,71 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$PROJECT_DIR$/../.jdks/corretto-11.0.13/lib/src.zip!/java.base/java/lang/Object.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/QuesitoDescrizione.java">
+      <ranges>
+        <range start1="2" end1="2" start2="2" end2="4" changelist="f783ecb6-0640-46ab-87d4-fee534d629cc" />
+        <range start1="5" end1="5" start2="7" end2="8" changelist="f783ecb6-0640-46ab-87d4-fee534d629cc" />
+        <range start1="6" end1="7" start2="9" end2="10" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="13" end1="14" start2="16" end2="17" changelist="f783ecb6-0640-46ab-87d4-fee534d629cc" />
+        <range start1="16" end1="17" start2="19" end2="20" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="19" end1="20" start2="22" end2="23" changelist="f783ecb6-0640-46ab-87d4-fee534d629cc" />
+        <range start1="23" end1="24" start2="26" end2="27" changelist="f783ecb6-0640-46ab-87d4-fee534d629cc" />
+        <range start1="74" end1="75" start2="77" end2="78" changelist="f783ecb6-0640-46ab-87d4-fee534d629cc" />
+        <range start1="99" end1="100" start2="102" end2="103" changelist="f783ecb6-0640-46ab-87d4-fee534d629cc" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/QuesitoReale.java">
+      <ranges>
+        <range start1="0" end1="1" start2="0" end2="5" changelist="f783ecb6-0640-46ab-87d4-fee534d629cc" />
+        <range start1="5" end1="8" start2="9" end2="10" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="9" end1="9" start2="11" end2="26" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="10" end1="10" start2="27" end2="42" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="11" end1="12" start2="43" end2="53" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="15" end1="16" start2="56" end2="67" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Studente.java">
+      <ranges>
+        <range start1="3" end1="3" start2="3" end2="4" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="12" end1="13" start2="13" end2="15" changelist="f783ecb6-0640-46ab-87d4-fee534d629cc" />
+        <range start1="92" end1="92" start2="94" end2="117" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Test.java">
+      <ranges>
+        <range start1="0" end1="1" start2="0" end2="1" changelist="f783ecb6-0640-46ab-87d4-fee534d629cc" />
+        <range start1="2" end1="2" start2="2" end2="6" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="5" end1="6" start2="9" end2="9" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="7" end1="8" start2="10" end2="10" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="9" end1="9" start2="11" end2="49" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="10" end1="11" start2="50" end2="53" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="12" end1="12" start2="54" end2="59" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="13" end1="14" start2="60" end2="62" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="16" end1="18" start2="64" end2="77" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Materia.java">
+      <ranges>
+        <range start1="6" end1="6" start2="6" end2="7" changelist="f783ecb6-0640-46ab-87d4-fee534d629cc" />
+        <range start1="10" end1="12" start2="11" end2="13" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="20" end1="21" start2="21" end2="22" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="40" end1="41" start2="41" end2="42" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="44" end1="46" start2="45" end2="47" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="64" end1="66" start2="65" end2="67" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="69" end1="70" start2="70" end2="71" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="73" end1="74" start2="74" end2="75" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="77" end1="78" start2="78" end2="79" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="81" end1="82" start2="82" end2="83" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="85" end1="88" start2="86" end2="89" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="127" end1="128" start2="128" end2="129" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="129" end1="130" start2="130" end2="166" changelist="f783ecb6-0640-46ab-87d4-fee534d629cc" />
+      </ranges>
+    </file>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -47,11 +128,17 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="234" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Desktop/progettazione" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
   </component>
+  <component name="ReaderModeSettings">
+    <option name="enabled" value="false" />
+  </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.ing_sw_2022.app" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\oirad\unictest\src\main\java\com\ing_sw_2022\app" />
     </key>
@@ -62,7 +149,7 @@
       <module name="unictest" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ing_sw_2022.app.*" />
+          <option name="PATTERN" value="com.ing_sw_2022.app.QuesitoDescrizione" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -74,7 +161,7 @@
       <module name="unictest" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ing_sw_2022.app.*" />
+          <option name="PATTERN" value="com.ing_sw_2022.app.QuesitoDescrizione" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -89,7 +176,7 @@
       <module name="unictest" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ing_sw_2022.app.*" />
+          <option name="PATTERN" value="com.ing_sw_2022.app.QuesitoDescrizione" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -105,7 +192,7 @@
       <module name="unictest" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ing_sw_2022.app.*" />
+          <option name="PATTERN" value="com.ing_sw_2022.app.QuesitoDescrizione" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -121,7 +208,7 @@
       <module name="unictest" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ing_sw_2022.app.*" />
+          <option name="PATTERN" value="com.ing_sw_2022.app.QuesitoDescrizione" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -173,6 +260,7 @@
       <workItem from="1642711775584" duration="2811000" />
       <workItem from="1642769033170" duration="1479000" />
       <workItem from="1642878552329" duration="1333000" />
+      <workItem from="1642956385532" duration="8514000" />
     </task>
     <servers />
   </component>

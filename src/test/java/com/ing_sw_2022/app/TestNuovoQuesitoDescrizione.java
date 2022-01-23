@@ -7,7 +7,7 @@ import java.util.Map;
 
 import static org.junit.Assert.*;
 
-public class TestNuovoQuesito {
+public class TestNuovoQuesitoDescrizione {
 
     private static UniCTest unictest;
 
@@ -38,11 +38,11 @@ public class TestNuovoQuesito {
         unictest.nuovoQuesito("MAT01");
         Materia materiaCorrente = unictest.getMateriaCorrente();
         assertNotNull(materiaCorrente);
-        Quesito quesitoCorrente = materiaCorrente.getQuesitoCorrente();
-        assertNotNull(quesitoCorrente);
+        QuesitoDescrizione quesitoDescrizioneCorrente = materiaCorrente.getQuesitoCorrente();
+        assertNotNull(quesitoDescrizioneCorrente);
         unictest.inserisciFonte("MIUR");
         //Visualizza che la fonte del quesitoCorrente non sia null
-        assertNotNull(quesitoCorrente.getFonte());
+        assertNotNull(quesitoDescrizioneCorrente.getFonte());
     }
 
     @Test
@@ -50,11 +50,11 @@ public class TestNuovoQuesito {
         unictest.nuovoQuesito("MAT01");
         Materia materiaCorrente = unictest.getMateriaCorrente();
         assertNotNull(materiaCorrente);
-        Quesito quesitoCorrente = materiaCorrente.getQuesitoCorrente();
-        assertNotNull(quesitoCorrente);
+        QuesitoDescrizione quesitoDescrizioneCorrente = materiaCorrente.getQuesitoCorrente();
+        assertNotNull(quesitoDescrizioneCorrente);
         unictest.inserisciTesto("Quanto fa 2+2?");
         //Visualizza che il testo del quesitoCorrente non sia null
-        assertNotNull(quesitoCorrente.getTesto());
+        assertNotNull(quesitoDescrizioneCorrente.getTesto());
     }
 
     @Test
@@ -62,11 +62,11 @@ public class TestNuovoQuesito {
         unictest.nuovoQuesito("MAT01");
         Materia materiaCorrente = unictest.getMateriaCorrente();
         assertNotNull(materiaCorrente);
-        Quesito quesitoCorrente = materiaCorrente.getQuesitoCorrente();
-        assertNotNull(quesitoCorrente);
+        QuesitoDescrizione quesitoDescrizioneCorrente = materiaCorrente.getQuesitoCorrente();
+        assertNotNull(quesitoDescrizioneCorrente);
         unictest.inserisciDifficoltà(3);
         //Visualizza che la difficoltà del quesitoCorrente non sia null
-        assertNotNull(quesitoCorrente.getDifficoltà());
+        assertNotNull(quesitoDescrizioneCorrente.getDifficoltà());
     }
 
     @Test
@@ -74,14 +74,14 @@ public class TestNuovoQuesito {
         unictest.nuovoQuesito("MAT01");
         Materia materiaCorrente = unictest.getMateriaCorrente();
         assertNotNull(materiaCorrente);
-        Quesito quesitoCorrente = materiaCorrente.getQuesitoCorrente();
-        assertNotNull(quesitoCorrente);
+        QuesitoDescrizione quesitoDescrizioneCorrente = materiaCorrente.getQuesitoCorrente();
+        assertNotNull(quesitoDescrizioneCorrente);
         unictest.inserisciRisposta("4",true);
         unictest.inserisciRisposta("5",false);
         unictest.inserisciRisposta("sqrt(16)",true);
         unictest.inserisciRisposta("9",false);
         //Visualizza che la lista delle rispsote del quesitoCorrente non sia null
-        assertEquals(4,quesitoCorrente.getRisposte().size());
+        assertEquals(4, quesitoDescrizioneCorrente.getRisposte().size());
     }
 
     @Test
@@ -89,8 +89,8 @@ public class TestNuovoQuesito {
         unictest.nuovoQuesito("MAT01");
         Materia materiaCorrente = unictest.getMateriaCorrente();
         assertNotNull(materiaCorrente);
-        Quesito quesitoCorrente = materiaCorrente.getQuesitoCorrente();
-        assertNotNull(quesitoCorrente);
+        QuesitoDescrizione quesitoDescrizioneCorrente = materiaCorrente.getQuesitoCorrente();
+        assertNotNull(quesitoDescrizioneCorrente);
         unictest.inserisciFonte("MIUR");
         unictest.inserisciTesto("Quanto fa 2+2?");
         unictest.inserisciRisposta("4",true);
@@ -98,7 +98,7 @@ public class TestNuovoQuesito {
         unictest.inserisciRisposta("sqrt(16)",true);
         unictest.inserisciRisposta("9",false);
         unictest.inserisciDifficoltà(3);
-        Map<String, Quesito> mappaQuesiti = unictest.getMappaMaterie().get("MAT01").getMappaQuesiti();
+        Map<String, QuesitoDescrizione> mappaQuesiti = unictest.getMappaMaterie().get("MAT01").getMappaQuesiti();
         int size = mappaQuesiti.size();
         unictest.confermaQuesito("p1");
         assertEquals(size+1, mappaQuesiti.size());

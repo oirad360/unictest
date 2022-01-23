@@ -1,27 +1,30 @@
 package com.ing_sw_2022.app;
 
+import sun.reflect.generics.tree.Tree;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TreeMap;
 
-public class Quesito implements Serializable {
+public class QuesitoDescrizione implements Serializable {
     private String testo;
     private int difficoltà;
     private String fonte;
     private String id;
     private Tutor tutor;
     private Visibilità visibilità;
-    private ArrayList<Risposta> risposte;
+    private TreeMap<String,Risposta> risposte;
     private static final long serialVersionUID = 1;
 
-    public Quesito(String id, Tutor tutor) {
+    public QuesitoDescrizione(String id, Tutor tutor) {
         this.id = id;
         this.tutor = tutor;
-        this.risposte = new ArrayList<>();
+        this.risposte = new TreeMap<String,Risposta>();
     }
 
     public void addRisposta(Risposta r){
-        risposte.add(r);
+        risposte.put(r.getId(),r);
     }
 
     public String getTesto() {
@@ -72,7 +75,7 @@ public class Quesito implements Serializable {
         this.visibilità = visibilità;
     }
 
-    public List<Risposta> getRisposte() {
+    public TreeMap<String,Risposta> getRisposte() {
         return risposte;
     }
 
@@ -97,7 +100,7 @@ public class Quesito implements Serializable {
         if(risposte.isEmpty()) newId = id+"-0";
         else newId = id+"-"+(Integer.parseInt(risposte.get(risposte.size()-1).getId().split("-")[2])+1);
         Risposta r = new Risposta(testo, valore, newId);
-        risposte.add(r);
+        risposte.put(r.getId(),r);
     }
 
 }

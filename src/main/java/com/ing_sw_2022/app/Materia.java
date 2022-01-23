@@ -4,12 +4,13 @@ package com.ing_sw_2022.app;
 
 import java.io.*;
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Materia implements Serializable {
     private String nome;
     private String codice;
-    private TreeMap<String,Quesito> mappaQuesiti;
-    private Quesito quesitoCorrente;
+    private TreeMap<String, QuesitoDescrizione> mappaQuesiti;
+    private QuesitoDescrizione quesitoDescrizioneCorrente;
     private static final long serialVersionUID = 1;
 
     public Materia(String nome, String codice) {
@@ -18,7 +19,7 @@ public class Materia implements Serializable {
         this.mappaQuesiti = new TreeMap<>();
     }
 
-    public void addQuesito(String id, Quesito q){
+    public void addQuesito(String id, QuesitoDescrizione q){
         mappaQuesiti.put(id, q);
     }
 
@@ -38,12 +39,12 @@ public class Materia implements Serializable {
         this.codice = codice;
     }
 
-    public Map<String, Quesito> getMappaQuesiti() {
+    public Map<String, QuesitoDescrizione> getMappaQuesiti() {
         return mappaQuesiti;
     }
 
-    public Quesito getQuesitoCorrente() {
-        return quesitoCorrente;
+    public QuesitoDescrizione getQuesitoCorrente() {
+        return quesitoDescrizioneCorrente;
     }
 
     @Override
@@ -62,30 +63,30 @@ public class Materia implements Serializable {
         if(mappaQuesiti.isEmpty()) newId = codice+"-0";
         else newId = codice+"-"+(Integer.parseInt(mappaQuesiti.lastKey().split("-")[1])+1);
 
-        Quesito q = new Quesito(newId,tutorAutenticato);
-        quesitoCorrente = q; //q diventa corrente per Materia
+        QuesitoDescrizione q = new QuesitoDescrizione(newId,tutorAutenticato);
+        quesitoDescrizioneCorrente = q; //q diventa corrente per Materia
     }
 
     public void inserisciFonte(String fonte){
-        quesitoCorrente.setFonte(fonte);
+        quesitoDescrizioneCorrente.setFonte(fonte);
     }
 
     public void inserisciTesto(String testo){
-        quesitoCorrente.setTesto(testo);
+        quesitoDescrizioneCorrente.setTesto(testo);
     }
 
     public void inserisciRisposta(String testo, boolean valore){
-        quesitoCorrente.inserisciRisposta(testo, valore);
+        quesitoDescrizioneCorrente.inserisciRisposta(testo, valore);
     }
 
     public void inserisciDifficoltà(int difficoltà){
-        quesitoCorrente.setDifficoltà(difficoltà);
+        quesitoDescrizioneCorrente.setDifficoltà(difficoltà);
     }
 
     public void confermaQuesito(Visibilità v){
-        quesitoCorrente.setVisibilità(v);
-        String idQuesitoCorrente = quesitoCorrente.getId();
-        mappaQuesiti.put(idQuesitoCorrente, quesitoCorrente);
+        quesitoDescrizioneCorrente.setVisibilità(v);
+        String idQuesitoCorrente = quesitoDescrizioneCorrente.getId();
+        mappaQuesiti.put(idQuesitoCorrente, quesitoDescrizioneCorrente);
         /*String[] nomiAttributi= new String[1];
         String fileName=UniCTest.getInstance().getContentDir()+File.separator+"Quesiti-"+codice+".txt";
         try(BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName))){
@@ -125,7 +126,42 @@ public class Materia implements Serializable {
         } catch (IOException e) {
             e.printStackTrace();
         }*/
-        quesitoCorrente = null;
+        quesitoDescrizioneCorrente = null;
     }
-
+                 ///////////////////////////UC1 AVVIA SIMULAZIONE//////////////////////
+    public List<QuesitoDescrizione> generaQuesiti(TemplatePersonalizzato tp, Sezione s) throws Exception{
+        int n=s.getNumQuesiti();
+        int difficoltà=s.getDifficoltàMedia();
+        int risposte=tp.getNumRisposte();
+        int maxCorrette=tp.getMaxRisposteCorrette();
+        int minCorrette=tp.getMinRisposteCorrette();
+        int dim=mappaQuesiti.size();
+        ArrayList<QuesitoDescrizione> listaQuesiti=new ArrayList<QuesitoDescrizione>();
+        ArrayList<Integer> oldIndex= new ArrayList<Integer>();
+        ArrayList<QuesitoDescrizione> listaQD= new ArrayList<QuesitoDescrizione>(mappaQuesiti.values());
+        if(n>dim) { throw new Exception(); }
+        while(listaQuesiti.size()<n){
+            //generazione numero random
+            int lastIndex;
+            boolean repeat=false;
+            int randomNum;
+            do{
+                randomNum = ThreadLocalRandom.current().nextInt(0, dim);
+                for(Integer i : oldIndex){
+                    if(i==randomNum) repeat=true;
+                }
+            } while(repeat); //Se esco sono riuscito a generare un numero random mai ripetuto.
+            oldIndex.add(randomNum);
+            //pesco il quesito random e ne verifico tutti i requisiti, se li rispetta lo aggiungo alla lista
+            QuesitoDescrizione qd=listaQD.get(randomNum);
+            boolean error=false;
+            if(qd.getRisposte().size()!=risposte) error=true; //Conto il numero di risposte
+            int countCorrette=0;
+            for(Risposta r: qd.getRisposte().values()) if(r.isValore()) countCorrette++; //Conto il numero di risposte vere
+            if(countCorrette>maxCorrette || countCorrette<minCorrette) error=true;
+            if(qd.getDifficoltà()!=difficoltà-1 && qd.getDifficoltà()!=difficoltà && qd.getDifficoltà()!=difficoltà+1) error=true;
+            if(!error) listaQuesiti.add(qd);
+        }
+        return listaQuesiti;
+    }
 }

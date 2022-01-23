@@ -2,6 +2,7 @@ package com.ing_sw_2022.app;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.TreeMap;
 
 public class TemplatePersonalizzato implements Serializable {
     private int id;
@@ -14,6 +15,8 @@ public class TemplatePersonalizzato implements Serializable {
     private float puntiErrata;
     private float puntiNonData;
     private ArrayList<Sezione> listaSezioni;
+    private Test testCorrente;
+    private TreeMap<String,Test> mappaTest;
     private static final long serialVersionUID = 1;
 
     public TemplatePersonalizzato(int id, String nome) {
@@ -98,12 +101,33 @@ public class TemplatePersonalizzato implements Serializable {
         return listaSezioni;
     }
 
+    /////////////////////////////////////////////METODI DCD///////////////////////////////////////////////
+
+                        ///////////////////////UC2 CREA TEMPLATE DI TEST PERSONALIZZATO///////////////////////
     public void creaSezione(Materia materia, int numQuesiti, int difficoltàMedia){
         String newId;
         if(listaSezioni.isEmpty()) newId = id+"-0";
         else newId = id+"-"+(Integer.parseInt(listaSezioni.get(listaSezioni.size()-1).getId().split("-")[1])+1);
         Sezione s = new Sezione(newId, materia, numQuesiti, difficoltàMedia);
         listaSezioni.add(s);
+    }
+
+                        ///////////////////////////UC1 AVVIA SIMULAZIONE//////////////////////////
+    public Test avviaSimulazione(){
+        String newId;
+        if(mappaTest.isEmpty()) newId = id+"-0";
+        else newId = id+"-"+(Integer.parseInt(mappaTest.lastKey().split("-")[1])+1);
+        Test t = new Test(newId,this);
+        return t;
+    }
+
+    public void selezionaRisposta(String idQuesitoReale, String idRisposta){
+        testCorrente.selezionaRisposta(idQuesitoReale, idRisposta);
+    }
+
+    public Test terminaSimulazione(){
+        testCorrente.terminaSimulazione();
+        return testCorrente;
     }
 
     @Override
