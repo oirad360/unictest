@@ -30,8 +30,8 @@ public class UniCTest implements Serializable{
                 serialize();
             }
             utenteAutenticato = unictest.getMappaUtenti().get("VRDLGI99R21C351J");
-            //RSSMRA80A01C351O
-            //VRDLGI99R21C351J
+            //RSSMRA80A01C351O --> Tutor
+            //VRDLGI99R21C351J --> Studente
         }
         return unictest;
     }

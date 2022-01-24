@@ -14,7 +14,7 @@ public class Test implements Serializable {
 	private static final long serialVersionUID = 1;
 
 
-	public Test(String id, TemplatePersonalizzato templatePersonalizzato) throws Exception {
+	public Test(String id, TemplatePersonalizzato templatePersonalizzato) throws Exception { //La costruzione del Test fallisce se non posso soddisfare i requisiti del template
 		this.id = id;
 		this.templatePersonalizzato = templatePersonalizzato;
 		this.mappaQuesiti = new TreeMap<String, QuesitoReale>();
@@ -23,7 +23,7 @@ public class Test implements Serializable {
 		for(Sezione s : listaSezioni){
 			Materia m = s.getMateria();
 			List<QuesitoDescrizione> listaQuesiti= null;
-			listaQuesiti = m.generaQuesiti(templatePersonalizzato,s);
+			listaQuesiti = m.generaQuesiti(templatePersonalizzato,s); //Questo è il potenziale punto di lancio dell'eccezione
 			for(QuesitoDescrizione qd : listaQuesiti){
 				String newId;
 				if(mappaQuesiti.isEmpty()) newId = id+"-0";

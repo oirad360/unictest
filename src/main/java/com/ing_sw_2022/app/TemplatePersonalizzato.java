@@ -119,7 +119,7 @@ public class TemplatePersonalizzato implements Serializable {
         else newId = id+"-"+(Integer.parseInt(mappaTest.lastKey().split("-")[1])+1);
         Test t = null;
         try {
-            t = new Test(newId,this);
+            t = new Test(newId,this); //Questo costruttore potrebbe lanciare un'eccezione perché non sono riuscito a creare il Test
             testCorrente=t;
         } catch (Exception e) {
             e.printStackTrace();

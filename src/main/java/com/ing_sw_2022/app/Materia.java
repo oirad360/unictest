@@ -149,7 +149,7 @@ public class Materia implements Serializable {
             int randomNum;
             do{
                 randomNum = ThreadLocalRandom.current().nextInt(0, dim);
-                for(Integer i : oldIndex){
+                for(Integer i : oldIndex){ //oldIndex contiene gli indici dei quesiti o scartati o già aggiunti
                     if(i==randomNum) {
                         repeat=true;
                         break;

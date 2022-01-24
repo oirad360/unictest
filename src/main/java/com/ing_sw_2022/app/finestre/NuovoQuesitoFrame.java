@@ -8,7 +8,7 @@ public class NuovoQuesitoFrame extends JFrame{
     private NuovoQuesitoFrame(){
         setContentPane(new VisualizzaMateriePanel());
         setTitle("Nuovo quesito");
-        setSize(450,300);
+        setSize(880,500);
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setVisible(true);
         setLocation(UniCTestFrame.getPos()+30,UniCTestFrame.getPos()+30);

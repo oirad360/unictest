@@ -14,12 +14,13 @@ public class UniCTestFrame extends JFrame{
     private JButton btnNuovoQuesito;
     private JPanel panel;
     private JButton btnNuovoTemplate;
+    private JButton btnAvviaSimulazione;
     private static UniCTestFrame unictestFrame;
-    private static final Integer pos = 200;
+    private static final Integer pos = 100;
     private UniCTestFrame(){
         setContentPane(mainPanel);
         setTitle("UniCTest");
-        setSize(450,300);
+        setSize(880,500);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
         setLocation(pos,pos);
@@ -66,6 +67,30 @@ public class UniCTestFrame extends JFrame{
                     {
                         btnNuovoTemplate.setEnabled(true);
                         NuovoTemplatePersFrame.destroyInstance();
+                    }
+                });
+            }
+        });
+
+        btnAvviaSimulazione.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                AvviaSimulazioneFrame avviaSimulazioneFrame = AvviaSimulazioneFrame.getInstance();
+                btnAvviaSimulazione.setEnabled(false);
+
+                avviaSimulazioneFrame.addWindowListener(new WindowAdapter()
+                {
+                    @Override
+                    public void windowClosing(WindowEvent e)
+                    {
+                        btnAvviaSimulazione.setEnabled(true);
+                        AvviaSimulazioneFrame.destroyInstance();
+                    }
+                    @Override
+                    public void windowClosed(WindowEvent e)
+                    {
+                        btnAvviaSimulazione.setEnabled(true);
+                        AvviaSimulazioneFrame.destroyInstance();
                     }
                 });
             }

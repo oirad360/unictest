@@ -8,7 +8,7 @@ public class NuovoTemplatePersFrame extends  JFrame{
     private NuovoTemplatePersFrame(){
         setContentPane(new NuovoTemplatePersPanel().getMainPanel());
         setTitle("Crea template personalizzato");
-        setSize(450,300);
+        setSize(880,500);
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setVisible(true);
         setLocation(UniCTestFrame.getPos()+25,UniCTestFrame.getPos()+35);
