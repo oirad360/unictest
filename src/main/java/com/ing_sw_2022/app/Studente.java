@@ -98,10 +98,10 @@ public class Studente extends Utente /*implements Serializable*/ {
         ArrayList<TemplatePersonalizzato> listaTemplate = new ArrayList<TemplatePersonalizzato>(mappaTemplatePersonalizzati.values());
         return listaTemplate;
     }
-    public Test avviaSimulazione(String idTemplate){
+    public Test avviaSimulazione(int idTemplate){
         TemplatePersonalizzato tp=mappaTemplatePersonalizzati.get(idTemplate);
-        Test t = tp.avviaSimulazione();
         templateSelezionato=tp;
+        Test t = tp.avviaSimulazione();
         return t;
     }
 

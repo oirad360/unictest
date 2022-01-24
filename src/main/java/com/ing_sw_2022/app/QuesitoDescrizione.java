@@ -80,7 +80,7 @@ public class QuesitoDescrizione implements Serializable {
 
     @Override
     public String toString() {
-        return "Quesito{" +
+        return "QuesitoDescrizione{" +
                 "testo='" + testo + "'\n" +
                 "difficoltà='" + difficoltà + "'\n" +
                 "fonte='" + fonte + "'\n" +

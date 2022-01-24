@@ -22,8 +22,7 @@ public class Test implements Serializable {
 		ArrayList<Sezione> listaSezioni = templatePersonalizzato.getListaSezioni();
 		for(Sezione s : listaSezioni){
 			Materia m = s.getMateria();
-			List<QuesitoDescrizione> listaQuesiti= null;
-			listaQuesiti = m.generaQuesiti(templatePersonalizzato,s); //Questo è il potenziale punto di lancio dell'eccezione
+			List<QuesitoDescrizione> listaQuesiti = m.generaQuesiti(templatePersonalizzato,s); //Questo è il potenziale punto di lancio dell'eccezione
 			for(QuesitoDescrizione qd : listaQuesiti){
 				String newId;
 				if(mappaQuesiti.isEmpty()) newId = id+"-0";
@@ -57,6 +56,17 @@ public class Test implements Serializable {
 	public TreeMap<String, QuesitoReale> getMappaQuesiti() {
 		return mappaQuesiti;
 	}
+
+	@Override
+	public String toString() {
+		return "Test{" +
+				"id='" + id + '\'' +
+				", punteggioComplessivo=" + punteggioComplessivo +
+				", templatePersonalizzato=" + templatePersonalizzato.getNome() +
+				", mappaQuesiti=" + mappaQuesiti +
+				'}';
+	}
+
 	/////////////////////////////////////////////////METODI DCD/////////////////////////////////////////////
 
 									////////////////////UC1 AVVIA SIMULAZIONE/////////////////////

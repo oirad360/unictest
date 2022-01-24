@@ -158,7 +158,7 @@ public class UniCTest implements Serializable{
         return lista;
     }
 
-    public Test avviaSimulazione(String idTemplate){
+    public Test avviaSimulazione(int idTemplate){
         Test t =((Studente)utenteAutenticato).avviaSimulazione(idTemplate);
         return t;
     }

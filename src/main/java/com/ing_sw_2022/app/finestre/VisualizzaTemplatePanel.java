@@ -1,6 +1,7 @@
 package com.ing_sw_2022.app.finestre;
 
 import com.ing_sw_2022.app.TemplatePersonalizzato;
+import com.ing_sw_2022.app.Test;
 import com.ing_sw_2022.app.UniCTest;
 
 import javax.swing.*;
@@ -20,13 +21,12 @@ public class VisualizzaTemplatePanel implements ActionListener {
 
         UniCTest uniCTest = UniCTest.getInstance();
         ArrayList<TemplatePersonalizzato> listaTemplate = uniCTest.visualizzaTemplate();
-        for(TemplatePersonalizzato tp : listaTemplate){
 
+        for(TemplatePersonalizzato tp : listaTemplate){
             JButton btnTemplate = new JButton(tp.getNome());
             btnTemplate.setName(String.valueOf(tp.getId()));
             btnTemplate.setAlignmentX(Component.CENTER_ALIGNMENT);
             btnTemplate.addActionListener(this);
-
             buttonsContainer.add(btnTemplate, c);
         }
     }
@@ -37,12 +37,12 @@ public class VisualizzaTemplatePanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        //esegue il metodo nuovoQuesito di unictest e apre la nuova panel per il metodo inserisciFonte
         UniCTest unictest = UniCTest.getInstance();
         AvviaSimulazioneFrame avviaSimulazioneFrame = AvviaSimulazioneFrame.getInstance();
-        String idTemplate=((JButton)e.getSource()).getName(); //prende il nome del bottone, cioè l'id del template
-        unictest.avviaSimulazione(idTemplate);
-        avviaSimulazioneFrame.setContentPane(new InserisciFontePanel().getMainPanel());
-        avviaSimulazioneFrame.revalidate(); //serve per far comparire la nuova panel, altrimenti compare solo dopo aver ridimensionato la finestra (boh)
+        int idTemplate=Integer.parseInt(((JButton)e.getSource()).getName());
+        Test t=unictest.avviaSimulazione(idTemplate);
+        if(t==null) System.out.println("impossibile avviare il test con template "+idTemplate);
+        avviaSimulazioneFrame.setContentPane(new AvviaSimulazionePanel(t).getMainPanel());
+        avviaSimulazioneFrame.revalidate();
     }
 }

@@ -145,9 +145,10 @@ public class Materia implements Serializable {
         while(listaQuesiti.size()<n){
             if(dim-oldIndex.size()<n-listaQuesiti.size()) throw new Exception(); //se il numero di quesiti che ho ancora a disposizione è inferiore al numero di quesiti mancanti lancio un'eccezione
             //generazione numero random
-            boolean repeat=false;
+            boolean repeat;
             int randomNum;
             do{
+                repeat=false;
                 randomNum = ThreadLocalRandom.current().nextInt(0, dim);
                 for(Integer i : oldIndex){ //oldIndex contiene gli indici dei quesiti o scartati o già aggiunti
                     if(i==randomNum) {

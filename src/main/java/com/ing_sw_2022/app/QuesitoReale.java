@@ -38,6 +38,14 @@ public class QuesitoReale implements Serializable {
 		this.quesitoDescrizione = quesitoDescrizione;
 	}
 
+	@Override
+	public String toString() {
+		return "QuesitoReale{" +
+				"id='" + id + '\'' +
+				", risposteDate=" + risposteDate +
+				", quesitoDescrizione=" + quesitoDescrizione +
+				'}';
+	}
 
 	/////////////////////////////////////////////METODI DCD///////////////////////////////////////////////
 	        ////////////////////UC1 AVVIA SIMULAZIONE/////////////////////

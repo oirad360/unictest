@@ -23,6 +23,7 @@ public class TemplatePersonalizzato implements Serializable {
         this.id = id;
         this.nome = nome;
         listaSezioni = new ArrayList<Sezione>();
+        mappaTest = new TreeMap<String,Test>();
     }
 
     public int getId() {
