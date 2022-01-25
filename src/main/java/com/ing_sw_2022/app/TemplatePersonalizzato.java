@@ -102,6 +102,10 @@ public class TemplatePersonalizzato implements Serializable {
         return listaSezioni;
     }
 
+    public Test getTestCorrente() {
+        return testCorrente;
+    }
+
     /////////////////////////////////////////////METODI DCD///////////////////////////////////////////////
 
                         ///////////////////////UC2 CREA TEMPLATE DI TEST PERSONALIZZATO///////////////////////
@@ -134,6 +138,7 @@ public class TemplatePersonalizzato implements Serializable {
 
     public Test terminaSimulazione(){
         testCorrente.terminaSimulazione();
+        mappaTest.put(testCorrente.getId(), testCorrente);
         return testCorrente;
     }
 

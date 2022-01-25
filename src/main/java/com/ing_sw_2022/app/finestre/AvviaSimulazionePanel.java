@@ -5,22 +5,42 @@ import com.ing_sw_2022.app.Test;
 import com.ing_sw_2022.app.UniCTest;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 public class AvviaSimulazionePanel implements ActionListener {
     private JPanel mainPanel;
     private JTabbedPane tabbedPane;
     private JButton btnConsegna;
-    private int counter;
+    private JLabel timeLabel;
+    private int totalTime;
+    private Timer timer = new Timer(1000, new ActionListener() {
+
+        public void actionPerformed(ActionEvent e) {
+            //hh:mm:ss
+            timeLabel.setText(String.format("%02d",(totalTime/3600) % 24)+":"+String.format("%02d", (totalTime/60) % 60)+":"+String.format("%02d",totalTime%60));
+            totalTime--;
+            if(totalTime==-1) {
+                timer.stop();
+                btnConsegna.doClick();
+            }
+        }
+
+    });
 
     public AvviaSimulazionePanel(Test test){
-        counter=1;
-        UniCTest unictest = UniCTest.getInstance();
         for(QuesitoReale qr : test.getMappaQuesiti().values()){
-            tabbedPane.addTab(String.valueOf(counter),new TabQuesitoPanel(qr).getMainPanel());
-            counter++;
+            int index = Integer.parseInt(qr.getId().split("-")[2])+1;
+            tabbedPane.addTab(String.valueOf(index),new TabQuesitoPanel(qr).getMainPanel());
         }
+        btnConsegna.addActionListener(this);
+        totalTime=test.getTemplatePersonalizzato().getTempoMedio()*test.getMappaQuesiti().size()*60;
+        timer.start();
+        AvviaSimulazioneFrame.getInstance().addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                timer.stop();
+            }
+        });
     }
 
     public JPanel getMainPanel(){
@@ -29,6 +49,9 @@ public class AvviaSimulazionePanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        timer.stop();
+        Test t= UniCTest.getInstance().terminaSimulazione();
+        AvviaSimulazioneFrame.getInstance().setContentPane(new TestCorrettoPanel(t).getMainPanel());
+        AvviaSimulazioneFrame.getInstance().revalidate();
     }
 }

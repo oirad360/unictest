@@ -49,10 +49,6 @@ public class Test implements Serializable {
 		return templatePersonalizzato;
 	}
 
-	public void setTemplatePersonalizzato(TemplatePersonalizzato templatePersonalizzato) {
-		this.templatePersonalizzato = templatePersonalizzato;
-	}
-
 	public TreeMap<String, QuesitoReale> getMappaQuesiti() {
 		return mappaQuesiti;
 	}

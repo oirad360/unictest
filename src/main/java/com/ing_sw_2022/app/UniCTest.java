@@ -60,11 +60,9 @@ public class UniCTest implements Serializable{
         try {
             OutputStream fout = new FileOutputStream("ser.txt");
             ObjectOutput oout = new ObjectOutputStream(fout);
-            System.out.println("Serialization process has started, serializing objects...");
             oout.writeObject(unictest);
             fout.close();
             oout.close();
-            System.out.println("Object Serialization completed.");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -74,7 +72,6 @@ public class UniCTest implements Serializable{
         try {
             InputStream fin=new FileInputStream("ser.txt");
             ObjectInput oin=new ObjectInputStream(fin);
-            System.out.println("\nDeSerialization process has started, displaying objects...");
             unictest=(UniCTest) oin.readObject();
             System.out.println(unictest);
             fin.close();
@@ -129,7 +126,7 @@ public class UniCTest implements Serializable{
         for(Materia m: mappaMaterie.values()){
             System.out.println(m.getMappaQuesiti());
         }
-        unictest.serialize();
+        serialize();
     }
 
                         ////////////////////UC2 CREA TEMPLATE DI TEST PERSONALIZZATO/////////////////////
@@ -151,6 +148,7 @@ public class UniCTest implements Serializable{
 
     public void confermaTemplate(){
         ((Studente)utenteAutenticato).confermaTemplate();
+        serialize();
     }
                         ////////////////////UC1 AVVIA SIMULAZIONE/////////////////////
     public ArrayList<TemplatePersonalizzato> visualizzaTemplate(){
@@ -169,6 +167,7 @@ public class UniCTest implements Serializable{
 
     public Test terminaSimulazione(){
         Test t = ((Studente)utenteAutenticato).terminaSimulazione();
+        serialize();
         return t;
     }
 

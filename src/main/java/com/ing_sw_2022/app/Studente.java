@@ -54,6 +54,10 @@ public class Studente extends Utente /*implements Serializable*/ {
         return templateCorrente;
     }
 
+    public TemplatePersonalizzato getTemplateSelezionato() {
+        return templateSelezionato;
+    }
+
     @Override
     public String toString() {
         return "Tutor{" +
@@ -89,7 +93,6 @@ public class Studente extends Utente /*implements Serializable*/ {
     public void confermaTemplate(){
         mappaTemplatePersonalizzati.put(templateCorrente.getId(),templateCorrente);
         templateCorrente=null;
-        UniCTest.getInstance().serialize();
         System.out.println(mappaTemplatePersonalizzati);
     }
 
