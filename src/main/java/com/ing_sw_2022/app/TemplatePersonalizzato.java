@@ -144,17 +144,17 @@ public class TemplatePersonalizzato implements Serializable {
 
     @Override
     public String toString() {
-        return "TemplatePersonalizzato{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", tempoMedio=" + tempoMedio +
-                ", numRisposte=" + numRisposte +
-                ", minRisposteCorrette=" + minRisposteCorrette +
-                ", maxRisposteCorrette=" + maxRisposteCorrette +
-                ", puntiCorretta=" + puntiCorretta +
-                ", puntiErrata=" + puntiErrata +
-                ", puntiNonData=" + puntiNonData +
-                ", listaSezioni=" + listaSezioni +
+        return "TemplatePersonalizzato{" +"\n"+
+                "id=" + id +"\n"+
+                ", nome='" + nome + "\n"+
+                ", tempoMedio=" + tempoMedio +"\n"+
+                ", numRisposte=" + numRisposte +"\n"+
+                ", minRisposteCorrette=" + minRisposteCorrette +"\n"+
+                ", maxRisposteCorrette=" + maxRisposteCorrette +"\n"+
+                ", puntiCorretta=" + puntiCorretta +"\n"+
+                ", puntiErrata=" + puntiErrata +"\n"+
+                ", puntiNonData=" + puntiNonData +"\n"+
+                ", listaSezioni=" + listaSezioni +"\n"+
                 '}';
     }
 }

@@ -1,25 +1,27 @@
 package com.ing_sw_2022.app;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Order;
 
 import java.util.Map;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class TestNuovoQuesito {
+class TestNuovoQuesito {
 
-    private static UniCTest unictest;
+    static UniCTest unictest;
 
-    @BeforeClass
-    public static void initTest() {
+    @BeforeAll
+    static void initTest() {
         unictest = UniCTest.getInstance();
         unictest.setUtenteAutenticato("RSSMRA80A01C351O"); //autentico un tutor
     }
 
 
     @Test
-    public void testVisualizzaMaterieInsegnate() {
+    void testVisualizzaMaterieInsegnate() {
+        System.out.println("1");
         //Visualizza materie restituisce la lista di Materie insegnate dal tutor autenticato
         //Verifichiamo che tale lista non sia null
         assertNotNull(unictest.visualizzaMaterieInsegnate());
@@ -28,66 +30,77 @@ public class TestNuovoQuesito {
     }
 
     @Test
-    public void testNuovoQuesito() {
+    void testNuovoQuesito() {
+        System.out.println("2");
         unictest.nuovoQuesito("MAT01");
         assertNotNull(unictest.getMateriaCorrente());
         assertNotNull(unictest.getMateriaCorrente().getQuesitoCorrente());
+
     }
 
     @Test
-    public void testInserisciFonte() {
-        unictest.nuovoQuesito("MAT01");
-        Materia materiaCorrente = unictest.getMateriaCorrente();
-        assertNotNull(materiaCorrente);
-        QuesitoDescrizione quesitoDescrizioneCorrente = materiaCorrente.getQuesitoCorrente();
-        assertNotNull(quesitoDescrizioneCorrente);
+    void testInserisciFonte() {
+        System.out.println("3");
+        //unictest.nuovoQuesito("MAT01");
+        //Materia materiaCorrente = unictest.getMateriaCorrente();
+        //assertNotNull(materiaCorrente);
+        //QuesitoDescrizione quesitoDescrizioneCorrente = materiaCorrente.getQuesitoCorrente();
+        //assertNotNull(quesitoDescrizioneCorrente);
         unictest.inserisciFonte("MIUR");
         //Visualizza che la fonte del quesitoCorrente non sia null
-        assertNotNull(quesitoDescrizioneCorrente.getFonte());
+        assertNotNull(unictest.getMateriaCorrente().getQuesitoCorrente().getFonte());
+
     }
 
     @Test
-    public void testInserisciTesto(){
-        unictest.nuovoQuesito("MAT01");
+    void testInserisciTesto(){
+        System.out.println("4");
+        /*unictest.nuovoQuesito("MAT01");
         Materia materiaCorrente = unictest.getMateriaCorrente();
         assertNotNull(materiaCorrente);
         QuesitoDescrizione quesitoDescrizioneCorrente = materiaCorrente.getQuesitoCorrente();
-        assertNotNull(quesitoDescrizioneCorrente);
+        assertNotNull(quesitoDescrizioneCorrente);*/
         unictest.inserisciTesto("Quanto fa 2+2?");
         //Visualizza che il testo del quesitoCorrente non sia null
-        assertNotNull(quesitoDescrizioneCorrente.getTesto());
+        assertNotNull(unictest.getMateriaCorrente().getQuesitoCorrente().getTesto());
+
     }
 
     @Test
-    public void testInserisciDifficoltà(){
-        unictest.nuovoQuesito("MAT01");
+    void testInserisciDifficoltà(){
+        System.out.println("5");
+        /*unictest.nuovoQuesito("MAT01");
         Materia materiaCorrente = unictest.getMateriaCorrente();
         assertNotNull(materiaCorrente);
         QuesitoDescrizione quesitoDescrizioneCorrente = materiaCorrente.getQuesitoCorrente();
-        assertNotNull(quesitoDescrizioneCorrente);
+        assertNotNull(quesitoDescrizioneCorrente);*/
         unictest.inserisciDifficoltà(3);
         //Visualizza che la difficoltà del quesitoCorrente non sia null
-        assertNotNull(quesitoDescrizioneCorrente.getDifficoltà());
+        assertNotNull(unictest.getMateriaCorrente().getQuesitoCorrente().getDifficoltà());
+
     }
 
     @Test
-    public void testInserisciRisposte(){
-        unictest.nuovoQuesito("MAT01");
+    void testInserisciRisposte(){
+        System.out.println("6");
+        /*unictest.nuovoQuesito("MAT01");
         Materia materiaCorrente = unictest.getMateriaCorrente();
         assertNotNull(materiaCorrente);
         QuesitoDescrizione quesitoDescrizioneCorrente = materiaCorrente.getQuesitoCorrente();
-        assertNotNull(quesitoDescrizioneCorrente);
+        assertNotNull(quesitoDescrizioneCorrente);*/
         unictest.inserisciRisposta("4",true);
         unictest.inserisciRisposta("5",false);
         unictest.inserisciRisposta("sqrt(16)",true);
         unictest.inserisciRisposta("9",false);
         //Visualizza che la lista delle rispsote del quesitoCorrente non sia null
-        assertEquals(4, quesitoDescrizioneCorrente.getRisposte().size());
+        assertEquals(4, unictest.getMateriaCorrente().getQuesitoCorrente().getRisposte().size());
+
     }
 
     @Test
-    public void testConfermaQuesito(){
-        unictest.nuovoQuesito("MAT01");
+    void testConfermaQuesito(){
+        System.out.println("7");
+        /*unictest.nuovoQuesito("MAT01");
         Materia materiaCorrente = unictest.getMateriaCorrente();
         assertNotNull(materiaCorrente);
         QuesitoDescrizione quesitoDescrizioneCorrente = materiaCorrente.getQuesitoCorrente();
@@ -98,7 +111,7 @@ public class TestNuovoQuesito {
         unictest.inserisciRisposta("5",false);
         unictest.inserisciRisposta("sqrt(16)",true);
         unictest.inserisciRisposta("9",false);
-        unictest.inserisciDifficoltà(3);
+        unictest.inserisciDifficoltà(3);*/
         Map<String, QuesitoDescrizione> mappaQuesiti = unictest.getMappaMaterie().get("MAT01").getMappaQuesiti();
         int size = mappaQuesiti.size();
         unictest.confermaQuesito("p1");

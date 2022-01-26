@@ -41,8 +41,9 @@ public class VisualizzaTemplatePanel implements ActionListener {
         AvviaSimulazioneFrame avviaSimulazioneFrame = AvviaSimulazioneFrame.getInstance();
         int idTemplate=Integer.parseInt(((JButton)e.getSource()).getName());
         Test t=unictest.avviaSimulazione(idTemplate);
-        if(t==null) System.out.println("impossibile avviare il test con template "+idTemplate);
-        avviaSimulazioneFrame.setContentPane(new AvviaSimulazionePanel(t).getMainPanel());
-        avviaSimulazioneFrame.revalidate();
+        if(t!=null) {
+            avviaSimulazioneFrame.setContentPane(new AvviaSimulazionePanel(t).getMainPanel());
+            avviaSimulazioneFrame.revalidate();
+        }
     }
 }

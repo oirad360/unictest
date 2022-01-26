@@ -55,11 +55,11 @@ public class Test implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Test{" +
-				"id='" + id + '\'' +
-				", punteggioComplessivo=" + punteggioComplessivo +
-				", templatePersonalizzato=" + templatePersonalizzato.getNome() +
-				", mappaQuesiti=" + mappaQuesiti +
+		return "Test{" +"\n"+
+				"id='" + id + "\n"+
+				", punteggioComplessivo=" + punteggioComplessivo +"\n"+
+				", templatePersonalizzato=" + templatePersonalizzato.getNome() +"\n"+
+				", mappaQuesiti=" + mappaQuesiti +"\n"+
 				'}';
 	}
 

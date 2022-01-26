@@ -1,18 +1,16 @@
 package com.ing_sw_2022.app;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
-
 import java.util.List;
 
-
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestCreaTemplatePers {
 
     private static UniCTest unictest;
 
-    @BeforeClass
+    @BeforeAll
     public static void initTest() {
         unictest = UniCTest.getInstance();
         unictest.setUtenteAutenticato("VRDLGI99R21C351J"); //autentico uno studente
@@ -93,12 +91,12 @@ public class TestCreaTemplatePers {
         assertEquals(1,tp.getTempoMedio());
         int i=0;
         for(Materia m : listaMaterie){
-            unictest.creaSezione(m.getCodice(),10,3);
+            unictest.creaSezione(m.getCodice(),2,3);
             Sezione s = tp.getListaSezioni().get(i);
             assertNotNull(tp.getListaSezioni());
             assertEquals(tp.getListaSezioni().size(),i+1);
             assertEquals(s.getMateria(),unictest.getMappaMaterie().get(m.getCodice()));
-            assertEquals(s.getNumQuesiti(),10);
+            assertEquals(s.getNumQuesiti(),2);
             assertEquals(s.getDifficoltàMedia(),3);
             i++;
         }
