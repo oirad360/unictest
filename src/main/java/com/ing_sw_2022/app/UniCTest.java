@@ -20,15 +20,13 @@ public class UniCTest implements Serializable{
         loadMaterie();
         loadVisibilità();
         loadUtenti();
+        serialize();
     }
 
     public static UniCTest getInstance() {
         if (unictest == null) {
             int res=deserialize();
-            if(res==0){
-                unictest = new UniCTest();
-                serialize();
-            }
+            if(res==0) unictest = new UniCTest();
             utenteAutenticato = unictest.getMappaUtenti().get("VRDLGI99R21C351J");
             //RSSMRA80A01C351O --> Tutor
             //VRDLGI99R21C351J --> Studente
@@ -56,11 +54,11 @@ public class UniCTest implements Serializable{
         return utenteAutenticato;
     }
 
-    public static void serialize(){
+    public void serialize(){
         try {
             OutputStream fout = new FileOutputStream("ser.txt");
             ObjectOutput oout = new ObjectOutputStream(fout);
-            oout.writeObject(unictest);
+            oout.writeObject(this);
             fout.close();
             oout.close();
         } catch (IOException e) {
@@ -90,6 +88,10 @@ public class UniCTest implements Serializable{
             return -1;
         }
     }
+
+    public void setUtenteAutenticato(String cf){
+        utenteAutenticato=getMappaUtenti().get(cf);
+    } //MOMENTANEO
 
     /////////////////////////////////////////////METODI DCD///////////////////////////////////////////////
                      ////////////////////UC7 INSERISCI QUESITO/////////////////////
@@ -123,10 +125,6 @@ public class UniCTest implements Serializable{
         Visibilità v = mappaVisibilità.get(codiceVisibilità);
         materiaCorrente.confermaQuesito(v);
         materiaCorrente = null;
-        for(Materia m: mappaMaterie.values()){
-            System.out.println(m.getMappaQuesiti());
-        }
-        serialize();
     }
 
                         ////////////////////UC2 CREA TEMPLATE DI TEST PERSONALIZZATO/////////////////////
@@ -148,7 +146,6 @@ public class UniCTest implements Serializable{
 
     public void confermaTemplate(){
         ((Studente)utenteAutenticato).confermaTemplate();
-        serialize();
     }
                         ////////////////////UC1 AVVIA SIMULAZIONE/////////////////////
     public ArrayList<TemplatePersonalizzato> visualizzaTemplate(){
@@ -167,7 +164,6 @@ public class UniCTest implements Serializable{
 
     public Test terminaSimulazione(){
         Test t = ((Studente)utenteAutenticato).terminaSimulazione();
-        serialize();
         return t;
     }
 

@@ -43,6 +43,7 @@ public class ConfermaQuesitoPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         UniCTest.getInstance().confermaQuesito(textField.getText());
+        UniCTest.getInstance().serialize();
         NuovoQuesitoFrame.getInstance().dispose();
     }
 }

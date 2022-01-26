@@ -93,7 +93,6 @@ public class Studente extends Utente /*implements Serializable*/ {
     public void confermaTemplate(){
         mappaTemplatePersonalizzati.put(templateCorrente.getId(),templateCorrente);
         templateCorrente=null;
-        System.out.println(mappaTemplatePersonalizzati);
     }
 
                ////////////////////UC1 AVVIA SIMULAZIONE/////////////////////

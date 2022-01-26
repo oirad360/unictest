@@ -22,6 +22,7 @@ public class CreaSezionePanel implements ActionListener {
     private JButton buttonConferma;
     private Integer counter;
     private List<Materia> listaMaterie;
+
     public CreaSezionePanel(final List<Materia> listaMaterie){
         this.listaMaterie=listaMaterie;
         counter=0;
@@ -66,6 +67,7 @@ public class CreaSezionePanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         UniCTest.getInstance().confermaTemplate();
+        UniCTest.getInstance().serialize();
         NuovoTemplatePersFrame.getInstance().dispose();
     }
 

@@ -14,6 +14,7 @@ public class TestNuovoQuesito {
     @BeforeClass
     public static void initTest() {
         unictest = UniCTest.getInstance();
+        unictest.setUtenteAutenticato("RSSMRA80A01C351O"); //autentico un tutor
     }
 
 

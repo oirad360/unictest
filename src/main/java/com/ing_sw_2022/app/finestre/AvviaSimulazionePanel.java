@@ -13,19 +13,7 @@ public class AvviaSimulazionePanel implements ActionListener {
     private JButton btnConsegna;
     private JLabel timeLabel;
     private int totalTime;
-    private Timer timer = new Timer(1000, new ActionListener() {
-
-        public void actionPerformed(ActionEvent e) {
-            //hh:mm:ss
-            timeLabel.setText(String.format("%02d",(totalTime/3600) % 24)+":"+String.format("%02d", (totalTime/60) % 60)+":"+String.format("%02d",totalTime%60));
-            totalTime--;
-            if(totalTime==-1) {
-                timer.stop();
-                btnConsegna.doClick();
-            }
-        }
-
-    });
+    private Timer timer;
 
     public AvviaSimulazionePanel(Test test){
         for(QuesitoReale qr : test.getMappaQuesiti().values()){
@@ -34,6 +22,19 @@ public class AvviaSimulazionePanel implements ActionListener {
         }
         btnConsegna.addActionListener(this);
         totalTime=test.getTemplatePersonalizzato().getTempoMedio()*test.getMappaQuesiti().size()*60;
+        timer = new Timer(1000, new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                //hh:mm:ss
+                timeLabel.setText(String.format("%02d",(totalTime/3600) % 24)+":"+String.format("%02d", (totalTime/60) % 60)+":"+String.format("%02d",totalTime%60));
+                totalTime--;
+                if(totalTime==-1) {
+                    timer.stop();
+                    btnConsegna.doClick();
+                }
+            }
+
+        });
         timer.start();
         AvviaSimulazioneFrame.getInstance().addWindowListener(new WindowAdapter() {
             @Override
@@ -51,6 +52,7 @@ public class AvviaSimulazionePanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         timer.stop();
         Test t= UniCTest.getInstance().terminaSimulazione();
+        UniCTest.getInstance().serialize();
         AvviaSimulazioneFrame.getInstance().setContentPane(new TestCorrettoPanel(t).getMainPanel());
         AvviaSimulazioneFrame.getInstance().revalidate();
     }

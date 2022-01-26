@@ -15,6 +15,7 @@ public class TestCreaTemplatePers {
     @BeforeClass
     public static void initTest() {
         unictest = UniCTest.getInstance();
+        unictest.setUtenteAutenticato("VRDLGI99R21C351J"); //autentico uno studente
     }
 
 

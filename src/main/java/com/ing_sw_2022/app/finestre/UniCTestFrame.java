@@ -108,7 +108,7 @@ public class UniCTestFrame extends JFrame{
         UniCTest unictest = UniCTest.getInstance(); //esegue il caso d'uso di avviamento
         System.out.println(unictest.getMappaMaterie().get("MAT01").getMappaQuesiti());
         System.out.println(unictest.getMappaMaterie().get("ITA02").getMappaQuesiti());
-        System.out.println(((Studente)unictest.getMappaUtenti().get("VRDLGI99R21C351J")).getMappaTemplatePersonalizzati().get(2));
+        System.out.println(((Studente)unictest.getMappaUtenti().get("VRDLGI99R21C351J")).getMappaTemplatePersonalizzati());
         System.out.println("/////////////////////////////////////////////////////////");
         System.out.println("/////////////////////////////////////////////////////////");
         System.out.println("/////////////////////////////////////////////////////////");
