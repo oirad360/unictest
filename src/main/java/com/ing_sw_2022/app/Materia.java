@@ -161,14 +161,17 @@ public class Materia implements Serializable {
             //pesco il quesito random e ne verifico tutti i requisiti, se li rispetta lo aggiungo alla lista
             QuesitoDescrizione qd=listaQD.get(randomNum);
             boolean error=false;
-            if(qd.getRisposte().size()!=risposte) error=true; //Conto il numero di risposte
+            if(qd.getVisibilità().getCodice()!="p3") error = true;
             if(!error){
-                if(qd.getDifficoltà()!=difficoltà-1 && qd.getDifficoltà()!=difficoltà && qd.getDifficoltà()!=difficoltà+1) error=true;
+                if(qd.getRisposte().size()!=risposte) error=true; //Conto il numero di risposte
                 if(!error){
-                    int countCorrette=0;
-                    for(Risposta r: qd.getRisposte().values()) if(r.isValore()) countCorrette++; //Conto il numero di risposte vere
-                    if(countCorrette>maxCorrette || countCorrette<minCorrette) error=true;
-                    if(!error) listaQuesiti.add(qd);
+                    if(qd.getDifficoltà()!=difficoltà-1 && qd.getDifficoltà()!=difficoltà && qd.getDifficoltà()!=difficoltà+1) error=true;
+                    if(!error){
+                        int countCorrette=0;
+                        for(Risposta r: qd.getRisposte().values()) if(r.isValore()) countCorrette++; //Conto il numero di risposte vere
+                        if(countCorrette>maxCorrette || countCorrette<minCorrette) error=true;
+                        if(!error) listaQuesiti.add(qd);
+                    }
                 }
             }
         }
