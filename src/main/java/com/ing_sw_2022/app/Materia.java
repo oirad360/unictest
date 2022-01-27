@@ -57,13 +57,13 @@ public class Materia implements Serializable {
 
     /////////////////////////////////////////////METODI DCD///////////////////////////////////////////////
                         ////////////////////UC7 INSERISCI QUESITO/////////////////////
-    public void nuovoQuesito(Tutor tutorAutenticato){
+    public void nuovoQuesito(Tutor t){
         //Setting id quesito
         String newId;
         if(mappaQuesiti.isEmpty()) newId = codice+"-0";
         else newId = codice+"-"+(Integer.parseInt(mappaQuesiti.lastKey().split("-")[1])+1);
 
-        QuesitoDescrizione q = new QuesitoDescrizione(newId,tutorAutenticato);
+        QuesitoDescrizione q = new QuesitoDescrizione(newId,t);
         quesitoDescrizioneCorrente = q; //q diventa corrente per Materia
     }
 

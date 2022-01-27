@@ -27,7 +27,7 @@ public class UniCTest implements Serializable{
         if (unictest == null) {
             int res=deserialize();
             if(res==0) unictest = new UniCTest();
-            utenteAutenticato = unictest.getMappaUtenti().get("VRDLGI99R21C351J");
+            utenteAutenticato = unictest.getMappaUtenti().get("RSSMRA80A01C351O");
             //RSSMRA80A01C351O --> Tutor
             //VRDLGI99R21C351J --> Studente
         }
@@ -95,35 +95,32 @@ public class UniCTest implements Serializable{
     /////////////////////////////////////////////METODI DCD///////////////////////////////////////////////
                      ////////////////////UC7 INSERISCI QUESITO/////////////////////
     public List<Materia> visualizzaMaterieInsegnate(){
-        return ((Tutor) utenteAutenticato).getMaterieInsegnate();
+        return ((Tutor)utenteAutenticato).getMaterieInsegnate();
     }
 
     public void nuovoQuesito(String codiceMateria){
-        Materia m = mappaMaterie.get(codiceMateria);
-        materiaCorrente = m; //m diventa corrente per UniCTest
-        m.nuovoQuesito((Tutor)utenteAutenticato);
+        ((Tutor)utenteAutenticato).nuovoQuesito(codiceMateria);
     }
 
     public void inserisciFonte(String fonte){
-        materiaCorrente.inserisciFonte(fonte);
+        ((Tutor)utenteAutenticato).inserisciFonte(fonte);
     }
 
     public void inserisciTesto(String testo){
-        materiaCorrente.inserisciTesto(testo);
+        ((Tutor)utenteAutenticato).inserisciTesto(testo);
     }
 
     public void inserisciRisposta(String testo, boolean valore){
-        materiaCorrente.inserisciRisposta(testo, valore);
+        ((Tutor)utenteAutenticato).inserisciRisposta(testo, valore);
     }
 
     public void inserisciDifficoltà(int difficoltà){
-        materiaCorrente.inserisciDifficoltà(difficoltà);
+        ((Tutor)utenteAutenticato).inserisciDifficoltà(difficoltà);
     }
 
     public void confermaQuesito(String codiceVisibilità){
         Visibilità v = mappaVisibilità.get(codiceVisibilità);
-        materiaCorrente.confermaQuesito(v);
-        materiaCorrente = null;
+        ((Tutor)utenteAutenticato).confermaQuesito(v);
     }
 
                         ////////////////////UC2 CREA TEMPLATE DI TEST PERSONALIZZATO/////////////////////
