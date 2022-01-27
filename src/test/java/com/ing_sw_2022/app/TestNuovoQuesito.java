@@ -45,7 +45,6 @@ class TestNuovoQuesito {
         //Visualizza che la fonte del quesitoCorrente non sia null
         assertNotNull(unictest.getMateriaCorrente().getQuesitoCorrente().getFonte());
         assertEquals(unictest.getMateriaCorrente().getQuesitoCorrente().getFonte(),"MIUR");
-
     }
 
     @Test

@@ -57,7 +57,7 @@ class TestAvviaSimulazione {
             assertEquals(e.getMessage(),"la materia "+m.getNome()+" contiene solo "+m.getMappaQuesiti().size()+" quesiti contro i "+800+" richiesti");
             assertNull(t);
         }
-
+        mappaTemplate.remove(mappaTemplate.lastKey());
         //creo un template che richiede quesiti con 100 risposte (mi aspetto che l'avvio della simulazione fallisca)
         unictest.nuovoTemplate("Test template personalizzato");
         unictest.inserisciInfoTemplate((float)1.0,(float)0.0,(float)0.0,100,1,2,1);
@@ -70,6 +70,7 @@ class TestAvviaSimulazione {
         }catch (Exception e){
             assertNull(t);
         }
+        mappaTemplate.remove(mappaTemplate.lastKey());
         //adesso avvio la simulazione con il template creato da initTest (ha parametri idonei per l'avvio della simulazione)
         try {
             t = unictest.avviaSimulazione(tp1.getId());
