@@ -23,6 +23,10 @@ public class Tutor extends Utente implements Serializable{
         return new ArrayList<>(materieInsegnate.values());
     }
 
+    public Materia getMateriaCorrente() {
+        return materiaCorrente;
+    }
+
     @Override
     public String toString() {
         return "Tutor{" +

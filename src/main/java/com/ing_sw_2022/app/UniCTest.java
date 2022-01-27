@@ -11,7 +11,6 @@ public class UniCTest implements Serializable{
     static private Utente utenteAutenticato;
     private HashMap<String, Utente> mappaUtenti;
     private static final long serialVersionUID = 1;
-    //private final String contentDir="content";
 
     private UniCTest() {
         mappaMaterie = new HashMap<>();
@@ -166,40 +165,6 @@ public class UniCTest implements Serializable{
                         ////////////METODI PER CASO D'USO DI AVVIAMENTO//////////////
 
     private void loadMaterie(){
-        /*try(BufferedReader bufferedReader = new BufferedReader(new FileReader(contentDir+File.separator+"Materie.txt"))) {
-            String[] nomiAttributi = bufferedReader.readLine().split(" ");
-            String line= bufferedReader.readLine();
-            String nome = "";
-            String codice = "";
-            while(line != null) {
-                String[] val = line.split("~");
-                for(int i = 0 ; i<2; i++){
-                    switch(nomiAttributi[i]){
-                        case "nome": nome = val[i];
-                            break;
-                        case "codice": codice = val[i];
-                            break;
-                    }
-                }
-                Materia m = new Materia(nome,codice);
-                addMateria(m.getCodice(),m);
-                String nomeFile=contentDir+File.separator+"Quesiti-"+m.getCodice()+".txt";
-                File file = new File(nomeFile);
-                if(file.createNewFile()) {
-                    //se il file è stato creato adesso per la prima volta allora scrivo i nomi degli attributi
-                    try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(nomeFile))) {
-                        bufferedWriter.write("id testo difficoltà fonte tutor visibilità\n");
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-                line = bufferedReader.readLine();
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
         Materia m1 = new Materia("Matematica", "MAT01");
         Materia m2 = new Materia("Italiano", "ITA02");
         mappaMaterie.put(m1.getCodice(),m1);
@@ -207,30 +172,6 @@ public class UniCTest implements Serializable{
     }
 
     private void loadVisibilità(){
-        /*try(BufferedReader bufferedReader = new BufferedReader(new FileReader(contentDir+File.separator+"Visibilità.txt"))) {
-            String[] nomiAttributi = bufferedReader.readLine().split(" ");
-            String line= bufferedReader.readLine();
-            String nome = "";
-            String codice = "";
-            while(line != null) {
-                String[] val = line.split("~");
-                for(int i = 0 ; i<2; i++){
-                    switch(nomiAttributi[i]){
-                        case "nome": nome = val[i];
-                            break;
-                        case "codice": codice = val[i];
-                            break;
-                    }
-                }
-                Visibilità v = new Visibilità(nome,codice);
-                addVisibilità(v.getCodice(),v);
-                line = bufferedReader.readLine();
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
         Visibilità v1 = new Visibilità("Personale", "p1");
         Visibilità v2 = new Visibilità("Privato", "p2");
         Visibilità v3 = new Visibilità("Pubblico", "p3");
@@ -240,43 +181,6 @@ public class UniCTest implements Serializable{
     }
 
     private void loadUtenti(){
-        /*try(BufferedReader bufferedReader = new BufferedReader(new FileReader(contentDir+File.separator+"Tutor.txt"))) {
-            String[] nomiAttributi = bufferedReader.readLine().split(" ");
-            String line= bufferedReader.readLine();
-            String nome = "";
-            String cognome = "";
-            String cf = "";
-            String materieInsegnate="";
-            Boolean flag = true;
-            while(line != null) {
-                String[] val = line.split("~");
-                for(int i = 0 ; i<4; i++){
-                    switch(nomiAttributi[i]){
-                        case "nome": nome = val[i];
-                            break;
-                        case "cognome": cognome = val[i];
-                            break;
-                        case "cf": cf = val[i];
-                            break;
-                        case "materieInsegnate": materieInsegnate = val[i];
-                        break;
-                    }
-                }
-                Tutor t = new Tutor(nome,cognome,cf);
-                addTutor(t.getCf(),t);
-                val = materieInsegnate.split(",");
-                for(int i = 0; i<val.length; i++){
-                    t.addMateriaInsegnata(mappaMaterie.get(val[i]));
-                }
-                if(flag) setTutorAutenticato(t);//MOMENTANEO
-                flag = false;
-                line = bufferedReader.readLine();
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
         Tutor t = new Tutor("Mario", "Rossi", "RSSMRA80A01C351O");
         Studente s = new Studente("Luigi","Verdi","VRDLGI99R21C351J");
         mappaUtenti.put(t.getCf(),t);

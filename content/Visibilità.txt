@@ -1,4 +1,0 @@
-codice nome
-p1~Personale
-p2~Privato
-p3~Pubblico
