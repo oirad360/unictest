@@ -5,46 +5,16 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class Studente extends Utente /*implements Serializable*/ {
-    /*private String nome;
-    private String cognome;
-    private String cf;*/
+public class Studente extends Utente implements Serializable {
     private TemplatePersonalizzato templateCorrente;
     private TreeMap<Integer, TemplatePersonalizzato> mappaTemplatePersonalizzati;
     private TemplatePersonalizzato templateSelezionato;
     private static final long serialVersionUID = 1;
 
     public Studente(String nome, String cognome, String cf) {
-        /*this.nome = nome;
-        this.cognome = cognome;
-        this.cf = cf;*/
         super(nome,cognome,cf);
         mappaTemplatePersonalizzati = new TreeMap<Integer,TemplatePersonalizzato>();
     }
-
-    /*public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getCognome() {
-        return cognome;
-    }
-
-    public void setCognome(String cognome) {
-        this.cognome = cognome;
-    }
-
-    public String getCf() {
-        return cf;
-    }
-
-    public void setCf(String cf) {
-        this.cf = cf;
-    }*/
 
     public Map<Integer, TemplatePersonalizzato> getMappaTemplatePersonalizzati() {
         return mappaTemplatePersonalizzati;
@@ -100,7 +70,7 @@ public class Studente extends Utente /*implements Serializable*/ {
         ArrayList<TemplatePersonalizzato> listaTemplate = new ArrayList<TemplatePersonalizzato>(mappaTemplatePersonalizzati.values());
         return listaTemplate;
     }
-    public Test avviaSimulazione(int idTemplate){
+    public Test avviaSimulazione(int idTemplate) throws Exception{
         TemplatePersonalizzato tp=mappaTemplatePersonalizzati.get(idTemplate);
         templateSelezionato=tp;
         Test t = tp.avviaSimulazione();

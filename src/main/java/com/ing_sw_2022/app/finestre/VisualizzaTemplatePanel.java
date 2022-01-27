@@ -40,7 +40,12 @@ public class VisualizzaTemplatePanel implements ActionListener {
         UniCTest unictest = UniCTest.getInstance();
         AvviaSimulazioneFrame avviaSimulazioneFrame = AvviaSimulazioneFrame.getInstance();
         int idTemplate=Integer.parseInt(((JButton)e.getSource()).getName());
-        Test t=unictest.avviaSimulazione(idTemplate);
+        Test t= null;
+        try {
+            t = unictest.avviaSimulazione(idTemplate);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
         if(t!=null) {
             avviaSimulazioneFrame.setContentPane(new AvviaSimulazionePanel(t).getMainPanel());
             avviaSimulazioneFrame.revalidate();

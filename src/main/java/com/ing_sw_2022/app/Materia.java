@@ -132,7 +132,7 @@ public class Materia implements Serializable {
     public List<QuesitoDescrizione> generaQuesiti(TemplatePersonalizzato tp, Sezione s) throws Exception{
         int n=s.getNumQuesiti();
         int dim=mappaQuesiti.size();
-        if(n>dim) throw new Exception("la materia "+s.getMateria().getNome()+"contiene solo "+dim+" quesiti contro i "+n+" richiesti");
+        if(n>dim) throw new Exception("la materia "+s.getMateria().getNome()+" contiene solo "+dim+" quesiti contro i "+n+" richiesti");
 
         int difficoltà=s.getDifficoltàMedia();
         int risposte=tp.getNumRisposte();
@@ -160,7 +160,6 @@ public class Materia implements Serializable {
             oldIndex.add(randomNum);
             //pesco il quesito random e ne verifico tutti i requisiti, se li rispetta lo aggiungo alla lista
             QuesitoDescrizione qd=listaQD.get(randomNum);
-            System.out.println(qd);
             boolean error=false;
             if(!qd.getVisibilità().getCodice().equals("p3")) error = true;
             if(!error){

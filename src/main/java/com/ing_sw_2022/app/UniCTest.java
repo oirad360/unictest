@@ -71,7 +71,6 @@ public class UniCTest implements Serializable{
             InputStream fin=new FileInputStream("ser.txt");
             ObjectInput oin=new ObjectInputStream(fin);
             unictest=(UniCTest) oin.readObject();
-            System.out.println(unictest);
             fin.close();
             oin.close();
             System.out.println("Object DeSerialization completed.");
@@ -153,7 +152,7 @@ public class UniCTest implements Serializable{
         return lista;
     }
 
-    public Test avviaSimulazione(int idTemplate){
+    public Test avviaSimulazione(int idTemplate) throws Exception{
         Test t =((Studente)utenteAutenticato).avviaSimulazione(idTemplate);
         return t;
     }

@@ -1,49 +1,85 @@
 package com.ing_sw_2022.app;
 
-
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeAll;
+
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.TreeMap;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 
 class TestAvviaSimulazione {
 
-    private static UniCTest unictest;
+    static UniCTest unictest;
+    static TemplatePersonalizzato tp1;
+    static TreeMap<Integer,TemplatePersonalizzato> mappaTemplate;
 
     @BeforeAll
-    static void initTest() { //creo un template come inizializzazione
+    static void initTest() {
         unictest = UniCTest.getInstance();
-        unictest.setUtenteAutenticato("VRDLGI99R21C351J"); //autentico un studente
+        Materia m = unictest.getMappaMaterie().get("MAT01");
+        //creo quesiti per la simulazione
+        unictest.setUtenteAutenticato("RSSMRA80A01C351O"); //autentico un tutor
+        unictest.nuovoQuesito(m.getCodice());
+        unictest.inserisciTesto("Quanto fa 2+2?");
+        unictest.inserisciDifficoltà(3);
+        unictest.inserisciRisposta("4",true);
+        unictest.inserisciRisposta("5",false);
+        unictest.confermaQuesito("p3");
+        //creo un template per sceglierlo nel test dell'avvio della simulazione
+        unictest.setUtenteAutenticato("VRDLGI99R21C351J"); //autentico uno studente
         unictest.nuovoTemplate("Test template personalizzato");
-        TemplatePersonalizzato tp=((Studente)unictest.getUtenteAutenticato()).getTemplateCorrente();
-        assertNotNull(tp);
-        assertEquals(tp.getNome(),"Test template personalizzato");
-        List<Materia> listaMaterie=unictest.inserisciInfoTemplate((float)1.0,(float)0.0,(float)0.0,4,1,4,1);
-        assertNotNull(listaMaterie);
-        assertTrue(listaMaterie.size()>0);
-        assertEquals((float)1.0,tp.getPuntiCorretta(),(float)0.0);
-        assertEquals((float)0.0,tp.getPuntiErrata(),(float)0.0);
-        assertEquals((float)0.0,tp.getPuntiNonData(),(float)0.0);
-        assertEquals(4,tp.getNumRisposte());
-        assertEquals(1,tp.getMinRisposteCorrette());
-        assertEquals(4,tp.getMaxRisposteCorrette());
-        assertEquals(1,tp.getTempoMedio());
-        unictest.creaSezione(listaMaterie.get(0).getCodice(),1,3);
-        Sezione s = tp.getListaSezioni().get(0);
-        assertNotNull(tp.getListaSezioni());
-        assertEquals(tp.getListaSezioni().size(),1);
-        assertEquals(s.getMateria(),unictest.getMappaMaterie().get(listaMaterie.get(0).getCodice()));
-        assertEquals(s.getNumQuesiti(),1);
-        assertEquals(s.getDifficoltàMedia(),3);
+        unictest.inserisciInfoTemplate((float)1.0,(float)0.0,(float)0.0,2,1,2,1);
+        unictest.creaSezione(m.getCodice(),1,3);
         unictest.confermaTemplate();
-        assertNull(((Studente)unictest.getUtenteAutenticato()).getTemplateCorrente());
-        assertTrue(((Studente)unictest.getUtenteAutenticato()).getMappaTemplatePersonalizzati().size()>0);
+
+        mappaTemplate= (TreeMap<Integer, TemplatePersonalizzato>) ((Studente)unictest.getUtenteAutenticato()).getMappaTemplatePersonalizzati();
+        tp1 = mappaTemplate.get(mappaTemplate.lastKey());
+    }
+
+    @Test
+    @BeforeEach
+    void testAvviaSimulazione() {
+        Materia m = unictest.getMappaMaterie().get("MAT01");//matematica
+        //creo un template che richiede 800 quesiti di matematica (mi aspetto che l'avvio della simulazione fallisca)
+        unictest.nuovoTemplate("Test template personalizzato");
+        unictest.inserisciInfoTemplate((float)1.0,(float)0.0,(float)0.0,2,1,2,1);
+        unictest.creaSezione(m.getCodice(),800,3);
+        unictest.confermaTemplate();
+        //lancio la simulazione che dovrebbe tornare null
+        com.ing_sw_2022.app.Test t=null;
+        try{
+            t=unictest.avviaSimulazione(mappaTemplate.get(mappaTemplate.lastKey()).getId());
+            fail("Eccezione non avvenuta"); //mi aspetto che l'istruzione avviaSimulazione lanci un'eccezione, se arrivo qui considero fallito il test
+        }catch (Exception e){
+            assertEquals(e.getMessage(),"la materia "+m.getNome()+" contiene solo "+m.getMappaQuesiti().size()+" quesiti contro i "+800+" richiesti");
+            assertNull(t);
+        }
+
+        //creo un template che richiede quesiti con 100 risposte (mi aspetto che l'avvio della simulazione fallisca)
+        unictest.nuovoTemplate("Test template personalizzato");
+        unictest.inserisciInfoTemplate((float)1.0,(float)0.0,(float)0.0,100,1,2,1);
+        unictest.creaSezione(m.getCodice(),1,3);
+        unictest.confermaTemplate();
+        //lancio la simulazione che dovrebbe tornare null
+        try{
+            t=unictest.avviaSimulazione(mappaTemplate.get(mappaTemplate.lastKey()).getId());
+            fail("Eccezione non avvenuta"); //mi aspetto che l'istruzione avviaSimulazione lanci un'eccezione, se arrivo qui considero fallito il test
+        }catch (Exception e){
+            assertNull(t);
+        }
+        //adesso avvio la simulazione con il template creato da initTest (ha parametri idonei per l'avvio della simulazione)
+        try {
+            t = unictest.avviaSimulazione(tp1.getId());
+            assertNotNull(t);
+            assertTrue(t.getMappaQuesiti().size()>0);
+            assertNotNull(((Studente)unictest.getUtenteAutenticato()).getTemplateSelezionato());
+            assertNotNull(((Studente)unictest.getUtenteAutenticato()).getTemplateSelezionato().getTestCorrente());
+        } catch (Exception e) {
+            fail("Eccezione inaspettata");
+        }
     }
 
 
@@ -53,18 +89,24 @@ class TestAvviaSimulazione {
         assertTrue(listaTemplate.size()>0);
     }
 
-    @Test
-    @BeforeEach
-    void testAvviaSimulazione() {
-        ArrayList<TemplatePersonalizzato> listaTemplate = unictest.visualizzaTemplate();
-        assertTrue(listaTemplate.size()>0);
-        com.ing_sw_2022.app.Test t = unictest.avviaSimulazione(listaTemplate.get(listaTemplate.size()-1).getId());
-        assertNotNull(t);
-    }
 
     @Test
     void testSelezionaRisposta() {
-        ArrayList<TemplatePersonalizzato> listaTemplate = unictest.visualizzaTemplate();
-        assertTrue(listaTemplate.size()>0);
+        TreeMap<String,QuesitoReale> mappaQuesiti=tp1.getTestCorrente().getMappaQuesiti();
+        QuesitoReale qr = mappaQuesiti.get(mappaQuesiti.lastKey());
+        TreeMap<String,Risposta> mappaRisposte=qr.getQuesitoDescrizione().getRisposte();
+        Risposta r=mappaRisposte.get(mappaRisposte.lastKey());
+        unictest.selezionaRisposta(qr.getId(),r.getId());
+        assertEquals(qr.getRisposteDate().values().size(),1);
+        unictest.selezionaRisposta(qr.getId(),r.getId());
+        assertEquals(qr.getRisposteDate().values().size(),0);
+    }
+
+    @Test
+    void testTerminaSimulazione() {
+        com.ing_sw_2022.app.Test t=unictest.terminaSimulazione();
+        assertNotNull(t);
+        assertNotNull(t.getPunteggioComplessivo());
+        assertNull(((Studente)unictest.getUtenteAutenticato()).getTemplateSelezionato());
     }
 }

@@ -17,7 +17,7 @@ public class ConfermaQuesitoPanel implements ActionListener {
     private JTextField textField;
 
     public ConfermaQuesitoPanel(){
-        textField.setText("p1");
+        textField.setText("p3");
         textField.getDocument().addDocumentListener(new DocumentListener() {
             public void changedUpdate(DocumentEvent e) {
                 action();

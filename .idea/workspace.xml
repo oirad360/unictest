@@ -6,9 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="225c3c9e-492a-4307-b648-bc04a0874595" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ser.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Materia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Materia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Studente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Studente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/TemplatePersonalizzato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/TemplatePersonalizzato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Tutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Tutor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/ConfermaQuesitoPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/ConfermaQuesitoPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/VisualizzaTemplatePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/VisualizzaTemplatePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestAvviaSimulazione.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestAvviaSimulazione.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestCreaTemplatePers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestCreaTemplatePers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestNuovoQuesito.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestNuovoQuesito.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Studente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Studente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Tutor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Tutor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestAvviaSimulazione.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestAvviaSimulazione.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestCreaTemplatePers.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestCreaTemplatePers.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestNuovoQuesito.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestNuovoQuesito.class" afterDir="false" />
     </list>
@@ -54,7 +65,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="234" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Desktop/ingegneria del software/Esercitazione/Iterazione5/metropol" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -77,8 +88,8 @@
       <recent name="C:\Users\oirad\unictest\src\main\java\com\ing_sw_2022\app\finestre" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestCreaTemplatePers">
-    <configuration name="UniCTestFrame" type="Application" factoryName="Application" temporary="true">
+  <component name="RunManager" selected="Application.UniCTestFrame">
+    <configuration name="UniCTestFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.finestre.UniCTestFrame" />
       <module name="unictest" />
       <extension name="coverage">
@@ -91,7 +102,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestCreaTemplatePers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestAvviaSimulazione" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="unictest" />
       <extension name="coverage">
         <pattern>
@@ -100,13 +111,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ing_sw_2022.app" />
-      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestCreaTemplatePers" />
+      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestAvviaSimulazione" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestNuovoQuesito" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestAvviaSimulazione.testAvviaSimulazione" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="unictest" />
       <extension name="coverage">
         <pattern>
@@ -115,29 +126,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ing_sw_2022.app" />
-      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestNuovoQuesito" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestNuovoQuesito.testConfermaQuesito" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="unictest" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ing_sw_2022.app.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ing_sw_2022.app" />
-      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestNuovoQuesito" />
-      <option name="METHOD_NAME" value="testConfermaQuesito" />
+      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestAvviaSimulazione" />
+      <option name="METHOD_NAME" value="testAvviaSimulazione" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestNuovoQuesito.testInserisciDifficoltà" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestAvviaSimulazione.testSelezionaRisposta" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="unictest" />
       <extension name="coverage">
         <pattern>
@@ -146,14 +142,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ing_sw_2022.app" />
-      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestNuovoQuesito" />
-      <option name="METHOD_NAME" value="testInserisciDifficoltà" />
+      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestAvviaSimulazione" />
+      <option name="METHOD_NAME" value="testSelezionaRisposta" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestNuovoQuesito.testInserisciTesto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestAvviaSimulazione.testTerminaSimulazione" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="unictest" />
       <extension name="coverage">
         <pattern>
@@ -162,8 +158,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ing_sw_2022.app" />
-      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestNuovoQuesito" />
-      <option name="METHOD_NAME" value="testInserisciTesto" />
+      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestAvviaSimulazione" />
+      <option name="METHOD_NAME" value="testTerminaSimulazione" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -171,11 +167,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestCreaTemplatePers" />
-        <item itemvalue="JUnit.TestNuovoQuesito" />
-        <item itemvalue="JUnit.TestNuovoQuesito.testInserisciTesto" />
-        <item itemvalue="JUnit.TestNuovoQuesito.testConfermaQuesito" />
-        <item itemvalue="JUnit.TestNuovoQuesito.testInserisciDifficoltà" />
+        <item itemvalue="Application.UniCTestFrame" />
+        <item itemvalue="JUnit.TestAvviaSimulazione.testAvviaSimulazione" />
+        <item itemvalue="JUnit.TestAvviaSimulazione" />
+        <item itemvalue="JUnit.TestAvviaSimulazione.testTerminaSimulazione" />
+        <item itemvalue="JUnit.TestAvviaSimulazione.testSelezionaRisposta" />
       </list>
     </recent_temporary>
   </component>
@@ -219,6 +215,8 @@
       <workItem from="1643205835694" duration="3000000" />
       <workItem from="1643222067944" duration="220000" />
       <workItem from="1643225095396" duration="15985000" />
+      <workItem from="1643242270947" duration="740000" />
+      <workItem from="1643281916432" duration="13313000" />
     </task>
     <servers />
   </component>

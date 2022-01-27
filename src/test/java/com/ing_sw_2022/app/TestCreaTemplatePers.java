@@ -1,34 +1,34 @@
 package com.ing_sw_2022.app;
 
-import java.util.List;
-
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestCreaTemplatePers {
+import java.util.List;
 
-    private static UniCTest unictest;
+class TestCreaTemplatePers {
+
+    static UniCTest unictest;
 
     @BeforeAll
-    public static void initTest() {
+    static void initTest() {
         unictest = UniCTest.getInstance();
         unictest.setUtenteAutenticato("VRDLGI99R21C351J"); //autentico uno studente
     }
 
-
     @Test
     @BeforeEach
-    public void testNuovoTemplate() {
-        unictest.nuovoTemplate("Test template personalizzato");
+    void testNuovoTemplate(){
+        unictest.nuovoTemplate("Test template personalizzato"); //inizializzo il template corrente per i test successivi
         TemplatePersonalizzato tp=((Studente)unictest.getUtenteAutenticato()).getTemplateCorrente();
         assertNotNull(tp);
         assertEquals(tp.getNome(),"Test template personalizzato");
     }
 
     @Test
-    public void testInserisciInfoTemplate() {
+    void testInserisciInfoTemplate() {
         /*unictest.nuovoTemplate("Test template personalizzato");
         TemplatePersonalizzato tp=((Studente)unictest.getUtenteAutenticato()).getTemplateCorrente();
         assertNotNull(tp);
@@ -47,7 +47,7 @@ public class TestCreaTemplatePers {
     }
 
     @Test
-    public void testCreaSezione() {
+    void testCreaSezione() {
         /*unictest.nuovoTemplate("Test template personalizzato");
         TemplatePersonalizzato tp=((Studente)unictest.getUtenteAutenticato()).getTemplateCorrente();
         assertNotNull(tp);
@@ -78,7 +78,7 @@ public class TestCreaTemplatePers {
     }
 
     @Test
-    public void testConfermaTemplate(){
+    void testConfermaTemplate(){
         /*unictest.nuovoTemplate("Test template personalizzato");
         TemplatePersonalizzato tp=((Studente)unictest.getUtenteAutenticato()).getTemplateCorrente();
         assertNotNull(tp);
@@ -104,7 +104,7 @@ public class TestCreaTemplatePers {
             assertEquals(s.getDifficoltàMedia(),3);
             i++;
         }*/
-        unictest.confermaTemplate();
+        unictest.confermaTemplate(); //il template corrente viene eliminato
         assertNull(((Studente)unictest.getUtenteAutenticato()).getTemplateCorrente());
         assertTrue(((Studente)unictest.getUtenteAutenticato()).getMappaTemplatePersonalizzati().size()>0);
     }

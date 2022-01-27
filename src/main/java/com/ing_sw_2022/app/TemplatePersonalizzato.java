@@ -118,17 +118,19 @@ public class TemplatePersonalizzato implements Serializable {
     }
 
                         ///////////////////////////UC1 AVVIA SIMULAZIONE//////////////////////////
-    public Test avviaSimulazione(){
+    public Test avviaSimulazione() throws Exception{
         String newId;
         if(mappaTest.isEmpty()) newId = id+"-0";
         else newId = id+"-"+(Integer.parseInt(mappaTest.lastKey().split("-")[1])+1);
-        Test t = null;
+        /*Test t = null;
         try {
             t = new Test(newId,this); //Questo costruttore potrebbe lanciare un'eccezione perché non sono riuscito a creare il Test
             testCorrente=t;
         } catch (Exception e) {
-            e.printStackTrace();
-        }
+            System.out.println(e.getMessage());
+        }*/
+        Test t = new Test(newId,this);
+        testCorrente=t;
         return t;
     }
 
