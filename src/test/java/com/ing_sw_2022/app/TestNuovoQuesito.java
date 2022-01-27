@@ -1,17 +1,16 @@
 package com.ing_sw_2022.app;
 
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Order;
+import org.junit.runners.Parameterized;
 
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class TestNuovoQuesito {
 
     static UniCTest unictest;
-
     @BeforeAll
     static void initTest() {
         unictest = UniCTest.getInstance();
@@ -30,11 +29,13 @@ class TestNuovoQuesito {
     }
 
     @Test
+    @BeforeEach
     void testNuovoQuesito() {
         System.out.println("2");
         unictest.nuovoQuesito("MAT01");
         assertNotNull(unictest.getMateriaCorrente());
         assertNotNull(unictest.getMateriaCorrente().getQuesitoCorrente());
+
 
     }
 

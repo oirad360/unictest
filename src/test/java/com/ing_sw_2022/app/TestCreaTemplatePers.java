@@ -3,6 +3,7 @@ package com.ing_sw_2022.app;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,6 +19,7 @@ public class TestCreaTemplatePers {
 
 
     @Test
+    @BeforeEach
     public void testNuovoTemplate() {
         unictest.nuovoTemplate("Test template personalizzato");
         TemplatePersonalizzato tp=((Studente)unictest.getUtenteAutenticato()).getTemplateCorrente();
@@ -27,10 +29,11 @@ public class TestCreaTemplatePers {
 
     @Test
     public void testInserisciInfoTemplate() {
-        unictest.nuovoTemplate("Test template personalizzato");
+        /*unictest.nuovoTemplate("Test template personalizzato");
         TemplatePersonalizzato tp=((Studente)unictest.getUtenteAutenticato()).getTemplateCorrente();
         assertNotNull(tp);
-        assertEquals(tp.getNome(),"Test template personalizzato");
+        assertEquals(tp.getNome(),"Test template personalizzato");*/
+        TemplatePersonalizzato tp=((Studente)unictest.getUtenteAutenticato()).getTemplateCorrente();
         List<Materia> listaMaterie=unictest.inserisciInfoTemplate((float)1.0,(float)0.0,(float)0.0,4,1,4,1);
         assertNotNull(listaMaterie);
         assertTrue(listaMaterie.size()>0);
@@ -45,7 +48,7 @@ public class TestCreaTemplatePers {
 
     @Test
     public void testCreaSezione() {
-        unictest.nuovoTemplate("Test template personalizzato");
+        /*unictest.nuovoTemplate("Test template personalizzato");
         TemplatePersonalizzato tp=((Studente)unictest.getUtenteAutenticato()).getTemplateCorrente();
         assertNotNull(tp);
         assertEquals(tp.getNome(),"Test template personalizzato");
@@ -58,9 +61,10 @@ public class TestCreaTemplatePers {
         assertEquals(4,tp.getNumRisposte());
         assertEquals(1,tp.getMinRisposteCorrette());
         assertEquals(4,tp.getMaxRisposteCorrette());
-        assertEquals(1,tp.getTempoMedio());
+        assertEquals(1,tp.getTempoMedio());*/
+        TemplatePersonalizzato tp=((Studente)unictest.getUtenteAutenticato()).getTemplateCorrente();
         int i=0;
-        for(Materia m : listaMaterie){
+        for(Materia m : unictest.getMappaMaterie().values()){
             unictest.creaSezione(m.getCodice(),10,3);
             Sezione s = tp.getListaSezioni().get(i);
             assertNotNull(tp.getListaSezioni());
@@ -75,7 +79,7 @@ public class TestCreaTemplatePers {
 
     @Test
     public void testConfermaTemplate(){
-        unictest.nuovoTemplate("Test template personalizzato");
+        /*unictest.nuovoTemplate("Test template personalizzato");
         TemplatePersonalizzato tp=((Studente)unictest.getUtenteAutenticato()).getTemplateCorrente();
         assertNotNull(tp);
         assertEquals(tp.getNome(),"Test template personalizzato");
@@ -99,7 +103,7 @@ public class TestCreaTemplatePers {
             assertEquals(s.getNumQuesiti(),2);
             assertEquals(s.getDifficoltàMedia(),3);
             i++;
-        }
+        }*/
         unictest.confermaTemplate();
         assertNull(((Studente)unictest.getUtenteAutenticato()).getTemplateCorrente());
         assertTrue(((Studente)unictest.getUtenteAutenticato()).getMappaTemplatePersonalizzati().size()>0);

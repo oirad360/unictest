@@ -1,6 +1,7 @@
 package com.ing_sw_2022.app;
 
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeAll;
 
@@ -53,6 +54,7 @@ class TestAvviaSimulazione {
     }
 
     @Test
+    @BeforeEach
     void testAvviaSimulazione() {
         ArrayList<TemplatePersonalizzato> listaTemplate = unictest.visualizzaTemplate();
         assertTrue(listaTemplate.size()>0);
