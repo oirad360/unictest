@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="225c3c9e-492a-4307-b648-bc04a0874595" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/itextpdf-5.5.9.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/App.class" afterDir="false" />
     </list>
     <list id="f783ecb6-0640-46ab-87d4-fee534d629cc" name="Changes by oirad" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,12 +50,13 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="234" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Desktop/ingegneria del software/Esercitazione/Iterazione5/metropol" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
@@ -88,15 +91,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UniCTestFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.ui.UniCTestFrame" />
+    <configuration name="TestAvviaSimulazione" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="unictest" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ing_sw_2022.app.ui.*" />
+          <option name="PATTERN" value="com.ing_sw_2022.app.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.ing_sw_2022.app" />
+      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestAvviaSimulazione" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -151,10 +156,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
+        <item itemvalue="JUnit.TestAvviaSimulazione" />
         <item itemvalue="JUnit.TestNuovoQuesito.testInserisciFonte" />
         <item itemvalue="JUnit.TestNuovoQuesito.testVisualizzaMaterieInsegnate" />
         <item itemvalue="JUnit.TestNuovoQuesito" />
-        <item itemvalue="Application.UniCTestFrame" />
       </list>
     </recent_temporary>
   </component>
@@ -201,7 +206,7 @@
       <workItem from="1643242270947" duration="740000" />
       <workItem from="1643281916432" duration="13908000" />
       <workItem from="1643301161171" duration="6757000" />
-      <workItem from="1643367756994" duration="6026000" />
+      <workItem from="1643367756994" duration="6754000" />
     </task>
     <servers />
   </component>
