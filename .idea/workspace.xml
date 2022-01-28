@@ -6,6 +6,82 @@
   <component name="ChangeListManager">
     <list default="true" id="225c3c9e-492a-4307-b648-bc04a0874595" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/AvviaSimulazioneFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/AvviaSimulazioneFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/AvviaSimulazionePanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/AvviaSimulazionePanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/AvviaSimulazionePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/AvviaSimulazionePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/ConfermaQuesitoPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/ConfermaQuesitoPanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/ConfermaQuesitoPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/ConfermaQuesitoPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/CreaSezionePanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/CreaSezionePanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/CreaSezionePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/CreaSezionePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/InsInfoTemplatePanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/InsInfoTemplatePanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/InsInfoTemplatePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/InsInfoTemplatePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/InserisciDifficoltàPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/InserisciDifficoltàPanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/InserisciDifficoltàPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/InserisciDifficoltàPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/InserisciFontePanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/InserisciFontePanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/InserisciFontePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/InserisciFontePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/InserisciRispostePanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/InserisciRispostePanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/InserisciRispostePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/InserisciRispostePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/InserisciTestoPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/InserisciTestoPanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/InserisciTestoPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/InserisciTestoPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/NuovoQuesitoFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/NuovoQuesitoFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/NuovoTemplatePersFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/NuovoTemplatePersFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/NuovoTemplatePersPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/NuovoTemplatePersPanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/NuovoTemplatePersPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/NuovoTemplatePersPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/TabQuesitoCorrettoPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/TabQuesitoCorrettoPanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/TabQuesitoCorrettoPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/TabQuesitoCorrettoPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/TabQuesitoPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/TabQuesitoPanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/TabQuesitoPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/TabQuesitoPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/TestCorrettoPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/TestCorrettoPanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/TestCorrettoPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/TestCorrettoPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/UniCTestFrame.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/UniCTestFrame.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/UniCTestFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/UniCTestFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/VisualizzaMateriePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/VisualizzaMateriePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/VisualizzaTemplatePanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/VisualizzaTemplatePanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/finestre/VisualizzaTemplatePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/VisualizzaTemplatePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Materia.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Materia.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/UniCTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/UniCTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/AvviaSimulazioneFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/AvviaSimulazionePanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/AvviaSimulazionePanel$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/AvviaSimulazionePanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/ConfermaQuesitoPanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/ConfermaQuesitoPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/CreaSezionePanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/CreaSezionePanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/InsInfoTemplatePanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/InserisciDifficoltàPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/InserisciFontePanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/InserisciFontePanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/InserisciRispostePanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/InserisciRispostePanel$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/InserisciRispostePanel$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/InserisciRispostePanel$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/InserisciRispostePanel$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/InserisciRispostePanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/InserisciTestoPanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/InserisciTestoPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/Item.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/NuovoQuesitoFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/NuovoTemplatePersFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/NuovoTemplatePersPanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/NuovoTemplatePersPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/TabQuesitoCorrettoPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/TabQuesitoPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/TestCorrettoPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/UniCTestFrame$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/UniCTestFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/UniCTestFrame$2$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/UniCTestFrame$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/UniCTestFrame$3$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/UniCTestFrame$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/UniCTestFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/VisualizzaMateriePanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/finestre/VisualizzaTemplatePanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestCreaTemplatePers.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestCreaTemplatePers.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestNuovoQuesito.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestNuovoQuesito.class" afterDir="false" />
     </list>
     <list id="f783ecb6-0640-46ab-87d4-fee534d629cc" name="Changes by oirad" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,7 +130,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
   <component name="ReaderModeSettings">
     <option name="enabled" value="false" />
@@ -72,21 +148,9 @@
       <recent name="C:\Users\oirad\unictest\src\main\java\com\ing_sw_2022\app\finestre" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestNuovoQuesito.testInserisciFonte">
-    <configuration name="UniCTestFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.finestre.UniCTestFrame" />
-      <module name="unictest" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ing_sw_2022.app.finestre.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestAvviaSimulazione" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.App">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.App" />
       <module name="unictest" />
       <extension name="coverage">
         <pattern>
@@ -94,9 +158,19 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.ing_sw_2022.app" />
-      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestAvviaSimulazione" />
-      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UniCTestFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.ui.UniCTestFrame" />
+      <module name="unictest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ing_sw_2022.app.ui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -150,11 +224,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.App" />
         <item itemvalue="JUnit.TestNuovoQuesito.testInserisciFonte" />
         <item itemvalue="JUnit.TestNuovoQuesito.testVisualizzaMaterieInsegnate" />
         <item itemvalue="JUnit.TestNuovoQuesito" />
         <item itemvalue="Application.UniCTestFrame" />
-        <item itemvalue="JUnit.TestAvviaSimulazione" />
       </list>
     </recent_temporary>
   </component>
@@ -201,6 +275,7 @@
       <workItem from="1643242270947" duration="740000" />
       <workItem from="1643281916432" duration="13908000" />
       <workItem from="1643301161171" duration="6757000" />
+      <workItem from="1643367756994" duration="3969000" />
     </task>
     <servers />
   </component>
