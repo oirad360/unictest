@@ -48,7 +48,7 @@ public class InsInfoTemplatePanel implements ActionListener, ChangeListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        List<Materia> listaMaterie= UniCTest.getInstance().inserisciInfoTemplate(Float.parseFloat(puntiCorretta.getValue().toString()),Float.parseFloat(puntiErrata.getValue().toString()),Float.parseFloat(puntiNonData.getValue().toString()),(int)numRisposte.getValue(),(int)minRisposteCorrette.getValue(),(int)maxRisposteCorrette.getValue(),(int)tempoMedio.getValue());
+        List<Materia> listaMaterie= UniCTest.getInstance().inserisciInfoTemplateP(Float.parseFloat(puntiCorretta.getValue().toString()),Float.parseFloat(puntiErrata.getValue().toString()),Float.parseFloat(puntiNonData.getValue().toString()),(int)numRisposte.getValue(),(int)minRisposteCorrette.getValue(),(int)maxRisposteCorrette.getValue(),(int)tempoMedio.getValue());
         NuovoTemplatePersFrame.getInstance().setContentPane(new CreaSezionePanel(listaMaterie).getMainPanel());
         NuovoTemplatePersFrame.getInstance().revalidate();
     }

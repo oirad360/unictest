@@ -124,23 +124,23 @@ public class UniCTest implements Serializable{
 
                         ////////////////////UC2 CREA TEMPLATE DI TEST PERSONALIZZATO/////////////////////
 
-    public void nuovoTemplate(String nome){
-        ((Studente)utenteAutenticato).nuovoTemplate(nome);
+    public void nuovoTemplateP(String nome){
+        ((Studente)utenteAutenticato).nuovoTemplateP(nome);
     }
 
-    public List<Materia> inserisciInfoTemplate(float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoMedio){
-        ((Studente)utenteAutenticato).inserisciInfoTemplate(puntiCorretta, puntiErrata, puntiNonData, numRisposte, minRisposteCorrette, maxRisposteCorrette, tempoMedio);
+    public List<Materia> inserisciInfoTemplateP(float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoMedio){
+        ((Studente)utenteAutenticato).inserisciInfoTemplateP(puntiCorretta, puntiErrata, puntiNonData, numRisposte, minRisposteCorrette, maxRisposteCorrette, tempoMedio);
         List<Materia> list = new ArrayList<Materia>(mappaMaterie.values());
         return list;
     }
 
-    public void creaSezione(String codiceMateria, int numQuesiti, int difficoltàMedia){
+    public void creaSezioneP(String codiceMateria, int numQuesiti, int difficoltàMedia){
         Materia m=mappaMaterie.get(codiceMateria);
-        ((Studente)utenteAutenticato).creaSezione(m,numQuesiti,difficoltàMedia);
+        ((Studente)utenteAutenticato).creaSezioneP(m,numQuesiti,difficoltàMedia);
     }
 
-    public void confermaTemplate(){
-        ((Studente)utenteAutenticato).confermaTemplate();
+    public void confermaTemplateP(){
+        ((Studente)utenteAutenticato).confermaTemplateP();
     }
                         ////////////////////UC1 AVVIA SIMULAZIONE/////////////////////
     public ArrayList<TemplatePersonalizzato> visualizzaTemplate(){

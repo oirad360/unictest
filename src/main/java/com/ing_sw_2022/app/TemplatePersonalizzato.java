@@ -1,13 +1,10 @@
 package com.ing_sw_2022.app;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.TreeMap;
 
-public class TemplatePersonalizzato implements Serializable {
-    private int id;
+public class TemplatePersonalizzato extends Template implements Serializable{
+    /*private int id;
     private String nome;
-    private int tempoMedio;
     private int numRisposte;
     private int minRisposteCorrette;
     private int maxRisposteCorrette;
@@ -16,17 +13,19 @@ public class TemplatePersonalizzato implements Serializable {
     private float puntiNonData;
     private ArrayList<Sezione> listaSezioni;
     private Test testCorrente;
-    private TreeMap<String,Test> mappaTest;
+    private TreeMap<String,Test> mappaTest;*/
+    private int tempoMedio;
     private static final long serialVersionUID = 1;
 
     public TemplatePersonalizzato(int id, String nome) {
-        this.id = id;
+        /*this.id = id;
         this.nome = nome;
         listaSezioni = new ArrayList<Sezione>();
-        mappaTest = new TreeMap<String,Test>();
+        mappaTest = new TreeMap<String,Test>();*/
+        super(id,nome);
     }
 
-    public int getId() {
+   /* public int getId() {
         return id;
     }
 
@@ -40,14 +39,6 @@ public class TemplatePersonalizzato implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public int getTempoMedio() {
-        return tempoMedio;
-    }
-
-    public void setTempoMedio(int tempoMedio) {
-        this.tempoMedio = tempoMedio;
     }
 
     public int getNumRisposte() {
@@ -104,12 +95,21 @@ public class TemplatePersonalizzato implements Serializable {
 
     public Test getTestCorrente() {
         return testCorrente;
+    }*/
+
+    public int getTempoMedio() {
+        return tempoMedio;
     }
+
+    public void setTempoMedio(int tempoMedio) {
+        this.tempoMedio = tempoMedio;
+    }
+/*
 
     /////////////////////////////////////////////METODI DCD///////////////////////////////////////////////
 
                         ///////////////////////UC2 CREA TEMPLATE DI TEST PERSONALIZZATO///////////////////////
-    public void creaSezione(Materia materia, int numQuesiti, int difficoltàMedia){
+    public void creaSezioneP(Materia materia, int numQuesiti, int difficoltàMedia){
         String newId;
         if(listaSezioni.isEmpty()) newId = id+"-0";
         else newId = id+"-"+(Integer.parseInt(listaSezioni.get(listaSezioni.size()-1).getId().split("-")[1])+1);
@@ -122,13 +122,6 @@ public class TemplatePersonalizzato implements Serializable {
         String newId;
         if(mappaTest.isEmpty()) newId = id+"-0";
         else newId = id+"-"+(Integer.parseInt(mappaTest.lastKey().split("-")[1])+1);
-        /*Test t = null;
-        try {
-            t = new Test(newId,this); //Questo costruttore potrebbe lanciare un'eccezione perché non sono riuscito a creare il Test
-            testCorrente=t;
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }*/
         Test t = new Test(newId,this);
         testCorrente=t;
         return t;
@@ -143,20 +136,21 @@ public class TemplatePersonalizzato implements Serializable {
         mappaTest.put(testCorrente.getId(), testCorrente);
         return testCorrente;
     }
+*/
 
     @Override
     public String toString() {
         return "TemplatePersonalizzato{" +"\n"+
-                "id=" + id +"\n"+
-                ", nome='" + nome + "\n"+
+                "id=" + super.id +"\n"+
+                ", nome='" + super.nome + "\n"+
                 ", tempoMedio=" + tempoMedio +"\n"+
-                ", numRisposte=" + numRisposte +"\n"+
-                ", minRisposteCorrette=" + minRisposteCorrette +"\n"+
-                ", maxRisposteCorrette=" + maxRisposteCorrette +"\n"+
-                ", puntiCorretta=" + puntiCorretta +"\n"+
-                ", puntiErrata=" + puntiErrata +"\n"+
-                ", puntiNonData=" + puntiNonData +"\n"+
-                ", listaSezioni=" + listaSezioni +"\n"+
+                ", numRisposte=" + super.numRisposte +"\n"+
+                ", minRisposteCorrette=" + super.minRisposteCorrette +"\n"+
+                ", maxRisposteCorrette=" + super.maxRisposteCorrette +"\n"+
+                ", puntiCorretta=" + super.puntiCorretta +"\n"+
+                ", puntiErrata=" + super.puntiErrata +"\n"+
+                ", puntiNonData=" + super.puntiNonData +"\n"+
+                ", listaSezioni=" + super.listaSezioni +"\n"+
                 '}';
     }
 }

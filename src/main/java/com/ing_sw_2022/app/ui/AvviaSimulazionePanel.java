@@ -1,8 +1,6 @@
 package com.ing_sw_2022.app.ui;
 
-import com.ing_sw_2022.app.QuesitoReale;
-import com.ing_sw_2022.app.Test;
-import com.ing_sw_2022.app.UniCTest;
+import com.ing_sw_2022.app.*;
 
 import javax.swing.*;
 import java.awt.event.*;
@@ -21,7 +19,9 @@ public class AvviaSimulazionePanel implements ActionListener {
             tabbedPane.addTab(String.valueOf(index),new TabQuesitoPanel(qr).getMainPanel());
         }
         btnConsegna.addActionListener(this);
-        totalTime=test.getTemplatePersonalizzato().getTempoMedio()*test.getMappaQuesiti().size()*60;
+        Template template= test.getTemplate();
+        if(template instanceof TemplatePersonalizzato) totalTime=((TemplatePersonalizzato)template).getTempoMedio()*test.getMappaQuesiti().size()*60;
+        else totalTime=((TemplateUfficiale)template).getTempoTotale()*60;
         timer = new Timer(1000, new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {

@@ -15,7 +15,7 @@ public class TestCorrettoPanel {
     public TestCorrettoPanel(Test t){
         punteggio.setText(String.valueOf(t.getPunteggioComplessivo()));
         idTest.setText(t.getId().split("-")[1]);
-        nomeTemplate.setText(t.getTemplatePersonalizzato().getNome());
+        nomeTemplate.setText(t.getTemplate().getNome());
         for(QuesitoReale qr : t.getMappaQuesiti().values()){
             int index = Integer.parseInt(qr.getId().split("-")[2])+1;
             tabbedPane.addTab(String.valueOf(index),new TabQuesitoCorrettoPanel(qr).getMainPanel());

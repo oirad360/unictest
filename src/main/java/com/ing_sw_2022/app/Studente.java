@@ -8,7 +8,7 @@ import java.util.TreeMap;
 public class Studente extends Utente implements Serializable {
     private TemplatePersonalizzato templateCorrente;
     private TreeMap<Integer, TemplatePersonalizzato> mappaTemplatePersonalizzati;
-    private TemplatePersonalizzato templateSelezionato;
+    private Template templateSelezionato;
     private static final long serialVersionUID = 1;
 
     public Studente(String nome, String cognome, String cf) {
@@ -24,7 +24,7 @@ public class Studente extends Utente implements Serializable {
         return templateCorrente;
     }
 
-    public TemplatePersonalizzato getTemplateSelezionato() {
+    public Template getTemplateSelezionato() {
         return templateSelezionato;
     }
 
@@ -40,27 +40,29 @@ public class Studente extends Utente implements Serializable {
 
     /////////////////////////////////////////////METODI DCD///////////////////////////////////////////////
                ////////////////////UC2 CREA TEMPLATE DI TEST PERSONALIZZATO/////////////////////
-    public void nuovoTemplate(String nome){
+    public void nuovoTemplateP(String nome){
         int id = 0;
         if(!mappaTemplatePersonalizzati.isEmpty()) id = mappaTemplatePersonalizzati.lastKey()+1;
         templateCorrente = new TemplatePersonalizzato(id, nome);
     }
 
-    public void inserisciInfoTemplate(float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoMedio){
-        templateCorrente.setPuntiCorretta(puntiCorretta);
+    public void inserisciInfoTemplateP(float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoMedio){
+        /*templateCorrente.setPuntiCorretta(puntiCorretta);
         templateCorrente.setPuntiErrata(puntiErrata);
         templateCorrente.setPuntiNonData(puntiNonData);
         templateCorrente.setNumRisposte(numRisposte);
         templateCorrente.setMinRisposteCorrette(minRisposteCorrette);
         templateCorrente.setMaxRisposteCorrette(maxRisposteCorrette);
+        templateCorrente.setTempoMedio(tempoMedio);*/
+        templateCorrente.setInfoTemplate(puntiCorretta,puntiErrata,puntiNonData,numRisposte,minRisposteCorrette,maxRisposteCorrette);
         templateCorrente.setTempoMedio(tempoMedio);
     }
 
-    public void creaSezione(Materia m, int numQuesiti, int difficoltàMedia){
+    public void creaSezioneP(Materia m, int numQuesiti, int difficoltàMedia){
         templateCorrente.creaSezione(m,numQuesiti,difficoltàMedia);
     }
 
-    public void confermaTemplate(){
+    public void confermaTemplateP(){
         mappaTemplatePersonalizzati.put(templateCorrente.getId(),templateCorrente);
         templateCorrente=null;
     }

@@ -44,7 +44,7 @@ public class CreaSezionePanel implements ActionListener {
                 counter++;
                 buttonConferma.setEnabled(true);
                 numSezioni.setText(counter.toString());
-                UniCTest.getInstance().creaSezione(((Item)materiaBox.getSelectedItem()).getId(),(int)numQuesiti.getValue(),(int)difficoltàMedia.getValue());
+                UniCTest.getInstance().creaSezioneP(((Item)materiaBox.getSelectedItem()).getId(),(int)numQuesiti.getValue(),(int)difficoltàMedia.getValue());
                 listaMaterie.remove(materiaBox.getSelectedIndex());
                 Item items[]=new Item[listaMaterie.size()];
                 int i=0;
@@ -66,7 +66,7 @@ public class CreaSezionePanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        UniCTest.getInstance().confermaTemplate();
+        UniCTest.getInstance().confermaTemplateP();
         UniCTest.getInstance().serialize();
         NuovoTemplatePersFrame.getInstance().dispose();
     }

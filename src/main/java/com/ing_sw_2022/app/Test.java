@@ -9,20 +9,20 @@ public class Test implements Serializable {
 
 	private String id;
 	private float punteggioComplessivo;
-	private TemplatePersonalizzato templatePersonalizzato;
+	private Template template;
 	private TreeMap<String, QuesitoReale> mappaQuesiti;
 	private static final long serialVersionUID = 1;
 
 
-	public Test(String id, TemplatePersonalizzato templatePersonalizzato) throws Exception { //La costruzione del Test fallisce se non posso soddisfare i requisiti del template
+	public Test(String id, Template template) throws Exception { //La costruzione del Test fallisce se non posso soddisfare i requisiti del template
 		this.id = id;
-		this.templatePersonalizzato = templatePersonalizzato;
+		this.template = template;
 		this.mappaQuesiti = new TreeMap<String, QuesitoReale>();
 
-		ArrayList<Sezione> listaSezioni = templatePersonalizzato.getListaSezioni();
+		ArrayList<Sezione> listaSezioni = template.getListaSezioni();
 		for(Sezione s : listaSezioni){
 			Materia m = s.getMateria();
-			List<QuesitoDescrizione> listaQuesiti = m.generaQuesiti(templatePersonalizzato,s); //Questo è il potenziale punto di lancio dell'eccezione
+			List<QuesitoDescrizione> listaQuesiti = m.generaQuesiti(template,s); //Questo è il potenziale punto di lancio dell'eccezione
 			for(QuesitoDescrizione qd : listaQuesiti){
 				String newId;
 				if(mappaQuesiti.isEmpty()) newId = id+"-0";
@@ -45,8 +45,8 @@ public class Test implements Serializable {
 		return punteggioComplessivo;
 	}
 
-	public TemplatePersonalizzato getTemplatePersonalizzato() {
-		return templatePersonalizzato;
+	public Template getTemplate() {
+		return template;
 	}
 
 	public TreeMap<String, QuesitoReale> getMappaQuesiti() {
@@ -58,7 +58,7 @@ public class Test implements Serializable {
 		return "Test{" +"\n"+
 				"id='" + id + "\n"+
 				", punteggioComplessivo=" + punteggioComplessivo +"\n"+
-				", templatePersonalizzato=" + templatePersonalizzato.getNome() +"\n"+
+				", templatePersonalizzato=" + template.getNome() +"\n"+
 				", mappaQuesiti=" + mappaQuesiti +"\n"+
 				'}';
 	}
@@ -77,9 +77,9 @@ public class Test implements Serializable {
 		for (QuesitoReale qr : mappaQuesiti.values()) {
 			correttezza = qr.verificaCorrettezza();
 			switch(correttezza){
-				case 0 : temp+= templatePersonalizzato.getPuntiNonData(); break;
-				case 1 : temp+= templatePersonalizzato.getPuntiCorretta(); break;
-				case -1: temp+= templatePersonalizzato.getPuntiErrata(); break;
+				case 0 : temp+= template.getPuntiNonData(); break;
+				case 1 : temp+= template.getPuntiCorretta(); break;
+				case -1: temp+= template.getPuntiErrata(); break;
 				default: System.out.println("ERRORE: Setting errato dei punti del quesito"); break;
 			}
 		}

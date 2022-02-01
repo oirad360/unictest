@@ -30,10 +30,10 @@ class TestAvviaSimulazione {
         unictest.confermaQuesito("p3");
         //creo un template per sceglierlo nel test dell'avvio della simulazione
         unictest.setUtenteAutenticato("VRDLGI99R21C351J"); //autentico uno studente
-        unictest.nuovoTemplate("Test template personalizzato");
-        unictest.inserisciInfoTemplate((float)1.0,(float)0.0,(float)0.0,2,1,2,1);
-        unictest.creaSezione(m.getCodice(),1,3);
-        unictest.confermaTemplate();
+        unictest.nuovoTemplateP("Test template personalizzato");
+        unictest.inserisciInfoTemplateP((float)1.0,(float)0.0,(float)0.0,2,1,2,1);
+        unictest.creaSezioneP(m.getCodice(),1,3);
+        unictest.confermaTemplateP();
 
         mappaTemplate= (TreeMap<Integer, TemplatePersonalizzato>) ((Studente)unictest.getUtenteAutenticato()).getMappaTemplatePersonalizzati();
         tp1 = mappaTemplate.get(mappaTemplate.lastKey());
@@ -44,10 +44,10 @@ class TestAvviaSimulazione {
     void testAvviaSimulazione() {
         Materia m = unictest.getMappaMaterie().get("MAT01");//matematica
         //creo un template che richiede 800 quesiti di matematica (mi aspetto che l'avvio della simulazione fallisca)
-        unictest.nuovoTemplate("Test template personalizzato");
-        unictest.inserisciInfoTemplate((float)1.0,(float)0.0,(float)0.0,2,1,2,1);
-        unictest.creaSezione(m.getCodice(),800,3);
-        unictest.confermaTemplate();
+        unictest.nuovoTemplateP("Test template personalizzato");
+        unictest.inserisciInfoTemplateP((float)1.0,(float)0.0,(float)0.0,2,1,2,1);
+        unictest.creaSezioneP(m.getCodice(),800,3);
+        unictest.confermaTemplateP();
         //lancio la simulazione che dovrebbe tornare null
         com.ing_sw_2022.app.Test t=null;
         try{
@@ -59,10 +59,10 @@ class TestAvviaSimulazione {
         }
         mappaTemplate.remove(mappaTemplate.lastKey());
         //creo un template che richiede quesiti con 100 risposte (mi aspetto che l'avvio della simulazione fallisca)
-        unictest.nuovoTemplate("Test template personalizzato");
-        unictest.inserisciInfoTemplate((float)1.0,(float)0.0,(float)0.0,100,1,2,1);
-        unictest.creaSezione(m.getCodice(),1,3);
-        unictest.confermaTemplate();
+        unictest.nuovoTemplateP("Test template personalizzato");
+        unictest.inserisciInfoTemplateP((float)1.0,(float)0.0,(float)0.0,100,1,2,1);
+        unictest.creaSezioneP(m.getCodice(),1,3);
+        unictest.confermaTemplateP();
         //lancio la simulazione che dovrebbe tornare null
         try{
             t=unictest.avviaSimulazione(mappaTemplate.get(mappaTemplate.lastKey()).getId());
