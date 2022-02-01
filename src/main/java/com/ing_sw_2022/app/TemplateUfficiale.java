@@ -26,4 +26,20 @@ public class TemplateUfficiale extends Template implements Serializable {
     public void setTempoTotale(int tempoTotale) {
         this.tempoTotale = tempoTotale;
     }
+
+    @Override
+    public String toString() {
+        return "TemplatePersonalizzato{" +"\n"+
+                "id=" + super.id +"\n"+
+                ", nome='" + super.nome + "\n"+
+                ", tempoTotale=" + tempoTotale +"\n"+
+                ", numRisposte=" + super.numRisposte +"\n"+
+                ", minRisposteCorrette=" + super.minRisposteCorrette +"\n"+
+                ", maxRisposteCorrette=" + super.maxRisposteCorrette +"\n"+
+                ", puntiCorretta=" + super.puntiCorretta +"\n"+
+                ", puntiErrata=" + super.puntiErrata +"\n"+
+                ", puntiNonData=" + super.puntiNonData +"\n"+
+                ", listaSezioni=" + super.listaSezioni +"\n"+
+                '}';
+    }
 }
