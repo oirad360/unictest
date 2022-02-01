@@ -1,5 +1,6 @@
-package com.ing_sw_2022.app.ui;
+package com.ing_sw_2022.app;
 
+import com.ing_sw_2022.app.Materia;
 import com.ing_sw_2022.app.Sezione;
 import com.ing_sw_2022.app.Test;
 
@@ -8,17 +9,17 @@ import java.util.ArrayList;
 import java.util.TreeMap;
 
 public abstract class Template implements Serializable {
-    private int id;
-    private String nome;
-    private int numRisposte;
-    private int minRisposteCorrette;
-    private int maxRisposteCorrette;
-    private float puntiCorretta;
-    private float puntiErrata;
-    private float puntiNonData;
-    private ArrayList<Sezione> listaSezioni;
-    private Test testCorrente;
-    private TreeMap<String,Test> mappaTest;
+    protected int id;
+    protected String nome;
+    protected int numRisposte;
+    protected int minRisposteCorrette;
+    protected int maxRisposteCorrette;
+    protected float puntiCorretta;
+    protected float puntiErrata;
+    protected float puntiNonData;
+    protected ArrayList<Sezione> listaSezioni;
+    protected Test testCorrente;
+    protected TreeMap<String,Test> mappaTest;
     private static final long serialVersionUID = 1;
 
     public Template(int id, String nome) {
@@ -83,6 +84,22 @@ public abstract class Template implements Serializable {
         this.numRisposte=numRisposte;
         this.minRisposteCorrette=minRisposteCorrette;
         this.maxRisposteCorrette=maxRisposteCorrette;
+    }
+                              /////////////////////////UC2 CREA TEMPLATE DI TEST PERSONALIZZATO/////////////
+    public void creaSezione(Materia materia, int numQuesiti, int difficoltàMedia){
+        String newId;
+        if(listaSezioni.isEmpty()) newId = id+"-0";
+        else newId = id+"-"+(Integer.parseInt(listaSezioni.get(listaSezioni.size()-1).getId().split("-")[1])+1);
+        Sezione s = new Sezione(newId, materia, numQuesiti, difficoltàMedia);
+        listaSezioni.add(s);
+    }
+                    /////////////////////////UC2/A CREA TEMPLATE DI TEST UFFICALE////////////////////
+    public void creaSezione(Materia materia, int numQuesiti){
+        String newId;
+        if(listaSezioni.isEmpty()) newId = id+"-0";
+        else newId = id+"-"+(Integer.parseInt(listaSezioni.get(listaSezioni.size()-1).getId().split("-")[1])+1);
+        Sezione s = new Sezione(newId, materia, numQuesiti, 0);
+        listaSezioni.add(s);
     }
 
                             ///////////////////////////UC1 AVVIA SIMULAZIONE//////////////////////////

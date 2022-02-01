@@ -8,7 +8,7 @@ import java.util.TreeMap;
 public class Studente extends Utente implements Serializable {
     private TemplatePersonalizzato templateCorrente;
     private TreeMap<Integer, TemplatePersonalizzato> mappaTemplatePersonalizzati;
-    private TemplatePersonalizzato templateSelezionato;
+    private Template templateSelezionato;
     private static final long serialVersionUID = 1;
 
     public Studente(String nome, String cognome, String cf) {
@@ -24,7 +24,7 @@ public class Studente extends Utente implements Serializable {
         return templateCorrente;
     }
 
-    public TemplatePersonalizzato getTemplateSelezionato() {
+    public Template getTemplateSelezionato() {
         return templateSelezionato;
     }
 
@@ -47,17 +47,19 @@ public class Studente extends Utente implements Serializable {
     }
 
     public void inserisciInfoTemplateP(float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoMedio){
-        templateCorrente.setPuntiCorretta(puntiCorretta);
+        /*templateCorrente.setPuntiCorretta(puntiCorretta);
         templateCorrente.setPuntiErrata(puntiErrata);
         templateCorrente.setPuntiNonData(puntiNonData);
         templateCorrente.setNumRisposte(numRisposte);
         templateCorrente.setMinRisposteCorrette(minRisposteCorrette);
         templateCorrente.setMaxRisposteCorrette(maxRisposteCorrette);
+        templateCorrente.setTempoMedio(tempoMedio);*/
+        templateCorrente.setInfoTemplate(puntiCorretta,puntiErrata,puntiNonData,numRisposte,minRisposteCorrette,maxRisposteCorrette);
         templateCorrente.setTempoMedio(tempoMedio);
     }
 
     public void creaSezioneP(Materia m, int numQuesiti, int difficoltàMedia){
-        templateCorrente.creaSezioneP(m,numQuesiti,difficoltàMedia);
+        templateCorrente.creaSezione(m,numQuesiti,difficoltàMedia);
     }
 
     public void confermaTemplateP(){

@@ -90,15 +90,15 @@ public class Materia implements Serializable {
         quesitoDescrizioneCorrente = null;
     }
                  ///////////////////////////UC1 AVVIA SIMULAZIONE//////////////////////
-    public List<QuesitoDescrizione> generaQuesiti(TemplatePersonalizzato tp, Sezione s) throws Exception{
+    public List<QuesitoDescrizione> generaQuesiti(Template t, Sezione s) throws Exception{
         int n=s.getNumQuesiti();
         int dim=mappaQuesiti.size();
         if(n>dim) throw new Exception("la materia "+s.getMateria().getNome()+" contiene solo "+dim+" quesiti contro i "+n+" richiesti");
 
         int difficoltà=s.getDifficoltàMedia();
-        int risposte=tp.getNumRisposte();
-        int maxCorrette=tp.getMaxRisposteCorrette();
-        int minCorrette=tp.getMinRisposteCorrette();
+        int risposte=t.getNumRisposte();
+        int maxCorrette=t.getMaxRisposteCorrette();
+        int minCorrette=t.getMinRisposteCorrette();
         ArrayList<QuesitoDescrizione> listaQuesiti=new ArrayList<QuesitoDescrizione>();
         ArrayList<Integer> oldIndex= new ArrayList<Integer>();
         ArrayList<QuesitoDescrizione> listaQD= new ArrayList<QuesitoDescrizione>(mappaQuesiti.values());
@@ -126,7 +126,9 @@ public class Materia implements Serializable {
             if(!error){
                 if(qd.getRisposte().size()!=risposte) error = true; //Conto il numero di risposte
                 if(!error){
-                    if(qd.getDifficoltà()!=difficoltà-1 && qd.getDifficoltà()!=difficoltà && qd.getDifficoltà()!=difficoltà+1) error = true;
+                    if(difficoltà!=0){
+                        if(qd.getDifficoltà()!=difficoltà-1 && qd.getDifficoltà()!=difficoltà && qd.getDifficoltà()!=difficoltà+1) error = true;
+                    }
                     if(!error){
                         int countCorrette=0;
                         for(Risposta r: qd.getRisposte().values()) if(r.isValore()) countCorrette++; //Conto il numero di risposte vere

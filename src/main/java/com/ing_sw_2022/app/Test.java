@@ -9,12 +9,12 @@ public class Test implements Serializable {
 
 	private String id;
 	private float punteggioComplessivo;
-	private TemplatePersonalizzato template;
+	private Template template;
 	private TreeMap<String, QuesitoReale> mappaQuesiti;
 	private static final long serialVersionUID = 1;
 
 
-	public Test(String id, TemplatePersonalizzato template) throws Exception { //La costruzione del Test fallisce se non posso soddisfare i requisiti del template
+	public Test(String id, Template template) throws Exception { //La costruzione del Test fallisce se non posso soddisfare i requisiti del template
 		this.id = id;
 		this.template = template;
 		this.mappaQuesiti = new TreeMap<String, QuesitoReale>();
@@ -45,7 +45,7 @@ public class Test implements Serializable {
 		return punteggioComplessivo;
 	}
 
-	public TemplatePersonalizzato getTemplatePersonalizzato() {
+	public Template getTemplate() {
 		return template;
 	}
 
