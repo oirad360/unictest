@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="225c3c9e-492a-4307-b648-bc04a0874595" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/6.0 Ideazione - Aggiornamento/~$22_01_04_UniCTest_Ideazione_revisione2.docx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/6.1 Elaborazione 4/UniCTest_iterazione4.asta" beforeDir="false" afterPath="$PROJECT_DIR$/6.1 Elaborazione 4/UniCTest_iterazione4.asta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/6.1 Elaborazione 4/~$22_01_18_UniCTest_Elaborazione_4.docx" beforeDir="false" />
     </list>
     <list id="f783ecb6-0640-46ab-87d4-fee534d629cc" name="Changes by oirad" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -209,6 +207,7 @@
       <workItem from="1643558491568" duration="1055000" />
       <workItem from="1643562814401" duration="641000" />
       <workItem from="1643712554399" duration="601000" />
+      <workItem from="1643755680728" duration="605000" />
     </task>
     <servers />
   </component>
