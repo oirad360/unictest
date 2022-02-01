@@ -109,7 +109,7 @@ public class TemplatePersonalizzato implements Serializable {
     /////////////////////////////////////////////METODI DCD///////////////////////////////////////////////
 
                         ///////////////////////UC2 CREA TEMPLATE DI TEST PERSONALIZZATO///////////////////////
-    public void creaSezione(Materia materia, int numQuesiti, int difficoltàMedia){
+    public void creaSezioneP(Materia materia, int numQuesiti, int difficoltàMedia){
         String newId;
         if(listaSezioni.isEmpty()) newId = id+"-0";
         else newId = id+"-"+(Integer.parseInt(listaSezioni.get(listaSezioni.size()-1).getId().split("-")[1])+1);

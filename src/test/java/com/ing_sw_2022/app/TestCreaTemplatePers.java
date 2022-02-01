@@ -21,7 +21,7 @@ class TestCreaTemplatePers {
     @Test
     @BeforeEach
     void testNuovoTemplate(){
-        unictest.nuovoTemplate("Test template personalizzato"); //inizializzo il template corrente per i test successivi
+        unictest.nuovoTemplateP("Test template personalizzato"); //inizializzo il template corrente per i test successivi
         TemplatePersonalizzato tp=((Studente)unictest.getUtenteAutenticato()).getTemplateCorrente();
         assertNotNull(tp);
         assertEquals(tp.getNome(),"Test template personalizzato");
@@ -30,7 +30,7 @@ class TestCreaTemplatePers {
     @Test
     void testInserisciInfoTemplate() {
         TemplatePersonalizzato tp=((Studente)unictest.getUtenteAutenticato()).getTemplateCorrente();
-        List<Materia> listaMaterie=unictest.inserisciInfoTemplate((float)1.0,(float)0.0,(float)0.0,4,1,4,1);
+        List<Materia> listaMaterie=unictest.inserisciInfoTemplateP((float)1.0,(float)0.0,(float)0.0,4,1,4,1);
         assertNotNull(listaMaterie);
         assertTrue(listaMaterie.size()>0);
         assertEquals((float)1.0,tp.getPuntiCorretta(),(float)0.0);
@@ -47,7 +47,7 @@ class TestCreaTemplatePers {
         TemplatePersonalizzato tp=((Studente)unictest.getUtenteAutenticato()).getTemplateCorrente();
         int i=0;
         for(Materia m : unictest.getMappaMaterie().values()){
-            unictest.creaSezione(m.getCodice(),10,3);
+            unictest.creaSezioneP(m.getCodice(),10,3);
             Sezione s = tp.getListaSezioni().get(i);
             assertNotNull(tp.getListaSezioni());
             assertEquals(tp.getListaSezioni().size(),i+1);
@@ -61,7 +61,7 @@ class TestCreaTemplatePers {
 
     @Test
     void testConfermaTemplate(){
-        unictest.confermaTemplate(); //il template corrente viene eliminato
+        unictest.confermaTemplateP(); //il template corrente viene eliminato
         assertNull(((Studente)unictest.getUtenteAutenticato()).getTemplateCorrente());
         assertTrue(((Studente)unictest.getUtenteAutenticato()).getMappaTemplatePersonalizzati().size()>0);
     }

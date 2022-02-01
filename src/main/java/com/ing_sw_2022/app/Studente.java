@@ -40,13 +40,13 @@ public class Studente extends Utente implements Serializable {
 
     /////////////////////////////////////////////METODI DCD///////////////////////////////////////////////
                ////////////////////UC2 CREA TEMPLATE DI TEST PERSONALIZZATO/////////////////////
-    public void nuovoTemplate(String nome){
+    public void nuovoTemplateP(String nome){
         int id = 0;
         if(!mappaTemplatePersonalizzati.isEmpty()) id = mappaTemplatePersonalizzati.lastKey()+1;
         templateCorrente = new TemplatePersonalizzato(id, nome);
     }
 
-    public void inserisciInfoTemplate(float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoMedio){
+    public void inserisciInfoTemplateP(float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoMedio){
         templateCorrente.setPuntiCorretta(puntiCorretta);
         templateCorrente.setPuntiErrata(puntiErrata);
         templateCorrente.setPuntiNonData(puntiNonData);
@@ -56,11 +56,11 @@ public class Studente extends Utente implements Serializable {
         templateCorrente.setTempoMedio(tempoMedio);
     }
 
-    public void creaSezione(Materia m, int numQuesiti, int difficoltàMedia){
-        templateCorrente.creaSezione(m,numQuesiti,difficoltàMedia);
+    public void creaSezioneP(Materia m, int numQuesiti, int difficoltàMedia){
+        templateCorrente.creaSezioneP(m,numQuesiti,difficoltàMedia);
     }
 
-    public void confermaTemplate(){
+    public void confermaTemplateP(){
         mappaTemplatePersonalizzati.put(templateCorrente.getId(),templateCorrente);
         templateCorrente=null;
     }

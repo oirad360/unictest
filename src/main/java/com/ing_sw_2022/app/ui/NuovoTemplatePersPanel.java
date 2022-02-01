@@ -38,7 +38,7 @@ public class NuovoTemplatePersPanel extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        UniCTest.getInstance().nuovoTemplate(textField.getText());
+        UniCTest.getInstance().nuovoTemplateP(textField.getText());
         NuovoTemplatePersFrame.getInstance().setContentPane(new InsInfoTemplatePanel().getMainPanel());
         NuovoTemplatePersFrame.getInstance().revalidate();
     }
