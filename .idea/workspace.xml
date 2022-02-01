@@ -5,66 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="225c3c9e-492a-4307-b648-bc04a0874595" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Materia.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Materia.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/QuesitoDescrizione.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/QuesitoDescrizione.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/QuesitoReale.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/QuesitoReale.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Risposta.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Risposta.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Sezione.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Sezione.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Studente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Studente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/TabbedPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/TabbedPanel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/TabbedPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/TabbedPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/TemplatePersonalizzato.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/TemplatePersonalizzato.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Tutor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Tutor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/UniCTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/UniCTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Utente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Utente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Visibilità.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Visibilità.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/AvviaSimulazioneFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/AvviaSimulazioneFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/AvviaSimulazionePanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/AvviaSimulazionePanel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/AvviaSimulazionePanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/AvviaSimulazionePanel$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/AvviaSimulazionePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/AvviaSimulazionePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/ConfermaQuesitoPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/ConfermaQuesitoPanel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/ConfermaQuesitoPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/ConfermaQuesitoPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/CreaSezionePanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/CreaSezionePanel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/CreaSezionePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/CreaSezionePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/InsInfoTemplatePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/InsInfoTemplatePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/InserisciDifficoltàPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/InserisciDifficoltàPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/InserisciFontePanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/InserisciFontePanel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/InserisciFontePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/InserisciFontePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/InserisciRispostePanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/InserisciRispostePanel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/InserisciRispostePanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/InserisciRispostePanel$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/InserisciRispostePanel$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/InserisciRispostePanel$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/InserisciRispostePanel$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/InserisciRispostePanel$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/InserisciRispostePanel$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/InserisciRispostePanel$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/InserisciRispostePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/InserisciRispostePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/InserisciTestoPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/InserisciTestoPanel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/InserisciTestoPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/InserisciTestoPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/Item.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/NuovoQuesitoFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/NuovoQuesitoFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/NuovoTemplatePersFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/NuovoTemplatePersFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/NuovoTemplatePersPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/NuovoTemplatePersPanel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/NuovoTemplatePersPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/NuovoTemplatePersPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/TabQuesitoCorrettoPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/TabQuesitoCorrettoPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/TabQuesitoPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/TabQuesitoPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/TestCorrettoPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/TestCorrettoPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$2$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$3$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$3$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/VisualizzaMateriePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/VisualizzaMateriePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/VisualizzaTemplatePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/VisualizzaTemplatePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/AppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/AppTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestAvviaSimulazione.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestAvviaSimulazione.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestCreaTemplatePers.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestCreaTemplatePers.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestNuovoQuesito.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestNuovoQuesito.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tesseract/Immagine.png" beforeDir="false" afterPath="$PROJECT_DIR$/tesseract/Immagine.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/5. Elaborazione 3/~$22_01_18_UniCTest_Elaborazione_3.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/6.1 Elaborazione 4/UniCTest_iterazione4.asta" beforeDir="false" afterPath="$PROJECT_DIR$/6.1 Elaborazione 4/UniCTest_iterazione4.asta" afterDir="false" />
     </list>
     <list id="f783ecb6-0640-46ab-87d4-fee534d629cc" name="Changes by oirad" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -262,6 +204,7 @@
       <workItem from="1643281916432" duration="13908000" />
       <workItem from="1643301161171" duration="6757000" />
       <workItem from="1643367756994" duration="15207000" />
+      <workItem from="1643712407723" duration="828000" />
     </task>
     <servers />
   </component>
