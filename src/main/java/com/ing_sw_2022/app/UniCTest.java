@@ -9,12 +9,14 @@ public class UniCTest implements Serializable{
     private HashMap<String,Visibilità> mappaVisibilità;
     static private Utente utenteAutenticato;
     private HashMap<String, Utente> mappaUtenti;
+    private TreeMap<Integer, TemplateUfficiale> mappaTemplateUfficiali;
     private static final long serialVersionUID = 1;
 
     private UniCTest() {
         mappaMaterie = new HashMap<>();
         mappaVisibilità = new HashMap<>();
         mappaUtenti = new HashMap<>();
+        mappaTemplateUfficiali = new TreeMap<>();
         loadMaterie();
         loadVisibilità();
         loadUtenti();
@@ -47,6 +49,10 @@ public class UniCTest implements Serializable{
 
     public Utente getUtenteAutenticato(){
         return utenteAutenticato;
+    }
+
+    public TreeMap<Integer, TemplateUfficiale> getMappaTemplateUfficiali() {
+        return mappaTemplateUfficiali;
     }
 
     public void serialize(){
@@ -138,7 +144,9 @@ public class UniCTest implements Serializable{
     public void confermaTemplateP(){
         ((Studente)utenteAutenticato).confermaTemplateP();
     }
+
                         ////////////////////UC1 AVVIA SIMULAZIONE/////////////////////
+
     public ArrayList<TemplatePersonalizzato> visualizzaTemplate(){
         ArrayList<TemplatePersonalizzato> lista = ((Studente)utenteAutenticato).visualizzaTemplate();
         return lista;
@@ -156,6 +164,36 @@ public class UniCTest implements Serializable{
     public Test terminaSimulazione(){
         Test t = ((Studente)utenteAutenticato).terminaSimulazione();
         return t;
+    }
+
+
+    ////////////////////UC2 CREA TEMPLATE DI TEST UFFICIALE/////////////////////
+
+    public void nuovoTemplateU(String nome){
+        ((Amministratore)utenteAutenticato).nuovoTemplateU(nome);
+    }
+
+    public void inserisciInfoTemplateU(String fonte, float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoTotale){
+        ((Amministratore)utenteAutenticato).inserisciInfoTemplateU(fonte, puntiCorretta, puntiErrata, puntiNonData, numRisposte, minRisposteCorrette, maxRisposteCorrette, tempoTotale);
+    }
+
+    public void creaSezioneU(String nomeMateria, int numQuesiti){
+        //Materia m=mappaMaterie.get(codiceMateria);
+        List<Materia> listaMateriePresenti = new ArrayList<Materia>(mappaMaterie.values());
+        for (Materia m: listaMateriePresenti) {
+            if(m.getNome().toLowerCase().equals(nomeMateria.toLowerCase())) {
+                //In tal caso applico la funzionalità Flyweight
+                ((Amministratore) utenteAutenticato).creaSezioneU(m, numQuesiti);
+                break;
+            }
+        }
+        //Se sono qui non ho trovato la Materia
+
+
+    }
+
+    public void confermaTemplateU(){
+        ((Amministratore)utenteAutenticato).confermaTemplateU();
     }
 
                         ////////////METODI PER CASO D'USO DI AVVIAMENTO//////////////

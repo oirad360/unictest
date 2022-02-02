@@ -47,13 +47,6 @@ public class Studente extends Utente implements Serializable {
     }
 
     public void inserisciInfoTemplateP(float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoMedio){
-        /*templateCorrente.setPuntiCorretta(puntiCorretta);
-        templateCorrente.setPuntiErrata(puntiErrata);
-        templateCorrente.setPuntiNonData(puntiNonData);
-        templateCorrente.setNumRisposte(numRisposte);
-        templateCorrente.setMinRisposteCorrette(minRisposteCorrette);
-        templateCorrente.setMaxRisposteCorrette(maxRisposteCorrette);
-        templateCorrente.setTempoMedio(tempoMedio);*/
         templateCorrente.setInfoTemplate(puntiCorretta,puntiErrata,puntiNonData,numRisposte,minRisposteCorrette,maxRisposteCorrette);
         templateCorrente.setTempoMedio(tempoMedio);
     }

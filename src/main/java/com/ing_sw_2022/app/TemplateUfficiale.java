@@ -29,7 +29,7 @@ public class TemplateUfficiale extends Template implements Serializable {
 
     @Override
     public String toString() {
-        return "TemplatePersonalizzato{" +"\n"+
+        return "TemplateUfficiale{" +"\n"+
                 "id=" + super.id +"\n"+
                 ", nome='" + super.nome + "\n"+
                 ", tempoTotale=" + tempoTotale +"\n"+
