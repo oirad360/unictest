@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="225c3c9e-492a-4307-b648-bc04a0874595" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/NuovoTemplateUffFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/6.1 Elaborazione 4/~$22_01_18_UniCTest_Elaborazione_4.docx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/7. Elaborazione 5/UniCTest_iterazione5.asta" beforeDir="false" afterPath="$PROJECT_DIR$/7. Elaborazione 5/UniCTest_iterazione5.asta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Amministratore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Amministratore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Sezione.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Sezione.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Template.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Template.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/InsInfoTemplatePanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/InsInfoTemplatePanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/UniCTestFrame.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/UniCTestFrame.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/UniCTestFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/UniCTestFrame.java" afterDir="false" />
     </list>
     <list id="4a4a27a3-ebd8-4ab6-8076-54091ed7be37" name="Changes by franc" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" afterDir="false" />
@@ -43,14 +42,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$PROJECT_DIR$/../.jdks/corretto-11.0.13/lib/src.zip!/java.base/java/lang/Object.java" root0="FORCE_HIGHLIGHTING" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java">
-      <ranges>
-        <range start1="180" end1="192" start2="180" end2="181" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
-        <range start1="193" end1="193" start2="182" end2="211" changelist="4a4a27a3-ebd8-4ab6-8076-54091ed7be37" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -227,7 +218,7 @@
       <workItem from="1643712554399" duration="601000" />
       <workItem from="1643755680728" duration="605000" />
       <workItem from="1643798308247" duration="7372000" />
-      <workItem from="1643815859724" duration="10907000" />
+      <workItem from="1643815859724" duration="13034000" />
     </task>
     <servers />
   </component>

@@ -1,8 +1,5 @@
 package com.ing_sw_2022.app.ui;
 
-import com.ing_sw_2022.app.Amministratore;
-import com.ing_sw_2022.app.Impiegato;
-import com.ing_sw_2022.app.Studente;
 import com.ing_sw_2022.app.UniCTest;
 
 import javax.swing.*;
@@ -18,6 +15,7 @@ public class UniCTestFrame extends JFrame{
     private JPanel panel;
     private JButton btnNuovoTemplate;
     private JButton btnAvviaSimulazione;
+    private JButton btnNuovoTemplateU;
     private static UniCTestFrame unictestFrame;
     private static final Integer pos = 100;
     private UniCTestFrame(){
@@ -94,6 +92,30 @@ public class UniCTestFrame extends JFrame{
                     {
                         btnAvviaSimulazione.setEnabled(true);
                         AvviaSimulazioneFrame.destroyInstance();
+                    }
+                });
+            }
+        });
+
+        btnNuovoTemplateU.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                NuovoTemplateUffFrame nuovoTemplateUffFrame = NuovoTemplateUffFrame.getInstance();
+                btnNuovoTemplateU.setEnabled(false);
+
+                nuovoTemplateUffFrame.addWindowListener(new WindowAdapter()
+                {
+                    @Override
+                    public void windowClosing(WindowEvent e)
+                    {
+                        btnNuovoTemplateU.setEnabled(true);
+                        NuovoTemplateUffFrame.destroyInstance();
+                    }
+                    @Override
+                    public void windowClosed(WindowEvent e)
+                    {
+                        btnNuovoTemplateU.setEnabled(true);
+                        NuovoTemplateUffFrame.destroyInstance();
                     }
                 });
             }

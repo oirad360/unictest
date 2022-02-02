@@ -205,6 +205,8 @@ public class UniCTest implements Serializable{
         // Biologia -> BIO01 (è la prima materia inserita nel Sistema che inizia per "BIO")
         // Biomedicina -> BIO02 (ho 2 materie che iniziano per "BIO", quindi 1+1=2)
         // Biochimica -> BIO03 (ho 3 materie che iniziano per "BIO", quindi 2+1=3)
+
+        nomeMateria = nomeMateria.substring(0, 1).toUpperCase() + nomeMateria.substring(1); //Rendo il nomeMateria nella forma "prima lettera maiuscola". Es. Ciao (e non ciao o CIAO o CiAO ecc).
         Materia m = new Materia(nomeMateria, codiceMateria);
         mappaMaterie.put(m.getCodice(),m);
         return m;
