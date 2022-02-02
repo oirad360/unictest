@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Tutor extends Utente implements Serializable{
+public class Tutor extends Utente implements Serializable, Impiegato{
     private HashMap<String,Materia> materieInsegnate;
     private Materia materiaCorrente;
     private static final long serialVersionUID = 1;

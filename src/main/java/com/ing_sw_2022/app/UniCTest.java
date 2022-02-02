@@ -7,7 +7,6 @@ public class UniCTest implements Serializable{
     private static UniCTest unictest;
     private HashMap<String,Materia> mappaMaterie;
     private HashMap<String,Visibilità> mappaVisibilità;
-    private Materia materiaCorrente;
     static private Utente utenteAutenticato;
     private HashMap<String, Utente> mappaUtenti;
     private static final long serialVersionUID = 1;
@@ -26,7 +25,7 @@ public class UniCTest implements Serializable{
         if (unictest == null) {
             int res=deserialize();
             if(res==0) unictest = new UniCTest();
-            utenteAutenticato = unictest.getMappaUtenti().get("RSSMRA80A01C351O");
+            utenteAutenticato = unictest.getMappaUtenti().get("VRDLGI99R21C351J");
             //RSSMRA80A01C351O --> Tutor
             //VRDLGI99R21C351J --> Studente
         }
@@ -43,10 +42,6 @@ public class UniCTest implements Serializable{
 
     public Map<String, Utente> getMappaUtenti() {
         return mappaUtenti;
-    }
-
-    public Materia getMateriaCorrente() {
-        return materiaCorrente;
     }
 
     public Utente getUtenteAutenticato(){
