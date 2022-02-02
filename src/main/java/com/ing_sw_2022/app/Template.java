@@ -94,11 +94,11 @@ public abstract class Template implements Serializable {
         listaSezioni.add(s);
     }
                     /////////////////////////UC2/A CREA TEMPLATE DI TEST UFFICALE////////////////////
-    public void creaSezione(Materia materia, int numQuesiti){
+    public void creaSezione(String nomeMateria, int numQuesiti){
         String newId;
         if(listaSezioni.isEmpty()) newId = id+"-0";
         else newId = id+"-"+(Integer.parseInt(listaSezioni.get(listaSezioni.size()-1).getId().split("-")[1])+1);
-        Sezione s = new Sezione(newId, materia, numQuesiti, 0);
+        Sezione s = new Sezione(newId, nomeMateria, numQuesiti, 0);
         listaSezioni.add(s);
     }
 

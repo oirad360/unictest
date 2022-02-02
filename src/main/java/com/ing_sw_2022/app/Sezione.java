@@ -16,6 +16,14 @@ public class Sezione implements Serializable {
         this.materia = materia;
     }
 
+    public Sezione(String id, String nomeMateria, int numQuesiti, int difficoltàMedia) {
+        //metodo per creare la sezione in cui la materia è considerata un flyweight
+        this.numQuesiti = numQuesiti;
+        this.difficoltàMedia = difficoltàMedia;
+        this.id = id;
+        this.materia = UniCTest.getInstance().getMateriaFlyweight(nomeMateria);
+    }
+
     public int getNumQuesiti() {
         return numQuesiti;
     }

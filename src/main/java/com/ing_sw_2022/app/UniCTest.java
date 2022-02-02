@@ -178,18 +178,36 @@ public class UniCTest implements Serializable{
     }
 
     public void creaSezioneU(String nomeMateria, int numQuesiti){
-        //Materia m=mappaMaterie.get(codiceMateria);
+        ((Amministratore) utenteAutenticato).creaSezioneU(nomeMateria, numQuesiti);
+    }
+
+    public Materia getMateriaFlyweight(String nomeMateria){ //Risolve un nomeMateria in una Materia, applicando il pattern GoF Flyweight
         List<Materia> listaMateriePresenti = new ArrayList<Materia>(mappaMaterie.values());
         for (Materia m: listaMateriePresenti) {
             if(m.getNome().toLowerCase().equals(nomeMateria.toLowerCase())) {
-                //In tal caso applico la funzionalità Flyweight
-                ((Amministratore) utenteAutenticato).creaSezioneU(m, numQuesiti);
-                break;
+                //In tal caso applico la funzionalità di Flyweight:
+                return m;
             }
         }
         //Se sono qui non ho trovato la Materia
-
-
+        //Prima dovrei chiedere al Tutor se è sicuro che la vuole creare?
+        String codiceMateria=nomeMateria.substring(0,3).toUpperCase();
+        int count=0;
+        for(String k: mappaMaterie.keySet()){
+            if(k.substring(0,3).equals(codiceMateria)){
+                count++;
+            }
+        }
+        codiceMateria=codiceMateria+String.format("%02d",count); //Esempio: MAT01
+        // ALGORITMO di assegnamento dei codici delle materie:
+        // Prendo tutte le keys, recupero le prime tre lettere, conto quante keys hanno le prime tre lettere uguali, quindi assegno come parte numerica esattamente quante sono +1
+        // Esempio di scenario:
+        // Biologia -> BIO01 (è la prima materia inserita nel Sistema che inizia per "BIO")
+        // Biomedicina -> BIO02 (ho 2 materie che iniziano per "BIO", quindi 1+1=2)
+        // Biochimica -> BIO03 (ho 3 materie che iniziano per "BIO", quindi 2+1=3)
+        Materia m = new Materia(nomeMateria, codiceMateria);
+        mappaMaterie.put(m.getCodice(),m);
+        return m;
     }
 
     public void confermaTemplateU(){

@@ -6,9 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="225c3c9e-492a-4307-b648-bc04a0874595" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/6.1 Elaborazione 4/~$22_01_18_UniCTest_Elaborazione_4.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/7. Elaborazione 5/UniCTest_iterazione5.asta" beforeDir="false" afterPath="$PROJECT_DIR$/7. Elaborazione 5/UniCTest_iterazione5.asta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Amministratore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Amministratore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Studente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Studente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/TemplateUfficiale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/TemplateUfficiale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Sezione.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Sezione.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Template.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Template.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" afterDir="false" />
     </list>
     <list id="4a4a27a3-ebd8-4ab6-8076-54091ed7be37" name="Changes by franc" comment="">
@@ -45,12 +47,8 @@
   <component name="LineStatusTrackerManager">
     <file path="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java">
       <ranges>
-        <range start1="11" end1="11" start2="11" end2="12" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
-        <range start1="17" end1="17" start2="18" end2="19" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
-        <range start1="50" end1="50" start2="52" end2="56" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
-        <range start1="140" end1="140" start2="146" end2="147" changelist="4a4a27a3-ebd8-4ab6-8076-54091ed7be37" />
-        <range start1="141" end1="141" start2="148" end2="149" changelist="4a4a27a3-ebd8-4ab6-8076-54091ed7be37" />
-        <range start1="159" end1="159" start2="167" end2="197" changelist="4a4a27a3-ebd8-4ab6-8076-54091ed7be37" />
+        <range start1="180" end1="192" start2="180" end2="181" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="193" end1="193" start2="182" end2="211" changelist="4a4a27a3-ebd8-4ab6-8076-54091ed7be37" />
       </ranges>
     </file>
   </component>
@@ -229,7 +227,7 @@
       <workItem from="1643712554399" duration="601000" />
       <workItem from="1643755680728" duration="605000" />
       <workItem from="1643798308247" duration="7372000" />
-      <workItem from="1643815859724" duration="5827000" />
+      <workItem from="1643815859724" duration="10907000" />
     </task>
     <servers />
   </component>

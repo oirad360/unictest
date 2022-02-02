@@ -31,8 +31,8 @@ public class Amministratore extends Decorator implements Serializable{
         templateCorrente.setTempoTotale(tempoTotale);
     }
 
-    public void creaSezioneU(Materia m, int numQuesiti){
-        templateCorrente.creaSezione(m,numQuesiti);
+    public void creaSezioneU(String nomeMateria, int numQuesiti){
+        templateCorrente.creaSezione(nomeMateria,numQuesiti);
     }
 
     public void confermaTemplateU(){
