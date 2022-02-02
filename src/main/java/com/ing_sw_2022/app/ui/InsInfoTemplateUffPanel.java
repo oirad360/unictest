@@ -6,6 +6,8 @@ import com.ing_sw_2022.app.UniCTest;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -27,6 +29,7 @@ public class InsInfoTemplateUffPanel implements ActionListener, ChangeListener {
 
     public InsInfoTemplateUffPanel(){
         button.addActionListener(this);
+        button.setEnabled(false);
         puntiCorretta.setModel(new SpinnerNumberModel(1.0,0.1 ,null,0.1));
         puntiErrata.setModel(new SpinnerNumberModel(0.0,null ,0.0,0.1));
         puntiNonData.setModel(new SpinnerNumberModel(0.0,null ,0.0,0.1));
@@ -37,10 +40,20 @@ public class InsInfoTemplateUffPanel implements ActionListener, ChangeListener {
         minRisposteCorrette.setName("minRisposteCorrette");
         maxRisposteCorrette.setModel(new SpinnerNumberModel(4,1 ,null,1));
         maxRisposteCorrette.setName("maxRisposteCorrette");
-
         numRisposte.addChangeListener(this);
         minRisposteCorrette.addChangeListener(this);
         maxRisposteCorrette.addChangeListener(this);
+        fonte.getDocument().addDocumentListener(new DocumentListener() {
+            public void changedUpdate(DocumentEvent e) {
+                button.setEnabled(!fonte.getText().trim().isEmpty());
+            }
+            public void removeUpdate(DocumentEvent e) {
+                button.setEnabled(!fonte.getText().trim().isEmpty());
+            }
+            public void insertUpdate(DocumentEvent e) {
+                button.setEnabled(!fonte.getText().trim().isEmpty());
+            }
+        });
     }
 
     public JPanel getMainPanel(){
@@ -50,8 +63,8 @@ public class InsInfoTemplateUffPanel implements ActionListener, ChangeListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         UniCTest.getInstance().inserisciInfoTemplateU(fonte.getText(), Float.parseFloat(puntiCorretta.getValue().toString()),Float.parseFloat(puntiErrata.getValue().toString()),Float.parseFloat(puntiNonData.getValue().toString()),(int)numRisposte.getValue(),(int)minRisposteCorrette.getValue(),(int)maxRisposteCorrette.getValue(),(int)tempoTotale.getValue());
-        NuovoTemplatePersFrame.getInstance().setContentPane(new CreaSezioneUffPanel().getMainPanel());
-        NuovoTemplatePersFrame.getInstance().revalidate();
+        NuovoTemplateUffFrame.getInstance().setContentPane(new CreaSezioneUffPanel().getMainPanel());
+        NuovoTemplateUffFrame.getInstance().revalidate();
     }
 
     @Override

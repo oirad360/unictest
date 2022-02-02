@@ -17,11 +17,7 @@ public class TemplatePersonalizzato extends Template implements Serializable{
     private int tempoMedio;
     private static final long serialVersionUID = 1;
 
-    public TemplatePersonalizzato(int id, String nome) {
-        /*this.id = id;
-        this.nome = nome;
-        listaSezioni = new ArrayList<Sezione>();
-        mappaTest = new TreeMap<String,Test>();*/
+    public TemplatePersonalizzato(String id, String nome) {
         super(id,nome);
     }
 
@@ -142,7 +138,7 @@ public class TemplatePersonalizzato extends Template implements Serializable{
     public String toString() {
         return "TemplatePersonalizzato{" +"\n"+
                 "id=" + super.id +"\n"+
-                ", nome='" + super.nome + "\n"+
+                ", nome=" + super.nome + "\n"+
                 ", tempoMedio=" + tempoMedio +"\n"+
                 ", numRisposte=" + super.numRisposte +"\n"+
                 ", minRisposteCorrette=" + super.minRisposteCorrette +"\n"+

@@ -39,7 +39,7 @@ public class NuovoTemplateUffPanel extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         UniCTest.getInstance().nuovoTemplateU(textField.getText());
-        NuovoTemplatePersFrame.getInstance().setContentPane(new InsInfoTemplateUffPanel().getMainPanel());
-        NuovoTemplatePersFrame.getInstance().revalidate();
+        NuovoTemplateUffFrame.getInstance().setContentPane(new InsInfoTemplateUffPanel().getMainPanel());
+        NuovoTemplateUffFrame.getInstance().revalidate();
     }
 }

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.TreeMap;
 
 public abstract class Template implements Serializable {
-    protected int id;
+    protected String id;
     protected String nome;
     protected int numRisposte;
     protected int minRisposteCorrette;
@@ -22,18 +22,18 @@ public abstract class Template implements Serializable {
     protected TreeMap<String,Test> mappaTest;
     private static final long serialVersionUID = 1;
 
-    public Template(int id, String nome) {
+    public Template(String id, String nome) {
         this.id = id;
         this.nome = nome;
         listaSezioni = new ArrayList<Sezione>();
         mappaTest = new TreeMap<String,Test>();
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

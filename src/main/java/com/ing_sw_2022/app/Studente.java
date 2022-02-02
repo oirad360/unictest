@@ -7,16 +7,16 @@ import java.util.TreeMap;
 
 public class Studente extends Utente implements Serializable {
     private TemplatePersonalizzato templateCorrente;
-    private TreeMap<Integer, TemplatePersonalizzato> mappaTemplatePersonalizzati;
+    private TreeMap<String, TemplatePersonalizzato> mappaTemplatePersonalizzati;
     private Template templateSelezionato;
     private static final long serialVersionUID = 1;
 
     public Studente(String nome, String cognome, String cf) {
         super(nome,cognome,cf);
-        mappaTemplatePersonalizzati = new TreeMap<Integer,TemplatePersonalizzato>();
+        mappaTemplatePersonalizzati = new TreeMap<>();
     }
 
-    public Map<Integer, TemplatePersonalizzato> getMappaTemplatePersonalizzati() {
+    public Map<String, TemplatePersonalizzato> getMappaTemplatePersonalizzati() {
         return mappaTemplatePersonalizzati;
     }
 
@@ -41,8 +41,8 @@ public class Studente extends Utente implements Serializable {
     /////////////////////////////////////////////METODI DCD///////////////////////////////////////////////
                ////////////////////UC2 CREA TEMPLATE DI TEST PERSONALIZZATO/////////////////////
     public void nuovoTemplateP(String nome){
-        int id = 0;
-        if(!mappaTemplatePersonalizzati.isEmpty()) id = mappaTemplatePersonalizzati.lastKey()+1;
+        String id = "0";
+        if(!mappaTemplatePersonalizzati.isEmpty()) id = String.valueOf(Integer.parseInt(mappaTemplatePersonalizzati.lastKey())+1);
         templateCorrente = new TemplatePersonalizzato(id, nome);
     }
 
@@ -65,10 +65,11 @@ public class Studente extends Utente implements Serializable {
         ArrayList<TemplatePersonalizzato> listaTemplate = new ArrayList<TemplatePersonalizzato>(mappaTemplatePersonalizzati.values());
         return listaTemplate;
     }
-    public Test avviaSimulazione(int idTemplate) throws Exception{
-        TemplatePersonalizzato tp=mappaTemplatePersonalizzati.get(idTemplate);
-        templateSelezionato=tp;
-        Test t = tp.avviaSimulazione();
+    public Test avviaSimulazione(String idTemplate) throws Exception{
+        Template template=mappaTemplatePersonalizzati.get(idTemplate);
+        if(template==null) template=UniCTest.getInstance().getMappaTemplateUfficiali().get(idTemplate);
+        templateSelezionato=template;
+        Test t = template.avviaSimulazione();
         return t;
     }
 

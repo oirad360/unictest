@@ -14,7 +14,7 @@ class TestAvviaSimulazione {
 
     static UniCTest unictest;
     static TemplatePersonalizzato tp1;
-    static TreeMap<Integer,TemplatePersonalizzato> mappaTemplate;
+    static TreeMap<String,TemplatePersonalizzato> mappaTemplate;
 
     @BeforeAll
     static void initTest() {
@@ -35,7 +35,7 @@ class TestAvviaSimulazione {
         unictest.creaSezioneP(m.getCodice(),1,3);
         unictest.confermaTemplateP();
 
-        mappaTemplate= (TreeMap<Integer, TemplatePersonalizzato>) ((Studente)unictest.getUtenteAutenticato()).getMappaTemplatePersonalizzati();
+        mappaTemplate= (TreeMap<String, TemplatePersonalizzato>) ((Studente)unictest.getUtenteAutenticato()).getMappaTemplatePersonalizzati();
         tp1 = mappaTemplate.get(mappaTemplate.lastKey());
     }
 
@@ -86,7 +86,7 @@ class TestAvviaSimulazione {
 
     @Test
     void testVisualizzaTemplate() {
-        ArrayList<TemplatePersonalizzato> listaTemplate = unictest.visualizzaTemplate();
+        ArrayList<Template> listaTemplate = unictest.visualizzaTemplate();
         assertTrue(listaTemplate.size()>0);
     }
 

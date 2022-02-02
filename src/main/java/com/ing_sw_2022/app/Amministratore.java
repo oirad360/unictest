@@ -12,6 +12,10 @@ public class Amministratore extends Decorator implements Serializable{
         super(imp);
     }
 
+    public TemplateUfficiale getTemplateCorrente() {
+        return templateCorrente;
+    }
+
     @Override
     public String toString() {
         return impiegato.toString()+"\nSono un Amministratore";
@@ -19,9 +23,9 @@ public class Amministratore extends Decorator implements Serializable{
     //////////////////////////////////////////////METODI DCD//////////////////////////////////////////////
     /////////////////////////////UC2/A CREA TEMPLATE DI TEST UFFICIALE///////////////////////////////
     public void nuovoTemplateU(String nome){
-        int id = 0;
-        TreeMap<Integer,TemplateUfficiale> mappaTemplateUfficiali = UniCTest.getInstance().getMappaTemplateUfficiali();
-        if(!mappaTemplateUfficiali.isEmpty()) id = mappaTemplateUfficiali.lastKey()+1;
+        String id = "U0";
+        TreeMap<String,TemplateUfficiale> mappaTemplateUfficiali = UniCTest.getInstance().getMappaTemplateUfficiali();
+        if(!mappaTemplateUfficiali.isEmpty()) id = "U"+String.valueOf(Integer.parseInt(mappaTemplateUfficiali.lastKey().substring(1))+1);
         templateCorrente = new TemplateUfficiale(id, nome);
     }
 

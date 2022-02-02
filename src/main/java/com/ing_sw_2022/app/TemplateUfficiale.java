@@ -7,7 +7,7 @@ public class TemplateUfficiale extends Template implements Serializable {
     protected int tempoTotale;
     private static final long serialVersionUID = 1;
 
-    public TemplateUfficiale(int id, String nome) {
+    public TemplateUfficiale(String id, String nome) {
         super(id, nome);
     }
 
@@ -31,7 +31,7 @@ public class TemplateUfficiale extends Template implements Serializable {
     public String toString() {
         return "TemplateUfficiale{" +"\n"+
                 "id=" + super.id +"\n"+
-                ", nome='" + super.nome + "\n"+
+                ", nome=" + super.nome + "\n"+
                 ", tempoTotale=" + tempoTotale +"\n"+
                 ", numRisposte=" + super.numRisposte +"\n"+
                 ", minRisposteCorrette=" + super.minRisposteCorrette +"\n"+

@@ -9,7 +9,7 @@ public class UniCTest implements Serializable{
     private HashMap<String,Visibilità> mappaVisibilità;
     static private Utente utenteAutenticato;
     private HashMap<String, Utente> mappaUtenti;
-    private TreeMap<Integer, TemplateUfficiale> mappaTemplateUfficiali;
+    private TreeMap<String, TemplateUfficiale> mappaTemplateUfficiali;
     private static final long serialVersionUID = 1;
 
     private UniCTest() {
@@ -28,7 +28,6 @@ public class UniCTest implements Serializable{
             int res=deserialize();
             if(res==0) unictest = new UniCTest();
             utenteAutenticato = unictest.getMappaUtenti().get("RSSMRA80A01C351O");
-            utenteAutenticato = new Amministratore((Impiegato) utenteAutenticato);
             //RSSMRA80A01C351O --> Tutor
             //VRDLGI99R21C351J --> Studente
         }
@@ -51,7 +50,7 @@ public class UniCTest implements Serializable{
         return utenteAutenticato;
     }
 
-    public TreeMap<Integer, TemplateUfficiale> getMappaTemplateUfficiali() {
+    public TreeMap<String, TemplateUfficiale> getMappaTemplateUfficiali() {
         return mappaTemplateUfficiali;
     }
 
@@ -93,6 +92,14 @@ public class UniCTest implements Serializable{
         utenteAutenticato=getMappaUtenti().get(cf);
     } //MOMENTANEO
 
+    public void setAmministratore(String cf){
+        if(mappaUtenti.get(cf) instanceof Impiegato){
+            Impiegato imp = (Impiegato)mappaUtenti.get(cf);
+            imp = new Amministratore(imp);
+            mappaUtenti.replace(cf,imp);
+            if(utenteAutenticato.getCf().equals(cf)) utenteAutenticato=imp;
+        } else System.out.println(cf+" non è un impiegato");
+    } //MOMENTANEO
     /////////////////////////////////////////////METODI DCD///////////////////////////////////////////////
                      ////////////////////UC7 INSERISCI QUESITO/////////////////////
     public List<Materia> visualizzaMaterieInsegnate(){
@@ -147,12 +154,16 @@ public class UniCTest implements Serializable{
 
                         ////////////////////UC1 AVVIA SIMULAZIONE/////////////////////
 
-    public ArrayList<TemplatePersonalizzato> visualizzaTemplate(){
-        ArrayList<TemplatePersonalizzato> lista = ((Studente)utenteAutenticato).visualizzaTemplate();
+    public ArrayList<Template> visualizzaTemplate(){
+        ArrayList<TemplatePersonalizzato> listaPersonalizzati = ((Studente)utenteAutenticato).visualizzaTemplate();
+        ArrayList<TemplateUfficiale> listaUfficiali = new ArrayList<>(UniCTest.getInstance().getMappaTemplateUfficiali().values());
+        ArrayList<Template> lista = new ArrayList<>();
+        for(TemplatePersonalizzato t:listaPersonalizzati) lista.add(t);
+        for(TemplateUfficiale t:listaUfficiali) lista.add(t);
         return lista;
     }
 
-    public Test avviaSimulazione(int idTemplate) throws Exception{
+    public Test avviaSimulazione(String idTemplate) throws Exception{
         Test t =((Studente)utenteAutenticato).avviaSimulazione(idTemplate);
         return t;
     }
@@ -166,8 +177,7 @@ public class UniCTest implements Serializable{
         return t;
     }
 
-
-    ////////////////////UC2 CREA TEMPLATE DI TEST UFFICIALE/////////////////////
+    ////////////////////UC2/A CREA TEMPLATE DI TEST UFFICIALE/////////////////////
 
     public void nuovoTemplateU(String nome){
         ((Amministratore)utenteAutenticato).nuovoTemplateU(nome);
@@ -182,30 +192,16 @@ public class UniCTest implements Serializable{
     }
 
     public Materia getMateriaFlyweight(String nomeMateria){ //Risolve un nomeMateria in una Materia, applicando il pattern GoF Flyweight
-        List<Materia> listaMateriePresenti = new ArrayList<Materia>(mappaMaterie.values());
-        for (Materia m: listaMateriePresenti) {
-            if(m.getNome().toLowerCase().equals(nomeMateria.toLowerCase())) {
-                //In tal caso applico la funzionalità di Flyweight:
-                return m;
-            }
-        }
-        //Se sono qui non ho trovato la Materia
-        //Prima dovrei chiedere al Tutor se è sicuro che la vuole creare?
+        for (Materia m: mappaMaterie.values()) if(m.getNome().equalsIgnoreCase(nomeMateria)) return m;
         String codiceMateria=nomeMateria.substring(0,3).toUpperCase();
-        int count=0;
-        for(String k: mappaMaterie.keySet()){
-            if(k.substring(0,3).equals(codiceMateria)){
-                count++;
-            }
-        }
+        int count=1; /*ALGORITMO di assegnamento dei codici delle materie:
+        Prendo tutte le keys, recupero le prime tre lettere, conto quante keys hanno le prime tre lettere uguali, quindi assegno come parte numerica esattamente quante sono +1
+        Esempio di scenario:
+        Biologia -> BIO01 (è la prima materia inserita nel Sistema che inizia per "BIO")
+        Biomedicina -> BIO02 (ho 2 materie che iniziano per "BIO", quindi 1+1=2)
+        Biochimica -> BIO03 (ho 3 materie che iniziano per "BIO", quindi 2+1=3)*/
+        for(String k: mappaMaterie.keySet()) if(k.substring(0,3).equals(codiceMateria)) count++;
         codiceMateria=codiceMateria+String.format("%02d",count); //Esempio: MAT01
-        // ALGORITMO di assegnamento dei codici delle materie:
-        // Prendo tutte le keys, recupero le prime tre lettere, conto quante keys hanno le prime tre lettere uguali, quindi assegno come parte numerica esattamente quante sono +1
-        // Esempio di scenario:
-        // Biologia -> BIO01 (è la prima materia inserita nel Sistema che inizia per "BIO")
-        // Biomedicina -> BIO02 (ho 2 materie che iniziano per "BIO", quindi 1+1=2)
-        // Biochimica -> BIO03 (ho 3 materie che iniziano per "BIO", quindi 2+1=3)
-
         nomeMateria = nomeMateria.substring(0, 1).toUpperCase() + nomeMateria.substring(1); //Rendo il nomeMateria nella forma "prima lettera maiuscola". Es. Ciao (e non ciao o CIAO o CiAO ecc).
         Materia m = new Materia(nomeMateria, codiceMateria);
         mappaMaterie.put(m.getCodice(),m);

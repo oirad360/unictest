@@ -1,5 +1,6 @@
 package com.ing_sw_2022.app.ui;
 
+import com.ing_sw_2022.app.Template;
 import com.ing_sw_2022.app.TemplatePersonalizzato;
 import com.ing_sw_2022.app.Test;
 import com.ing_sw_2022.app.UniCTest;
@@ -20,11 +21,11 @@ public class VisualizzaTemplatePanel implements ActionListener {
         c.gridwidth = GridBagConstraints.REMAINDER;
 
         UniCTest uniCTest = UniCTest.getInstance();
-        ArrayList<TemplatePersonalizzato> listaTemplate = uniCTest.visualizzaTemplate();
+        ArrayList<Template> listaTemplate = uniCTest.visualizzaTemplate();
 
-        for(TemplatePersonalizzato tp : listaTemplate){
-            JButton btnTemplate = new JButton(tp.getNome());
-            btnTemplate.setName(String.valueOf(tp.getId()));
+        for(Template t : listaTemplate){
+            JButton btnTemplate = new JButton(t.getNome());
+            btnTemplate.setName(String.valueOf(t.getId()));
             btnTemplate.setAlignmentX(Component.CENTER_ALIGNMENT);
             btnTemplate.addActionListener(this);
             buttonsContainer.add(btnTemplate, c);
@@ -39,7 +40,7 @@ public class VisualizzaTemplatePanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         UniCTest unictest = UniCTest.getInstance();
         AvviaSimulazioneFrame avviaSimulazioneFrame = AvviaSimulazioneFrame.getInstance();
-        int idTemplate=Integer.parseInt(((JButton)e.getSource()).getName());
+        String idTemplate=((JButton)e.getSource()).getName();
         Test t= null;
         try {
             t = unictest.avviaSimulazione(idTemplate);

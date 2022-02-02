@@ -6,7 +6,7 @@ public class NuovoTemplateUffFrame extends  JFrame{
     private static NuovoTemplateUffFrame nuovoTemplateUffFrame;
 
     private NuovoTemplateUffFrame(){
-        setContentPane(new NuovoTemplatePersPanel().getMainPanel());
+        setContentPane(new NuovoTemplateUffPanel().getMainPanel());
         setTitle("Inserisci template ufficiale");
         setSize(880,500);
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
