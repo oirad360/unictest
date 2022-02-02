@@ -1,5 +1,7 @@
 package com.ing_sw_2022.app.ui;
 
+import com.ing_sw_2022.app.Amministratore;
+import com.ing_sw_2022.app.Impiegato;
 import com.ing_sw_2022.app.Studente;
 import com.ing_sw_2022.app.UniCTest;
 
@@ -108,7 +110,10 @@ public class UniCTestFrame extends JFrame{
         UniCTest unictest = UniCTest.getInstance(); //esegue il caso d'uso di avviamento
         System.out.println(unictest.getMappaMaterie().get("MAT01").getMappaQuesiti());
         System.out.println(unictest.getMappaMaterie().get("ITA02").getMappaQuesiti());
-        System.out.println(((Studente)unictest.getMappaUtenti().get("VRDLGI99R21C351J")).getMappaTemplatePersonalizzati());
+
+        System.out.println(unictest.getMappaUtenti().get("RSSMRA80A01C351O"));
+        /*unictest.getMappaUtenti().replace("RSSMRA80A01C351O",unictest.getUtenteAutenticato());
+        System.out.println(unictest.getMappaUtenti().get("RSSMRA80A01C351O"));*/
         System.out.println("/////////////////////////////////////////////////////////");
         System.out.println("/////////////////////////////////////////////////////////");
         System.out.println("/////////////////////////////////////////////////////////");
@@ -116,7 +121,6 @@ public class UniCTestFrame extends JFrame{
         System.out.println("/////////////////////////////////////////////////////////");
         ///////////////// APERTURA GUI ///////////////
         UniCTestFrame.getInstance();
-
     }
 
     public static int getPos(){

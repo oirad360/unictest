@@ -38,12 +38,4 @@ public abstract class Utente implements Serializable {
         this.cf = cf;
     }
 
-    @Override
-    public String toString() {
-        return "Persona{" +
-                "nome='" + nome + '\'' +
-                ", cognome='" + cognome + '\'' +
-                ", cf='" + cf + '\'' +
-                '}';
-    }
 }

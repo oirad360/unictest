@@ -4,26 +4,31 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public interface Impiegato extends Serializable {
-    long serialVersionUID = 1;
+public abstract class Impiegato extends Utente implements Serializable {
+    private static long serialVersionUID = 1;
 
-    void addMateriaInsegnata(Materia m);
+    public Impiegato(String nome, String cognome, String cf) {
+        super(nome, cognome, cf);
+    }
 
-    List<Materia> getMaterieInsegnate();
+    public abstract void addMateriaInsegnata(Materia m);
 
-    Materia getMateriaCorrente();
+    public abstract List<Materia> getMaterieInsegnate();
+
+    public abstract Materia getMateriaCorrente();
 
     //////////////////////////////////////////////METODI DCD//////////////////////////////////////////////
     /////////////////////////////UC7 NUOVO QUESITO///////////////////////////////
-    void nuovoQuesito(String codiceMateria);
+    public abstract void nuovoQuesito(String codiceMateria);
 
-    void inserisciFonte(String fonte);
+    public abstract void inserisciFonte(String fonte);
 
-    void inserisciTesto(String testo);
+    public abstract void inserisciTesto(String testo);
 
-    void inserisciRisposta(String testo, boolean valore);
+    public abstract void inserisciRisposta(String testo, boolean valore);
 
-    void inserisciDifficoltà(int difficoltà);
+    public abstract void inserisciDifficoltà(int difficoltà);
 
-    void confermaQuesito(Visibilità v);
+    public abstract void confermaQuesito(Visibilità v);
+
 }

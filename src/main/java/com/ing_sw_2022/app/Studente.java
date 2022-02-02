@@ -30,7 +30,7 @@ public class Studente extends Utente implements Serializable {
 
     @Override
     public String toString() {
-        return "Tutor{" +
+        return "Studente{" +
                 "nome='" + super.getNome() + '\'' +
                 ", cognome='" + super.getCognome() + '\'' +
                 ", cf='" + super.getCf() + '\'' +

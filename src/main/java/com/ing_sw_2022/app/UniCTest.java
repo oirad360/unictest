@@ -25,7 +25,8 @@ public class UniCTest implements Serializable{
         if (unictest == null) {
             int res=deserialize();
             if(res==0) unictest = new UniCTest();
-            utenteAutenticato = unictest.getMappaUtenti().get("VRDLGI99R21C351J");
+            utenteAutenticato = unictest.getMappaUtenti().get("RSSMRA80A01C351O");
+            utenteAutenticato = new Amministratore((Impiegato) utenteAutenticato);
             //RSSMRA80A01C351O --> Tutor
             //VRDLGI99R21C351J --> Studente
         }
@@ -89,32 +90,32 @@ public class UniCTest implements Serializable{
     /////////////////////////////////////////////METODI DCD///////////////////////////////////////////////
                      ////////////////////UC7 INSERISCI QUESITO/////////////////////
     public List<Materia> visualizzaMaterieInsegnate(){
-        return ((Tutor)utenteAutenticato).getMaterieInsegnate();
+        return ((Impiegato)utenteAutenticato).getMaterieInsegnate();
     }
 
     public void nuovoQuesito(String codiceMateria){
-        ((Tutor)utenteAutenticato).nuovoQuesito(codiceMateria);
+        ((Impiegato)utenteAutenticato).nuovoQuesito(codiceMateria);
     }
 
     public void inserisciFonte(String fonte){
-        ((Tutor)utenteAutenticato).inserisciFonte(fonte);
+        ((Impiegato)utenteAutenticato).inserisciFonte(fonte);
     }
 
     public void inserisciTesto(String testo){
-        ((Tutor)utenteAutenticato).inserisciTesto(testo);
+        ((Impiegato)utenteAutenticato).inserisciTesto(testo);
     }
 
     public void inserisciRisposta(String testo, boolean valore){
-        ((Tutor)utenteAutenticato).inserisciRisposta(testo, valore);
+        ((Impiegato)utenteAutenticato).inserisciRisposta(testo, valore);
     }
 
     public void inserisciDifficoltà(int difficoltà){
-        ((Tutor)utenteAutenticato).inserisciDifficoltà(difficoltà);
+        ((Impiegato)utenteAutenticato).inserisciDifficoltà(difficoltà);
     }
 
     public void confermaQuesito(String codiceVisibilità){
         Visibilità v = mappaVisibilità.get(codiceVisibilità);
-        ((Tutor)utenteAutenticato).confermaQuesito(v);
+        ((Impiegato)utenteAutenticato).confermaQuesito(v);
     }
 
                         ////////////////////UC2 CREA TEMPLATE DI TEST PERSONALIZZATO/////////////////////
@@ -176,7 +177,7 @@ public class UniCTest implements Serializable{
     }
 
     private void loadUtenti(){
-        Tutor t = new Tutor("Mario", "Rossi", "RSSMRA80A01C351O");
+        Impiegato t = new Tutor("Mario", "Rossi", "RSSMRA80A01C351O");
         Studente s = new Studente("Luigi","Verdi","VRDLGI99R21C351J");
         mappaUtenti.put(t.getCf(),t);
         mappaUtenti.put(s.getCf(),s);
