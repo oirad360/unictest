@@ -6,8 +6,40 @@
   <component name="ChangeListManager">
     <list default="true" id="225c3c9e-492a-4307-b648-bc04a0874595" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ser.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Amministratore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Amministratore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Decorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Decorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Impiegato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Impiegato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Template.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Template.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Tutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Tutor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/CreaSezionePanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/CreaSezionePanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/CreaSezionePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/CreaSezionePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/CreaSezioneUffPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/CreaSezioneUffPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/InsInfoTemplatePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/InsInfoTemplatePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/InsInfoTemplateUffPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/InsInfoTemplateUffPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/NuovoTemplatePersPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/NuovoTemplatePersPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/NuovoTemplateUffPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/NuovoTemplateUffPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/UniCTestFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/UniCTestFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestAvviaSimulazione.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestAvviaSimulazione.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestCreaTemplatePers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestCreaTemplatePers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestCreaTemplateUff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestCreaTemplateUff.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Amministratore.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Amministratore.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/UniCTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/UniCTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$3$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$3$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$4$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$4$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame.class" afterDir="false" />
     </list>
-    <list id="4a4a27a3-ebd8-4ab6-8076-54091ed7be37" name="Changes by franc" comment="" />
+    <list id="4a4a27a3-ebd8-4ab6-8076-54091ed7be37" name="Changes by franc" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Amministratore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Amministratore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Decorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Decorator.java" afterDir="false" />
+    </list>
     <list id="f783ecb6-0640-46ab-87d4-fee534d629cc" name="Changes by oirad" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +67,32 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$PROJECT_DIR$/../.jdks/corretto-11.0.13/lib/src.zip!/java.base/java/lang/Object.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Amministratore.java">
+      <ranges>
+        <range start1="3" end1="3" start2="3" end2="4" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="14" end1="15" start2="15" end2="16" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="18" end1="18" start2="19" end2="20" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="22" end1="22" start2="24" end2="25" changelist="4a4a27a3-ebd8-4ab6-8076-54091ed7be37" />
+        <range start1="24" end1="24" start2="27" end2="29" changelist="4a4a27a3-ebd8-4ab6-8076-54091ed7be37" />
+        <range start1="27" end1="28" start2="32" end2="33" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="31" end1="31" start2="36" end2="37" changelist="4a4a27a3-ebd8-4ab6-8076-54091ed7be37" />
+        <range start1="37" end1="37" start2="43" end2="44" changelist="4a4a27a3-ebd8-4ab6-8076-54091ed7be37" />
+        <range start1="41" end1="41" start2="48" end2="49" changelist="4a4a27a3-ebd8-4ab6-8076-54091ed7be37" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Decorator.java">
+      <ranges>
+        <range start1="3" end1="3" start2="3" end2="4" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="4" end1="4" start2="5" end2="6" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="13" end1="13" start2="15" end2="30" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="29" end1="30" start2="46" end2="47" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="32" end1="33" start2="49" end2="50" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="34" end1="34" start2="51" end2="58" changelist="4a4a27a3-ebd8-4ab6-8076-54091ed7be37" />
+        <range start1="64" end1="64" start2="88" end2="120" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -78,8 +136,21 @@
       <recent name="com.ing_sw_2022.app" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestCreaTemplateUff">
-    <configuration name="TestCreaTemplateUff" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.UniCTestFrame">
+    <configuration name="UniCTestFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.ui.UniCTestFrame" />
+      <module name="unictest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ing_sw_2022.app.ui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestCreaTemplatePersTutor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="unictest" />
       <extension name="coverage">
         <pattern>
@@ -88,13 +159,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ing_sw_2022.app" />
-      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestCreaTemplateUff" />
+      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestCreaTemplatePersTutor" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestCreaTemplateUff.testConfermaTemplate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestCreaTemplatePersTutor.testConfermaTemplate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="unictest" />
       <extension name="coverage">
         <pattern>
@@ -103,14 +174,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ing_sw_2022.app" />
-      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestCreaTemplateUff" />
+      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestCreaTemplatePersTutor" />
       <option name="METHOD_NAME" value="testConfermaTemplate" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestCreaTemplateUff.testCreaSezione" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestCreaTemplatePersTutor.testCreaSezione" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="unictest" />
       <extension name="coverage">
         <pattern>
@@ -119,14 +190,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ing_sw_2022.app" />
-      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestCreaTemplateUff" />
+      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestCreaTemplatePersTutor" />
       <option name="METHOD_NAME" value="testCreaSezione" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestCreaTemplateUff.testInserisciInfoTemplate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestCreaTemplatePersTutor.testEccezioni" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="unictest" />
       <extension name="coverage">
         <pattern>
@@ -135,24 +206,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ing_sw_2022.app" />
-      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestCreaTemplateUff" />
-      <option name="METHOD_NAME" value="testInserisciInfoTemplate" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestCreaTemplateUff.testNuovoTemplate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="unictest" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ing_sw_2022.app.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ing_sw_2022.app" />
-      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestCreaTemplateUff" />
-      <option name="METHOD_NAME" value="testNuovoTemplate" />
+      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestCreaTemplatePersTutor" />
+      <option name="METHOD_NAME" value="testEccezioni" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -160,11 +215,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestCreaTemplateUff" />
-        <item itemvalue="JUnit.TestCreaTemplateUff.testInserisciInfoTemplate" />
-        <item itemvalue="JUnit.TestCreaTemplateUff.testNuovoTemplate" />
-        <item itemvalue="JUnit.TestCreaTemplateUff.testConfermaTemplate" />
-        <item itemvalue="JUnit.TestCreaTemplateUff.testCreaSezione" />
+        <item itemvalue="Application.UniCTestFrame" />
+        <item itemvalue="JUnit.TestCreaTemplatePersTutor" />
+        <item itemvalue="JUnit.TestCreaTemplatePersTutor.testEccezioni" />
+        <item itemvalue="JUnit.TestCreaTemplatePersTutor.testConfermaTemplate" />
+        <item itemvalue="JUnit.TestCreaTemplatePersTutor.testCreaSezione" />
       </list>
     </recent_temporary>
   </component>
@@ -219,7 +274,7 @@
       <workItem from="1643798308247" duration="7372000" />
       <workItem from="1643815859724" duration="13034000" />
       <workItem from="1643833290548" duration="12438000" />
-      <workItem from="1643887821499" duration="1314000" />
+      <workItem from="1643887821499" duration="20154000" />
     </task>
     <servers />
   </component>

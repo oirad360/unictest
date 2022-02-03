@@ -22,16 +22,24 @@ public class TestCreaTemplateUff {
     @Test
     @BeforeEach
     void testNuovoTemplateU(){
-        unictest.nuovoTemplateU("Test template ufficiale"); //inizializzo il template corrente per i test successivi
-        TemplateUfficiale t=((Amministratore)unictest.getUtenteAutenticato()).getTemplateCorrente();
+        try {
+            unictest.nuovoTemplateU("Test template ufficiale"); //inizializzo il template corrente per i test successivi
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        TemplateUfficiale t=((Amministratore)unictest.getUtenteAutenticato()).getTemplateUfficialeCorrente();
         assertNotNull(t);
         assertEquals(t.getNome(),"Test template ufficiale");
     }
 
     @Test
     void testInserisciInfoTemplateU() {
-        TemplateUfficiale t=((Amministratore)unictest.getUtenteAutenticato()).getTemplateCorrente();
-        unictest.inserisciInfoTemplateU("MIUR",(float)1.0,(float)0.0,(float)0.0,4,1,4,50);
+        TemplateUfficiale t=((Amministratore)unictest.getUtenteAutenticato()).getTemplateUfficialeCorrente();
+        try {
+            unictest.inserisciInfoTemplateU("MIUR",(float)1.0,(float)0.0,(float)0.0,4,1,4,50);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         assertEquals((float)1.0,t.getPuntiCorretta(),(float)0.0);
         assertEquals((float)0.0,t.getPuntiErrata(),(float)0.0);
         assertEquals((float)0.0,t.getPuntiNonData(),(float)0.0);
@@ -43,14 +51,22 @@ public class TestCreaTemplateUff {
 
     @Test
     void testCreaSezioneU() {
-        Template t=((Amministratore)unictest.getUtenteAutenticato()).getTemplateCorrente();
-        unictest.creaSezioneU("Matematica",10);
+        Template t=((Amministratore)unictest.getUtenteAutenticato()).getTemplateUfficialeCorrente();
+        try {
+            unictest.creaSezioneU("Matematica",10);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         assertNotNull(t.getListaSezioni());
         Sezione s = t.getListaSezioni().get(0);
         assertEquals(t.getListaSezioni().size(),1);
         assertEquals(s.getMateria(),unictest.getMappaMaterie().get("MAT01"));
         assertEquals(s.getNumQuesiti(),10);
-        unictest.creaSezioneU("Astronomia",10);
+        try {
+            unictest.creaSezioneU("Astronomia",10);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         assertNotNull(t.getListaSezioni());
         s = t.getListaSezioni().get(1);
         assertEquals(t.getListaSezioni().size(),2);
@@ -61,8 +77,12 @@ public class TestCreaTemplateUff {
 
     @Test
     void testConfermaTemplateU(){
-        unictest.confermaTemplateU(); //il template corrente viene eliminato
-        assertNull(((Amministratore)unictest.getUtenteAutenticato()).getTemplateCorrente());
+        try {
+            unictest.confermaTemplateU(); //il template corrente viene eliminato
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        assertNull(((Amministratore)unictest.getUtenteAutenticato()).getTemplateUfficialeCorrente());
         assertTrue(unictest.getMappaTemplateUfficiali().size()>0);
     }
 }

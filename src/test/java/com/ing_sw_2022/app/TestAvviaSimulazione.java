@@ -30,10 +30,18 @@ class TestAvviaSimulazione {
         unictest.confermaQuesito("p3");
         //creo un template per sceglierlo nel test dell'avvio della simulazione
         unictest.setUtenteAutenticato("VRDLGI99R21C351J"); //autentico uno studente
-        unictest.nuovoTemplateP("Test template personalizzato");
-        unictest.inserisciInfoTemplateP((float)1.0,(float)0.0,(float)0.0,2,1,2,1);
-        unictest.creaSezioneP(m.getCodice(),1,3);
-        unictest.confermaTemplateP();
+        try {
+            unictest.nuovoTemplateP("Test template personalizzato");
+            unictest.inserisciInfoTemplateP((float)1.0,(float)0.0,(float)0.0,2,1,2,1);
+            unictest.creaSezioneP(m.getCodice(),1,3);
+            unictest.confermaTemplateP();
+        } catch (Exception e) {
+            fail("Eccezione inaspettata");
+            /*non mi aspetto che lanci un'eccezione perchè ho autenticato uno studente, che dovrebbe
+            * avere sempre i permessi per creare un template personalizzato. Invece, se avessi autenticato
+            * un impiegato, lancerebbe un'eccezione qualora quell'impiegato non fosse un Tutor di Simulazione
+            * poichè solo quest'ultimo ha i permessi per creare un template personalizzato.*/
+        }
 
         mappaTemplate= (TreeMap<String, TemplatePersonalizzato>) ((Studente)unictest.getUtenteAutenticato()).getMappaTemplatePersonalizzati();
         tp1 = mappaTemplate.get(mappaTemplate.lastKey());
@@ -42,12 +50,31 @@ class TestAvviaSimulazione {
     @Test
     @BeforeEach
     void testAvviaSimulazione() {
+        //adesso avvio la simulazione con il template creato da initTest (ha parametri idonei per l'avvio della simulazione)
+        try {
+            com.ing_sw_2022.app.Test t = unictest.avviaSimulazione(tp1.getId());
+            assertNotNull(t);
+            assertTrue(t.getMappaQuesiti().size()>0);
+            assertNotNull(((Studente)unictest.getUtenteAutenticato()).getTemplateSelezionato());
+            assertNotNull(((Studente)unictest.getUtenteAutenticato()).getTemplateSelezionato().getTestCorrente());
+        } catch (Exception e) {
+            fail("Eccezione inaspettata");
+        }
+    }
+
+    @Test
+    void testEccezioniAvviaSimulazione(){
         Materia m = unictest.getMappaMaterie().get("MAT01");//matematica
         //creo un template che richiede 800 quesiti di matematica (mi aspetto che l'avvio della simulazione fallisca)
-        unictest.nuovoTemplateP("Test template personalizzato");
-        unictest.inserisciInfoTemplateP((float)1.0,(float)0.0,(float)0.0,2,1,2,1);
-        unictest.creaSezioneP(m.getCodice(),800,3);
-        unictest.confermaTemplateP();
+        try {
+            unictest.nuovoTemplateP("Test template personalizzato");
+            unictest.inserisciInfoTemplateP((float)1.0,(float)0.0,(float)0.0,2,1,2,1);
+            unictest.creaSezioneP(m.getCodice(),800,3);
+            unictest.confermaTemplateP();
+        } catch (Exception e) {
+            fail("Eccezione inaspettata");
+        }
+
         //lancio la simulazione che dovrebbe tornare null
         com.ing_sw_2022.app.Test t=null;
         try{
@@ -59,10 +86,15 @@ class TestAvviaSimulazione {
         }
         mappaTemplate.remove(mappaTemplate.lastKey());
         //creo un template che richiede quesiti con 100 risposte (mi aspetto che l'avvio della simulazione fallisca)
-        unictest.nuovoTemplateP("Test template personalizzato");
-        unictest.inserisciInfoTemplateP((float)1.0,(float)0.0,(float)0.0,100,1,2,1);
-        unictest.creaSezioneP(m.getCodice(),1,3);
-        unictest.confermaTemplateP();
+        try {
+            unictest.nuovoTemplateP("Test template personalizzato");
+            unictest.inserisciInfoTemplateP((float)1.0,(float)0.0,(float)0.0,100,1,2,1);
+            unictest.creaSezioneP(m.getCodice(),1,3);
+            unictest.confermaTemplateP();
+        } catch (Exception e) {
+            fail("Eccezione inaspettata");
+        }
+
         //lancio la simulazione che dovrebbe tornare null
         try{
             t=unictest.avviaSimulazione(mappaTemplate.get(mappaTemplate.lastKey()).getId());
@@ -71,19 +103,7 @@ class TestAvviaSimulazione {
             assertNull(t);
         }
         mappaTemplate.remove(mappaTemplate.lastKey());
-        //adesso avvio la simulazione con il template creato da initTest (ha parametri idonei per l'avvio della simulazione)
-        try {
-            t = unictest.avviaSimulazione(tp1.getId());
-            assertNotNull(t);
-            assertTrue(t.getMappaQuesiti().size()>0);
-            assertNotNull(((Studente)unictest.getUtenteAutenticato()).getTemplateSelezionato());
-            assertNotNull(((Studente)unictest.getUtenteAutenticato()).getTemplateSelezionato().getTestCorrente());
-        } catch (Exception e) {
-            fail("Eccezione inaspettata");
-        }
     }
-
-
     @Test
     void testVisualizzaTemplate() {
         ArrayList<Template> listaTemplate = unictest.visualizzaTemplate();

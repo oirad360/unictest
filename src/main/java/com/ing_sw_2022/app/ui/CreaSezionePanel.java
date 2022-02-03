@@ -1,6 +1,8 @@
 package com.ing_sw_2022.app.ui;
 
+import com.ing_sw_2022.app.Impiegato;
 import com.ing_sw_2022.app.Materia;
+import com.ing_sw_2022.app.Studente;
 import com.ing_sw_2022.app.UniCTest;
 
 import javax.swing.*;
@@ -20,10 +22,15 @@ public class CreaSezionePanel implements ActionListener {
     private JComboBox materiaBox;
     private JLabel numSezioni;
     private JButton buttonConferma;
+    private JLabel labelDifficoltà;
     private Integer counter;
     private List<Materia> listaMaterie;
 
     public CreaSezionePanel(final List<Materia> listaMaterie){
+        if(UniCTest.getInstance().getUtenteAutenticato() instanceof Impiegato) {
+            labelDifficoltà.setVisible(false);
+            difficoltàMedia.setVisible(false);
+        }
         this.listaMaterie=listaMaterie;
         counter=0;
         numSezioni.setText(counter.toString());
@@ -41,21 +48,29 @@ public class CreaSezionePanel implements ActionListener {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                counter++;
-                buttonConferma.setEnabled(true);
-                numSezioni.setText(counter.toString());
-                UniCTest.getInstance().creaSezioneP(((Item)materiaBox.getSelectedItem()).getId(),(int)numQuesiti.getValue(),(int)difficoltàMedia.getValue());
-                listaMaterie.remove(materiaBox.getSelectedIndex());
-                Item items[]=new Item[listaMaterie.size()];
-                int i=0;
-                for (Materia m: listaMaterie) {
-                    items[i]=new Item(m.getCodice(),m.getNome());
-                    i++;
+                try {
+                    if(UniCTest.getInstance().getUtenteAutenticato() instanceof Studente)
+                    UniCTest.getInstance().creaSezioneP(((Item)materiaBox.getSelectedItem()).getId(),(int)numQuesiti.getValue(),(int)difficoltàMedia.getValue());
+                    else if(UniCTest.getInstance().getUtenteAutenticato() instanceof Impiegato)
+                        UniCTest.getInstance().creaSezioneP(((Item)materiaBox.getSelectedItem()).getId(),(int)numQuesiti.getValue());
+                    counter++;
+                    buttonConferma.setEnabled(true);
+                    numSezioni.setText(counter.toString());
+                    listaMaterie.remove(materiaBox.getSelectedIndex());
+                    Item items[]=new Item[listaMaterie.size()];
+                    int i=0;
+                    for (Materia m: listaMaterie) {
+                        items[i]=new Item(m.getCodice(),m.getNome());
+                        i++;
+                    }
+                    materiaBox.setModel(new DefaultComboBoxModel<Item>(items));
+                    if(listaMaterie.isEmpty()){
+                        buttonConferma.doClick();
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
                 }
-                materiaBox.setModel(new DefaultComboBoxModel<Item>(items));
-                if(listaMaterie.isEmpty()){
-                    buttonConferma.doClick();
-                }
+
             }
         });
     }
@@ -66,9 +81,14 @@ public class CreaSezionePanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        UniCTest.getInstance().confermaTemplateP();
-        UniCTest.getInstance().serialize();
-        NuovoTemplatePersFrame.getInstance().dispose();
+        try {
+            UniCTest.getInstance().confermaTemplateP();
+            UniCTest.getInstance().serialize();
+            NuovoTemplatePersFrame.getInstance().dispose();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
     }
 
 }

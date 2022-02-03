@@ -3,6 +3,7 @@ package com.ing_sw_2022.app;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TreeMap;
 
 public abstract class Impiegato extends Utente implements Serializable {
     private static long serialVersionUID = 1;
@@ -17,6 +18,11 @@ public abstract class Impiegato extends Utente implements Serializable {
 
     public abstract Materia getMateriaCorrente();
 
+    public abstract TemplatePersonalizzato getTemplatePersonalizzatoCorrente() throws Exception;
+
+    public abstract TemplateUfficiale getTemplateUfficialeCorrente() throws Exception;
+
+    public abstract TreeMap<String, TemplatePersonalizzato> getMappaTemplatePersonalizzati() throws Exception;
     //////////////////////////////////////////////METODI DCD//////////////////////////////////////////////
     /////////////////////////////UC7 NUOVO QUESITO///////////////////////////////
     public abstract void nuovoQuesito(String codiceMateria);
@@ -30,5 +36,22 @@ public abstract class Impiegato extends Utente implements Serializable {
     public abstract void inserisciDifficoltà(int difficoltà);
 
     public abstract void confermaQuesito(Visibilità v);
+
+    /////////////////////////////UC2/A CREA TEMPLATE DI TEST UFFICIALE///////////////////////////////
+    public abstract void nuovoTemplateU(String nome) throws Exception;
+
+    public abstract void inserisciInfoTemplateU(String fonte,float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoTotale) throws Exception;
+
+    public abstract void creaSezioneU(String nomeMateria, int numQuesiti) throws Exception;
+
+    public abstract void confermaTemplateU() throws Exception;
+    ////////////////////UC2/T CREA TEMPLATE DI TEST PERSONALIZZATO/////////////////////
+    public abstract void nuovoTemplateP(String nome) throws Exception;
+
+    public abstract void inserisciInfoTemplateP(float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoMedio) throws Exception;
+
+    public abstract void creaSezioneP(Materia m, int numQuesiti) throws Exception;
+
+    public abstract void confermaTemplateP() throws Exception;
 
 }

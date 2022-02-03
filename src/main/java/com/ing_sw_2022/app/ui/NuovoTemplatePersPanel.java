@@ -38,8 +38,13 @@ public class NuovoTemplatePersPanel extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        UniCTest.getInstance().nuovoTemplateP(textField.getText());
-        NuovoTemplatePersFrame.getInstance().setContentPane(new InsInfoTemplatePanel().getMainPanel());
-        NuovoTemplatePersFrame.getInstance().revalidate();
+        try {
+            UniCTest.getInstance().nuovoTemplateP(textField.getText());
+            NuovoTemplatePersFrame.getInstance().setContentPane(new InsInfoTemplatePanel().getMainPanel());
+            NuovoTemplatePersFrame.getInstance().revalidate();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
     }
 }

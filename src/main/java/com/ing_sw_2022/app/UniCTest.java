@@ -7,7 +7,7 @@ public class UniCTest implements Serializable{
     private static UniCTest unictest;
     private HashMap<String,Materia> mappaMaterie;
     private HashMap<String,Visibilità> mappaVisibilità;
-    static private Utente utenteAutenticato;
+    private Utente utenteAutenticato;
     private HashMap<String, Utente> mappaUtenti;
     private TreeMap<String, TemplateUfficiale> mappaTemplateUfficiali;
     private static final long serialVersionUID = 1;
@@ -27,7 +27,7 @@ public class UniCTest implements Serializable{
         if (unictest == null) {
             int res=deserialize();
             if(res==0) unictest = new UniCTest();
-            utenteAutenticato = unictest.getMappaUtenti().get("RSSMRA80A01C351O");
+            //utenteAutenticato = unictest.getMappaUtenti().get("RSSMRA80A01C351O");
             //RSSMRA80A01C351O --> Tutor
             //VRDLGI99R21C351J --> Studente
         }
@@ -92,13 +92,26 @@ public class UniCTest implements Serializable{
         utenteAutenticato=getMappaUtenti().get(cf);
     } //MOMENTANEO
 
-    public void setAmministratore(String cf){
+    public Impiegato setAmministratore(String cf){
         if(mappaUtenti.get(cf) instanceof Impiegato){
-            Impiegato imp = (Impiegato)mappaUtenti.get(cf);
-            imp = new Amministratore(imp);
-            mappaUtenti.replace(cf,imp);
-            if(utenteAutenticato.getCf().equals(cf)) utenteAutenticato=imp;
+            Impiegato oldImp = (Impiegato)mappaUtenti.get(cf);
+            Impiegato newImp = new Amministratore(oldImp);
+            mappaUtenti.replace(cf,newImp);
+            if(utenteAutenticato.getCf().equals(cf)) utenteAutenticato=newImp;
+            return oldImp;
         } else System.out.println(cf+" non è un impiegato");
+        return null;
+    } //MOMENTANEO
+
+    public Impiegato setTutorSimulazione(String cf){
+        if(mappaUtenti.get(cf) instanceof Impiegato){
+            Impiegato oldImp = (Impiegato)mappaUtenti.get(cf);
+            Impiegato newImp = new TutorSimulazione(oldImp);
+            mappaUtenti.replace(cf,newImp);
+            if(utenteAutenticato.getCf().equals(cf)) utenteAutenticato=newImp;
+            return oldImp;
+        } else System.out.println(cf+" non è un impiegato");
+        return null;
     } //MOMENTANEO
     /////////////////////////////////////////////METODI DCD///////////////////////////////////////////////
                      ////////////////////UC7 INSERISCI QUESITO/////////////////////
@@ -133,23 +146,31 @@ public class UniCTest implements Serializable{
 
                         ////////////////////UC2 CREA TEMPLATE DI TEST PERSONALIZZATO/////////////////////
 
-    public void nuovoTemplateP(String nome){
-        ((Studente)utenteAutenticato).nuovoTemplateP(nome);
+    public void nuovoTemplateP(String nome) throws Exception {
+        if(utenteAutenticato instanceof Studente) ((Studente)utenteAutenticato).nuovoTemplateP(nome);
+        else if(utenteAutenticato instanceof Impiegato) ((Impiegato)utenteAutenticato).nuovoTemplateP(nome);
     }
 
-    public List<Materia> inserisciInfoTemplateP(float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoMedio){
-        ((Studente)utenteAutenticato).inserisciInfoTemplateP(puntiCorretta, puntiErrata, puntiNonData, numRisposte, minRisposteCorrette, maxRisposteCorrette, tempoMedio);
-        List<Materia> list = new ArrayList<Materia>(mappaMaterie.values());
+    public List<Materia> inserisciInfoTemplateP(float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoMedio) throws Exception {
+        if(utenteAutenticato instanceof Studente) ((Studente)utenteAutenticato).inserisciInfoTemplateP(puntiCorretta, puntiErrata, puntiNonData, numRisposte, minRisposteCorrette, maxRisposteCorrette, tempoMedio);
+        else if(utenteAutenticato instanceof Impiegato) ((Impiegato)utenteAutenticato).inserisciInfoTemplateP(puntiCorretta, puntiErrata, puntiNonData, numRisposte, minRisposteCorrette, maxRisposteCorrette, tempoMedio);
+        List<Materia> list = new ArrayList<>(mappaMaterie.values());
         return list;
     }
 
-    public void creaSezioneP(String codiceMateria, int numQuesiti, int difficoltàMedia){
+    public void creaSezioneP(String codiceMateria, int numQuesiti, int difficoltàMedia) {
         Materia m=mappaMaterie.get(codiceMateria);
         ((Studente)utenteAutenticato).creaSezioneP(m,numQuesiti,difficoltàMedia);
     }
 
-    public void confermaTemplateP(){
-        ((Studente)utenteAutenticato).confermaTemplateP();
+    public void creaSezioneP(String codiceMateria, int numQuesiti) throws Exception {
+        Materia m=mappaMaterie.get(codiceMateria);
+        ((Impiegato)utenteAutenticato).creaSezioneP(m,numQuesiti);
+    }
+
+    public void confermaTemplateP() throws Exception {
+        if(utenteAutenticato instanceof Studente) ((Studente)utenteAutenticato).confermaTemplateP();
+        if(utenteAutenticato instanceof Impiegato) ((Impiegato)utenteAutenticato).confermaTemplateP();
     }
 
                         ////////////////////UC1 AVVIA SIMULAZIONE/////////////////////
@@ -179,16 +200,16 @@ public class UniCTest implements Serializable{
 
     ////////////////////UC2/A CREA TEMPLATE DI TEST UFFICIALE/////////////////////
 
-    public void nuovoTemplateU(String nome){
-        ((Amministratore)utenteAutenticato).nuovoTemplateU(nome);
+    public void nuovoTemplateU(String nome) throws Exception {
+        ((Impiegato)utenteAutenticato).nuovoTemplateU(nome);
     }
 
-    public void inserisciInfoTemplateU(String fonte, float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoTotale){
-        ((Amministratore)utenteAutenticato).inserisciInfoTemplateU(fonte, puntiCorretta, puntiErrata, puntiNonData, numRisposte, minRisposteCorrette, maxRisposteCorrette, tempoTotale);
+    public void inserisciInfoTemplateU(String fonte, float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoTotale) throws Exception {
+        ((Impiegato)utenteAutenticato).inserisciInfoTemplateU(fonte, puntiCorretta, puntiErrata, puntiNonData, numRisposte, minRisposteCorrette, maxRisposteCorrette, tempoTotale);
     }
 
-    public void creaSezioneU(String nomeMateria, int numQuesiti){
-        ((Amministratore) utenteAutenticato).creaSezioneU(nomeMateria, numQuesiti);
+    public void creaSezioneU(String nomeMateria, int numQuesiti) throws Exception {
+        ((Impiegato) utenteAutenticato).creaSezioneU(nomeMateria, numQuesiti);
     }
 
     public Materia getMateriaFlyweight(String nomeMateria){ //Risolve un nomeMateria in una Materia, applicando il pattern GoF Flyweight
@@ -208,8 +229,8 @@ public class UniCTest implements Serializable{
         return m;
     }
 
-    public void confermaTemplateU(){
-        ((Amministratore)utenteAutenticato).confermaTemplateU();
+    public void confermaTemplateU() throws Exception {
+        ((Impiegato)utenteAutenticato).confermaTemplateU();
     }
 
                         ////////////METODI PER CASO D'USO DI AVVIAMENTO//////////////

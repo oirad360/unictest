@@ -102,6 +102,15 @@ public abstract class Template implements Serializable {
         listaSezioni.add(s);
     }
 
+                    /////////////////////////UC2/T CREA TEMPLATE DI TEST PERSONALIZZATO////////////////////
+    public void creaSezione(Materia m, int numQuesiti){
+        String newId;
+        if(listaSezioni.isEmpty()) newId = id+"-0";
+        else newId = id+"-"+(Integer.parseInt(listaSezioni.get(listaSezioni.size()-1).getId().split("-")[1])+1);
+        Sezione s = new Sezione(newId, m, numQuesiti, 0);
+        listaSezioni.add(s);
+    }
+
                             ///////////////////////////UC1 AVVIA SIMULAZIONE//////////////////////////
     public Test avviaSimulazione() throws Exception{
         String newId;
