@@ -53,5 +53,7 @@ public abstract class Impiegato extends Utente implements Serializable {
     public abstract void creaSezioneP(Materia m, int numQuesiti) throws Exception;
 
     public abstract void confermaTemplateP() throws Exception;
+    /////////////////////////////UC9 COMPONI TEST PER SIMULAZIONE CARTACEA/////////////////////
+    public abstract ArrayList<TemplatePersonalizzato> visualizzaTemplate() throws Exception;
 
 }

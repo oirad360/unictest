@@ -131,4 +131,12 @@ public class Tutor extends Impiegato implements Serializable{
         throw new Exception("Non ho i permessi di TutorSimulazione");
     }
 
+
+    ////////////////////////////UC9 COMPONI TEST PER SIMULAZIONE CARTACEA//////////////////
+
+    @Override
+    public ArrayList<TemplatePersonalizzato> visualizzaTemplate() throws Exception{
+        throw new Exception("Non ho i permessi di TutorSimulazione");
+    }
+
 }

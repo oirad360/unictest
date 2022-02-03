@@ -47,4 +47,10 @@ public class TutorSimulazione extends Decorator implements Serializable {
         mappaTemplatePersonalizzati.put(templateCorrente.getId(),templateCorrente);
         templateCorrente=null;
     }
+    //////////////////////UC9 COMPONI TEST PER SIMULAZIONE CARTACEA/////////////////
+    @Override
+    public ArrayList<TemplatePersonalizzato> visualizzaTemplate() throws Exception{
+        ArrayList<TemplatePersonalizzato> lista = new ArrayList<>(mappaTemplatePersonalizzati.values());
+        return lista;
+    }
 }

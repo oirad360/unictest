@@ -118,4 +118,9 @@ public abstract class Decorator extends Impiegato implements Serializable{
     public void confermaTemplateP() throws Exception {
         impiegato.confermaTemplateP();
     }
+    //////////////////////UC9 COMPONI TEST PER SIMULAZIONE CARTACEA/////////////////
+    @Override
+    public ArrayList<TemplatePersonalizzato> visualizzaTemplate() throws Exception{
+        return impiegato.visualizzaTemplate();
+    }
 }

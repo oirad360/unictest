@@ -173,7 +173,15 @@ public class UniCTest implements Serializable{
                         ////////////////////UC1 AVVIA SIMULAZIONE/////////////////////
 
     public ArrayList<Template> visualizzaTemplate(){
-        ArrayList<TemplatePersonalizzato> listaPersonalizzati = ((Studente)utenteAutenticato).visualizzaTemplate();
+        ArrayList<TemplatePersonalizzato> listaPersonalizzati = new ArrayList<>();
+        if(utenteAutenticato instanceof Studente) listaPersonalizzati = ((Studente)utenteAutenticato).visualizzaTemplate();
+        else if(utenteAutenticato instanceof Impiegato) {
+            try {
+                listaPersonalizzati = ((Impiegato)utenteAutenticato).visualizzaTemplate();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         ArrayList<TemplateUfficiale> listaUfficiali = new ArrayList<>(UniCTest.getInstance().getMappaTemplateUfficiali().values());
         ArrayList<Template> lista = new ArrayList<>();
         for(TemplatePersonalizzato t:listaPersonalizzati) lista.add(t);
@@ -229,7 +237,9 @@ public class UniCTest implements Serializable{
     public void confermaTemplateU() throws Exception {
         ((Impiegato)utenteAutenticato).confermaTemplateU();
     }
+    /////////////////////UC9 COMPONI TEST PER SIMULAZIONE CARTACEA////////////////
 
+    
                         ////////////METODI PER CASO D'USO DI AVVIAMENTO//////////////
 
     private void loadMaterie(){
