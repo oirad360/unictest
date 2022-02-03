@@ -62,9 +62,14 @@ public class InsInfoTemplateUffPanel implements ActionListener, ChangeListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        UniCTest.getInstance().inserisciInfoTemplateU(fonte.getText(), Float.parseFloat(puntiCorretta.getValue().toString()),Float.parseFloat(puntiErrata.getValue().toString()),Float.parseFloat(puntiNonData.getValue().toString()),(int)numRisposte.getValue(),(int)minRisposteCorrette.getValue(),(int)maxRisposteCorrette.getValue(),(int)tempoTotale.getValue());
-        NuovoTemplateUffFrame.getInstance().setContentPane(new CreaSezioneUffPanel().getMainPanel());
-        NuovoTemplateUffFrame.getInstance().revalidate();
+        try {
+            UniCTest.getInstance().inserisciInfoTemplateU(fonte.getText(), Float.parseFloat(puntiCorretta.getValue().toString()),Float.parseFloat(puntiErrata.getValue().toString()),Float.parseFloat(puntiNonData.getValue().toString()),(int)numRisposte.getValue(),(int)minRisposteCorrette.getValue(),(int)maxRisposteCorrette.getValue(),(int)tempoTotale.getValue());
+            NuovoTemplateUffFrame.getInstance().setContentPane(new CreaSezioneUffPanel().getMainPanel());
+            NuovoTemplateUffFrame.getInstance().revalidate();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
     }
 
     @Override

@@ -29,11 +29,17 @@ public class CreaSezioneUffPanel implements ActionListener {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                counter++;
-                buttonConferma.setEnabled(true);
-                numSezioni.setText(counter.toString());
-                UniCTest.getInstance().creaSezioneU(materia.getText(),(int)numQuesiti.getValue());
-                materia.setText("");
+
+                try {
+                    counter++;
+                    buttonConferma.setEnabled(true);
+                    numSezioni.setText(counter.toString());
+                    UniCTest.getInstance().creaSezioneU(materia.getText(),(int)numQuesiti.getValue());
+                    materia.setText("");
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+
             }
         });
     }
@@ -44,9 +50,14 @@ public class CreaSezioneUffPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        UniCTest.getInstance().confermaTemplateU();
-        UniCTest.getInstance().serialize();
-        NuovoTemplateUffFrame.getInstance().dispose();
+        try {
+            UniCTest.getInstance().confermaTemplateU();
+            UniCTest.getInstance().serialize();
+            NuovoTemplateUffFrame.getInstance().dispose();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
     }
 
 }

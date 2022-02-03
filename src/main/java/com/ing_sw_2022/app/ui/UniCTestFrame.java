@@ -1,8 +1,6 @@
 package com.ing_sw_2022.app.ui;
 
-import com.ing_sw_2022.app.Impiegato;
-import com.ing_sw_2022.app.Tutor;
-import com.ing_sw_2022.app.UniCTest;
+import com.ing_sw_2022.app.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -132,11 +130,18 @@ public class UniCTestFrame extends JFrame{
     public static void main(String[] args )
     {
         UniCTest unictest = UniCTest.getInstance(); //esegue il caso d'uso di avviamento
-        System.out.println(unictest.getMappaMaterie().get("MAT01").getMappaQuesiti());
-        System.out.println(unictest.getMappaMaterie().get("ITA02").getMappaQuesiti());
-        unictest.setAmministratore("RSSMRA80A01C351O");
-        System.out.println(unictest.getUtenteAutenticato());
+        for(Materia m: unictest.getMappaMaterie().values()) {
+            System.out.println("----------------QUESITI "+m.getNome()+"----------------");
+            System.out.println(m.getMappaQuesiti());
+        }
+        System.out.println("------------------TEMPLATE UFFICIALI-----------------");
         System.out.println(unictest.getMappaTemplateUfficiali());
+        //RSSMRA80A01C351O --> Impiegato
+        //VRDLGI99R21C351J --> Studente
+        unictest.setUtenteAutenticato("RSSMRA80A01C351O");
+
+        //unictest.setTutorSimulazione("RSSMRA80A01C351O");
+        System.out.println(((TutorSimulazione)unictest.getUtenteAutenticato()).getMappaTemplatePersonalizzati());
 
         System.out.println("/////////////////////////////////////////////////////////");
         System.out.println("/////////////////////////////////////////////////////////");
