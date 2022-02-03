@@ -1,4 +1,0 @@
-l'amministratore deve inserire solo il nome, il codice lo calcola il sistema in automatico (es prime 3 lettere + un numero, se esiste già una materia con quelle prime 3 lettere allora come numero scelgo quello che esiste già +1)
-se il sistema trova una materia che ha quel nome gliela dà, altrimenti la crea e poi gliela dà (la materia è proprio l'oggetto flyweight, unictest è la flyweight factory)
-
-la materia non ha motivo di esistere finchè non esiste il tutor che la insegna, quindi con il caso d'uso di inserimento del tutor includo in automatico quello per inserire la materia.
