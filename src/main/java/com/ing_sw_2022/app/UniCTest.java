@@ -27,9 +27,6 @@ public class UniCTest implements Serializable{
         if (unictest == null) {
             int res=deserialize();
             if(res==0) unictest = new UniCTest();
-            //utenteAutenticato = unictest.getMappaUtenti().get("RSSMRA80A01C351O");
-            //RSSMRA80A01C351O --> Tutor
-            //VRDLGI99R21C351J --> Studente
         }
         return unictest;
     }
@@ -252,12 +249,26 @@ public class UniCTest implements Serializable{
     }
 
     private void loadUtenti(){
-        Impiegato t = new Tutor("Mario", "Rossi", "RSSMRA80A01C351O");
+        Impiegato t1 = new Tutor("Mario", "Rossi", "RSSMRA80A01C351O");
+        Impiegato t2 = new Tutor("Luca","Catania","CTNLCU80A01C351K");
+        t2 = new TutorSimulazione(t2);
+        Impiegato t3 = new Tutor("Andrea","Messina","MSSNDR80A01C351P");
+        t3 = new Amministratore(t3);
+        Impiegato t4 = new Tutor("Maria","Pappalardo","PPPMRA80A01C351X");
+        t4 = new Amministratore(t4);
+        t4 = new TutorSimulazione(t4);
         Studente s = new Studente("Luigi","Verdi","VRDLGI99R21C351J");
-        mappaUtenti.put(t.getCf(),t);
+        mappaUtenti.put(t1.getCf(),t1);
+        mappaUtenti.put(t2.getCf(),t2);
+        mappaUtenti.put(t3.getCf(),t3);
+        mappaUtenti.put(t4.getCf(),t4);
         mappaUtenti.put(s.getCf(),s);
-        t.addMateriaInsegnata(mappaMaterie.get("MAT01"));
-        t.addMateriaInsegnata(mappaMaterie.get("ITA02"));
+        t1.addMateriaInsegnata(mappaMaterie.get("MAT01"));
+        t1.addMateriaInsegnata(mappaMaterie.get("ITA02"));
+        t2.addMateriaInsegnata(mappaMaterie.get("MAT01"));
+        t2.addMateriaInsegnata(mappaMaterie.get("ITA02"));
+        t3.addMateriaInsegnata(mappaMaterie.get("ITA02"));
+        t4.addMateriaInsegnata(mappaMaterie.get("MAT01"));
     }
 
 }

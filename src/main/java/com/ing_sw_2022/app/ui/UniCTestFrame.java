@@ -127,6 +127,10 @@ public class UniCTestFrame extends JFrame{
         return unictestFrame;
     }
 
+    public static int getPos(){
+        return pos;
+    }
+
     public static void main(String[] args )
     {
         UniCTest unictest = UniCTest.getInstance(); //esegue il caso d'uso di avviamento
@@ -136,13 +140,26 @@ public class UniCTestFrame extends JFrame{
         }
         System.out.println("------------------TEMPLATE UFFICIALI-----------------");
         System.out.println(unictest.getMappaTemplateUfficiali());
-        //RSSMRA80A01C351O --> Impiegato
-        //VRDLGI99R21C351J --> Studente
-        unictest.setUtenteAutenticato("RSSMRA80A01C351O");
-
-        //unictest.setTutorSimulazione("RSSMRA80A01C351O");
-        System.out.println(((TutorSimulazione)unictest.getUtenteAutenticato()).getMappaTemplatePersonalizzati());
-
+        /*
+        RSSMRA80A01C351O --> Tutor
+        CTNLCU80A01C351K --> TutorSimulazione
+        MSSNDR80A01C351P --> Amministratore
+        PPPMRA80A01C351X --> Amministratore, TutorSimulazione
+        VRDLGI99R21C351J --> Studente
+        */
+        unictest.setUtenteAutenticato("PPPMRA80A01C351X");
+        System.out.println("-------------------UTENTE AUTENTICATO----------------");
+        System.out.println(unictest.getUtenteAutenticato());
+        System.out.println("--------------TEMPLATE PERSONALIZZATI DELL'UTENTE------------");
+        if(unictest.getUtenteAutenticato() instanceof Impiegato)
+        try {
+            System.out.println(((Impiegato)unictest.getUtenteAutenticato()).getMappaTemplatePersonalizzati());
+        } catch (Exception e) {
+            System.out.println("l'utente non è un tutor di simulazione");
+        }
+        else if(unictest.getUtenteAutenticato() instanceof Studente){
+            System.out.println(((Studente)unictest.getUtenteAutenticato()).getMappaTemplatePersonalizzati());
+        }
         System.out.println("/////////////////////////////////////////////////////////");
         System.out.println("/////////////////////////////////////////////////////////");
         System.out.println("/////////////////////////////////////////////////////////");
@@ -150,9 +167,5 @@ public class UniCTestFrame extends JFrame{
         System.out.println("/////////////////////////////////////////////////////////");
         ///////////////// APERTURA GUI ///////////////
         UniCTestFrame.getInstance();
-    }
-
-    public static int getPos(){
-        return pos;
     }
 }
