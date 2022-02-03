@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="225c3c9e-492a-4307-b648-bc04a0874595" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/7. Elaborazione 5/UniCTest_iterazione5.asta" beforeDir="false" afterPath="$PROJECT_DIR$/7. Elaborazione 5/UniCTest_iterazione5.asta" afterDir="false" />
     </list>
     <list id="4a4a27a3-ebd8-4ab6-8076-54091ed7be37" name="Changes by franc" comment="" />
     <list id="f783ecb6-0640-46ab-87d4-fee534d629cc" name="Changes by oirad" comment="" />
@@ -220,6 +219,7 @@
       <workItem from="1643798308247" duration="7372000" />
       <workItem from="1643815859724" duration="13034000" />
       <workItem from="1643833290548" duration="12438000" />
+      <workItem from="1643887821499" duration="720000" />
     </task>
     <servers />
   </component>
