@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
-public abstract class Template implements Serializable {
+public abstract class Template implements Serializable, Cloneable {
     protected String id;
     protected String nome;
     protected int numRisposte;
@@ -87,7 +87,11 @@ public abstract class Template implements Serializable {
         this.minRisposteCorrette=minRisposteCorrette;
         this.maxRisposteCorrette=maxRisposteCorrette;
     }
-                              /////////////////////////UC2 CREA TEMPLATE DI TEST PERSONALIZZATO/////////////
+
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+    /////////////////////////UC2 CREA TEMPLATE DI TEST PERSONALIZZATO/////////////
     public void creaSezione(Materia materia, int numQuesiti, int difficoltàMedia){
         String newId;
         if(listaSezioni.isEmpty()) newId = id+"-0";
@@ -118,7 +122,7 @@ public abstract class Template implements Serializable {
         String newId;
         if(mappaTest.isEmpty()) newId = id+"-0";
         else newId = id+"-"+(Integer.parseInt(mappaTest.lastKey().split("-")[1])+1);
-        Test t = new Test(newId,this/*,true*/);
+        Test t = new Test(newId,this);
         testCorrente=t;
         for(Sezione s:listaSezioni){
             List<QuesitoDescrizione> listaQuesiti=s.generaQuesiti(this); //potrebbe lanciare eccezione

@@ -9,11 +9,13 @@ public class Studente extends Utente implements Serializable {
     private TemplatePersonalizzato templateCorrente;
     private TreeMap<String, TemplatePersonalizzato> mappaTemplatePersonalizzati;
     private Template templateSelezionato;
+    private TreeMap<String, Template> mappaTemplateTestSvolti;
     private static final long serialVersionUID = 1;
 
     public Studente(String nome, String cognome, String cf) {
         super(nome,cognome,cf);
         mappaTemplatePersonalizzati = new TreeMap<>();
+        mappaTemplateTestSvolti = new TreeMap<>();
     }
 
     public Map<String, TemplatePersonalizzato> getMappaTemplatePersonalizzati() {
@@ -67,7 +69,7 @@ public class Studente extends Utente implements Serializable {
     }
     public Test avviaSimulazione(String idTemplate) throws Exception{
         Template template=mappaTemplatePersonalizzati.get(idTemplate);
-        if(template==null) template=UniCTest.getInstance().getMappaTemplateUfficiali().get(idTemplate);
+        if(template==null) template = (Template) UniCTest.getInstance().getMappaTemplateUfficiali().get(idTemplate).clone();
         templateSelezionato=template;
         Test t = template.avviaSimulazione();
         return t;
@@ -79,6 +81,7 @@ public class Studente extends Utente implements Serializable {
 
     public Test terminaSimulazione(){
         Test t=templateSelezionato.terminaSimulazione();
+        mappaTemplateTestSvolti.put(templateSelezionato.getId(),templateSelezionato);
         templateSelezionato=null;
         return t;
     }
