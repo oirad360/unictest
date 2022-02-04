@@ -14,23 +14,11 @@ public class Test implements Serializable {
 	private static final long serialVersionUID = 1;
 
 
-	public Test(String id, Template template) throws Exception { //La costruzione del Test fallisce se non posso soddisfare i requisiti del template
+	public Test(String id, Template template, boolean riempimento) throws Exception { //La costruzione del Test fallisce se non posso soddisfare i requisiti del template
 		this.id = id;
 		this.template = template;
-		this.mappaQuesiti = new TreeMap<String, QuesitoReale>();
-
-		ArrayList<Sezione> listaSezioni = template.getListaSezioni();
-		for(Sezione s : listaSezioni){
-			Materia m = s.getMateria();
-			List<QuesitoDescrizione> listaQuesiti = m.generaQuesiti(template,s); //Questo è il potenziale punto di lancio dell'eccezione
-			for(QuesitoDescrizione qd : listaQuesiti){
-				String newId;
-				if(mappaQuesiti.isEmpty()) newId = id+"-0";
-				else newId = id+"-"+(Integer.parseInt(mappaQuesiti.lastKey().split("-")[2])+1);
-				QuesitoReale qr = new QuesitoReale(newId,qd);
-				mappaQuesiti.put(qr.getId(),qr);
-			}
-		}
+		this.mappaQuesiti = new TreeMap<>();
+		if(riempimento) riempimento();
 	}
 
 	public String getId() {
@@ -51,6 +39,21 @@ public class Test implements Serializable {
 
 	public TreeMap<String, QuesitoReale> getMappaQuesiti() {
 		return mappaQuesiti;
+	}
+
+	private void riempimento() throws Exception {
+		ArrayList<Sezione> listaSezioni = template.getListaSezioni();
+		for(Sezione s : listaSezioni){
+			Materia m = s.getMateria();
+			List<QuesitoDescrizione> listaQuesiti = m.generaQuesiti(template,s); //Questo è il potenziale punto di lancio dell'eccezione
+			for(QuesitoDescrizione qd : listaQuesiti){
+				String newId;
+				if(mappaQuesiti.isEmpty()) newId = id+"-0";
+				else newId = id+"-"+(Integer.parseInt(mappaQuesiti.lastKey().split("-")[2])+1);
+				QuesitoReale qr = new QuesitoReale(newId,qd);
+				mappaQuesiti.put(qr.getId(),qr);
+			}
+		}
 	}
 
 	@Override

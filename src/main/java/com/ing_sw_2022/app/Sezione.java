@@ -1,6 +1,7 @@
 package com.ing_sw_2022.app;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Sezione implements Serializable {
     private int numQuesiti;
@@ -64,5 +65,11 @@ public class Sezione implements Serializable {
                 ", id='" + id + '\'' +
                 ", materia=" + materia +
                 '}';
+    }
+
+    ////////////////////////////UC9 COMPONI TEST PER SIMULAZIONE CARTACEA///////////////////
+    public ArrayList<QuesitoDescrizione> visualizzaQuesiti() {
+        ArrayList<QuesitoDescrizione> lista = materia.visualizzaQuesiti();
+        return lista;
     }
 }

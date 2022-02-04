@@ -21,6 +21,7 @@ public abstract class Template implements Serializable {
     protected Test testCorrente;
     protected TreeMap<String,Test> mappaTest;
     private static final long serialVersionUID = 1;
+    private Sezione sezioneCorrente;
 
     public Template(String id, String nome) {
         this.id = id;
@@ -116,7 +117,7 @@ public abstract class Template implements Serializable {
         String newId;
         if(mappaTest.isEmpty()) newId = id+"-0";
         else newId = id+"-"+(Integer.parseInt(mappaTest.lastKey().split("-")[1])+1);
-        Test t = new Test(newId,this);
+        Test t = new Test(newId,this,true);
         testCorrente=t;
         return t;
     }
@@ -129,5 +130,31 @@ public abstract class Template implements Serializable {
         testCorrente.terminaSimulazione();
         mappaTest.put(testCorrente.getId(), testCorrente);
         return testCorrente;
+    }
+    ////////////////////////////UC9 COMPONI TEST PER SIMULAZIONE CARTACEA///////////////////
+    public void creaTestCartaceo() {
+        String newId;
+        if(mappaTest.isEmpty()) newId = id+"-0";
+        else newId = id+"-"+(Integer.parseInt(mappaTest.lastKey().split("-")[1])+1);
+        Test t = null;
+        try {
+            t = new Test(newId,this,false);
+        } catch (Exception e) {//in realtà l'eccezione non ci sarà poichè ho passato false come riempimento, dunque non esegue il metodo per riempire il test con i quesiti in automatico
+            e.printStackTrace();
+        }
+        testCorrente = t;
+    }
+
+    public ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione){
+        //Ricerca sezione
+        sezioneCorrente=null;
+        for (Sezione s: listaSezioni) {
+            if(s.getId().equals(idSezione)) sezioneCorrente = s; //Poi la sezioneCorrente va svuotata
+        }
+        if(!sezioneCorrente.equals(null)){
+            ArrayList<QuesitoDescrizione> lista = sezioneCorrente.visualizzaQuesiti();
+            return lista;
+        }
+        return null;
     }
 }

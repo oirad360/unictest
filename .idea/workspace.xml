@@ -7,14 +7,20 @@
     <list default="true" id="225c3c9e-492a-4307-b648-bc04a0874595" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/6.1 Elaborazione 5/UniCTest_iterazione5.asta" beforeDir="false" afterPath="$PROJECT_DIR$/6.1 Elaborazione 5/UniCTest_iterazione5.asta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Decorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Decorator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Impiegato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Impiegato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Template.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Template.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/TemplatePersonalizzato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/TemplatePersonalizzato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Tutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Tutor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/TutorSimulazione.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/TutorSimulazione.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" afterDir="false" />
     </list>
-    <list id="133f104c-ae0e-4e3f-856c-624946263e00" name="Changes by franc" comment="" />
+    <list id="133f104c-ae0e-4e3f-856c-624946263e00" name="Changes by franc" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Materia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Materia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Sezione.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Sezione.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Template.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Template.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/TutorSimulazione.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/TutorSimulazione.java" afterDir="false" />
+    </list>
     <list id="f783ecb6-0640-46ab-87d4-fee534d629cc" name="Changes by oirad" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +48,22 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$PROJECT_DIR$/../.jdks/corretto-11.0.13/lib/src.zip!/java.base/java/lang/Object.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Template.java">
+      <ranges>
+        <range start1="23" end1="23" start2="23" end2="24" changelist="133f104c-ae0e-4e3f-856c-624946263e00" />
+        <range start1="118" end1="119" start2="119" end2="120" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="132" end1="132" start2="133" end2="159" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/TutorSimulazione.java">
+      <ranges>
+        <range start1="10" end1="10" start2="10" end2="11" changelist="133f104c-ae0e-4e3f-856c-624946263e00" />
+        <range start1="51" end1="52" start2="52" end2="53" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
+        <range start1="55" end1="55" start2="56" end2="69" changelist="133f104c-ae0e-4e3f-856c-624946263e00" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -220,7 +242,7 @@
       <workItem from="1643798308247" duration="7372000" />
       <workItem from="1643815859724" duration="13034000" />
       <workItem from="1643833290548" duration="12438000" />
-      <workItem from="1643887821499" duration="30260000" />
+      <workItem from="1643887821499" duration="32665000" />
     </task>
     <servers />
   </component>

@@ -8,6 +8,7 @@ public class TutorSimulazione extends Decorator implements Serializable {
     private static long serialVersionUID = 1;
     private TemplatePersonalizzato templateCorrente;
     private TreeMap<String, TemplatePersonalizzato> mappaTemplatePersonalizzati;
+    private Template templateSelezionato;
 
     public TutorSimulazione(Impiegato imp) {
         super(imp);
@@ -49,8 +50,21 @@ public class TutorSimulazione extends Decorator implements Serializable {
     }
     //////////////////////UC9 COMPONI TEST PER SIMULAZIONE CARTACEA/////////////////
     @Override
-    public ArrayList<TemplatePersonalizzato> visualizzaTemplate() throws Exception{
+    public ArrayList<TemplatePersonalizzato> visualizzaTemplate(){
         ArrayList<TemplatePersonalizzato> lista = new ArrayList<>(mappaTemplatePersonalizzati.values());
+        return lista;
+    }
+    @Override
+    public void creaTestCartaceo(String idTemplate) {
+        Template template = mappaTemplatePersonalizzati.get(idTemplate);
+        if(template==null) template = UniCTest.getInstance().getMappaTemplateUfficiali().get(idTemplate);
+        templateSelezionato=template;
+        template.creaTestCartaceo();
+    }
+
+    @Override
+    public ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione){
+        ArrayList<QuesitoDescrizione> lista = templateSelezionato.visualizzaQuesiti(idSezione);
         return lista;
     }
 }

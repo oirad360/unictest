@@ -239,7 +239,23 @@ public class UniCTest implements Serializable{
     }
     /////////////////////UC9 COMPONI TEST PER SIMULAZIONE CARTACEA////////////////
 
-    
+    public void creaTestCartaceo(String idTemplate){
+        try {
+            ((Impiegato)utenteAutenticato).creaTestCartaceo(idTemplate);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione){
+        try {
+            ArrayList<QuesitoDescrizione> lista = ((Impiegato)utenteAutenticato).visualizzaQuesiti(idSezione);
+            return lista;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
                         ////////////METODI PER CASO D'USO DI AVVIAMENTO//////////////
 
     private void loadMaterie(){
