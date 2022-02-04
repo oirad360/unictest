@@ -79,7 +79,7 @@ public class Sezione implements Serializable {
         return lista;
     }
 
-    public QuesitoDescrizione selezionaQuesito(String idQuesito){
-        return materia.selezionaQuesito(idQuesito);
+    public List<QuesitoDescrizione> recuperaQuesiti(List<String> listaIdQuesiti){
+        return materia.recuperaQuesiti(listaIdQuesiti);
     }
 }

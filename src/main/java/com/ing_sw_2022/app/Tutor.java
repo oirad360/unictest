@@ -150,7 +150,7 @@ public class Tutor extends Impiegato implements Serializable{
     }
 
     @Override
-    public QuesitoDescrizione selezionaQuesito(String idQuesito) throws Exception {
+    public void inserisciQuesiti(List<String> listaIdQuesiti) throws Exception {
         throw new Exception("Non ho i permessi di TutorSimulazione");
     }
 

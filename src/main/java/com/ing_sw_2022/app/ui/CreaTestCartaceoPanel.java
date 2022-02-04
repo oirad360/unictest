@@ -26,7 +26,7 @@ public class CreaTestCartaceoPanel implements ActionListener {
             listaSezioni = uniCTest.creaTestCartaceo(idTemplate);
             for(Sezione s : listaSezioni){
                 JButton btnSezione = new JButton(s.getMateria().getNome());
-                btnSezione.setName(s.getId());
+                btnSezione.setName(s.getId()+"||"+s.getNumQuesiti());
                 btnSezione.setAlignmentX(Component.CENTER_ALIGNMENT);
                 btnSezione.addActionListener(this);
                 sezioniContainer.add(btnSezione, c);
@@ -45,7 +45,7 @@ public class CreaTestCartaceoPanel implements ActionListener {
         UniCTest uniCTest = UniCTest.getInstance();
         for(Sezione s : listaSezioni){
             JButton btnSezione = new JButton(s.getMateria().getNome());
-            btnSezione.setName(s.getId());
+            btnSezione.setName(s.getId()+"//"+s.getNumQuesiti());
             btnSezione.setAlignmentX(Component.CENTER_ALIGNMENT);
             btnSezione.addActionListener(this);
             sezioniContainer.add(btnSezione, c);
@@ -59,8 +59,9 @@ public class CreaTestCartaceoPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         TestCartaceoFrame testCartaceoFrame = TestCartaceoFrame.getInstance();
-        String idSezione=((JButton)e.getSource()).getName();
-        testCartaceoFrame.setContentPane(new VisualizzaQuesitiPanel(idSezione).getMainPanel());
+        String idSezione=((JButton)e.getSource()).getName().split("//")[0];
+        String numQuesiti=((JButton)e.getSource()).getName().split("//")[1];
+        testCartaceoFrame.setContentPane(new VisualizzaQuesitiPanel(idSezione,Integer.parseInt(numQuesiti)).getMainPanel());
         testCartaceoFrame.revalidate();
     }
 }

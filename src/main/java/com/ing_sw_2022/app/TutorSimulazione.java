@@ -70,8 +70,8 @@ public class TutorSimulazione extends Decorator implements Serializable {
     }
 
     @Override
-    public QuesitoDescrizione selezionaQuesito(String idQuesito){
-        return templateSelezionato.selezionaQuesito(idQuesito);
+    public void inserisciQuesiti(List<String> listaIdQuesiti){
+        templateSelezionato.inserisciQuesiti(listaIdQuesiti);
     }
 
     @Override

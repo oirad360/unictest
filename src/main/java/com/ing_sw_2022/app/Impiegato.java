@@ -60,7 +60,7 @@ public abstract class Impiegato extends Utente implements Serializable {
 
     public abstract ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione) throws Exception;
 
-    public abstract QuesitoDescrizione selezionaQuesito(String idQuesito) throws Exception;
+    public abstract void inserisciQuesiti(List<String> listaIdQuesiti) throws Exception;
 
     public abstract void stampaTest(String nomeFile) throws Exception;
 }

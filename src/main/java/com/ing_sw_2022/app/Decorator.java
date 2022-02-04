@@ -132,8 +132,8 @@ public abstract class Decorator extends Impiegato implements Serializable{
         return impiegato.visualizzaQuesiti(idSezione);
     }
     @Override
-    public QuesitoDescrizione selezionaQuesito(String idQuesito) throws Exception {
-        return impiegato.selezionaQuesito(idQuesito);
+    public void inserisciQuesiti(List<String> listaIdQuesiti) throws Exception {
+        impiegato.inserisciQuesiti(listaIdQuesiti);
     }
     @Override
     public void stampaTest(String nomeFile) throws Exception{

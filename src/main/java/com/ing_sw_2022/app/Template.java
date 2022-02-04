@@ -162,8 +162,8 @@ public abstract class Template implements Serializable {
         return null;
     }
 
-    public QuesitoDescrizione selezionaQuesito(String idQuesito){
-        return sezioneCorrente.selezionaQuesito(idQuesito);
+    public void inserisciQuesiti(List<String> listaIdQuesiti){
+         testCorrente.inserisciQuesiti(sezioneCorrente.recuperaQuesiti(listaIdQuesiti));
     }
 
     public void stampaTest(String nomeFile){

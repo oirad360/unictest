@@ -241,8 +241,8 @@ public class UniCTest implements Serializable{
         return ((Impiegato)utenteAutenticato).visualizzaQuesiti(idSezione);
     }
 
-    public QuesitoDescrizione selezionaQuesito(String idQuesito) throws Exception {
-        return ((Impiegato)utenteAutenticato).selezionaQuesito(idQuesito);
+    public void inserisciQuesiti(List<String> listaIdQuesiti) throws Exception {
+        ((Impiegato)utenteAutenticato).inserisciQuesiti(listaIdQuesiti);
     }
 
     public void stampaTest(String nomeFile) throws Exception {

@@ -146,7 +146,11 @@ public class Materia implements Serializable {
         return lista;
     }
 
-    public QuesitoDescrizione selezionaQuesito(String idQuesito){
-        return mappaQuesiti.get(idQuesito);
+    public List<QuesitoDescrizione> recuperaQuesiti(List<String> listaIdQuesiti){
+        List<QuesitoDescrizione> listaQuesiti = new ArrayList<>();
+        for(String id:listaIdQuesiti){
+            listaQuesiti.add(mappaQuesiti.get(id));
+        }
+        return listaQuesiti;
     }
 }

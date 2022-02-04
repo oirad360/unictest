@@ -40,6 +40,5 @@ public class TabQuesitoPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         UniCTest unictest=UniCTest.getInstance();
         unictest.selezionaRisposta(qr.getId(),((JCheckBox)e.getSource()).getName());
-        //System.out.println(((Studente)unictest.getMappaUtenti().get("VRDLGI99R21C351J")).getTemplateSelezionato().getTestCorrente().getMappaQuesiti().get(qr.getId()));
     }
 }
