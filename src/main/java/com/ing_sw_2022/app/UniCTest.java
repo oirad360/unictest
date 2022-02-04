@@ -172,16 +172,10 @@ public class UniCTest implements Serializable{
 
                         ////////////////////UC1 AVVIA SIMULAZIONE/////////////////////
 
-    public ArrayList<Template> visualizzaTemplate(){
+    public ArrayList<Template> visualizzaTemplate() throws Exception {
         ArrayList<TemplatePersonalizzato> listaPersonalizzati = new ArrayList<>();
         if(utenteAutenticato instanceof Studente) listaPersonalizzati = ((Studente)utenteAutenticato).visualizzaTemplate();
-        else if(utenteAutenticato instanceof Impiegato) {
-            try {
-                listaPersonalizzati = ((Impiegato)utenteAutenticato).visualizzaTemplate();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+        else if(utenteAutenticato instanceof Impiegato) listaPersonalizzati = ((Impiegato)utenteAutenticato).visualizzaTemplate();
         ArrayList<TemplateUfficiale> listaUfficiali = new ArrayList<>(UniCTest.getInstance().getMappaTemplateUfficiali().values());
         ArrayList<Template> lista = new ArrayList<>();
         for(TemplatePersonalizzato t:listaPersonalizzati) lista.add(t);
@@ -239,22 +233,20 @@ public class UniCTest implements Serializable{
     }
     /////////////////////UC9 COMPONI TEST PER SIMULAZIONE CARTACEA////////////////
 
-    public void creaTestCartaceo(String idTemplate){
-        try {
-            ((Impiegato)utenteAutenticato).creaTestCartaceo(idTemplate);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public List<Sezione> creaTestCartaceo(String idTemplate) throws Exception {
+        return ((Impiegato)utenteAutenticato).creaTestCartaceo(idTemplate);
     }
 
-    public ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione){
-        try {
-            ArrayList<QuesitoDescrizione> lista = ((Impiegato)utenteAutenticato).visualizzaQuesiti(idSezione);
-            return lista;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
+    public ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione) throws Exception {
+        return ((Impiegato)utenteAutenticato).visualizzaQuesiti(idSezione);
+    }
+
+    public QuesitoDescrizione selezionaQuesito(String idQuesito) throws Exception {
+        return ((Impiegato)utenteAutenticato).selezionaQuesito(idQuesito);
+    }
+
+    public void stampaTest(String nomeFile) throws Exception {
+        ((Impiegato)utenteAutenticato).stampaTest(nomeFile);
     }
                         ////////////METODI PER CASO D'USO DI AVVIAMENTO//////////////
 

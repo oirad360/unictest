@@ -78,4 +78,8 @@ public class Sezione implements Serializable {
         ArrayList<QuesitoDescrizione> lista = materia.visualizzaQuesiti();
         return lista;
     }
+
+    public QuesitoDescrizione selezionaQuesito(String idQuesito){
+        return materia.selezionaQuesito(idQuesito);
+    }
 }

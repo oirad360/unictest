@@ -16,6 +16,7 @@ public class UniCTestFrame extends JFrame{
     private JButton btnNuovoTemplate;
     private JButton btnAvviaSimulazione;
     private JButton btnNuovoTemplateU;
+    private JButton btnTestCartaceo;
     private static UniCTestFrame unictestFrame;
     private static final Integer pos = 100;
     private UniCTestFrame(){
@@ -77,23 +78,26 @@ public class UniCTestFrame extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 AvviaSimulazioneFrame avviaSimulazioneFrame = AvviaSimulazioneFrame.getInstance();
-                btnAvviaSimulazione.setEnabled(false);
+                if(avviaSimulazioneFrame!=null){
+                    btnAvviaSimulazione.setEnabled(false);
 
-                avviaSimulazioneFrame.addWindowListener(new WindowAdapter()
-                {
-                    @Override
-                    public void windowClosing(WindowEvent e)
+                    avviaSimulazioneFrame.addWindowListener(new WindowAdapter()
                     {
-                        btnAvviaSimulazione.setEnabled(true);
-                        AvviaSimulazioneFrame.destroyInstance();
-                    }
-                    @Override
-                    public void windowClosed(WindowEvent e)
-                    {
-                        btnAvviaSimulazione.setEnabled(true);
-                        AvviaSimulazioneFrame.destroyInstance();
-                    }
-                });
+                        @Override
+                        public void windowClosing(WindowEvent e)
+                        {
+                            btnAvviaSimulazione.setEnabled(true);
+                            AvviaSimulazioneFrame.destroyInstance();
+                        }
+                        @Override
+                        public void windowClosed(WindowEvent e)
+                        {
+                            btnAvviaSimulazione.setEnabled(true);
+                            AvviaSimulazioneFrame.destroyInstance();
+                        }
+                    });
+                } else System.out.println("Solo gli studenti possono avviare simulazioni");
+
             }
         });
 
@@ -118,6 +122,33 @@ public class UniCTestFrame extends JFrame{
                         NuovoTemplateUffFrame.destroyInstance();
                     }
                 });
+            }
+        });
+
+        btnTestCartaceo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TestCartaceoFrame testCartaceoFrame = TestCartaceoFrame.getInstance();
+                if(testCartaceoFrame!=null){
+                    btnTestCartaceo.setEnabled(false);
+
+                    testCartaceoFrame.addWindowListener(new WindowAdapter()
+                    {
+                        @Override
+                        public void windowClosing(WindowEvent e)
+                        {
+                            btnTestCartaceo.setEnabled(true);
+                            TestCartaceoFrame.destroyInstance();
+                        }
+                        @Override
+                        public void windowClosed(WindowEvent e)
+                        {
+                            btnTestCartaceo.setEnabled(true);
+                            TestCartaceoFrame.destroyInstance();
+                        }
+                    });
+                } else System.out.println("Solo i tutor di simulazione possono creare test cartacei");
+
             }
         });
     }

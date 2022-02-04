@@ -137,29 +137,36 @@ public abstract class Template implements Serializable {
         return testCorrente;
     }
     ////////////////////////////UC9 COMPONI TEST PER SIMULAZIONE CARTACEA///////////////////
-    public void creaTestCartaceo() {
+    public List<Sezione> creaTestCartaceo() {
         String newId;
         if(mappaTest.isEmpty()) newId = id+"-0";
         else newId = id+"-"+(Integer.parseInt(mappaTest.lastKey().split("-")[1])+1);
-        Test t = null;
-        try {
-            t = new Test(newId,this/*,false*/);
-        } catch (Exception e) {//in realtà l'eccezione non ci sarà poichè ho passato false come riempimento, dunque non esegue il metodo per riempire il test con i quesiti in automatico
-            e.printStackTrace();
-        }
+        Test t = new Test(newId,this);
         testCorrente = t;
+        return listaSezioni;
     }
 
     public ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione){
         //Ricerca sezione
         sezioneCorrente=null;
         for (Sezione s: listaSezioni) {
-            if(s.getId().equals(idSezione)) sezioneCorrente = s; //Poi la sezioneCorrente va svuotata
+            if(s.getId().equals(idSezione)) {
+                sezioneCorrente = s; //Poi la sezioneCorrente va svuotata
+                break;
+            }
         }
-        if(!sezioneCorrente.equals(null)){
+        if(sezioneCorrente!=null){
             ArrayList<QuesitoDescrizione> lista = sezioneCorrente.visualizzaQuesiti();
             return lista;
         }
         return null;
+    }
+
+    public QuesitoDescrizione selezionaQuesito(String idQuesito){
+        return sezioneCorrente.selezionaQuesito(idQuesito);
+    }
+
+    public void stampaTest(String nomeFile){
+        testCorrente.stampaTest(nomeFile);
     }
 }

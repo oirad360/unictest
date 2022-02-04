@@ -142,7 +142,11 @@ public class Materia implements Serializable {
     }
     ////////////////////////////UC9 COMPONI TEST PER SIMULAZIONE CARTACEA///////////////////
     public ArrayList<QuesitoDescrizione> visualizzaQuesiti() {
-        ArrayList<QuesitoDescrizione> lista = new ArrayList<QuesitoDescrizione>(mappaQuesiti.values());
+        ArrayList<QuesitoDescrizione> lista = new ArrayList<>(mappaQuesiti.values());
         return lista;
+    }
+
+    public QuesitoDescrizione selezionaQuesito(String idQuesito){
+        return mappaQuesiti.get(idQuesito);
     }
 }

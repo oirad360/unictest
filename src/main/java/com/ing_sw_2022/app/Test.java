@@ -12,13 +12,13 @@ public class Test implements Serializable {
 	private Template template;
 	private TreeMap<String, QuesitoReale> mappaQuesiti;
 	private static final long serialVersionUID = 1;
+	private Stampante stampante;
 
-
-	public Test(String id, Template template/*, boolean riempimento*/) /*throws Exception*/ { //La costruzione del Test fallisce se non posso soddisfare i requisiti del template
+	public Test(String id, Template template) { //La costruzione del Test fallisce se non posso soddisfare i requisiti del template
 		this.id = id;
 		this.template = template;
 		this.mappaQuesiti = new TreeMap<>();
-		/*if(riempimento) riempimento();*/
+		stampante = PdfWriterObjAdapter.getInstance();
 	}
 
 	public String getId() {
@@ -41,7 +41,7 @@ public class Test implements Serializable {
 		return mappaQuesiti;
 	}
 
-	private void riempimento() throws Exception {
+	/*private void riempimento() throws Exception {
 		ArrayList<Sezione> listaSezioni = template.getListaSezioni();
 		for(Sezione s : listaSezioni){
 			Materia m = s.getMateria();
@@ -54,7 +54,7 @@ public class Test implements Serializable {
 				mappaQuesiti.put(qr.getId(),qr);
 			}
 		}
-	}
+	}*/
 
 	@Override
 	public String toString() {
@@ -78,6 +78,7 @@ public class Test implements Serializable {
 			mappaQuesiti.put(qr.getId(),qr);
 		}
 	}
+
 	public void selezionaRisposta(String idQuesitoReale, String idRisposta) {
 		QuesitoReale qr = mappaQuesiti.get(idQuesitoReale);
 		qr.selezionaRisposta(idRisposta);
@@ -97,5 +98,27 @@ public class Test implements Serializable {
 		}
 		punteggioComplessivo=temp;
 	}
+					////////////////////UC9 COMPONI TEST PER SIMULAZIONE CARTACEA/////////////////////
+	public void aggiungiQuesito(QuesitoDescrizione qd){
+		boolean found=false;
+		for(QuesitoReale qr: mappaQuesiti.values()){
+			if(qr.getQuesitoDescrizione().getId().equals(qd.getId())) {
+				mappaQuesiti.remove(qr.getId());
+				found=true;
+				break;
+			}
+		}
+		if(!found){
+			String newId;
+			if(mappaQuesiti.isEmpty()) newId = id+"-0";
+			else newId = id+"-"+(Integer.parseInt(mappaQuesiti.lastKey().split("-")[2])+1);
+			QuesitoReale qr = new QuesitoReale(newId,qd);
+			mappaQuesiti.put(qr.getId(),qr);
+		}
+	}
 
+	public void stampaTest(String nomeFile){
+		List<QuesitoReale> listaQuesiti= new ArrayList<>(mappaQuesiti.values());
+		stampante.stampaTest(id,listaQuesiti,nomeFile);
+	}
 }

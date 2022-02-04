@@ -56,7 +56,11 @@ public abstract class Impiegato extends Utente implements Serializable {
     /////////////////////////////UC9 COMPONI TEST PER SIMULAZIONE CARTACEA/////////////////////
     public abstract ArrayList<TemplatePersonalizzato> visualizzaTemplate() throws Exception;
 
-    public abstract void creaTestCartaceo(String idTemplate) throws Exception;
+    public abstract List<Sezione> creaTestCartaceo(String idTemplate) throws Exception;
 
     public abstract ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione) throws Exception;
+
+    public abstract QuesitoDescrizione selezionaQuesito(String idQuesito) throws Exception;
+
+    public abstract void stampaTest(String nomeFile) throws Exception;
 }

@@ -24,13 +24,11 @@ public class TabQuesitoPanel implements ActionListener {
         textArea.setText(qr.getQuesitoDescrizione().getTesto());
         TreeMap<String,Risposta> risposte=qr.getQuesitoDescrizione().getRisposte();
         risposteContainer.setLayout(new GridLayout(0,1));
-        int i=0;
         for(Risposta r : risposte.values()){
             JCheckBox checkBox = new JCheckBox(r.getTesto());
             checkBox.setName(r.getId());
             checkBox.addActionListener(this);
             risposteContainer.add(checkBox);
-            i++;
         }
     }
 

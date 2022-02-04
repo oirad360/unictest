@@ -2,6 +2,7 @@ package com.ing_sw_2022.app;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.TreeMap;
 
 public class TutorSimulazione extends Decorator implements Serializable {
@@ -55,16 +56,26 @@ public class TutorSimulazione extends Decorator implements Serializable {
         return lista;
     }
     @Override
-    public void creaTestCartaceo(String idTemplate) {
+    public List<Sezione> creaTestCartaceo(String idTemplate) {
         Template template = mappaTemplatePersonalizzati.get(idTemplate);
         if(template==null) template = UniCTest.getInstance().getMappaTemplateUfficiali().get(idTemplate);
         templateSelezionato=template;
-        template.creaTestCartaceo();
+        return template.creaTestCartaceo();
     }
 
     @Override
     public ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione){
         ArrayList<QuesitoDescrizione> lista = templateSelezionato.visualizzaQuesiti(idSezione);
         return lista;
+    }
+
+    @Override
+    public QuesitoDescrizione selezionaQuesito(String idQuesito){
+        return templateSelezionato.selezionaQuesito(idQuesito);
+    }
+
+    @Override
+    public void stampaTest(String nomeFile) {
+        templateSelezionato.stampaTest(nomeFile);
     }
 }

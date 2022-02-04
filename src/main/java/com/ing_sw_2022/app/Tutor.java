@@ -140,12 +140,22 @@ public class Tutor extends Impiegato implements Serializable{
     }
 
     @Override
-    public void creaTestCartaceo(String idTemplate) throws Exception {
+    public List<Sezione> creaTestCartaceo(String idTemplate) throws Exception {
         throw new Exception("Non ho i permessi di TutorSimulazione");
     }
 
     @Override
     public ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione) throws Exception {
+        throw new Exception("Non ho i permessi di TutorSimulazione");
+    }
+
+    @Override
+    public QuesitoDescrizione selezionaQuesito(String idQuesito) throws Exception {
+        throw new Exception("Non ho i permessi di TutorSimulazione");
+    }
+
+    @Override
+    public void stampaTest(String nomeFile) throws Exception {
         throw new Exception("Non ho i permessi di TutorSimulazione");
     }
 

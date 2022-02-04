@@ -124,11 +124,19 @@ public abstract class Decorator extends Impiegato implements Serializable{
         return impiegato.visualizzaTemplate();
     }
     @Override
-    public void creaTestCartaceo(String idTemplate) throws Exception{
-        impiegato.creaTestCartaceo(idTemplate);
+    public List<Sezione> creaTestCartaceo(String idTemplate) throws Exception{
+        return impiegato.creaTestCartaceo(idTemplate);
     }
     @Override
     public ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione) throws Exception{
         return impiegato.visualizzaQuesiti(idSezione);
+    }
+    @Override
+    public QuesitoDescrizione selezionaQuesito(String idQuesito) throws Exception {
+        return impiegato.selezionaQuesito(idQuesito);
+    }
+    @Override
+    public void stampaTest(String nomeFile) throws Exception{
+        impiegato.stampaTest(nomeFile);
     }
 }

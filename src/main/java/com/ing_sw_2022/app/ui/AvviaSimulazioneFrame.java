@@ -5,8 +5,8 @@ import javax.swing.*;
 public class AvviaSimulazioneFrame extends JFrame{
     private static AvviaSimulazioneFrame avviaSimulazioneFrame;
 
-    private AvviaSimulazioneFrame(){
-        setContentPane(new VisualizzaTemplatePanel().getMainPanel()); ///////TAG
+    private AvviaSimulazioneFrame() throws Exception {
+        setContentPane(new VisualizzaTemplatePanel().getMainPanel());
         setTitle("Nuova simulazione");
         setSize(880,500);
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -15,7 +15,13 @@ public class AvviaSimulazioneFrame extends JFrame{
 
     }
     public static AvviaSimulazioneFrame getInstance() {
-        if (avviaSimulazioneFrame == null) avviaSimulazioneFrame = new AvviaSimulazioneFrame();
+        if (avviaSimulazioneFrame == null) {
+            try {
+                avviaSimulazioneFrame = new AvviaSimulazioneFrame();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         return avviaSimulazioneFrame;
     }
 
