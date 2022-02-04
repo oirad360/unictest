@@ -62,7 +62,7 @@ public class Studente extends Utente implements Serializable {
 
                ////////////////////UC1 AVVIA SIMULAZIONE/////////////////////
     public ArrayList<TemplatePersonalizzato> visualizzaTemplate(){
-        ArrayList<TemplatePersonalizzato> listaTemplate = new ArrayList<TemplatePersonalizzato>(mappaTemplatePersonalizzati.values());
+        ArrayList<TemplatePersonalizzato> listaTemplate = new ArrayList<>(mappaTemplatePersonalizzati.values());
         return listaTemplate;
     }
     public Test avviaSimulazione(String idTemplate) throws Exception{

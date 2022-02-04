@@ -64,18 +64,19 @@ public class TutorSimulazione extends Decorator implements Serializable {
     }
 
     @Override
-    public ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione){
+    public ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione) throws Exception {
         ArrayList<QuesitoDescrizione> lista = templateSelezionato.visualizzaQuesiti(idSezione);
         return lista;
     }
 
     @Override
-    public void inserisciQuesiti(List<String> listaIdQuesiti){
+    public void inserisciQuesiti(List<String> listaIdQuesiti) throws Exception {
         templateSelezionato.inserisciQuesiti(listaIdQuesiti);
     }
 
     @Override
     public void stampaTest(String nomeFile) {
         templateSelezionato.stampaTest(nomeFile);
+        templateSelezionato=null;
     }
 }

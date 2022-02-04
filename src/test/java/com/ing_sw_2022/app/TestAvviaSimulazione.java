@@ -106,7 +106,12 @@ class TestAvviaSimulazione {
     }
     @Test
     void testVisualizzaTemplate() {
-        ArrayList<Template> listaTemplate = unictest.visualizzaTemplate();
+        ArrayList<Template> listaTemplate = null;
+        try {
+            listaTemplate = unictest.visualizzaTemplate();
+        } catch (Exception e) {
+            fail("Eccezione inaspettata");
+        }
         assertTrue(listaTemplate.size()>0);
     }
 

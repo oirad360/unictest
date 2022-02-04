@@ -12,7 +12,7 @@ public class Test implements Serializable {
 	private Template template;
 	private TreeMap<String, QuesitoReale> mappaQuesiti;
 	private static final long serialVersionUID = 1;
-	private Stampante stampante;
+	transient private Stampante stampante;
 
 	public Test(String id, Template template) { //La costruzione del Test fallisce se non posso soddisfare i requisiti del template
 		this.id = id;
@@ -99,23 +99,6 @@ public class Test implements Serializable {
 		punteggioComplessivo=temp;
 	}
 					////////////////////UC9 COMPONI TEST PER SIMULAZIONE CARTACEA/////////////////////
-	public void aggiungiQuesito(QuesitoDescrizione qd){
-		boolean found=false;
-		for(QuesitoReale qr: mappaQuesiti.values()){
-			if(qr.getQuesitoDescrizione().getId().equals(qd.getId())) {
-				mappaQuesiti.remove(qr.getId());
-				found=true;
-				break;
-			}
-		}
-		if(!found){
-			String newId;
-			if(mappaQuesiti.isEmpty()) newId = id+"-0";
-			else newId = id+"-"+(Integer.parseInt(mappaQuesiti.lastKey().split("-")[2])+1);
-			QuesitoReale qr = new QuesitoReale(newId,qd);
-			mappaQuesiti.put(qr.getId(),qr);
-		}
-	}
 
 	public void stampaTest(String nomeFile){
 		List<QuesitoReale> listaQuesiti= new ArrayList<>(mappaQuesiti.values());

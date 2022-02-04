@@ -178,7 +178,7 @@ public class UniCTestFrame extends JFrame{
         PPPMRA80A01C351X --> Amministratore, TutorSimulazione
         VRDLGI99R21C351J --> Studente
         */
-        unictest.setUtenteAutenticato("VRDLGI99R21C351J");
+        unictest.setUtenteAutenticato("CTNLCU80A01C351K");
         System.out.println("-------------------UTENTE AUTENTICATO----------------");
         System.out.println(unictest.getUtenteAutenticato());
         System.out.println("--------------TEMPLATE PERSONALIZZATI DELL'UTENTE------------");

@@ -74,12 +74,13 @@ public class Sezione implements Serializable {
     }
 
     ////////////////////////////UC9 COMPONI TEST PER SIMULAZIONE CARTACEA///////////////////
-    public ArrayList<QuesitoDescrizione> visualizzaQuesiti() {
-        ArrayList<QuesitoDescrizione> lista = materia.visualizzaQuesiti();
+    public ArrayList<QuesitoDescrizione> visualizzaQuesiti(Template t) throws Exception {
+        ArrayList<QuesitoDescrizione> lista = materia.visualizzaQuesiti(t,this);
         return lista;
     }
 
-    public List<QuesitoDescrizione> recuperaQuesiti(List<String> listaIdQuesiti){
+    public List<QuesitoDescrizione> recuperaQuesiti(List<String> listaIdQuesiti)throws Exception{
+        if(listaIdQuesiti.size()!=numQuesiti) throw new Exception("Sono stati inseriti "+listaIdQuesiti.size()+" quesiti ma ne sono richiesti "+numQuesiti);
         return materia.recuperaQuesiti(listaIdQuesiti);
     }
 }

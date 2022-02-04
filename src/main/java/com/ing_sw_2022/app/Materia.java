@@ -141,15 +141,39 @@ public class Materia implements Serializable {
         return listaQuesiti;
     }
     ////////////////////////////UC9 COMPONI TEST PER SIMULAZIONE CARTACEA///////////////////
-    public ArrayList<QuesitoDescrizione> visualizzaQuesiti() {
-        ArrayList<QuesitoDescrizione> lista = new ArrayList<>(mappaQuesiti.values());
-        return lista;
+    public ArrayList<QuesitoDescrizione> visualizzaQuesiti(Template t, Sezione s) throws Exception {
+        if(s.getNumQuesiti()>mappaQuesiti.size()) throw new Exception("Ci sono solo"+mappaQuesiti.size()+" quesiti per la materia "+s.getMateria().getNome()+", ne servono "+s.getNumQuesiti());
+        ArrayList<QuesitoDescrizione> listaQuesiti = new ArrayList<>();
+        int risposte=t.getNumRisposte();
+        int maxCorrette=t.getMaxRisposteCorrette();
+        int minCorrette=t.getMinRisposteCorrette();
+        int count=0;
+        for(QuesitoDescrizione qd: mappaQuesiti.values()){
+            if(mappaQuesiti.size()-count<s.getNumQuesiti()-listaQuesiti.size()) throw new Exception("non ci sono abbastanza quesiti validi per la materia "+s.getMateria().getNome()+",\n ne sono già stati presi in considerazione "+count+" su "+mappaQuesiti.size()+" ma solo "+listaQuesiti.size()+" contro i "+s.getNumQuesiti()+" richiesti sono validi");
+            boolean error=false;
+            if(!qd.getVisibilità().getCodice().equals("p3")) error = true;
+            if(!error){
+                if(qd.getRisposte().size()!=risposte) error = true; //Conto il numero di risposte
+                if(!error){
+                    int countCorrette=0;
+                    for(Risposta r: qd.getRisposte().values()) if(r.isValore()) countCorrette++; //Conto il numero di risposte vere
+                    if(countCorrette>maxCorrette || countCorrette<minCorrette) error = true;
+                    if(!error) listaQuesiti.add(qd);
+                }
+            }
+            count++;
+        }
+        return listaQuesiti;
     }
 
-    public List<QuesitoDescrizione> recuperaQuesiti(List<String> listaIdQuesiti){
+    public List<QuesitoDescrizione> recuperaQuesiti(List<String> listaIdQuesiti) throws Exception {
         List<QuesitoDescrizione> listaQuesiti = new ArrayList<>();
         for(String id:listaIdQuesiti){
-            listaQuesiti.add(mappaQuesiti.get(id));
+            QuesitoDescrizione qd=mappaQuesiti.get(id);
+            if(qd==null) throw new Exception("Id quesiti errati");
+            boolean error=false;
+
+            listaQuesiti.add(qd);
         }
         return listaQuesiti;
     }

@@ -143,10 +143,14 @@ public abstract class Template implements Serializable {
         else newId = id+"-"+(Integer.parseInt(mappaTest.lastKey().split("-")[1])+1);
         Test t = new Test(newId,this);
         testCorrente = t;
-        return listaSezioni;
+        List<Sezione> lista=new ArrayList<>();
+        for(Sezione s : listaSezioni){
+            lista.add(s);
+        }
+        return lista;
     }
 
-    public ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione){
+    public ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione) throws Exception {
         //Ricerca sezione
         sezioneCorrente=null;
         for (Sezione s: listaSezioni) {
@@ -156,17 +160,19 @@ public abstract class Template implements Serializable {
             }
         }
         if(sezioneCorrente!=null){
-            ArrayList<QuesitoDescrizione> lista = sezioneCorrente.visualizzaQuesiti();
+            ArrayList<QuesitoDescrizione> lista = sezioneCorrente.visualizzaQuesiti(this);
             return lista;
         }
         return null;
     }
 
-    public void inserisciQuesiti(List<String> listaIdQuesiti){
-         testCorrente.inserisciQuesiti(sezioneCorrente.recuperaQuesiti(listaIdQuesiti));
+    public void inserisciQuesiti(List<String> listaIdQuesiti) throws Exception {
+        List<QuesitoDescrizione> listaQuesiti=sezioneCorrente.recuperaQuesiti(listaIdQuesiti);
+        testCorrente.inserisciQuesiti(listaQuesiti);
     }
 
     public void stampaTest(String nomeFile){
         testCorrente.stampaTest(nomeFile);
+        testCorrente=null;
     }
 }

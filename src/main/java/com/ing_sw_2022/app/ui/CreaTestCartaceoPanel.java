@@ -14,6 +14,7 @@ import java.util.List;
 public class CreaTestCartaceoPanel implements ActionListener {
     private JPanel mainPanel;
     private JPanel sezioniContainer;
+    private List<Sezione> listaSezioni;
 
     public CreaTestCartaceoPanel(String idTemplate){
         GridBagConstraints c = new GridBagConstraints();
@@ -21,12 +22,12 @@ public class CreaTestCartaceoPanel implements ActionListener {
         c.gridwidth = GridBagConstraints.REMAINDER;
 
         UniCTest uniCTest = UniCTest.getInstance();
-        List<Sezione> listaSezioni = null;
         try {
             listaSezioni = uniCTest.creaTestCartaceo(idTemplate);
+            System.out.println(listaSezioni);
             for(Sezione s : listaSezioni){
                 JButton btnSezione = new JButton(s.getMateria().getNome());
-                btnSezione.setName(s.getId()+"||"+s.getNumQuesiti());
+                btnSezione.setName(s.getId()+"//"+s.getNumQuesiti());
                 btnSezione.setAlignmentX(Component.CENTER_ALIGNMENT);
                 btnSezione.addActionListener(this);
                 sezioniContainer.add(btnSezione, c);
@@ -38,6 +39,7 @@ public class CreaTestCartaceoPanel implements ActionListener {
     }
 
     public CreaTestCartaceoPanel(List<Sezione> listaSezioni) {
+        this.listaSezioni=listaSezioni;
         GridBagConstraints c = new GridBagConstraints();
         c.insets = new Insets(5, 0, 5, 0);
         c.gridwidth = GridBagConstraints.REMAINDER;
@@ -61,7 +63,11 @@ public class CreaTestCartaceoPanel implements ActionListener {
         TestCartaceoFrame testCartaceoFrame = TestCartaceoFrame.getInstance();
         String idSezione=((JButton)e.getSource()).getName().split("//")[0];
         String numQuesiti=((JButton)e.getSource()).getName().split("//")[1];
-        testCartaceoFrame.setContentPane(new VisualizzaQuesitiPanel(idSezione,Integer.parseInt(numQuesiti)).getMainPanel());
+        try {
+            testCartaceoFrame.setContentPane(new VisualizzaQuesitiPanel(idSezione,Integer.parseInt(numQuesiti),listaSezioni).getMainPanel());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
         testCartaceoFrame.revalidate();
     }
 }
