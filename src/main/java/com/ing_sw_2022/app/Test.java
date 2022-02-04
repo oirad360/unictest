@@ -14,11 +14,11 @@ public class Test implements Serializable {
 	private static final long serialVersionUID = 1;
 
 
-	public Test(String id, Template template, boolean riempimento) throws Exception { //La costruzione del Test fallisce se non posso soddisfare i requisiti del template
+	public Test(String id, Template template/*, boolean riempimento*/) /*throws Exception*/ { //La costruzione del Test fallisce se non posso soddisfare i requisiti del template
 		this.id = id;
 		this.template = template;
 		this.mappaQuesiti = new TreeMap<>();
-		if(riempimento) riempimento();
+		/*if(riempimento) riempimento();*/
 	}
 
 	public String getId() {
@@ -69,6 +69,15 @@ public class Test implements Serializable {
 	/////////////////////////////////////////////////METODI DCD/////////////////////////////////////////////
 
 									////////////////////UC1 AVVIA SIMULAZIONE/////////////////////
+	public void inserisciQuesiti(List<QuesitoDescrizione> listaQuesiti){
+		for(QuesitoDescrizione qd: listaQuesiti){
+			String newId;
+			if(mappaQuesiti.isEmpty()) newId = id+"-0";
+			else newId = id+"-"+(Integer.parseInt(mappaQuesiti.lastKey().split("-")[2])+1);
+			QuesitoReale qr = new QuesitoReale(newId,qd);
+			mappaQuesiti.put(qr.getId(),qr);
+		}
+	}
 	public void selezionaRisposta(String idQuesitoReale, String idRisposta) {
 		QuesitoReale qr = mappaQuesiti.get(idQuesitoReale);
 		qr.selezionaRisposta(idRisposta);

@@ -57,5 +57,6 @@ public abstract class Impiegato extends Utente implements Serializable {
     public abstract ArrayList<TemplatePersonalizzato> visualizzaTemplate() throws Exception;
 
     public abstract void creaTestCartaceo(String idTemplate) throws Exception;
+
     public abstract ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione) throws Exception;
 }

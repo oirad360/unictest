@@ -123,4 +123,12 @@ public abstract class Decorator extends Impiegato implements Serializable{
     public ArrayList<TemplatePersonalizzato> visualizzaTemplate() throws Exception{
         return impiegato.visualizzaTemplate();
     }
+    @Override
+    public void creaTestCartaceo(String idTemplate) throws Exception{
+        impiegato.creaTestCartaceo(idTemplate);
+    }
+    @Override
+    public ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione) throws Exception{
+        return impiegato.visualizzaQuesiti(idSezione);
+    }
 }

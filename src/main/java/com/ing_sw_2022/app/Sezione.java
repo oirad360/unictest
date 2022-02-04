@@ -2,6 +2,7 @@ package com.ing_sw_2022.app;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Sezione implements Serializable {
     private int numQuesiti;
@@ -65,6 +66,11 @@ public class Sezione implements Serializable {
                 ", id='" + id + '\'' +
                 ", materia=" + materia +
                 '}';
+    }
+    ////////////////////////////////////METODI DCD//////////////////////////////////////
+    /////////////////////////////UC1 AVVIA SIMULAZIONE//////////////////////////////
+    public List<QuesitoDescrizione> generaQuesiti(Template t) throws Exception {
+        return materia.generaQuesiti(t,this);//potrebbe lanciare eccezione
     }
 
     ////////////////////////////UC9 COMPONI TEST PER SIMULAZIONE CARTACEA///////////////////

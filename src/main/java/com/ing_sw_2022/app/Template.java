@@ -6,6 +6,7 @@ import com.ing_sw_2022.app.Test;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.TreeMap;
 
 public abstract class Template implements Serializable {
@@ -117,8 +118,12 @@ public abstract class Template implements Serializable {
         String newId;
         if(mappaTest.isEmpty()) newId = id+"-0";
         else newId = id+"-"+(Integer.parseInt(mappaTest.lastKey().split("-")[1])+1);
-        Test t = new Test(newId,this,true);
+        Test t = new Test(newId,this/*,true*/);
         testCorrente=t;
+        for(Sezione s:listaSezioni){
+            List<QuesitoDescrizione> listaQuesiti=s.generaQuesiti(this); //potrebbe lanciare eccezione
+            t.inserisciQuesiti(listaQuesiti);
+        }
         return t;
     }
 
@@ -138,7 +143,7 @@ public abstract class Template implements Serializable {
         else newId = id+"-"+(Integer.parseInt(mappaTest.lastKey().split("-")[1])+1);
         Test t = null;
         try {
-            t = new Test(newId,this,false);
+            t = new Test(newId,this/*,false*/);
         } catch (Exception e) {//in realtà l'eccezione non ci sarà poichè ho passato false come riempimento, dunque non esegue il metodo per riempire il test con i quesiti in automatico
             e.printStackTrace();
         }
