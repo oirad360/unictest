@@ -9,11 +9,13 @@ public class TutorSimulazione extends Decorator implements Serializable {
     private static long serialVersionUID = 1;
     private TemplatePersonalizzato templateCorrente;
     private TreeMap<String, TemplatePersonalizzato> mappaTemplatePersonalizzati;
+    private TreeMap<String, Template> mappaTemplateTestScritti;
     private Template templateSelezionato;
 
     public TutorSimulazione(Impiegato imp) {
         super(imp);
         mappaTemplatePersonalizzati = new TreeMap<>();
+        mappaTemplateTestScritti = new TreeMap<>();
     }
 
     public TemplatePersonalizzato getTemplatePersonalizzatoCorrente() {
@@ -58,7 +60,23 @@ public class TutorSimulazione extends Decorator implements Serializable {
     @Override
     public List<Sezione> creaTestCartaceo(String idTemplate) {
         Template template = mappaTemplatePersonalizzati.get(idTemplate);
-        if(template==null) template = UniCTest.getInstance().getMappaTemplateUfficiali().get(idTemplate);
+        if(template==null) {
+            boolean found=false;
+            for(Template te:mappaTemplateTestScritti.values()){
+                if(te.getId().equals(idTemplate)){
+                    template=te;
+                    found=true;
+                    break;
+                }
+            }
+            if(!found) {
+                try {
+                    template = (Template) UniCTest.getInstance().getMappaTemplateUfficiali().get(idTemplate).clone();
+                } catch (CloneNotSupportedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
         templateSelezionato=template;
         return template.creaTestCartaceo();
     }
@@ -77,6 +95,24 @@ public class TutorSimulazione extends Decorator implements Serializable {
     @Override
     public void stampaTest(String nomeFile) {
         templateSelezionato.stampaTest(nomeFile);
+        boolean found=false;
+        for(Template te:mappaTemplateTestScritti.values()){
+            if(te.getId().equals(templateSelezionato.getId())){
+                found=true;
+                break;
+            }
+        }
+        if(!found) {
+            if(templateSelezionato instanceof TemplateUfficiale){
+                try {
+                    Template te=(Template) templateSelezionato.clone();
+                    mappaTemplateTestScritti.put(te.getId(),te);
+                } catch (CloneNotSupportedException e) {
+                    e.printStackTrace();
+                }
+            } else mappaTemplateTestScritti.put(templateSelezionato.getId(),templateSelezionato);
+
+        }
         templateSelezionato=null;
     }
 }
