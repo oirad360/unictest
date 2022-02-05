@@ -122,9 +122,17 @@ class TestAvviaSimulazione {
         QuesitoReale qr = mappaQuesiti.get(mappaQuesiti.lastKey());
         TreeMap<String,Risposta> mappaRisposte=qr.getQuesitoDescrizione().getRisposte();
         Risposta r=mappaRisposte.get(mappaRisposte.lastKey());
-        unictest.selezionaRisposta(qr.getId(),r.getId());
+        try {
+            unictest.selezionaRisposta(qr.getId(),r.getId());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         assertEquals(qr.getRisposteDate().values().size(),1);
-        unictest.selezionaRisposta(qr.getId(),r.getId());
+        try {
+            unictest.selezionaRisposta(qr.getId(),r.getId());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         assertEquals(qr.getRisposteDate().values().size(),0);
     }
 

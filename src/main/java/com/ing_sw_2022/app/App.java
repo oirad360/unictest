@@ -25,7 +25,7 @@ public class App
     public static void main( String[] args )
     {
         Tesseract tesseract = new Tesseract();
-        tesseract.setDatapath("C:/Users/oirad/unictest/tesseract/tessdata");
+        tesseract.setDatapath("C:/Users/oirad/unictest/tesseract");
         tesseract.setLanguage("ita");
         String text = null;
         try {
@@ -35,15 +35,36 @@ public class App
         } catch (TesseractException e) {
             e.printStackTrace();
         }
-        System.out.println(text);
+        //System.out.println(text);
         /*Object[] o=text.lines().toArray();
-        String[] s=new String[o.length];
+        String[] line=new String[o.length];
         int i=0;
         for(Object o1:o){
-            s[i]=(String) o1;
-            System.out.println(s[i]);
+            line[i]=(String) o1;
+            System.out.println(line[i]);
             System.out.println("---------");
-        }*/
+            if(i==3) break;
+            i++;
+        }
+        String[] lineaCfTutor=line[1].split(" ");
+        String cfTutor=lineaCfTutor[lineaCfTutor.length-1];
+        String[] lineaIdTest=line[2].split(" ");
+        String idTest=lineaIdTest[lineaIdTest.length-1];
+        String[] lineaCfStudente=line[3].split(" ");
+        String cfStudente=lineaCfStudente[lineaCfStudente.length-1];
+        System.out.println(cfTutor+", "+idTest+", "+cfStudente);
+*/
+        Object[] o=text.lines().toArray();
+        String[] line=new String[o.length-4];
+        int i=0;
+        for(Object o1:o){
+            if(i>3){
+                line[i-4]=(String) o1;
+                System.out.println(line[i-4]);
+                System.out.println("---------");
+            }
+            i++;
+        }
 
     }
 }

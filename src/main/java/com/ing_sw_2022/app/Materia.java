@@ -151,7 +151,7 @@ public class Materia implements Serializable {
         for(QuesitoDescrizione qd: mappaQuesiti.values()){
             if(mappaQuesiti.size()-count<s.getNumQuesiti()-listaQuesiti.size()) throw new Exception("non ci sono abbastanza quesiti validi per la materia "+s.getMateria().getNome()+",\n ne sono già stati presi in considerazione "+count+" su "+mappaQuesiti.size()+" ma solo "+listaQuesiti.size()+" contro i "+s.getNumQuesiti()+" richiesti sono validi");
             boolean error=false;
-            if(!qd.getVisibilità().getCodice().equals("p3")) error = true;
+            if(!qd.getVisibilità().getCodice().equals("p2")) error = true;
             if(!error){
                 if(qd.getRisposte().size()!=risposte) error = true; //Conto il numero di risposte
                 if(!error){

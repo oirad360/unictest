@@ -3,6 +3,7 @@ package com.ing_sw_2022.app;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.TreeMap;
 
 public abstract class Decorator extends Impiegato implements Serializable{
@@ -42,6 +43,11 @@ public abstract class Decorator extends Impiegato implements Serializable{
     @Override
     public Materia getMateriaCorrente(){
         return impiegato.getMateriaCorrente();
+    }
+
+    @Override
+    public TreeMap<String, Template> getMappaTemplateTestScritti() throws Exception{
+        return impiegato.getMappaTemplateTestScritti();
     }
 
     /*@Override
@@ -138,5 +144,24 @@ public abstract class Decorator extends Impiegato implements Serializable{
     @Override
     public void stampaTest(String nomeFile) throws Exception{
         impiegato.stampaTest(nomeFile);
+    }
+    ////////////////////////////UC10 CORREGGI SIMULAZIONI CARTACEO////////////////////////
+    @Override
+    public Map<String,String> recuperaInfoTestCartaceo(String fileName) throws Exception{
+        return impiegato.recuperaInfoTestCartaceo(fileName);
+    }
+
+    @Override
+    public Test correggiTestCartaceo(String cfStudente, String cfTutor, String idTest) throws Exception {
+        return impiegato.correggiTestCartaceo(cfStudente, cfTutor, idTest);
+    }
+
+    @Override
+    public Test confermaCorrezione() throws Exception {
+        return impiegato.confermaCorrezione();
+    }
+    @Override
+    public void selezionaRisposta(String idQuesitoReale, String idRisposta) throws Exception{
+        impiegato.selezionaRisposta(idQuesitoReale, idRisposta);
     }
 }

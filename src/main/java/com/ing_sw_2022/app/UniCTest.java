@@ -188,8 +188,9 @@ public class UniCTest implements Serializable{
         return t;
     }
 
-    public void selezionaRisposta(String idQuesitoReale, String idRisposta){
-        ((Studente)utenteAutenticato).selezionaRisposta(idQuesitoReale, idRisposta);
+    public void selezionaRisposta(String idQuesitoReale, String idRisposta) throws Exception {
+        if(utenteAutenticato instanceof Studente) ((Studente)utenteAutenticato).selezionaRisposta(idQuesitoReale, idRisposta);
+        else if(utenteAutenticato instanceof Impiegato) ((Impiegato)utenteAutenticato).selezionaRisposta(idQuesitoReale, idRisposta);
     }
 
     public Test terminaSimulazione(){
@@ -248,6 +249,19 @@ public class UniCTest implements Serializable{
     public void stampaTest(String nomeFile) throws Exception {
         ((Impiegato)utenteAutenticato).stampaTest(nomeFile);
     }
+    ////////////////////////////UC10 CORREGGI SIMULAZIONI CARTACEO////////////////////////
+    public Map<String,String> recuperaInfoTestCartaceo(String fileName) throws Exception {
+        return ((Impiegato)utenteAutenticato).recuperaInfoTestCartaceo(fileName);
+    }
+
+    public Test correggiTestCartaceo(String cfStudente, String cfTutor, String idTest) throws Exception {
+        return ((Impiegato)utenteAutenticato).correggiTestCartaceo(cfStudente, cfTutor, idTest);
+    }
+
+    public Test confermaCorrezione() throws Exception {
+        return ((Impiegato)utenteAutenticato).confermaCorrezione();
+    }
+
                         ////////////METODI PER CASO D'USO DI AVVIAMENTO//////////////
 
     private void loadMaterie(){
@@ -288,5 +302,6 @@ public class UniCTest implements Serializable{
         t3.addMateriaInsegnata(mappaMaterie.get("ITA02"));
         t4.addMateriaInsegnata(mappaMaterie.get("MAT01"));
     }
+
 
 }

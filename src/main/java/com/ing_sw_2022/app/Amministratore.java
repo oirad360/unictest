@@ -51,4 +51,13 @@ public class Amministratore extends Decorator implements Serializable{
         UniCTest.getInstance().getMappaTemplateUfficiali().put(templateCorrente.getId(),templateCorrente);
         templateCorrente=null;
     }
+
+
+    public void rendiAmministratore(Impiegato imp){
+        Impiegato impAmministratore = new Amministratore(imp);
+        UniCTest unictest = UniCTest.getInstance();
+        unictest.getMappaUtenti().get(imp);
+        Amministratore i = new Amministratore(i);
+    }
+
 }

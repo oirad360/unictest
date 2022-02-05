@@ -30,6 +30,10 @@ public class Studente extends Utente implements Serializable {
         return templateSelezionato;
     }
 
+    public TreeMap<String, Template> getMappaTemplateTestSvolti() {
+        return mappaTemplateTestSvolti;
+    }
+
     @Override
     public String toString() {
         return "Studente{" +

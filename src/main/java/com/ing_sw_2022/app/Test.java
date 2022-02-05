@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
-public class Test implements Serializable {
+public class Test implements Serializable, Cloneable{
 
 	private String id;
 	private float punteggioComplessivo;
@@ -18,7 +18,6 @@ public class Test implements Serializable {
 		this.id = id;
 		this.template = template;
 		this.mappaQuesiti = new TreeMap<>();
-		stampante = PdfWriterObjAdapter.getInstance();
 	}
 
 	public String getId() {
@@ -37,8 +36,16 @@ public class Test implements Serializable {
 		return template;
 	}
 
+	public void setTemplate(Template template) {
+		this.template = template;
+	}
+
 	public TreeMap<String, QuesitoReale> getMappaQuesiti() {
 		return mappaQuesiti;
+	}
+
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
 	}
 
 	/*private void riempimento() throws Exception {
@@ -102,6 +109,7 @@ public class Test implements Serializable {
 					////////////////////UC9 COMPONI TEST PER SIMULAZIONE CARTACEA/////////////////////
 
 	public void stampaTest(String nomeFile){
+		stampante = PdfWriterObjAdapter.getInstance();
 		List<QuesitoReale> listaQuesiti= new ArrayList<>(mappaQuesiti.values());
 		stampante.stampaTest(id,listaQuesiti,nomeFile);
 	}

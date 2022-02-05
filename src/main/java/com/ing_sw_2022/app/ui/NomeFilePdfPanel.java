@@ -37,6 +37,7 @@ public class NomeFilePdfPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         try {
             UniCTest.getInstance().stampaTest(textField.getText());
+            UniCTest.getInstance().serialize();
             TestCartaceoFrame.getInstance().dispose();
         } catch (Exception ex) {
             ex.printStackTrace();
