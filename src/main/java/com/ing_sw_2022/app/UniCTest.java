@@ -188,8 +188,9 @@ public class UniCTest implements Serializable{
         return t;
     }
 
-    public void selezionaRisposta(String idQuesitoReale, String idRisposta){
-        ((Studente)utenteAutenticato).selezionaRisposta(idQuesitoReale, idRisposta);
+    public void selezionaRisposta(String idQuesitoReale, String idRisposta) throws Exception {
+        if(utenteAutenticato instanceof Studente) ((Studente)utenteAutenticato).selezionaRisposta(idQuesitoReale, idRisposta);
+        else if(utenteAutenticato instanceof Impiegato) ((Impiegato)utenteAutenticato).selezionaRisposta(idQuesitoReale, idRisposta);
     }
 
     public Test terminaSimulazione(){
@@ -255,6 +256,10 @@ public class UniCTest implements Serializable{
 
     public Test correggiTestCartaceo(String cfStudente, String cfTutor, String idTest) throws Exception {
         return ((Impiegato)utenteAutenticato).correggiTestCartaceo(cfStudente, cfTutor, idTest);
+    }
+
+    public Test confermaCorrezione() throws Exception {
+        return ((Impiegato)utenteAutenticato).confermaCorrezione();
     }
 
                         ////////////METODI PER CASO D'USO DI AVVIAMENTO//////////////

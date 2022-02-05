@@ -173,7 +173,11 @@ public class Tutor extends Impiegato implements Serializable{
     }
 
     @Override
-    public void confermaCorrezione() throws Exception {
+    public Test confermaCorrezione() throws Exception {
+        throw new Exception("Non ho i permessi di TutorSimulazione");
+    }
+    @Override
+    public void selezionaRisposta(String idQuesitoReale, String idRisposta) throws Exception{
         throw new Exception("Non ho i permessi di TutorSimulazione");
     }
 }

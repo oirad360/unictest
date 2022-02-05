@@ -71,5 +71,7 @@ public abstract class Impiegato extends Utente implements Serializable {
 
     public abstract Test correggiTestCartaceo(String cfStudente, String cfTutor, String idTest) throws Exception;
 
-    public abstract void confermaCorrezione() throws Exception;
+    public abstract Test confermaCorrezione() throws Exception;
+
+    public abstract void selezionaRisposta(String idQuesitoReale, String idRisposta) throws Exception;
 }

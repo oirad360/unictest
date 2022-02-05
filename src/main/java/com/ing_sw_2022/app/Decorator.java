@@ -157,7 +157,11 @@ public abstract class Decorator extends Impiegato implements Serializable{
     }
 
     @Override
-    public void confermaCorrezione() throws Exception {
-        impiegato.confermaCorrezione();
+    public Test confermaCorrezione() throws Exception {
+        return impiegato.confermaCorrezione();
+    }
+    @Override
+    public void selezionaRisposta(String idQuesitoReale, String idRisposta) throws Exception{
+        impiegato.selezionaRisposta(idQuesitoReale, idRisposta);
     }
 }

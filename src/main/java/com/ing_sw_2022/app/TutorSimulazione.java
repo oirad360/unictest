@@ -152,7 +152,12 @@ public class TutorSimulazione extends Decorator implements Serializable {
     }
 
     @Override
-    public void confermaCorrezione(){
-        lettore.confermaCorrezione();
+    public void selezionaRisposta(String idQuesitoReale, String idRisposta){
+        lettore.selezionaRisposta(idQuesitoReale, idRisposta);
+    }
+
+    @Override
+    public Test confermaCorrezione(){
+        return lettore.confermaCorrezione();
     }
 }

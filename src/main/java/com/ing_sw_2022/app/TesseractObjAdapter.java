@@ -8,20 +8,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TesseractObjAdapter implements Lettore{
-    private Tesseract tesseract;
+    transient private Tesseract tesseract;
     private String text;
     private Studente studenteCorrente;
     private Template templateCorrente;
     private Test testCorrente;
 
     public TesseractObjAdapter() {
-        tesseract = new Tesseract();
         tesseract.setDatapath("tesseract");
         tesseract.setLanguage("ita");
     }
 
     @Override
     public Map<String, String> recuperaInfoTestCartaceo(String fileName) {
+        tesseract = new Tesseract();
         try {
             text= tesseract.doOCR(new File(fileName+".png"));
         } catch (TesseractException e) {
@@ -99,7 +99,7 @@ public class TesseractObjAdapter implements Lettore{
         return testCorrente;
     }
 
-    public void correggiRisposta(String idQuesitoReale, String idRisposta){
+    public void selezionaRisposta(String idQuesitoReale, String idRisposta){
         Map<String,QuesitoReale> quesiti=testCorrente.getMappaQuesiti();
         QuesitoReale qr=quesiti.get(idQuesitoReale);
         Map<String,Risposta> risposteDate = qr.getRisposteDate();
@@ -112,7 +112,7 @@ public class TesseractObjAdapter implements Lettore{
     }
 
     @Override
-    public void confermaCorrezione() {
+    public Test confermaCorrezione() {
         boolean found=false;
         for(Template tec: studenteCorrente.getMappaTemplateTestSvolti().values()){
             if(tec.getId().equals(templateCorrente.getId())){
@@ -125,8 +125,12 @@ public class TesseractObjAdapter implements Lettore{
         }
         templateCorrente.getMappaTest().put(testCorrente.getId(),testCorrente);
         testCorrente.setTemplate(templateCorrente);
+        Test t=testCorrente;
+        t.terminaSimulazione(); //In realtà qui sfrutto il metodo terminaSimulazione per calcolare il punteggio complessivo del test.
         templateCorrente=null;
         testCorrente=null;
         studenteCorrente=null;
+        return t;
+
     }
 }

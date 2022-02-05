@@ -17,6 +17,7 @@ public class UniCTestFrame extends JFrame{
     private JButton btnAvviaSimulazione;
     private JButton btnNuovoTemplateU;
     private JButton btnTestCartaceo;
+    private JButton btnCorreggiSimulazione;
     private static UniCTestFrame unictestFrame;
     private static final Integer pos = 100;
     private UniCTestFrame(){
@@ -148,6 +149,33 @@ public class UniCTestFrame extends JFrame{
                         }
                     });
                 } else System.out.println("Solo i tutor di simulazione possono creare test cartacei");
+
+            }
+        });
+
+        btnCorreggiSimulazione.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CorreggiTestCartaceoFrame correggiTestCartaceoFrame = CorreggiTestCartaceoFrame.getInstance();
+                if(correggiTestCartaceoFrame!=null){
+                    btnCorreggiSimulazione.setEnabled(false);
+
+                    correggiTestCartaceoFrame.addWindowListener(new WindowAdapter()
+                    {
+                        @Override
+                        public void windowClosing(WindowEvent e)
+                        {
+                            btnCorreggiSimulazione.setEnabled(true);
+                            CorreggiTestCartaceoFrame.destroyInstance();
+                        }
+                        @Override
+                        public void windowClosed(WindowEvent e)
+                        {
+                            btnCorreggiSimulazione.setEnabled(true);
+                            CorreggiTestCartaceoFrame.destroyInstance();
+                        }
+                    });
+                } else System.out.println("Solo i tutor di simulazione possono correggere test cartacei");
 
             }
         });

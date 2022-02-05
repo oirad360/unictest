@@ -39,6 +39,10 @@ public class TabQuesitoPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         UniCTest unictest=UniCTest.getInstance();
-        unictest.selezionaRisposta(qr.getId(),((JCheckBox)e.getSource()).getName());
+        try {
+            unictest.selezionaRisposta(qr.getId(),((JCheckBox)e.getSource()).getName());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 }
