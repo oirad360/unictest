@@ -20,6 +20,28 @@ public class TutorSimulazione extends Decorator implements Serializable {
         mappaTemplateTestScritti = new TreeMap<>();
         lettore = new TesseractObjAdapter();
     }
+    @Override
+    public String whoAmI(){
+        String chiSonoIo = "TutorSimulazione";
+        System.out.println(chiSonoIo + ", ");
+        return chiSonoIo+this.impiegato.whoAmI();
+    }
+    @Override
+    public void rendiAmministratore(Impiegato imp){
+        this.impiegato.rendiAmministratore(imp);
+    }
+    @Override
+    public void rendiTutorSimulazione(Impiegato imp){
+        this.impiegato.rendiAmministratore(imp);
+    }
+    @Override
+    public void rimuoviAmministratore(Impiegato imp){
+        this.impiegato.rendiAmministratore(imp);
+    }
+    @Override
+    public void rimuoviTutorSimulazione(Impiegato imp){
+        this.impiegato.rendiAmministratore(imp);
+    }
 
     public TemplatePersonalizzato getTemplatePersonalizzatoCorrente() {
         return templateCorrente;

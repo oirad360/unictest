@@ -13,6 +13,37 @@ public class Tutor extends Impiegato implements Serializable{
         this.materieInsegnate = new HashMap<>();
     }
 
+    public Impiegato getImpiegato() {
+        return null;
+    }
+
+    public Impiegato setImpiegato(Impiegato impiegato) {
+        return null;
+    }
+
+    public String whoAmI(){
+        String chiSonoIo = "Tutor";
+        System.out.println(chiSonoIo + " e basta così.");
+        return chiSonoIo;
+    }
+
+    @Override
+    public void rendiAmministratore(Impiegato imp){
+        System.out.println("Non lo posso fare. Non sono un Amministratore.");
+    }
+    @Override
+    public void rendiTutorSimulazione(Impiegato imp){
+        System.out.println("Non lo posso fare. Non sono un Amministratore.");
+    }
+    @Override
+    public void rimuoviAmministratore(Impiegato imp){
+        System.out.println("Non lo posso fare. Non sono un Amministratore.");
+    }
+    @Override
+    public void rimuoviTutorSimulazione(Impiegato imp){
+        System.out.println("Non lo posso fare. Non sono un Amministratore.");
+    }
+
     @Override
     public void addMateriaInsegnata(Materia m){
         materieInsegnate.put(m.getCodice(),m);

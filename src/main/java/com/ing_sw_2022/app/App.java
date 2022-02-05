@@ -24,7 +24,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        Tesseract tesseract = new Tesseract();
+        /*Tesseract tesseract = new Tesseract();
         tesseract.setDatapath("C:/Users/oirad/unictest/tesseract");
         tesseract.setLanguage("ita");
         String text = null;
@@ -34,7 +34,7 @@ public class App
 
         } catch (TesseractException e) {
             e.printStackTrace();
-        }
+        }*/
         //System.out.println(text);
         /*Object[] o=text.lines().toArray();
         String[] line=new String[o.length];
@@ -54,7 +54,7 @@ public class App
         String cfStudente=lineaCfStudente[lineaCfStudente.length-1];
         System.out.println(cfTutor+", "+idTest+", "+cfStudente);
 */
-        Object[] o=text.lines().toArray();
+        /*Object[] o=text.lines().toArray();
         String[] line=new String[o.length-4];
         int i=0;
         for(Object o1:o){
@@ -64,7 +64,16 @@ public class App
                 System.out.println("---------");
             }
             i++;
-        }
+        }*/
+
+
+        Impiegato prova = new Amministratore(new Tutor("Luca", "Bianchi", "LCABNC80A02C456P"));
+        Impiegato daDecorare = new Tutor("Luca", "Bianchi", "LCABNC80A02C456P");
+        prova.whoAmI();
+        //prova.rendiTutorSimulazione(da);
+        //UniCTest.getInstance().getMappaUtenti().put(prova.getCf(),prova);
+        System.out.println("UTENTI:");
+        System.out.println(UniCTest.getInstance().getMappaUtenti());
 
     }
 }

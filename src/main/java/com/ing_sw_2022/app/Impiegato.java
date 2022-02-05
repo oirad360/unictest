@@ -13,6 +13,17 @@ public abstract class Impiegato extends Utente implements Serializable {
         super(nome, cognome, cf);
     }
 
+    public abstract Impiegato getImpiegato();
+
+    public abstract Impiegato setImpiegato(Impiegato impiegato);
+
+    public abstract String whoAmI();
+
+    public abstract void rendiAmministratore(Impiegato imp);
+    public abstract void rendiTutorSimulazione(Impiegato imp);
+    public abstract void rimuoviAmministratore(Impiegato imp);
+    public abstract void rimuoviTutorSimulazione(Impiegato imp);
+
     public abstract void addMateriaInsegnata(Materia m);
 
     public abstract List<Materia> getMaterieInsegnate();

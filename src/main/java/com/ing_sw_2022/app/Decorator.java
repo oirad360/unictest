@@ -14,6 +14,31 @@ public abstract class Decorator extends Impiegato implements Serializable{
         super(imp.getNome(), imp.getCognome(), imp.getCf());
         impiegato=imp;
     }
+    @Override
+    public Impiegato getImpiegato() {
+        return impiegato;
+    }
+    @Override
+    public Impiegato setImpiegato(Impiegato impiegato) {
+        this.impiegato = impiegato;
+        return impiegato;
+    }
+    @Override
+    public void rendiAmministratore(Impiegato imp){
+        this.impiegato.rendiAmministratore(imp);
+    }
+    @Override
+    public void rendiTutorSimulazione(Impiegato imp){
+        this.impiegato.rendiTutorSimulazione(imp);
+    }
+    @Override
+    public void rimuoviAmministratore(Impiegato imp){
+        this.impiegato.rimuoviAmministratore(imp);
+    }
+    @Override
+    public void rimuoviTutorSimulazione(Impiegato imp){
+        this.impiegato.rimuoviTutorSimulazione(imp);
+    }
 
     @Override
     public TemplatePersonalizzato getTemplatePersonalizzatoCorrente() throws Exception {
