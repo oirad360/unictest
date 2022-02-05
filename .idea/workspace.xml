@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="225c3c9e-492a-4307-b648-bc04a0874595" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/ser.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Amministratore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Amministratore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/App.java" afterDir="false" />
@@ -31,6 +32,12 @@
       <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$5.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$6$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$6$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$6.class" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Amministratore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Amministratore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/TestCartaceoFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/TestCartaceoFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/UniCTestFrame.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/UniCTestFrame.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/UniCTestFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/UniCTestFrame.java" afterDir="false" />
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame.class" afterDir="false" />
     </list>
     <list id="e8b6b2a9-de7b-4496-b5a2-5a03d80f3172" name="Changes by franc" comment="" />
@@ -243,9 +250,14 @@
       <workItem from="1643969433082" duration="24103000" />
       <workItem from="1643998579292" duration="16050000" />
       <workItem from="1644054220989" duration="1484000" />
+<<<<<<< Updated upstream
       <workItem from="1644056232322" duration="386000" />
       <workItem from="1644057350314" duration="1531000" />
       <workItem from="1644086956283" duration="3332000" />
+=======
+      <workItem from="1644056232322" duration="24188000" />
+      <workItem from="1644088555020" duration="6708000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>

@@ -7,7 +7,7 @@ public class TestCartaceoFrame extends JFrame{
 
     private TestCartaceoFrame() throws Exception {
         setContentPane(new VisualizzaTemplatePanel().getMainPanel()); ///////TAG
-        setTitle("Nuova simulazione");
+        setTitle("Crea test per simulazione cartacea");
         setSize(880,500);
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setVisible(true);
