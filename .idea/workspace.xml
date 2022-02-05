@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="225c3c9e-492a-4307-b648-bc04a0874595" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Studente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Studente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Template.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Template.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/TutorSimulazione.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/TutorSimulazione.java" afterDir="false" />
-    </list>
+    <list default="true" id="225c3c9e-492a-4307-b648-bc04a0874595" name="Changes" comment="" />
     <list id="e8b6b2a9-de7b-4496-b5a2-5a03d80f3172" name="Changes by franc" comment="" />
     <list id="f783ecb6-0640-46ab-87d4-fee534d629cc" name="Changes by oirad" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -221,6 +215,7 @@
       <workItem from="1643969433082" duration="24103000" />
       <workItem from="1643998579292" duration="16050000" />
       <workItem from="1644054220989" duration="1484000" />
+      <workItem from="1644056232322" duration="386000" />
     </task>
     <servers />
   </component>
