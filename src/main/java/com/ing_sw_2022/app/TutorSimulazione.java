@@ -59,6 +59,16 @@ public class TutorSimulazione extends Decorator implements Serializable {
     }
     @Override
     public List<Sezione> creaTestCartaceo(String idTemplate) {
+        /*
+         * Quando creo un test cartaceo devo clonare il template ufficiale nella mia
+         * mappaTemplateTestScritti per salvare il Test nella mappaTest del clone.
+         * Questo perchè altrimenti il template ufficiale avrebbe nella sua mappaTest i test scritti
+         * da tutti i tutor di simulazione. Invece, facendo un clone, esso apparterrà solo al tutor che
+         * crea il test e nella mappaTest del template clone ci saranno solo i suoi test.
+         * Se invece il test è basato su un TemplatePersonalizzato non ho bisogno di fare un clone
+         * dell'oggetto perché il TemplatePersonalizzato l'ho creato io e dunque posso riempirne
+         * la mappaTest con i Test da me creati.
+         */
         Template template = mappaTemplatePersonalizzati.get(idTemplate);
         if(template==null) {
             boolean found=false;
@@ -94,7 +104,11 @@ public class TutorSimulazione extends Decorator implements Serializable {
 
     @Override
     public void stampaTest(String nomeFile) {
-        templateSelezionato.stampaTest(nomeFile);
+        /* cerco il template selezionato nella mappaTemplateTestScritti, se non
+         * è presente vuol dire che non ho mai creato un test basato su quel template,
+         * dunque devo aggiungere il template in mappaTemplateTestScritti. Dopo posso
+         * chiamare stampaTest() su templateSelezionato che provvederà ad
+         * aggiungere il test nella sua mappaTest */
         boolean found=false;
         for(Template te:mappaTemplateTestScritti.values()){
             if(te.getId().equals(templateSelezionato.getId())){
@@ -113,6 +127,7 @@ public class TutorSimulazione extends Decorator implements Serializable {
             } else mappaTemplateTestScritti.put(templateSelezionato.getId(),templateSelezionato);
 
         }
+        templateSelezionato.stampaTest(nomeFile);
         templateSelezionato=null;
     }
 }

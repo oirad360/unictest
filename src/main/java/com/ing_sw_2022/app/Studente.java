@@ -70,10 +70,13 @@ public class Studente extends Utente implements Serializable {
     public Test avviaSimulazione(String idTemplate) throws Exception{
         /*
          * Quando avvio una simulazione online devo clonare il template ufficiale nella mia
-         * listaTemplateTest per salvare il Test nel mio profilo.
+         * mappaTemplateTestSvolti per salvare il Test nella mappaTest del clone.
+         * Questo perchè altrimenti il template ufficiale avrebbe nella sua mappaTest i test svolti
+         * da tutti gli studenti. Invece, facendo un clone, esso apparterrà solo allo studente che
+         * effettua il test e nella mappaTest del template clone ci saranno solo i suoi test.
          * Se invece il test è basato su un TemplatePersonalizzato non ho bisogno di fare un clone
          * dell'oggetto perché il TemplatePersonalizzato l'ho creato io e dunque posso riempirne
-         * la listaTest con i Test da me effettuati.
+         * la mappaTest con i Test da me effettuati.
         */
         Template template=mappaTemplatePersonalizzati.get(idTemplate);
         if(template==null) {
@@ -97,7 +100,11 @@ public class Studente extends Utente implements Serializable {
     }
 
     public Test terminaSimulazione(){
-        Test t=templateSelezionato.terminaSimulazione();
+        /* cerco il template selezionato nella mappaTemplateTestSvolti, se non
+        * è presente vuol dire che non ho mai svolto un test basato su quel template,
+        * dunque devo aggiungere il template in mappaTemplateTestSvolti. Dopo posso
+        * chiamare terminaSimulazione() su templateSelezionato che provvederà ad
+        * aggiungere il test nella sua mappaTest */
         boolean found=false;
         for(Template te:mappaTemplateTestSvolti.values()){
             if(te.getId().equals(templateSelezionato.getId())){
@@ -105,17 +112,8 @@ public class Studente extends Utente implements Serializable {
                 break;
             }
         }
-        if(!found) {
-            if(templateSelezionato instanceof TemplateUfficiale){
-                try {
-                    Template te=(Template) templateSelezionato.clone();
-                    mappaTemplateTestSvolti.put(te.getId(),te);
-                } catch (CloneNotSupportedException e) {
-                    e.printStackTrace();
-                }
-            } else mappaTemplateTestSvolti.put(templateSelezionato.getId(),templateSelezionato);
-
-        }
+        if(!found) mappaTemplateTestSvolti.put(templateSelezionato.getId(),templateSelezionato);
+        Test t=templateSelezionato.terminaSimulazione();
         templateSelezionato=null;
         return t;
     }

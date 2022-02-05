@@ -69,6 +69,7 @@ public class Test implements Serializable {
 	/////////////////////////////////////////////////METODI DCD/////////////////////////////////////////////
 
 									////////////////////UC1 AVVIA SIMULAZIONE/////////////////////
+	//utilizzato anche in UC9
 	public void inserisciQuesiti(List<QuesitoDescrizione> listaQuesiti){
 		for(QuesitoDescrizione qd: listaQuesiti){
 			String newId;

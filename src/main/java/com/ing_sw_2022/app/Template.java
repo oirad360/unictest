@@ -177,6 +177,7 @@ public abstract class Template implements Serializable, Cloneable {
 
     public void stampaTest(String nomeFile){
         testCorrente.stampaTest(nomeFile);
+        mappaTest.put(testCorrente.getId(), testCorrente);
         testCorrente=null;
     }
 }

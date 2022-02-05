@@ -7,11 +7,11 @@
     <list default="true" id="225c3c9e-492a-4307-b648-bc04a0874595" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Studente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Studente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Template.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Template.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/TutorSimulazione.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/TutorSimulazione.java" afterDir="false" />
     </list>
-    <list id="e8b6b2a9-de7b-4496-b5a2-5a03d80f3172" name="Changes by franc" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Studente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Studente.java" afterDir="false" />
-    </list>
+    <list id="e8b6b2a9-de7b-4496-b5a2-5a03d80f3172" name="Changes by franc" comment="" />
     <list id="f783ecb6-0640-46ab-87d4-fee534d629cc" name="Changes by oirad" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,15 +39,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$PROJECT_DIR$/../.jdks/corretto-11.0.13/lib/src.zip!/java.base/java/lang/Object.java" root0="FORCE_HIGHLIGHTING" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Studente.java">
-      <ranges>
-        <range start1="70" end1="70" start2="70" end2="77" changelist="e8b6b2a9-de7b-4496-b5a2-5a03d80f3172" />
-        <range start1="71" end1="72" start2="78" end2="89" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
-        <range start1="83" end1="84" start2="100" end2="118" changelist="225c3c9e-492a-4307-b648-bc04a0874595" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -228,7 +219,8 @@
       <workItem from="1643833290548" duration="12438000" />
       <workItem from="1643887821499" duration="32665000" />
       <workItem from="1643969433082" duration="24103000" />
-      <workItem from="1643998579292" duration="15452000" />
+      <workItem from="1643998579292" duration="16050000" />
+      <workItem from="1644054220989" duration="1484000" />
     </task>
     <servers />
   </component>
