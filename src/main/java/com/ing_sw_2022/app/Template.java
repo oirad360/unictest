@@ -88,6 +88,10 @@ public abstract class Template implements Serializable, Cloneable {
         this.maxRisposteCorrette=maxRisposteCorrette;
     }
 
+    public TreeMap<String, Test> getMappaTest() {
+        return mappaTest;
+    }
+
     public Object clone() throws CloneNotSupportedException {
         return super.clone();
     }

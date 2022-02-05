@@ -3,6 +3,7 @@ package com.ing_sw_2022.app;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.TreeMap;
 
 public class TutorSimulazione extends Decorator implements Serializable {
@@ -11,11 +12,13 @@ public class TutorSimulazione extends Decorator implements Serializable {
     private TreeMap<String, TemplatePersonalizzato> mappaTemplatePersonalizzati;
     private TreeMap<String, Template> mappaTemplateTestScritti;
     private Template templateSelezionato;
+    private Lettore lettore;
 
     public TutorSimulazione(Impiegato imp) {
         super(imp);
         mappaTemplatePersonalizzati = new TreeMap<>();
         mappaTemplateTestScritti = new TreeMap<>();
+        lettore = new TesseractObjAdapter();
     }
 
     public TemplatePersonalizzato getTemplatePersonalizzatoCorrente() {
@@ -26,6 +29,9 @@ public class TutorSimulazione extends Decorator implements Serializable {
         return mappaTemplatePersonalizzati;
     }
 
+    public TreeMap<String, Template> getMappaTemplateTestScritti() {
+        return mappaTemplateTestScritti;
+    }
     @Override
     public String toString() {
         return impiegato.toString()+"\nSono un Tutor di Simulazione";
@@ -129,5 +135,24 @@ public class TutorSimulazione extends Decorator implements Serializable {
         }
         templateSelezionato.stampaTest(nomeFile);
         templateSelezionato=null;
+    }
+    ////////////////////////////UC10 CORREGGI SIMULAZIONI CARTACEO////////////////////////
+    @Override
+    public Map<String,String> recuperaInfoTestCartaceo(String fileName) {
+        return lettore.recuperaInfoTestCartaceo(fileName);
+    }
+    @Override
+    public Test correggiTestCartaceo(String cfStudente, String cfTutor, String idTest) {
+        try {
+            return lettore.correggiTestCartaceo(cfStudente, cfTutor, idTest);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public void confermaCorrezione(){
+        lettore.confermaCorrezione();
     }
 }

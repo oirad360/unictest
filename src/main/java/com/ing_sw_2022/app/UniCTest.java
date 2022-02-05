@@ -248,6 +248,15 @@ public class UniCTest implements Serializable{
     public void stampaTest(String nomeFile) throws Exception {
         ((Impiegato)utenteAutenticato).stampaTest(nomeFile);
     }
+    ////////////////////////////UC10 CORREGGI SIMULAZIONI CARTACEO////////////////////////
+    public Map<String,String> recuperaInfoTestCartaceo(String fileName) throws Exception {
+        return ((Impiegato)utenteAutenticato).recuperaInfoTestCartaceo(fileName);
+    }
+
+    public Test correggiTestCartaceo(String cfStudente, String cfTutor, String idTest) throws Exception {
+        return ((Impiegato)utenteAutenticato).correggiTestCartaceo(cfStudente, cfTutor, idTest);
+    }
+
                         ////////////METODI PER CASO D'USO DI AVVIAMENTO//////////////
 
     private void loadMaterie(){
@@ -288,5 +297,6 @@ public class UniCTest implements Serializable{
         t3.addMateriaInsegnata(mappaMaterie.get("ITA02"));
         t4.addMateriaInsegnata(mappaMaterie.get("MAT01"));
     }
+
 
 }

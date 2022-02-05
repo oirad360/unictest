@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
-public class Test implements Serializable {
+public class Test implements Serializable, Cloneable{
 
 	private String id;
 	private float punteggioComplessivo;
@@ -36,8 +36,16 @@ public class Test implements Serializable {
 		return template;
 	}
 
+	public void setTemplate(Template template) {
+		this.template = template;
+	}
+
 	public TreeMap<String, QuesitoReale> getMappaQuesiti() {
 		return mappaQuesiti;
+	}
+
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
 	}
 
 	/*private void riempimento() throws Exception {

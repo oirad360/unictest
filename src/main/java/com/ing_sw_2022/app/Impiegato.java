@@ -3,6 +3,7 @@ package com.ing_sw_2022.app;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.TreeMap;
 
 public abstract class Impiegato extends Utente implements Serializable {
@@ -23,6 +24,8 @@ public abstract class Impiegato extends Utente implements Serializable {
     public abstract TemplateUfficiale getTemplateUfficialeCorrente() throws Exception;
 
     public abstract TreeMap<String, TemplatePersonalizzato> getMappaTemplatePersonalizzati() throws Exception;
+
+    public abstract TreeMap<String, Template> getMappaTemplateTestScritti() throws Exception;
     //////////////////////////////////////////////METODI DCD//////////////////////////////////////////////
     /////////////////////////////UC7 NUOVO QUESITO///////////////////////////////
     public abstract void nuovoQuesito(String codiceMateria);
@@ -63,4 +66,10 @@ public abstract class Impiegato extends Utente implements Serializable {
     public abstract void inserisciQuesiti(List<String> listaIdQuesiti) throws Exception;
 
     public abstract void stampaTest(String nomeFile) throws Exception;
+    ////////////////////////////UC10 CORREGGI SIMULAZIONI CARTACEO////////////////////////
+    public abstract Map<String,String> recuperaInfoTestCartaceo(String fileName) throws Exception;
+
+    public abstract Test correggiTestCartaceo(String cfStudente, String cfTutor, String idTest) throws Exception;
+
+    public abstract void confermaCorrezione() throws Exception;
 }

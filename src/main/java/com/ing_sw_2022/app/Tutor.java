@@ -1,10 +1,7 @@
 package com.ing_sw_2022.app;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.TreeMap;
+import java.util.*;
 
 public class Tutor extends Impiegato implements Serializable{
     private HashMap<String,Materia> materieInsegnate;
@@ -45,6 +42,12 @@ public class Tutor extends Impiegato implements Serializable{
     public TreeMap<String, TemplatePersonalizzato> getMappaTemplatePersonalizzati() throws Exception{
         throw new Exception("Non ho i permessi di TutorSimulazione");
     }
+
+    @Override
+    public TreeMap<String, Template> getMappaTemplateTestScritti() throws Exception {
+        throw new Exception("Non ho i permessi di TutorSimulazione");
+    }
+
 
     @Override
     public String toString() {
@@ -158,5 +161,19 @@ public class Tutor extends Impiegato implements Serializable{
     public void stampaTest(String nomeFile) throws Exception {
         throw new Exception("Non ho i permessi di TutorSimulazione");
     }
+    ////////////////////////////UC10 CORREGGI SIMULAZIONI CARTACEO////////////////////////
+    @Override
+    public Map<String,String> recuperaInfoTestCartaceo(String fileName) throws Exception{
+        throw new Exception("Non ho i permessi di TutorSimulazione");
+    }
 
+    @Override
+    public Test correggiTestCartaceo(String cfStudente, String cfTutor, String idTest) throws Exception {
+        throw new Exception("Non ho i permessi di TutorSimulazione");
+    }
+
+    @Override
+    public void confermaCorrezione() throws Exception {
+        throw new Exception("Non ho i permessi di TutorSimulazione");
+    }
 }
