@@ -18,7 +18,6 @@ public class Test implements Serializable {
 		this.id = id;
 		this.template = template;
 		this.mappaQuesiti = new TreeMap<>();
-		stampante = PdfWriterObjAdapter.getInstance();
 	}
 
 	public String getId() {
@@ -102,6 +101,7 @@ public class Test implements Serializable {
 					////////////////////UC9 COMPONI TEST PER SIMULAZIONE CARTACEA/////////////////////
 
 	public void stampaTest(String nomeFile){
+		stampante = PdfWriterObjAdapter.getInstance();
 		List<QuesitoReale> listaQuesiti= new ArrayList<>(mappaQuesiti.values());
 		stampante.stampaTest(id,listaQuesiti,nomeFile);
 	}
