@@ -26,12 +26,6 @@ public class PdfWriterObjAdapter implements Stampante{
             Font.NORMAL, BaseColor.GRAY);
     private static Font fontClassico = new Font(Font.FontFamily.COURIER, 13,
             Font.NORMAL);
-    /*private static Font fontClassico = new Font(Font.FontFamily.TIMES_ROMAN, 12,
-            Font.NORMAL, BaseColor.RED);
-    private static Font subFont = new Font(Font.FontFamily.TIMES_ROMAN, 16,
-            Font.BOLD);
-    private static Font smallBold = new Font(Font.FontFamily.TIMES_ROMAN, 12,
-            Font.BOLD);*/
 
     private PdfWriterObjAdapter(){
 
@@ -42,16 +36,9 @@ public class PdfWriterObjAdapter implements Stampante{
         return pdfWriterObjAdapter;
     }
 
-    public void aggiungiImmagineBackground(PdfWriter writer, String pathImmagine){
+    public void aggiungiImmagineBackground(PdfWriter writer, String pathImmagine) throws Exception{
         PdfContentByte canvas = writer.getDirectContentUnder();
-        Image image = null;
-        try {
-           image = Image.getInstance(pathImmagine);
-        } catch (BadElementException e) {
-           e.printStackTrace();
-        } catch (IOException e) {
-           e.printStackTrace();
-        }
+        Image image = Image.getInstance(pathImmagine);
         //image.scaleAbsolute(PageSize.A4.getWidth(), PageSize.A4.getHeight());//scaleAbsolute(PageSize.A4,PageSize.A4.rotate());
         /*float documentWidth = document.getPageSize().getWidth() - document.leftMargin() - document.rightMargin();
         float documentHeight = document.getPageSize().getHeight() - document.topMargin() - document.bottomMargin();
@@ -62,11 +49,7 @@ public class PdfWriterObjAdapter implements Stampante{
         PdfGState state = new PdfGState();
         state.setFillOpacity(0.2f);
         canvas.setGState(state);
-        try {
-           canvas.addImage(image);
-        } catch (DocumentException e) {
-           e.printStackTrace();
-        }
+        canvas.addImage(image);
         canvas.restoreState();
         //document.close();
     }
@@ -84,7 +67,11 @@ public class PdfWriterObjAdapter implements Stampante{
             Paragraph titoloTest = new Paragraph("TEST",fontTitolo);
             titoloTest.setAlignment(Element.ALIGN_CENTER);
             document.add(titoloTest);
-            aggiungiImmagineBackground(writer, "unictest.png");
+            try {
+                aggiungiImmagineBackground(writer, "unictest.png");
+            } catch (Exception e) {
+                System.out.println("Impossibile aggiungere l'immagine al background. Stampo il test senza immagine.");
+            }
             document.add(new Paragraph("______________________________________________________________________________"));
             for(QuesitoReale qr: listaQuesiti){
                 document.add(new Paragraph((Integer.parseInt(qr.getId().split("-")[2])+1)+") "+qr.getQuesitoDescrizione().getTesto(),fontClassico));

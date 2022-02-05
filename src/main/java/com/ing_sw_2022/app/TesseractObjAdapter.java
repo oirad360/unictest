@@ -15,13 +15,14 @@ public class TesseractObjAdapter implements Lettore{
     private Test testCorrente;
 
     public TesseractObjAdapter() {
-        tesseract.setDatapath("tesseract");
-        tesseract.setLanguage("ita");
+
     }
 
     @Override
     public Map<String, String> recuperaInfoTestCartaceo(String fileName) {
         tesseract = new Tesseract();
+        tesseract.setDatapath("tesseract");
+        tesseract.setLanguage("ita");
         try {
             text= tesseract.doOCR(new File(fileName+".png"));
         } catch (TesseractException e) {

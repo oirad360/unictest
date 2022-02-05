@@ -18,6 +18,8 @@ public class UniCTestFrame extends JFrame{
     private JButton btnNuovoTemplateU;
     private JButton btnTestCartaceo;
     private JButton btnCorreggiSimulazione;
+    private JButton visualizzaQuesitiButton;
+    private JButton visualizzaTestSvoltiButton;
     private static UniCTestFrame unictestFrame;
     private static final Integer pos = 100;
     private UniCTestFrame(){
@@ -206,7 +208,7 @@ public class UniCTestFrame extends JFrame{
         PPPMRA80A01C351X --> Amministratore, TutorSimulazione
         VRDLGI99R21C351J --> Studente
         */
-        unictest.setUtenteAutenticato("CTNLCU80A01C351K");
+        unictest.setUtenteAutenticato("VRDLGI99R21C351J");
         System.out.println("-------------------UTENTE AUTENTICATO----------------");
         System.out.println(unictest.getUtenteAutenticato());
         System.out.println("--------------TEMPLATE PERSONALIZZATI DELL'UTENTE------------");
@@ -218,6 +220,14 @@ public class UniCTestFrame extends JFrame{
         }
         else if(unictest.getUtenteAutenticato() instanceof Studente){
             System.out.println(((Studente)unictest.getUtenteAutenticato()).getMappaTemplatePersonalizzati());
+        }
+        System.out.println("--------------TEST SVOLTI DALL'UTENTE------------");
+        if(unictest.getUtenteAutenticato() instanceof Impiegato)
+                System.out.println("l'utente non è uno studente");
+        else if(unictest.getUtenteAutenticato() instanceof Studente){
+            for(Template te:((Studente)unictest.getUtenteAutenticato()).getMappaTemplateTestSvolti().values()){
+                System.out.println(te.getMappaTest());
+            }
         }
         System.out.println("/////////////////////////////////////////////////////////");
         System.out.println("/////////////////////////////////////////////////////////");

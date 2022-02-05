@@ -39,8 +39,8 @@ public class NomeFilePngPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         try {
             Map<String,String> mappaInfo=UniCTest.getInstance().recuperaInfoTestCartaceo(textField.getText());
-            TestCartaceoFrame.getInstance().setContentPane(new ConfermaInfoTestPanel(mappaInfo.get("cfStudente"),mappaInfo.get("cfTutor"),mappaInfo.get("idTest")).getMainPanel());
-            TestCartaceoFrame.getInstance().revalidate();
+            CorreggiTestCartaceoFrame.getInstance().setContentPane(new ConfermaInfoTestPanel(mappaInfo.get("cfStudente"),mappaInfo.get("cfTutor"),mappaInfo.get("idTest")).getMainPanel());
+            CorreggiTestCartaceoFrame.getInstance().revalidate();
         } catch (Exception ex) {
             ex.printStackTrace();
         }

@@ -28,6 +28,12 @@ public class TabQuesitoPanel implements ActionListener {
             JCheckBox checkBox = new JCheckBox(r.getTesto());
             checkBox.setName(r.getId());
             checkBox.addActionListener(this);
+            for(Risposta r1:qr.getRisposteDate().values()){
+                if(r1.getId().equals(r.getId())){
+                    checkBox.setSelected(true);
+                    break;
+                }
+            }
             risposteContainer.add(checkBox);
         }
     }

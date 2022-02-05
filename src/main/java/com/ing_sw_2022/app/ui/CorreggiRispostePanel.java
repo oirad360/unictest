@@ -38,8 +38,8 @@ public class CorreggiRispostePanel implements ActionListener {
         }
         if(t!=null){
             UniCTest.getInstance().serialize();
-            AvviaSimulazioneFrame.getInstance().setContentPane(new TestCorrettoPanel(t).getMainPanel());
-            AvviaSimulazioneFrame.getInstance().revalidate();
+            CorreggiTestCartaceoFrame.getInstance().setContentPane(new TestCorrettoPanel(t).getMainPanel());
+            CorreggiTestCartaceoFrame.getInstance().revalidate();
         }
 
     }
