@@ -41,17 +41,17 @@ public abstract class Decorator extends Impiegato implements Serializable{
     }
 
     @Override
-    public TemplatePersonalizzato getTemplatePersonalizzatoCorrente() throws Exception {
+    public TemplatePersonalizzato getTemplatePersonalizzatoCorrente() throws NotAllowedException {
         return impiegato.getTemplatePersonalizzatoCorrente();
     }
 
     @Override
-    public TemplateUfficiale getTemplateUfficialeCorrente() throws Exception {
+    public TemplateUfficiale getTemplateUfficialeCorrente() throws NotAllowedException {
         return impiegato.getTemplateUfficialeCorrente();
     }
 
     @Override
-    public TreeMap<String, TemplatePersonalizzato> getMappaTemplatePersonalizzati() throws Exception{
+    public TreeMap<String, TemplatePersonalizzato> getMappaTemplatePersonalizzati() throws NotAllowedException{
         return impiegato.getMappaTemplatePersonalizzati();
     }
 
@@ -71,7 +71,7 @@ public abstract class Decorator extends Impiegato implements Serializable{
     }
 
     @Override
-    public TreeMap<String, Template> getMappaTemplateTestScritti() throws Exception{
+    public TreeMap<String, Template> getMappaTemplateTestScritti() throws NotAllowedException{
         return impiegato.getMappaTemplateTestScritti();
     }
 
@@ -118,75 +118,75 @@ public abstract class Decorator extends Impiegato implements Serializable{
         impiegato.confermaQuesito(v);
     }
     /////////////////////////////UC2/A CREA TEMPLATE DI TEST UFFICIALE///////////////////////////////
-    public void nuovoTemplateU(String nome) throws Exception {
+    public void nuovoTemplateU(String nome) throws NotAllowedException {
         impiegato.nuovoTemplateU(nome);
     }
 
-    public void inserisciInfoTemplateU(String fonte,float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoTotale) throws Exception {
+    public void inserisciInfoTemplateU(String fonte,float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoTotale) throws NotAllowedException {
         impiegato.inserisciInfoTemplateU(fonte, puntiCorretta, puntiErrata, puntiNonData, numRisposte, minRisposteCorrette, maxRisposteCorrette, tempoTotale);
     }
 
-    public void creaSezioneU(String nomeMateria, int numQuesiti) throws Exception {
+    public void creaSezioneU(String nomeMateria, int numQuesiti) throws NotAllowedException {
         impiegato.creaSezioneU(nomeMateria,numQuesiti);
     }
 
-    public void confermaTemplateU() throws Exception {
+    public void confermaTemplateU() throws NotAllowedException {
         impiegato.confermaTemplateU();
     }
     ////////////////////UC2/T CREA TEMPLATE DI TEST PERSONALIZZATO/////////////////////
-    public void nuovoTemplateP(String nome) throws Exception {
+    public void nuovoTemplateP(String nome) throws NotAllowedException {
         impiegato.nuovoTemplateP(nome);
     }
 
-    public void inserisciInfoTemplateP(float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoMedio) throws Exception {
+    public void inserisciInfoTemplateP(float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoMedio) throws NotAllowedException {
         impiegato.inserisciInfoTemplateP(puntiCorretta, puntiErrata, puntiNonData, numRisposte, minRisposteCorrette, maxRisposteCorrette, tempoMedio);
     }
 
-    public void creaSezioneP(Materia m, int numQuesiti) throws Exception {
+    public void creaSezioneP(Materia m, int numQuesiti) throws NotAllowedException {
         impiegato.creaSezioneP(m, numQuesiti);
     }
 
-    public void confermaTemplateP() throws Exception {
+    public void confermaTemplateP() throws NotAllowedException {
         impiegato.confermaTemplateP();
     }
     //////////////////////UC9 COMPONI TEST PER SIMULAZIONE CARTACEA/////////////////
     @Override
-    public ArrayList<TemplatePersonalizzato> visualizzaTemplate() throws Exception{
-        return impiegato.visualizzaTemplate();
+    public ArrayList<TemplatePersonalizzato> visualizzaTemplateTutor() throws NotAllowedException{
+        return impiegato.visualizzaTemplateTutor();
     }
     @Override
-    public List<Sezione> creaTestCartaceo(String idTemplate) throws Exception{
+    public List<Sezione> creaTestCartaceo(String idTemplate) throws NotAllowedException{
         return impiegato.creaTestCartaceo(idTemplate);
     }
     @Override
-    public ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione) throws Exception{
+    public ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione) throws NotAllowedException, NotEnoughQuestionsException {
         return impiegato.visualizzaQuesiti(idSezione);
     }
     @Override
-    public void inserisciQuesiti(List<String> listaIdQuesiti) throws Exception {
+    public void inserisciQuesiti(List<String> listaIdQuesiti) throws NotAllowedException, QuestionNotFoundException, TemplateSectionException {
         impiegato.inserisciQuesiti(listaIdQuesiti);
     }
     @Override
-    public void stampaTest(String nomeFile) throws Exception{
+    public void stampaTest(String nomeFile) throws NotAllowedException{
         impiegato.stampaTest(nomeFile);
     }
     ////////////////////////////UC10 CORREGGI SIMULAZIONI CARTACEO////////////////////////
     @Override
-    public Map<String,String> recuperaInfoTestCartaceo(String fileName) throws Exception{
+    public Map<String,String> recuperaInfoTestCartaceo(String fileName) throws NotAllowedException{
         return impiegato.recuperaInfoTestCartaceo(fileName);
     }
 
     @Override
-    public Test correggiTestCartaceo(String cfStudente, String cfTutor, String idTest) throws Exception {
+    public Test correggiTestCartaceo(String cfStudente, String cfTutor, String idTest) throws NotAllowedException {
         return impiegato.correggiTestCartaceo(cfStudente, cfTutor, idTest);
     }
 
     @Override
-    public Test confermaCorrezione() throws Exception {
+    public Test confermaCorrezione() throws NotAllowedException {
         return impiegato.confermaCorrezione();
     }
     @Override
-    public void selezionaRisposta(String idQuesitoReale, String idRisposta) throws Exception{
+    public void selezionaRisposta(String idQuesitoReale, String idRisposta) throws NotAllowedException{
         impiegato.selezionaRisposta(idQuesitoReale, idRisposta);
     }
 }

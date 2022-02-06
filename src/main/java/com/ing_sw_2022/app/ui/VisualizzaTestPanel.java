@@ -15,7 +15,13 @@ public class VisualizzaTestPanel {
 
     public VisualizzaTestPanel() {
         testContainer.setLayout(new GridLayout(0,1));
-        Map<String, Template> mappaTemplate=((Studente)UniCTest.getInstance().getUtenteAutenticato()).getMappaTemplateTestSvolti();
+        Map<String, Template> mappaTemplate=null;
+        if(UniCTest.getInstance().getUtenteAutenticato() instanceof Studente) mappaTemplate=((Studente)UniCTest.getInstance().getUtenteAutenticato()).getMappaTemplateTestSvolti();
+        else JOptionPane.showMessageDialog(new JFrame(),
+                    "Solo gli studenti possono visualizzare i test svolti.",
+                    "Inane warning",
+                    JOptionPane.WARNING_MESSAGE);
+
         for(Template te: mappaTemplate.values()){
             for(Test t: te.getMappaTest().values()){
                 testContainer.add(new BottoneTestPanel(t).getMainPanel());

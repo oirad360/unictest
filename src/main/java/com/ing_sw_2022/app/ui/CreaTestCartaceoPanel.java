@@ -24,7 +24,6 @@ public class CreaTestCartaceoPanel implements ActionListener {
         UniCTest uniCTest = UniCTest.getInstance();
         try {
             listaSezioni = uniCTest.creaTestCartaceo(idTemplate);
-            System.out.println(listaSezioni);
             for(Sezione s : listaSezioni){
                 JButton btnSezione = new JButton(s.getMateria().getNome());
                 btnSezione.setName(s.getId()+"//"+s.getNumQuesiti());
@@ -44,7 +43,6 @@ public class CreaTestCartaceoPanel implements ActionListener {
         c.insets = new Insets(5, 0, 5, 0);
         c.gridwidth = GridBagConstraints.REMAINDER;
 
-        UniCTest uniCTest = UniCTest.getInstance();
         for(Sezione s : listaSezioni){
             JButton btnSezione = new JButton(s.getMateria().getNome());
             btnSezione.setName(s.getId()+"//"+s.getNumQuesiti());

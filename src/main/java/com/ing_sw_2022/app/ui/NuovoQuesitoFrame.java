@@ -1,11 +1,13 @@
 package com.ing_sw_2022.app.ui;
 
+import com.ing_sw_2022.app.StudentNotAllowedException;
+
 import javax.swing.*;
 
 public class NuovoQuesitoFrame extends JFrame{
     private static NuovoQuesitoFrame nuovoQuesitoFrame;
 
-    private NuovoQuesitoFrame(){
+    private NuovoQuesitoFrame() throws StudentNotAllowedException {
         setContentPane(new VisualizzaMateriePanel());
         setTitle("Nuovo quesito");
         setSize(880,500);
@@ -14,7 +16,7 @@ public class NuovoQuesitoFrame extends JFrame{
         setLocation(UniCTestFrame.getPos()+30,UniCTestFrame.getPos()+30);
 
     }
-    public static NuovoQuesitoFrame getInstance() {
+    public static NuovoQuesitoFrame getInstance() throws StudentNotAllowedException {
         if (nuovoQuesitoFrame == null) nuovoQuesitoFrame = new NuovoQuesitoFrame();
         return nuovoQuesitoFrame;
     }

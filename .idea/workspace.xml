@@ -4,44 +4,51 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="225c3c9e-492a-4307-b648-bc04a0874595" name="Changes" comment="">
+    <list default="true" id="466ccce6-c6a1-4926-aa20-114b33a6504a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< Updated upstream
-      <change beforePath="$PROJECT_DIR$/ser.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Amministratore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Amministratore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newTest.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/newTest1.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/newTest1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuovoTest.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuovoTest.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuovoTest1.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Decorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Decorator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Impiegato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Impiegato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Materia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Materia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Sezione.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Sezione.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Studente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Studente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Template.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Template.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Tutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Tutor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/TutorSimulazione.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/TutorSimulazione.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/AvviaSimulazioneFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/AvviaSimulazioneFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/CorreggiTestCartaceoFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/CorreggiTestCartaceoFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/CreaTestCartaceoPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/CreaTestCartaceoPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/NomeFilePngPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/NomeFilePngPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/NuovoQuesitoFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/NuovoQuesitoFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/TestCartaceoFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/TestCartaceoFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/UniCTestFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/UniCTestFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/VisualizzaMateriePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/VisualizzaMateriePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/VisualizzaQuesitiCompletiFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/VisualizzaQuesitiCompletiFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/VisualizzaTemplatePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/VisualizzaTemplatePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/VisualizzaTestPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/VisualizzaTestPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Amministratore.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Amministratore.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/App.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Decorator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Decorator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Impiegato.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Impiegato.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Materia.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Materia.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Tutor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Tutor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/TutorSimulazione.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/TutorSimulazione.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$2$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$3$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$3$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$4$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$4$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$5$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$5$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$6$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$6$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$6.class" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Amministratore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Amministratore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/TestCartaceoFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/TestCartaceoFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/UniCTestFrame.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/UniCTestFrame.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/UniCTestFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/UniCTestFrame.java" afterDir="false" />
->>>>>>> Stashed changes
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/UniCTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/UniCTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/CreaTestCartaceoPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/CreaTestCartaceoPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$8$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$8$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$8.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/VisualizzaQuesitiCompletiFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/VisualizzaQuesitiCompletiFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/VisualizzaTestPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/VisualizzaTestPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testMedicina.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testMedicina.png" beforeDir="false" />
     </list>
-    <list id="e8b6b2a9-de7b-4496-b5a2-5a03d80f3172" name="Changes by franc" comment="" />
-    <list id="f783ecb6-0640-46ab-87d4-fee534d629cc" name="Changes by oirad" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -111,8 +118,11 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.ing_sw_2022.app" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ing_sw_2022.app" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="Application.UniCTestFrame">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.App" />
       <module name="unictestDario" />
@@ -131,7 +141,7 @@
       <module name="unictest" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ing_sw_2022.app.ui.*" />
+          <option name="PATTERN" value="com.ing_sw_2022.app.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -187,8 +197,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.App" />
         <item itemvalue="Application.UniCTestFrame" />
+        <item itemvalue="Application.App" />
         <item itemvalue="JUnit.TestAvviaSimulazione" />
         <item itemvalue="JUnit.TestCreaTemplatePersTutor" />
         <item itemvalue="JUnit.TestCreaTemplatePersTutor.testEccezioni" />
@@ -250,14 +260,11 @@
       <workItem from="1643969433082" duration="24103000" />
       <workItem from="1643998579292" duration="16050000" />
       <workItem from="1644054220989" duration="1484000" />
-<<<<<<< Updated upstream
       <workItem from="1644056232322" duration="386000" />
       <workItem from="1644057350314" duration="1531000" />
       <workItem from="1644086956283" duration="3332000" />
-=======
       <workItem from="1644056232322" duration="24188000" />
       <workItem from="1644088555020" duration="6708000" />
->>>>>>> Stashed changes
     </task>
     <servers />
   </component>

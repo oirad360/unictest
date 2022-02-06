@@ -1,5 +1,6 @@
 package com.ing_sw_2022.app;
 
+import javax.swing.*;
 import java.io.*;
 import java.util.*;
 
@@ -112,70 +113,81 @@ public class UniCTest implements Serializable{
     } //MOMENTANEO
     /////////////////////////////////////////////METODI DCD///////////////////////////////////////////////
                      ////////////////////UC7 INSERISCI QUESITO/////////////////////
-    public List<Materia> visualizzaMaterieInsegnate(){
+    public List<Materia> visualizzaMaterieInsegnate() throws StudentNotAllowedException{
+        if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono inserire quesiti.");
         return ((Impiegato)utenteAutenticato).getMaterieInsegnate();
     }
 
-    public void nuovoQuesito(String codiceMateria){
+    public void nuovoQuesito(String codiceMateria)throws StudentNotAllowedException{
+        if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono inserire quesiti.");
         ((Impiegato)utenteAutenticato).nuovoQuesito(codiceMateria);
     }
 
-    public void inserisciFonte(String fonte){
+    public void inserisciFonte(String fonte) throws StudentNotAllowedException{
+        if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono inserire quesiti.");
         ((Impiegato)utenteAutenticato).inserisciFonte(fonte);
     }
 
-    public void inserisciTesto(String testo){
+    public void inserisciTesto(String testo) throws StudentNotAllowedException{
+        if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono inserire quesiti.");
         ((Impiegato)utenteAutenticato).inserisciTesto(testo);
     }
 
-    public void inserisciRisposta(String testo, boolean valore){
+    public void inserisciRisposta(String testo, boolean valore) throws StudentNotAllowedException{
+        if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono inserire quesiti.");
         ((Impiegato)utenteAutenticato).inserisciRisposta(testo, valore);
     }
 
-    public void inserisciDifficoltà(int difficoltà){
+    public void inserisciDifficoltà(int difficoltà) throws StudentNotAllowedException{
+        if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono inserire quesiti.");
         ((Impiegato)utenteAutenticato).inserisciDifficoltà(difficoltà);
     }
 
-    public void confermaQuesito(String codiceVisibilità){
+    public void confermaQuesito(String codiceVisibilità) throws StudentNotAllowedException{
+        if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono inserire quesiti.");
         Visibilità v = mappaVisibilità.get(codiceVisibilità);
         ((Impiegato)utenteAutenticato).confermaQuesito(v);
     }
 
                         ////////////////////UC2 CREA TEMPLATE DI TEST PERSONALIZZATO/////////////////////
 
-    public void nuovoTemplateP(String nome) throws Exception {
+    public void nuovoTemplateP(String nome) throws NotAllowedException {
         if(utenteAutenticato instanceof Studente) ((Studente)utenteAutenticato).nuovoTemplateP(nome);
-        else if(utenteAutenticato instanceof Impiegato) ((Impiegato)utenteAutenticato).nuovoTemplateP(nome);
+        else if(utenteAutenticato instanceof Impiegato) ((Impiegato)utenteAutenticato).nuovoTemplateP(nome);//potrebbe lanciare eccezione se l'impiegato non è tutor di simulazione
     }
 
-    public List<Materia> inserisciInfoTemplateP(float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoMedio) throws Exception {
+    public List<Materia> inserisciInfoTemplateP(float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoMedio) throws NotAllowedException {
         if(utenteAutenticato instanceof Studente) ((Studente)utenteAutenticato).inserisciInfoTemplateP(puntiCorretta, puntiErrata, puntiNonData, numRisposte, minRisposteCorrette, maxRisposteCorrette, tempoMedio);
-        else if(utenteAutenticato instanceof Impiegato) ((Impiegato)utenteAutenticato).inserisciInfoTemplateP(puntiCorretta, puntiErrata, puntiNonData, numRisposte, minRisposteCorrette, maxRisposteCorrette, tempoMedio);
+        else if(utenteAutenticato instanceof Impiegato) {
+            //potrebbe lanciare eccezione se l'impiegato non è tutor di simulazione
+            ((Impiegato)utenteAutenticato).inserisciInfoTemplateP(puntiCorretta, puntiErrata, puntiNonData, numRisposte, minRisposteCorrette, maxRisposteCorrette, tempoMedio);
+        }
         List<Materia> list = new ArrayList<>(mappaMaterie.values());
         return list;
     }
 
-    public void creaSezioneP(String codiceMateria, int numQuesiti, int difficoltàMedia) {
+    public void creaSezioneP(String codiceMateria, int numQuesiti, int difficoltàMedia) throws EmployeeNotAllowedException{
+        if(utenteAutenticato instanceof Impiegato) throw new EmployeeNotAllowedException("I tutor non possono creare template per simulazioni online.");
         Materia m=mappaMaterie.get(codiceMateria);
         ((Studente)utenteAutenticato).creaSezioneP(m,numQuesiti,difficoltàMedia);
     }
 
-    public void creaSezioneP(String codiceMateria, int numQuesiti) throws Exception {
+    public void creaSezioneP(String codiceMateria, int numQuesiti) throws StudentNotAllowedException, NotAllowedException {
+        if(utenteAutenticato instanceof Impiegato) throw new StudentNotAllowedException("I tutor non possono creare template per simulazioni cartacee.");
         Materia m=mappaMaterie.get(codiceMateria);
-        ((Impiegato)utenteAutenticato).creaSezioneP(m,numQuesiti);
+        ((Impiegato)utenteAutenticato).creaSezioneP(m,numQuesiti);//potrebbe lanciare eccezione se l'impiegato non è tutor di simulazione (Exception generica, non catturata da ClassCastException)
     }
 
-    public void confermaTemplateP() throws Exception {
+    public void confermaTemplateP() throws NotAllowedException {
         if(utenteAutenticato instanceof Studente) ((Studente)utenteAutenticato).confermaTemplateP();
-        if(utenteAutenticato instanceof Impiegato) ((Impiegato)utenteAutenticato).confermaTemplateP();
+        if(utenteAutenticato instanceof Impiegato) ((Impiegato)utenteAutenticato).confermaTemplateP();//potrebbe lanciare eccezione se l'impiegato non è tutor di simulazione
     }
 
                         ////////////////////UC1 AVVIA SIMULAZIONE/////////////////////
 
-    public ArrayList<Template> visualizzaTemplate() throws Exception {
-        ArrayList<TemplatePersonalizzato> listaPersonalizzati = new ArrayList<>();
-        if(utenteAutenticato instanceof Studente) listaPersonalizzati = ((Studente)utenteAutenticato).visualizzaTemplate();
-        else if(utenteAutenticato instanceof Impiegato) listaPersonalizzati = ((Impiegato)utenteAutenticato).visualizzaTemplate();
+    public ArrayList<Template> visualizzaTemplate() throws EmployeeNotAllowedException {
+        if(utenteAutenticato instanceof Impiegato) throw new EmployeeNotAllowedException("Gli impiegati non possono avviare simulazioni.");
+        ArrayList<TemplatePersonalizzato> listaPersonalizzati = ((Studente)utenteAutenticato).visualizzaTemplate();
         ArrayList<TemplateUfficiale> listaUfficiali = new ArrayList<>(UniCTest.getInstance().getMappaTemplateUfficiali().values());
         ArrayList<Template> lista = new ArrayList<>();
         for(TemplatePersonalizzato t:listaPersonalizzati) lista.add(t);
@@ -183,32 +195,36 @@ public class UniCTest implements Serializable{
         return lista;
     }
 
-    public Test avviaSimulazione(String idTemplate) throws Exception{
-        Test t =((Studente)utenteAutenticato).avviaSimulazione(idTemplate);
-        return t;
+
+    public Test avviaSimulazione(String idTemplate) throws NotEnoughQuestionsException, CloneNotSupportedException, EmployeeNotAllowedException {
+        if(utenteAutenticato instanceof Impiegato) throw new EmployeeNotAllowedException("Gli impiegati non possono avviare simulazioni.");
+        return ((Studente)utenteAutenticato).avviaSimulazione(idTemplate);
     }
 
-    public void selezionaRisposta(String idQuesitoReale, String idRisposta) throws Exception {
+    public void selezionaRisposta(String idQuesitoReale, String idRisposta) throws NotAllowedException {
         if(utenteAutenticato instanceof Studente) ((Studente)utenteAutenticato).selezionaRisposta(idQuesitoReale, idRisposta);
-        else if(utenteAutenticato instanceof Impiegato) ((Impiegato)utenteAutenticato).selezionaRisposta(idQuesitoReale, idRisposta);
+        else if(utenteAutenticato instanceof Impiegato) ((Impiegato)utenteAutenticato).selezionaRisposta(idQuesitoReale, idRisposta);//potrebbe lanciare eccezione se l'impiegato non è tutor di simulazione
     }
 
-    public Test terminaSimulazione(){
-        Test t = ((Studente)utenteAutenticato).terminaSimulazione();
-        return t;
+    public Test terminaSimulazione() throws EmployeeNotAllowedException{
+        if(utenteAutenticato instanceof Impiegato) throw new EmployeeNotAllowedException("Gli impiegati non possono avviare simulazioni.");
+        return ((Studente)utenteAutenticato).terminaSimulazione();
     }
 
     ////////////////////UC2/A CREA TEMPLATE DI TEST UFFICIALE/////////////////////
 
-    public void nuovoTemplateU(String nome) throws Exception {
+    public void nuovoTemplateU(String nome) throws NotAllowedException, StudentNotAllowedException {
+        if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono inserire template ufficiali.");
         ((Impiegato)utenteAutenticato).nuovoTemplateU(nome);
     }
 
-    public void inserisciInfoTemplateU(String fonte, float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoTotale) throws Exception {
+    public void inserisciInfoTemplateU(String fonte, float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoTotale) throws NotAllowedException, StudentNotAllowedException {
+        if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono inserire template ufficiali.");
         ((Impiegato)utenteAutenticato).inserisciInfoTemplateU(fonte, puntiCorretta, puntiErrata, puntiNonData, numRisposte, minRisposteCorrette, maxRisposteCorrette, tempoTotale);
     }
 
-    public void creaSezioneU(String nomeMateria, int numQuesiti) throws Exception {
+    public void creaSezioneU(String nomeMateria, int numQuesiti) throws NotAllowedException, StudentNotAllowedException {
+        if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono inserire template ufficiali.");
         ((Impiegato) utenteAutenticato).creaSezioneU(nomeMateria, numQuesiti);
     }
 
@@ -229,36 +245,46 @@ public class UniCTest implements Serializable{
         return m;
     }
 
-    public void confermaTemplateU() throws Exception {
+    public void confermaTemplateU() throws NotAllowedException, StudentNotAllowedException {
+        if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono inserire template ufficiali.");
         ((Impiegato)utenteAutenticato).confermaTemplateU();
     }
     /////////////////////UC9 COMPONI TEST PER SIMULAZIONE CARTACEA////////////////
+    public ArrayList<Template> visualizzaTemplateTutor() throws NotAllowedException, StudentNotAllowedException {
+        if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono creare test cartacei.");
+        ArrayList<TemplatePersonalizzato> listaPersonalizzati = ((Impiegato)utenteAutenticato).visualizzaTemplateTutor();
+        ArrayList<TemplateUfficiale> listaUfficiali = new ArrayList<>(UniCTest.getInstance().getMappaTemplateUfficiali().values());
+        ArrayList<Template> lista = new ArrayList<>();
+        for(TemplatePersonalizzato t:listaPersonalizzati) lista.add(t);
+        for(TemplateUfficiale t:listaUfficiali) lista.add(t);
+        return lista;
+    }
 
-    public List<Sezione> creaTestCartaceo(String idTemplate) throws Exception {
+    public List<Sezione> creaTestCartaceo(String idTemplate) throws ClassCastException,NotAllowedException {
         return ((Impiegato)utenteAutenticato).creaTestCartaceo(idTemplate);
     }
 
-    public ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione) throws Exception {
+    public ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione) throws ClassCastException, NotAllowedException, NotEnoughQuestionsException {
         return ((Impiegato)utenteAutenticato).visualizzaQuesiti(idSezione);
     }
 
-    public void inserisciQuesiti(List<String> listaIdQuesiti) throws Exception {
+    public void inserisciQuesiti(List<String> listaIdQuesiti) throws NotAllowedException, QuestionNotFoundException, TemplateSectionException {
         ((Impiegato)utenteAutenticato).inserisciQuesiti(listaIdQuesiti);
     }
 
-    public void stampaTest(String nomeFile) throws Exception {
+    public void stampaTest(String nomeFile) throws NotAllowedException {
         ((Impiegato)utenteAutenticato).stampaTest(nomeFile);
     }
     ////////////////////////////UC10 CORREGGI SIMULAZIONI CARTACEO////////////////////////
-    public Map<String,String> recuperaInfoTestCartaceo(String fileName) throws Exception {
+    public Map<String,String> recuperaInfoTestCartaceo(String fileName) throws ClassCastException,NotAllowedException {
         return ((Impiegato)utenteAutenticato).recuperaInfoTestCartaceo(fileName);
     }
 
-    public Test correggiTestCartaceo(String cfStudente, String cfTutor, String idTest) throws Exception {
+    public Test correggiTestCartaceo(String cfStudente, String cfTutor, String idTest) throws ClassCastException,NotAllowedException {
         return ((Impiegato)utenteAutenticato).correggiTestCartaceo(cfStudente, cfTutor, idTest);
     }
 
-    public Test confermaCorrezione() throws Exception {
+    public Test confermaCorrezione() throws ClassCastException,NotAllowedException {
         return ((Impiegato)utenteAutenticato).confermaCorrezione();
     }
 

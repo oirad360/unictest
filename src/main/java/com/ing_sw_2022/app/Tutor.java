@@ -60,23 +60,23 @@ public class Tutor extends Impiegato implements Serializable{
     }
 
     @Override
-    public TemplatePersonalizzato getTemplatePersonalizzatoCorrente() throws Exception{
-        throw new Exception("Non ho i permessi di TutorSimulazione");
+    public TemplatePersonalizzato getTemplatePersonalizzatoCorrente() throws NotAllowedException{
+        throw new NotAllowedException("Non ho i permessi di TutorSimulazione");
     }
 
     @Override
-    public TemplateUfficiale getTemplateUfficialeCorrente() throws Exception{
-        throw new Exception("Non ho i permessi di Amministratore");
+    public TemplateUfficiale getTemplateUfficialeCorrente() throws NotAllowedException{
+        throw new NotAllowedException("Non ho i permessi di Amministratore");
     }
 
     @Override
-    public TreeMap<String, TemplatePersonalizzato> getMappaTemplatePersonalizzati() throws Exception{
-        throw new Exception("Non ho i permessi di TutorSimulazione");
+    public TreeMap<String, TemplatePersonalizzato> getMappaTemplatePersonalizzati() throws NotAllowedException{
+        throw new NotAllowedException("Non ho i permessi di TutorSimulazione");
     }
 
     @Override
-    public TreeMap<String, Template> getMappaTemplateTestScritti() throws Exception {
-        throw new Exception("Non ho i permessi di TutorSimulazione");
+    public TreeMap<String, Template> getMappaTemplateTestScritti() throws NotAllowedException {
+        throw new NotAllowedException("Non ho i permessi di TutorSimulazione");
     }
 
 
@@ -124,91 +124,91 @@ public class Tutor extends Impiegato implements Serializable{
     }
             /////////////////////////////UC2/A CREA TEMPLATE DI TEST UFFICIALE///////////////////////////////
     @Override
-    public void nuovoTemplateU(String nome) throws Exception{
-        throw new Exception("Non ho i permessi di Amministratore");
+    public void nuovoTemplateU(String nome) throws NotAllowedException{
+        throw new NotAllowedException("Non ho i permessi di Amministratore");
     }
 
     @Override
-    public void inserisciInfoTemplateU(String fonte, float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoTotale) throws Exception{
-        throw new Exception("Non ho i permessi di Amministratore");
+    public void inserisciInfoTemplateU(String fonte, float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoTotale) throws NotAllowedException{
+        throw new NotAllowedException("Non ho i permessi di Amministratore");
     }
 
     @Override
-    public void creaSezioneU(String nomeMateria, int numQuesiti) throws Exception{
-        throw new Exception("Non ho i permessi di Amministratore");
+    public void creaSezioneU(String nomeMateria, int numQuesiti) throws NotAllowedException{
+        throw new NotAllowedException("Non ho i permessi di Amministratore");
     }
 
     @Override
-    public void confermaTemplateU() throws Exception{
-        throw new Exception("Non ho i permessi di Amministratore");
+    public void confermaTemplateU() throws NotAllowedException{
+        throw new NotAllowedException("Non ho i permessi di Amministratore");
     }
 
     ////////////////////UC2/T CREA TEMPLATE DI TEST PERSONALIZZATO/////////////////////
 
     @Override
-    public void nuovoTemplateP(String nome) throws Exception {
-        throw new Exception("Non ho i permessi di TutorSimulazione");
+    public void nuovoTemplateP(String nome) throws NotAllowedException {
+        throw new NotAllowedException("Non ho i permessi di TutorSimulazione");
     }
 
     @Override
-    public void inserisciInfoTemplateP(float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoMedio) throws Exception {
-        throw new Exception("Non ho i permessi di TutorSimulazione");
+    public void inserisciInfoTemplateP(float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoMedio) throws NotAllowedException {
+        throw new NotAllowedException("Non ho i permessi di TutorSimulazione");
     }
 
     @Override
-    public void creaSezioneP(Materia m, int numQuesiti) throws Exception {
-        throw new Exception("Non ho i permessi di TutorSimulazione");
+    public void creaSezioneP(Materia m, int numQuesiti) throws NotAllowedException {
+        throw new NotAllowedException("Non ho i permessi di TutorSimulazione");
     }
 
     @Override
-    public void confermaTemplateP() throws Exception {
-        throw new Exception("Non ho i permessi di TutorSimulazione");
+    public void confermaTemplateP() throws NotAllowedException {
+        throw new NotAllowedException("Non ho i permessi di TutorSimulazione");
     }
 
 
     ////////////////////////////UC9 COMPONI TEST PER SIMULAZIONE CARTACEA//////////////////
 
     @Override
-    public ArrayList<TemplatePersonalizzato> visualizzaTemplate() throws Exception{
-        throw new Exception("Non ho i permessi di TutorSimulazione");
+    public ArrayList<TemplatePersonalizzato> visualizzaTemplateTutor() throws NotAllowedException{
+        throw new NotAllowedException("Non ho i permessi di TutorSimulazione");
     }
 
     @Override
-    public List<Sezione> creaTestCartaceo(String idTemplate) throws Exception {
-        throw new Exception("Non ho i permessi di TutorSimulazione");
+    public List<Sezione> creaTestCartaceo(String idTemplate) throws NotAllowedException {
+        throw new NotAllowedException("Non ho i permessi di TutorSimulazione");
     }
 
     @Override
-    public ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione) throws Exception {
-        throw new Exception("Non ho i permessi di TutorSimulazione");
+    public ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione) throws NotAllowedException {
+        throw new NotAllowedException("Non ho i permessi di TutorSimulazione");
     }
 
     @Override
-    public void inserisciQuesiti(List<String> listaIdQuesiti) throws Exception {
-        throw new Exception("Non ho i permessi di TutorSimulazione");
+    public void inserisciQuesiti(List<String> listaIdQuesiti) throws NotAllowedException {
+        throw new NotAllowedException("Non ho i permessi di TutorSimulazione");
     }
 
     @Override
-    public void stampaTest(String nomeFile) throws Exception {
-        throw new Exception("Non ho i permessi di TutorSimulazione");
+    public void stampaTest(String nomeFile) throws NotAllowedException {
+        throw new NotAllowedException("Non ho i permessi di TutorSimulazione");
     }
     ////////////////////////////UC10 CORREGGI SIMULAZIONI CARTACEO////////////////////////
     @Override
-    public Map<String,String> recuperaInfoTestCartaceo(String fileName) throws Exception{
-        throw new Exception("Non ho i permessi di TutorSimulazione");
+    public Map<String,String> recuperaInfoTestCartaceo(String fileName) throws NotAllowedException{
+        throw new NotAllowedException("Non ho i permessi di TutorSimulazione");
     }
 
     @Override
-    public Test correggiTestCartaceo(String cfStudente, String cfTutor, String idTest) throws Exception {
-        throw new Exception("Non ho i permessi di TutorSimulazione");
+    public Test correggiTestCartaceo(String cfStudente, String cfTutor, String idTest) throws NotAllowedException {
+        throw new NotAllowedException("Non ho i permessi di TutorSimulazione");
     }
 
     @Override
-    public Test confermaCorrezione() throws Exception {
-        throw new Exception("Non ho i permessi di TutorSimulazione");
+    public Test confermaCorrezione() throws NotAllowedException {
+        throw new NotAllowedException("Non ho i permessi di TutorSimulazione");
     }
     @Override
-    public void selezionaRisposta(String idQuesitoReale, String idRisposta) throws Exception{
-        throw new Exception("Non ho i permessi di TutorSimulazione");
+    public void selezionaRisposta(String idQuesitoReale, String idRisposta) throws NotAllowedException{
+        throw new NotAllowedException("Non ho i permessi di TutorSimulazione");
     }
 }

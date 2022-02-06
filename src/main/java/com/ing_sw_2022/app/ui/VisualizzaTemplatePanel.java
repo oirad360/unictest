@@ -13,7 +13,7 @@ public class VisualizzaTemplatePanel implements ActionListener {
     private JPanel mainPanel;
     private JPanel buttonsContainer;
 
-    public VisualizzaTemplatePanel() throws Exception {
+    public VisualizzaTemplatePanel() throws EmployeeNotAllowedException {
         GridBagConstraints c = new GridBagConstraints();
         c.insets = new Insets(5, 0, 5, 0);
         c.gridwidth = GridBagConstraints.REMAINDER;

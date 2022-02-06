@@ -10,8 +10,7 @@ public class VisualizzaQuesitiCompletiFrame extends JFrame{
     private JPanel mainPanel;
     private JPanel containerQuesiti;
     private static VisualizzaQuesitiCompletiFrame visualizzaQuesitiCompletiFrame;
-    private VisualizzaQuesitiCompletiFrame() throws Exception {
-        if(UniCTest.getInstance().getUtenteAutenticato() instanceof Studente) throw new Exception("Solo i tutor possono visualizzare i quesiti");
+    private VisualizzaQuesitiCompletiFrame() {
         setContentPane(mainPanel);
         setTitle("Visualizza quesiti");
         setSize(880,500);

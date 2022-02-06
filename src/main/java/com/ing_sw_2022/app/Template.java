@@ -122,7 +122,7 @@ public abstract class Template implements Serializable, Cloneable {
     }
 
                             ///////////////////////////UC1 AVVIA SIMULAZIONE//////////////////////////
-    public Test avviaSimulazione() throws Exception{
+    public Test avviaSimulazione() throws NotEnoughQuestionsException {
         String newId;
         if(mappaTest.isEmpty()) newId = id+"-0";
         else newId = id+"-"+(Integer.parseInt(mappaTest.lastKey().split("-")[1])+1);
@@ -158,7 +158,7 @@ public abstract class Template implements Serializable, Cloneable {
         return lista;
     }
 
-    public ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione) throws Exception {
+    public ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione) throws NotEnoughQuestionsException {
         //Ricerca sezione
         sezioneCorrente=null;
         for (Sezione s: listaSezioni) {
@@ -174,7 +174,7 @@ public abstract class Template implements Serializable, Cloneable {
         return null;
     }
 
-    public void inserisciQuesiti(List<String> listaIdQuesiti) throws Exception {
+    public void inserisciQuesiti(List<String> listaIdQuesiti) throws QuestionNotFoundException, TemplateSectionException {
         List<QuesitoDescrizione> listaQuesiti=sezioneCorrente.recuperaQuesiti(listaIdQuesiti);
         testCorrente.inserisciQuesiti(listaQuesiti);
     }

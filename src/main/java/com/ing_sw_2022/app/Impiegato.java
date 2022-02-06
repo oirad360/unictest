@@ -30,13 +30,13 @@ public abstract class Impiegato extends Utente implements Serializable {
 
     public abstract Materia getMateriaCorrente();
 
-    public abstract TemplatePersonalizzato getTemplatePersonalizzatoCorrente() throws Exception;
+    public abstract TemplatePersonalizzato getTemplatePersonalizzatoCorrente() throws NotAllowedException;
 
-    public abstract TemplateUfficiale getTemplateUfficialeCorrente() throws Exception;
+    public abstract TemplateUfficiale getTemplateUfficialeCorrente() throws NotAllowedException;
 
-    public abstract TreeMap<String, TemplatePersonalizzato> getMappaTemplatePersonalizzati() throws Exception;
+    public abstract TreeMap<String, TemplatePersonalizzato> getMappaTemplatePersonalizzati() throws NotAllowedException;
 
-    public abstract TreeMap<String, Template> getMappaTemplateTestScritti() throws Exception;
+    public abstract TreeMap<String, Template> getMappaTemplateTestScritti() throws NotAllowedException;
     //////////////////////////////////////////////METODI DCD//////////////////////////////////////////////
     /////////////////////////////UC7 NUOVO QUESITO///////////////////////////////
     public abstract void nuovoQuesito(String codiceMateria);
@@ -52,37 +52,37 @@ public abstract class Impiegato extends Utente implements Serializable {
     public abstract void confermaQuesito(Visibilità v);
 
     /////////////////////////////UC2/A CREA TEMPLATE DI TEST UFFICIALE///////////////////////////////
-    public abstract void nuovoTemplateU(String nome) throws Exception;
+    public abstract void nuovoTemplateU(String nome) throws NotAllowedException;
 
-    public abstract void inserisciInfoTemplateU(String fonte,float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoTotale) throws Exception;
+    public abstract void inserisciInfoTemplateU(String fonte,float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoTotale) throws NotAllowedException;
 
-    public abstract void creaSezioneU(String nomeMateria, int numQuesiti) throws Exception;
+    public abstract void creaSezioneU(String nomeMateria, int numQuesiti) throws NotAllowedException;
 
-    public abstract void confermaTemplateU() throws Exception;
+    public abstract void confermaTemplateU() throws NotAllowedException;
     ////////////////////UC2/T CREA TEMPLATE DI TEST PERSONALIZZATO/////////////////////
-    public abstract void nuovoTemplateP(String nome) throws Exception;
+    public abstract void nuovoTemplateP(String nome) throws NotAllowedException;
 
-    public abstract void inserisciInfoTemplateP(float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoMedio) throws Exception;
+    public abstract void inserisciInfoTemplateP(float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette, int tempoMedio) throws NotAllowedException;
 
-    public abstract void creaSezioneP(Materia m, int numQuesiti) throws Exception;
+    public abstract void creaSezioneP(Materia m, int numQuesiti) throws NotAllowedException;
 
-    public abstract void confermaTemplateP() throws Exception;
+    public abstract void confermaTemplateP() throws NotAllowedException;
     /////////////////////////////UC9 COMPONI TEST PER SIMULAZIONE CARTACEA/////////////////////
-    public abstract ArrayList<TemplatePersonalizzato> visualizzaTemplate() throws Exception;
+    public abstract ArrayList<TemplatePersonalizzato> visualizzaTemplateTutor() throws NotAllowedException;
 
-    public abstract List<Sezione> creaTestCartaceo(String idTemplate) throws Exception;
+    public abstract List<Sezione> creaTestCartaceo(String idTemplate) throws NotAllowedException;
 
-    public abstract ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione) throws Exception;
+    public abstract ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione) throws NotAllowedException, NotEnoughQuestionsException;
 
-    public abstract void inserisciQuesiti(List<String> listaIdQuesiti) throws Exception;
+    public abstract void inserisciQuesiti(List<String> listaIdQuesiti) throws NotAllowedException, QuestionNotFoundException, TemplateSectionException;
 
-    public abstract void stampaTest(String nomeFile) throws Exception;
+    public abstract void stampaTest(String nomeFile) throws NotAllowedException;
     ////////////////////////////UC10 CORREGGI SIMULAZIONI CARTACEO////////////////////////
-    public abstract Map<String,String> recuperaInfoTestCartaceo(String fileName) throws Exception;
+    public abstract Map<String,String> recuperaInfoTestCartaceo(String fileName) throws NotAllowedException;
 
-    public abstract Test correggiTestCartaceo(String cfStudente, String cfTutor, String idTest) throws Exception;
+    public abstract Test correggiTestCartaceo(String cfStudente, String cfTutor, String idTest) throws NotAllowedException;
 
-    public abstract Test confermaCorrezione() throws Exception;
+    public abstract Test confermaCorrezione() throws NotAllowedException;
 
-    public abstract void selezionaRisposta(String idQuesitoReale, String idRisposta) throws Exception;
+    public abstract void selezionaRisposta(String idQuesitoReale, String idRisposta) throws NotAllowedException;
 }

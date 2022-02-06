@@ -5,8 +5,8 @@ import javax.swing.*;
 public class TestCartaceoFrame extends JFrame{
     private static TestCartaceoFrame testCartaceoFrame;
 
-    private TestCartaceoFrame() throws Exception {
-        setContentPane(new VisualizzaTemplatePanel().getMainPanel()); ///////TAG
+    private TestCartaceoFrame() {
+        setContentPane(new VisualizzaTemplatePanel().getMainPanel());
         setTitle("Crea test per simulazione cartacea");
         setSize(880,500);
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -15,13 +15,7 @@ public class TestCartaceoFrame extends JFrame{
 
     }
     public static TestCartaceoFrame getInstance() {
-        if (testCartaceoFrame == null) {
-            try {
-                testCartaceoFrame = new TestCartaceoFrame();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+        if (testCartaceoFrame == null) testCartaceoFrame = new TestCartaceoFrame();
         return testCartaceoFrame;
     }
 
