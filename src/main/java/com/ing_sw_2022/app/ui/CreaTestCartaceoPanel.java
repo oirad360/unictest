@@ -69,8 +69,6 @@ public class CreaTestCartaceoPanel implements ActionListener {
         TestCartaceoFrame testCartaceoFrame = null;
         try {
             testCartaceoFrame = TestCartaceoFrame.getInstance();
-        } catch (EmployeeNotAllowedException ex) {
-            ex.printStackTrace();
         } catch (StudentNotAllowedException ex) {
             ex.printStackTrace();
         } catch (NotAllowedException ex) {

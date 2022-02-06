@@ -10,21 +10,16 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 
 public class VisualizzaTemplatePanel implements ActionListener {
     private JPanel mainPanel;
     private JPanel buttonsContainer;
 
-    public VisualizzaTemplatePanel() throws EmployeeNotAllowedException, StudentNotAllowedException, NotAllowedException {
+    public VisualizzaTemplatePanel(List<Template> listaTemplate) {
         GridBagConstraints c = new GridBagConstraints();
         c.insets = new Insets(5, 0, 5, 0);
         c.gridwidth = GridBagConstraints.REMAINDER;
-
-        UniCTest uniCTest = UniCTest.getInstance();
-        ArrayList<Template> listaTemplate=null;
-        if(UniCTest.getInstance().getUtenteAutenticato() instanceof Studente)
-            listaTemplate= uniCTest.visualizzaTemplate();
-        else listaTemplate= uniCTest.visualizzaTemplateTutor();
         for(Template t : listaTemplate){
             JButton btnTemplate = new JButton(t.getNome());
             btnTemplate.setName(String.valueOf(t.getId()));
@@ -45,10 +40,6 @@ public class VisualizzaTemplatePanel implements ActionListener {
             AvviaSimulazioneFrame avviaSimulazioneFrame = null;
             try {
                 avviaSimulazioneFrame = AvviaSimulazioneFrame.getInstance();
-            } catch (StudentNotAllowedException ex) {
-                ex.printStackTrace();
-            } catch (NotAllowedException ex) {
-                ex.printStackTrace();
             } catch (EmployeeNotAllowedException ex) {
                 ex.printStackTrace();
             }
@@ -79,30 +70,16 @@ public class VisualizzaTemplatePanel implements ActionListener {
             TestCartaceoFrame testCartaceoFrame = null;
             try {
                 testCartaceoFrame = TestCartaceoFrame.getInstance();
-            } catch (EmployeeNotAllowedException ex) {
-                ex.printStackTrace();
-                JOptionPane.showMessageDialog(new JFrame(),
-                        ex.getMessage(),
-                        "Inane warning",
-                        JOptionPane.WARNING_MESSAGE);
             } catch (StudentNotAllowedException ex) {
                 ex.printStackTrace();
-                JOptionPane.showMessageDialog(new JFrame(),
-                        ex.getMessage(),
-                        "Inane warning",
-                        JOptionPane.WARNING_MESSAGE);
             } catch (NotAllowedException ex) {
                 ex.printStackTrace();
-                JOptionPane.showMessageDialog(new JFrame(),
-                        ex.getMessage(),
-                        "Inane warning",
-                        JOptionPane.WARNING_MESSAGE);
             }
-            String idTemplate=((JButton)e.getSource()).getName();
-            testCartaceoFrame.setContentPane(new CreaTestCartaceoPanel(idTemplate).getMainPanel());
-            testCartaceoFrame.revalidate();
+            if(testCartaceoFrame!=null){
+                String idTemplate=((JButton)e.getSource()).getName();
+                testCartaceoFrame.setContentPane(new CreaTestCartaceoPanel(idTemplate).getMainPanel());
+                testCartaceoFrame.revalidate();
+            }
         }
-
-
     }
 }

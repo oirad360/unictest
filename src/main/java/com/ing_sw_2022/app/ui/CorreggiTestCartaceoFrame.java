@@ -7,7 +7,7 @@ public class CorreggiTestCartaceoFrame extends JFrame {
 
     private CorreggiTestCartaceoFrame()  {
         setContentPane(new NomeFilePngPanel().getMainPanel());
-        setTitle("Nuova simulazione");
+        setTitle("Correggi simulazione cartacea");
         setSize(880,500);
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setVisible(true);

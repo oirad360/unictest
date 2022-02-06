@@ -47,10 +47,6 @@ public class AvviaSimulazionePanel implements ActionListener {
             });
         } catch (EmployeeNotAllowedException e) {
             e.printStackTrace();
-        } catch (StudentNotAllowedException e) {
-            e.printStackTrace();
-        } catch (NotAllowedException e) {
-            e.printStackTrace();
         }
     }
 
@@ -67,10 +63,6 @@ public class AvviaSimulazionePanel implements ActionListener {
             AvviaSimulazioneFrame.getInstance().setContentPane(new TestCorrettoPanel(t).getMainPanel());
             AvviaSimulazioneFrame.getInstance().revalidate();
         } catch (EmployeeNotAllowedException ex) {
-            ex.printStackTrace();
-        } catch (StudentNotAllowedException ex) {
-            ex.printStackTrace();
-        } catch (NotAllowedException ex) {
             ex.printStackTrace();
         }
 

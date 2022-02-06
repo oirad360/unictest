@@ -254,7 +254,7 @@ public class UniCTest implements Serializable{
         ((Impiegato)utenteAutenticato).confermaTemplateU();
     }
     /////////////////////UC9 COMPONI TEST PER SIMULAZIONE CARTACEA////////////////
-    public ArrayList<Template> visualizzaTemplateTutor() throws NotAllowedException, StudentNotAllowedException {
+    public List<Template> visualizzaTemplateTutor() throws NotAllowedException, StudentNotAllowedException {
         if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono creare test cartacei.");
         ArrayList<TemplatePersonalizzato> listaPersonalizzati = ((Impiegato)utenteAutenticato).visualizzaTemplateTutor();
         ArrayList<TemplateUfficiale> listaUfficiali = new ArrayList<>(UniCTest.getInstance().getMappaTemplateUfficiali().values());

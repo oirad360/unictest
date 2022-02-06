@@ -97,18 +97,6 @@ public class UniCTestFrame extends JFrame{
                 AvviaSimulazioneFrame avviaSimulazioneFrame = null;
                 try {
                     avviaSimulazioneFrame = AvviaSimulazioneFrame.getInstance();
-                } catch (StudentNotAllowedException ex) {
-                    ex.printStackTrace();
-                    JOptionPane.showMessageDialog(new JFrame(),
-                            ex.getMessage(),
-                            "Inane warning",
-                            JOptionPane.WARNING_MESSAGE);
-                } catch (NotAllowedException ex) {
-                    ex.printStackTrace();
-                    JOptionPane.showMessageDialog(new JFrame(),
-                            ex.getMessage(),
-                            "Inane warning",
-                            JOptionPane.WARNING_MESSAGE);
                 } catch (EmployeeNotAllowedException ex) {
                     ex.printStackTrace();
                     JOptionPane.showMessageDialog(new JFrame(),
@@ -167,12 +155,6 @@ public class UniCTestFrame extends JFrame{
                 TestCartaceoFrame testCartaceoFrame = null;
                 try {
                     testCartaceoFrame = TestCartaceoFrame.getInstance();
-                } catch (EmployeeNotAllowedException ex) {
-                    ex.printStackTrace();
-                    JOptionPane.showMessageDialog(new JFrame(),
-                            ex.getMessage(),
-                            "Inane warning",
-                            JOptionPane.WARNING_MESSAGE);
                 } catch (StudentNotAllowedException ex) {
                     ex.printStackTrace();
                     JOptionPane.showMessageDialog(new JFrame(),
@@ -329,7 +311,7 @@ public class UniCTestFrame extends JFrame{
         PPPMRA80A01C351X --> Amministratore, TutorSimulazione
         VRDLGI99R21C351J --> Studente
         */
-        unictest.setUtenteAutenticato("VRDLGI99R21C351J");
+        unictest.setUtenteAutenticato("PPPMRA80A01C351X");
         System.out.println("-------------------UTENTE AUTENTICATO----------------");
         System.out.println(unictest.getUtenteAutenticato());
         System.out.println("--------------TEMPLATE PERSONALIZZATI DELL'UTENTE------------");
