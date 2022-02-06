@@ -205,4 +205,9 @@ public abstract class Decorator extends Impiegato implements Serializable{
     public Studente nuovoStudente(String cf, String nome, String cognome) throws NotAllowedException{
         return impiegato.nuovoStudente(cf, nome, cognome);
     }
+    ///////////////////////UC AGGIUNGI MATERIA INSEGNATA//////////////////////
+    @Override
+    public void aggiungiMateriaInsegnata(Impiegato tutor, String nomeMateria) throws NotAllowedException {
+        impiegato.aggiungiMateriaInsegnata(tutor, nomeMateria);
+    }
 }

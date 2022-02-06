@@ -132,4 +132,9 @@ public class Amministratore extends Decorator implements Serializable{
     public Studente nuovoStudente(String cf, String nome, String cognome) {
         return new Studente(nome,cognome,cf);
     }
+    ///////////////////////UC AGGIUNGI MATERIA INSEGNATA//////////////////////
+    @Override
+    public void aggiungiMateriaInsegnata(Impiegato tutor, String nomeMateria) throws NotAllowedException {
+        tutor.addMateriaInsegnata(UniCTest.getInstance().getMateriaFlyweight(nomeMateria));
+    }
 }

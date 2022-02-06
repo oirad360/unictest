@@ -93,4 +93,6 @@ public abstract class Impiegato extends Utente implements Serializable {
     public abstract Impiegato nuovoTutor(String cf, String nome, String cognome) throws NotAllowedException;
     //////////////////////////UC5 NUOVO STUDENTE//////////////////////////////////
     public abstract Studente nuovoStudente(String cf, String nome, String cognome) throws NotAllowedException;
+    ///////////////////////UC AGGIUNGI MATERIA INSEGNATA//////////////////////
+    public abstract void aggiungiMateriaInsegnata(Impiegato tutor, String nomeMateria) throws NotAllowedException;
 }

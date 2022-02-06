@@ -305,6 +305,29 @@ public class UniCTestFrame extends JFrame{
             }
 
         });
+        btnMateria.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                AggiungiMateriaInsegnataFrame aggiungiMateriaInsegnataFrame = AggiungiMateriaInsegnataFrame.getInstance();
+                btnMateria.setEnabled(false);
+                aggiungiMateriaInsegnataFrame.addWindowListener(new WindowAdapter()
+                {
+                    @Override
+                    public void windowClosing(WindowEvent e)
+                    {
+                        btnMateria.setEnabled(true);
+                        AggiungiMateriaInsegnataFrame.destroyInstance();
+                    }
+                    @Override
+                    public void windowClosed(WindowEvent e)
+                    {
+                        btnMateria.setEnabled(true);
+                        AggiungiMateriaInsegnataFrame.destroyInstance();
+                    }
+                });
+            }
+
+        });
     }
 
     public static UniCTestFrame getInstance() {
@@ -336,7 +359,7 @@ public class UniCTestFrame extends JFrame{
         PPPMRA80A01C351X --> Amministratore, TutorSimulazione
         VRDLGI99R21C351J --> Studente
         */
-        unictest.setUtenteAutenticato("CTNLCU80A01C351K");
+        unictest.setUtenteAutenticato("VRDLGI99R21C351J");
         System.out.println("-------------------UTENTE AUTENTICATO----------------");
         System.out.println(unictest.getUtenteAutenticato());
         System.out.println("--------------TEMPLATE PERSONALIZZATI DELL'UTENTE------------");
