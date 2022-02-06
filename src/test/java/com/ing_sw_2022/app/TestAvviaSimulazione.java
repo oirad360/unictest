@@ -1,5 +1,8 @@
 package com.ing_sw_2022.app;
 
+import com.ing_sw_2022.app.eccezioni.EmployeeNotAllowedException;
+import com.ing_sw_2022.app.eccezioni.NotEnoughQuestionsException;
+import com.ing_sw_2022.app.eccezioni.StudentNotAllowedException;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Test;
 
@@ -22,12 +25,17 @@ class TestAvviaSimulazione {
         Materia m = unictest.getMappaMaterie().get("MAT01");
         //creo quesiti per la simulazione
         unictest.setUtenteAutenticato("RSSMRA80A01C351O"); //autentico un tutor
-        unictest.nuovoQuesito(m.getCodice());
-        unictest.inserisciTesto("Quanto fa 2+2?");
-        unictest.inserisciDifficoltà(3);
-        unictest.inserisciRisposta("4",true);
-        unictest.inserisciRisposta("5",false);
-        unictest.confermaQuesito("p3");
+        try {
+            unictest.nuovoQuesito(m.getCodice());
+            unictest.inserisciTesto("Quanto fa 2+2?");
+            unictest.inserisciDifficoltà(3);
+            unictest.inserisciRisposta("4",true);
+            unictest.inserisciRisposta("5",false);
+            unictest.confermaQuesito("p3");
+        } catch (StudentNotAllowedException e) {
+            e.printStackTrace();
+        }
+
         //creo un template per sceglierlo nel test dell'avvio della simulazione
         unictest.setUtenteAutenticato("VRDLGI99R21C351J"); //autentico uno studente
         try {
@@ -66,24 +74,34 @@ class TestAvviaSimulazione {
     void testEccezioniAvviaSimulazione(){
         Materia m = unictest.getMappaMaterie().get("MAT01");//matematica
         //creo un template che richiede 800 quesiti di matematica (mi aspetto che l'avvio della simulazione fallisca)
+
         try {
             unictest.nuovoTemplateP("Test template personalizzato");
             unictest.inserisciInfoTemplateP((float)1.0,(float)0.0,(float)0.0,2,1,2,1);
             unictest.creaSezioneP(m.getCodice(),800,3);
             unictest.confermaTemplateP();
-        } catch (Exception e) {
+        } catch (NotAllowedException e) {
+            fail("Eccezione inaspettata");
+        } catch (EmployeeNotAllowedException e) {
             fail("Eccezione inaspettata");
         }
 
+
         //lancio la simulazione che dovrebbe tornare null
         com.ing_sw_2022.app.Test t=null;
-        try{
+
+        try {
             t=unictest.avviaSimulazione(mappaTemplate.get(mappaTemplate.lastKey()).getId());
             fail("Eccezione non avvenuta"); //mi aspetto che l'istruzione avviaSimulazione lanci un'eccezione, se arrivo qui considero fallito il test
-        }catch (Exception e){
-            assertEquals(e.getMessage(),"la materia "+m.getNome()+" contiene solo "+m.getMappaQuesiti().size()+" quesiti contro i "+800+" richiesti");
+
+        } catch (NotEnoughQuestionsException e) {
             assertNull(t);
+        } catch (CloneNotSupportedException e) {
+            fail("Eccezione inaspettata");
+        } catch (EmployeeNotAllowedException e) {
+            fail("Eccezione inaspettata");
         }
+
         mappaTemplate.remove(mappaTemplate.lastKey());
         //creo un template che richiede quesiti con 100 risposte (mi aspetto che l'avvio della simulazione fallisca)
         try {
@@ -138,7 +156,12 @@ class TestAvviaSimulazione {
 
     @Test
     void testTerminaSimulazione() {
-        com.ing_sw_2022.app.Test t=unictest.terminaSimulazione();
+        com.ing_sw_2022.app.Test t= null;
+        try {
+            t = unictest.terminaSimulazione();
+        } catch (EmployeeNotAllowedException e) {
+            fail("Eccezione inaspettata");
+        }
         assertNotNull(t);
         assertNotNull(t.getPunteggioComplessivo());
         assertNull(((Studente)unictest.getUtenteAutenticato()).getTemplateSelezionato());

@@ -5,9 +5,9 @@ import javax.swing.*;
 public class CorreggiTestCartaceoFrame extends JFrame {
     private static CorreggiTestCartaceoFrame correggiTestCartaceoFrame;
 
-    private CorreggiTestCartaceoFrame() throws Exception {
+    private CorreggiTestCartaceoFrame()  {
         setContentPane(new NomeFilePngPanel().getMainPanel());
-        setTitle("Nuova simulazione");
+        setTitle("Correggi simulazione cartacea");
         setSize(880,500);
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setVisible(true);
@@ -15,13 +15,7 @@ public class CorreggiTestCartaceoFrame extends JFrame {
 
     }
     public static CorreggiTestCartaceoFrame getInstance() {
-        if (correggiTestCartaceoFrame == null) {
-            try {
-                correggiTestCartaceoFrame = new CorreggiTestCartaceoFrame();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+        if (correggiTestCartaceoFrame == null) correggiTestCartaceoFrame = new CorreggiTestCartaceoFrame();
         return correggiTestCartaceoFrame;
     }
 

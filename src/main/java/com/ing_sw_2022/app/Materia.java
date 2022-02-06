@@ -2,6 +2,10 @@ package com.ing_sw_2022.app;
 
 //import sun.reflect.generics.tree.Tree;
 
+import com.ing_sw_2022.app.eccezioni.NotEnoughQuestionsException;
+import com.ing_sw_2022.app.eccezioni.QuestionNotFoundException;
+import com.ing_sw_2022.app.eccezioni.StudentNotAllowedException;
+
 import java.io.*;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
@@ -39,8 +43,9 @@ public class Materia implements Serializable {
         this.codice = codice;
     }
 
-    public Map<String, QuesitoDescrizione> getMappaQuesiti() {
-        return mappaQuesiti;
+    public Map<String, QuesitoDescrizione> getMappaQuesiti() throws StudentNotAllowedException {
+        if(UniCTest.getInstance().getUtenteAutenticato() instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono vedere i quesiti.");
+            return mappaQuesiti;
     }
 
     public QuesitoDescrizione getQuesitoCorrente() {
@@ -90,10 +95,10 @@ public class Materia implements Serializable {
         quesitoDescrizioneCorrente = null;
     }
                  ///////////////////////////UC1 AVVIA SIMULAZIONE//////////////////////
-    public List<QuesitoDescrizione> generaQuesiti(Template t, Sezione s) throws Exception{
+    public List<QuesitoDescrizione> generaQuesiti(Template t, Sezione s) throws NotEnoughQuestionsException {
         int n=s.getNumQuesiti();
         int dim=mappaQuesiti.size();
-        if(n>dim) throw new Exception("la materia "+s.getMateria().getNome()+" contiene solo "+dim+" quesiti contro i "+n+" richiesti");
+        if(n>dim) throw new NotEnoughQuestionsException("la materia "+s.getMateria().getNome()+" contiene solo "+dim+" quesiti contro i "+n+" richiesti");
 
         int difficoltà=s.getDifficoltàMedia();
         int risposte=t.getNumRisposte();
@@ -104,7 +109,7 @@ public class Materia implements Serializable {
         ArrayList<QuesitoDescrizione> listaQD= new ArrayList<QuesitoDescrizione>(mappaQuesiti.values());
 
         while(listaQuesiti.size()<n){
-            if(dim-oldIndex.size()<n-listaQuesiti.size()) throw new Exception("non ci sono abbastanza quesiti validi per la materia "+s.getMateria().getNome()+",\n ne sono già stati presi in considerazione "+oldIndex.size()+" su "+dim+" ma solo "+listaQuesiti.size()+" contro i "+n+" richiesti sono validi"); //se il numero di quesiti che ho ancora a disposizione è inferiore al numero di quesiti mancanti lancio un'eccezione
+            if(dim-oldIndex.size()<n-listaQuesiti.size()) throw new NotEnoughQuestionsException("non ci sono abbastanza quesiti validi per la materia "+s.getMateria().getNome()+",\n ne sono già stati presi in considerazione "+oldIndex.size()+" su "+dim+" ma solo "+listaQuesiti.size()+" contro i "+n+" richiesti sono validi"); //se il numero di quesiti che ho ancora a disposizione è inferiore al numero di quesiti mancanti lancio un'eccezione
             //generazione numero random
             boolean repeat;
             int randomNum;
@@ -141,15 +146,15 @@ public class Materia implements Serializable {
         return listaQuesiti;
     }
     ////////////////////////////UC9 COMPONI TEST PER SIMULAZIONE CARTACEA///////////////////
-    public ArrayList<QuesitoDescrizione> visualizzaQuesiti(Template t, Sezione s) throws Exception {
-        if(s.getNumQuesiti()>mappaQuesiti.size()) throw new Exception("Ci sono solo"+mappaQuesiti.size()+" quesiti per la materia "+s.getMateria().getNome()+", ne servono "+s.getNumQuesiti());
+    public ArrayList<QuesitoDescrizione> visualizzaQuesiti(Template t, Sezione s) throws NotEnoughQuestionsException {
+        if(s.getNumQuesiti()>mappaQuesiti.size()) throw new NotEnoughQuestionsException("Ci sono solo"+mappaQuesiti.size()+" quesiti per la materia "+s.getMateria().getNome()+", ne servono "+s.getNumQuesiti());
         ArrayList<QuesitoDescrizione> listaQuesiti = new ArrayList<>();
         int risposte=t.getNumRisposte();
         int maxCorrette=t.getMaxRisposteCorrette();
         int minCorrette=t.getMinRisposteCorrette();
         int count=0;
         for(QuesitoDescrizione qd: mappaQuesiti.values()){
-            if(mappaQuesiti.size()-count<s.getNumQuesiti()-listaQuesiti.size()) throw new Exception("non ci sono abbastanza quesiti validi per la materia "+s.getMateria().getNome()+",\n ne sono già stati presi in considerazione "+count+" su "+mappaQuesiti.size()+" ma solo "+listaQuesiti.size()+" contro i "+s.getNumQuesiti()+" richiesti sono validi");
+            if(mappaQuesiti.size()-count<s.getNumQuesiti()-listaQuesiti.size()) throw new NotEnoughQuestionsException("non ci sono abbastanza quesiti validi per la materia "+s.getMateria().getNome()+",\n ne sono già stati presi in considerazione "+count+" su "+mappaQuesiti.size()+" ma solo "+listaQuesiti.size()+" contro i "+s.getNumQuesiti()+" richiesti sono validi");
             boolean error=false;
             if(!qd.getVisibilità().getCodice().equals("p2")) error = true;
             if(!error){
@@ -166,13 +171,11 @@ public class Materia implements Serializable {
         return listaQuesiti;
     }
 
-    public List<QuesitoDescrizione> recuperaQuesiti(List<String> listaIdQuesiti) throws Exception {
+    public List<QuesitoDescrizione> recuperaQuesiti(List<String> listaIdQuesiti) throws QuestionNotFoundException {
         List<QuesitoDescrizione> listaQuesiti = new ArrayList<>();
         for(String id:listaIdQuesiti){
             QuesitoDescrizione qd=mappaQuesiti.get(id);
-            if(qd==null) throw new Exception("Id quesiti errati");
-            boolean error=false;
-
+            if(qd==null) throw new QuestionNotFoundException("Id quesiti errati");
             listaQuesiti.add(qd);
         }
         return listaQuesiti;

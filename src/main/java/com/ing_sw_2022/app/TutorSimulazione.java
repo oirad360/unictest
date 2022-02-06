@@ -1,5 +1,9 @@
 package com.ing_sw_2022.app;
 
+import com.ing_sw_2022.app.eccezioni.NotEnoughQuestionsException;
+import com.ing_sw_2022.app.eccezioni.QuestionNotFoundException;
+import com.ing_sw_2022.app.eccezioni.TemplateSectionException;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -59,7 +63,7 @@ public class TutorSimulazione extends Decorator implements Serializable {
 
     @Override
     public String toString() {
-        return "\nTutorSimulazione + "+impiegato.toString()+"\n";
+        return "TutorSimulazione + "+impiegato.toString();
     }
     ////////////////////////////////////////////METODI DCD//////////////////////////////////////////////////
                 ////////////////////UC2/T CREA TEMPLATE DI TEST PERSONALIZZATO/////////////////////
@@ -84,7 +88,7 @@ public class TutorSimulazione extends Decorator implements Serializable {
     }
     //////////////////////UC9 COMPONI TEST PER SIMULAZIONE CARTACEA/////////////////
     @Override
-    public ArrayList<TemplatePersonalizzato> visualizzaTemplate(){
+    public ArrayList<TemplatePersonalizzato> visualizzaTemplateTutor(){
         ArrayList<TemplatePersonalizzato> lista = new ArrayList<>(mappaTemplatePersonalizzati.values());
         return lista;
     }
@@ -123,13 +127,13 @@ public class TutorSimulazione extends Decorator implements Serializable {
     }
 
     @Override
-    public ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione) throws Exception {
+    public ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione) throws NotEnoughQuestionsException {
         ArrayList<QuesitoDescrizione> lista = templateSelezionato.visualizzaQuesiti(idSezione);
         return lista;
     }
 
     @Override
-    public void inserisciQuesiti(List<String> listaIdQuesiti) throws Exception {
+    public void inserisciQuesiti(List<String> listaIdQuesiti) throws QuestionNotFoundException, TemplateSectionException {
         templateSelezionato.inserisciQuesiti(listaIdQuesiti);
     }
 

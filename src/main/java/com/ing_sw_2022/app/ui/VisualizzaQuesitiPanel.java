@@ -1,6 +1,8 @@
 package com.ing_sw_2022.app.ui;
 
 import com.ing_sw_2022.app.*;
+import com.ing_sw_2022.app.eccezioni.NotEnoughQuestionsException;
+import com.ing_sw_2022.app.eccezioni.StudentNotAllowedException;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,7 +20,7 @@ public class VisualizzaQuesitiPanel implements ActionListener {
     private ArrayList<String> listaIdQuesiti;
     private List<Sezione> listaSezioni;
 
-    public VisualizzaQuesitiPanel(String idSezione,int numQuesiti,List<Sezione> listaSezioni) throws Exception {
+    public VisualizzaQuesitiPanel(String idSezione,int numQuesiti,List<Sezione> listaSezioni) throws StudentNotAllowedException, NotEnoughQuestionsException, NotAllowedException {
         this.numQuesiti=numQuesiti;
         this.listaSezioni=listaSezioni;
         listaIdQuesiti = new ArrayList<>();

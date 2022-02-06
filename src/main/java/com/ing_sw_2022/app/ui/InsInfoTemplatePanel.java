@@ -1,6 +1,7 @@
 package com.ing_sw_2022.app.ui;
 
 import com.ing_sw_2022.app.Materia;
+import com.ing_sw_2022.app.NotAllowedException;
 import com.ing_sw_2022.app.UniCTest;
 
 import javax.swing.*;
@@ -53,7 +54,7 @@ public class InsInfoTemplatePanel implements ActionListener, ChangeListener {
             listaMaterie = UniCTest.getInstance().inserisciInfoTemplateP(Float.parseFloat(puntiCorretta.getValue().toString()),Float.parseFloat(puntiErrata.getValue().toString()),Float.parseFloat(puntiNonData.getValue().toString()),(int)numRisposte.getValue(),(int)minRisposteCorrette.getValue(),(int)maxRisposteCorrette.getValue(),(int)tempoMedio.getValue());
             NuovoTemplatePersFrame.getInstance().setContentPane(new CreaSezionePanel(listaMaterie).getMainPanel());
             NuovoTemplatePersFrame.getInstance().revalidate();
-        } catch (Exception ex) {
+        } catch (NotAllowedException ex) {
             ex.printStackTrace();
         }
 

@@ -1,9 +1,8 @@
 package com.ing_sw_2022.app.ui;
 
-import com.ing_sw_2022.app.Impiegato;
-import com.ing_sw_2022.app.Materia;
-import com.ing_sw_2022.app.Studente;
-import com.ing_sw_2022.app.UniCTest;
+import com.ing_sw_2022.app.*;
+import com.ing_sw_2022.app.eccezioni.EmployeeNotAllowedException;
+import com.ing_sw_2022.app.eccezioni.StudentNotAllowedException;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -48,28 +47,43 @@ public class CreaSezionePanel implements ActionListener {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    if(UniCTest.getInstance().getUtenteAutenticato() instanceof Studente)
-                    UniCTest.getInstance().creaSezioneP(((Item)materiaBox.getSelectedItem()).getId(),(int)numQuesiti.getValue(),(int)difficoltàMedia.getValue());
-                    else if(UniCTest.getInstance().getUtenteAutenticato() instanceof Impiegato)
-                        UniCTest.getInstance().creaSezioneP(((Item)materiaBox.getSelectedItem()).getId(),(int)numQuesiti.getValue());
-                    counter++;
-                    buttonConferma.setEnabled(true);
-                    numSezioni.setText(counter.toString());
-                    listaMaterie.remove(materiaBox.getSelectedIndex());
-                    Item items[]=new Item[listaMaterie.size()];
-                    int i=0;
-                    for (Materia m: listaMaterie) {
-                        items[i]=new Item(m.getCodice(),m.getNome());
-                        i++;
+                boolean exception=false;
+                    if(UniCTest.getInstance().getUtenteAutenticato() instanceof Studente) {
+                        try {
+                            UniCTest.getInstance().creaSezioneP(((Item)materiaBox.getSelectedItem()).getId(),(int)numQuesiti.getValue(),(int)difficoltàMedia.getValue());
+                        } catch (EmployeeNotAllowedException ex) {
+                            exception=true;
+                            ex.printStackTrace();
+                        }
                     }
-                    materiaBox.setModel(new DefaultComboBoxModel<Item>(items));
-                    if(listaMaterie.isEmpty()){
-                        buttonConferma.doClick();
+                    else if(UniCTest.getInstance().getUtenteAutenticato() instanceof Impiegato) {
+                        try {
+                            UniCTest.getInstance().creaSezioneP(((Item)materiaBox.getSelectedItem()).getId(),(int)numQuesiti.getValue());
+                        } catch (StudentNotAllowedException ex) {
+                            exception=true;
+                            ex.printStackTrace();
+                        } catch (NotAllowedException ex) {
+                            exception=true;
+                            ex.printStackTrace();
+                        }
                     }
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
+                    if(!exception){
+                        counter++;
+                        buttonConferma.setEnabled(true);
+                        numSezioni.setText(counter.toString());
+                        listaMaterie.remove(materiaBox.getSelectedIndex());
+                        Item items[]=new Item[listaMaterie.size()];
+                        int i=0;
+                        for (Materia m: listaMaterie) {
+                            items[i]=new Item(m.getCodice(),m.getNome());
+                            i++;
+                        }
+                        materiaBox.setModel(new DefaultComboBoxModel<Item>(items));
+                        if(listaMaterie.isEmpty()){
+                            buttonConferma.doClick();
+                        }
+                    }
+
 
             }
         });
@@ -85,7 +99,7 @@ public class CreaSezionePanel implements ActionListener {
             UniCTest.getInstance().confermaTemplateP();
             UniCTest.getInstance().serialize();
             NuovoTemplatePersFrame.getInstance().dispose();
-        } catch (Exception ex) {
+        } catch (NotAllowedException ex) {
             ex.printStackTrace();
         }
 

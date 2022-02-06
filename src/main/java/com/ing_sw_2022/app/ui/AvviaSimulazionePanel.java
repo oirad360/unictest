@@ -1,6 +1,8 @@
 package com.ing_sw_2022.app.ui;
 
 import com.ing_sw_2022.app.*;
+import com.ing_sw_2022.app.eccezioni.EmployeeNotAllowedException;
+import com.ing_sw_2022.app.eccezioni.StudentNotAllowedException;
 
 import javax.swing.*;
 import java.awt.event.*;
@@ -36,12 +38,16 @@ public class AvviaSimulazionePanel implements ActionListener {
 
         });
         timer.start();
-        AvviaSimulazioneFrame.getInstance().addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                timer.stop();
-            }
-        });
+        try {
+            AvviaSimulazioneFrame.getInstance().addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosing(WindowEvent e) {
+                    timer.stop();
+                }
+            });
+        } catch (EmployeeNotAllowedException e) {
+            e.printStackTrace();
+        }
     }
 
     public JPanel getMainPanel(){
@@ -51,9 +57,14 @@ public class AvviaSimulazionePanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         timer.stop();
-        Test t= UniCTest.getInstance().terminaSimulazione();
-        UniCTest.getInstance().serialize();
-        AvviaSimulazioneFrame.getInstance().setContentPane(new TestCorrettoPanel(t).getMainPanel());
-        AvviaSimulazioneFrame.getInstance().revalidate();
+        try {
+            Test t = UniCTest.getInstance().terminaSimulazione();
+            UniCTest.getInstance().serialize();
+            AvviaSimulazioneFrame.getInstance().setContentPane(new TestCorrettoPanel(t).getMainPanel());
+            AvviaSimulazioneFrame.getInstance().revalidate();
+        } catch (EmployeeNotAllowedException ex) {
+            ex.printStackTrace();
+        }
+
     }
 }

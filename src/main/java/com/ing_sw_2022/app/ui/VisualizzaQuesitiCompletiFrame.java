@@ -1,6 +1,7 @@
 package com.ing_sw_2022.app.ui;
 
 import com.ing_sw_2022.app.*;
+import com.ing_sw_2022.app.eccezioni.StudentNotAllowedException;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,8 +11,7 @@ public class VisualizzaQuesitiCompletiFrame extends JFrame{
     private JPanel mainPanel;
     private JPanel containerQuesiti;
     private static VisualizzaQuesitiCompletiFrame visualizzaQuesitiCompletiFrame;
-    private VisualizzaQuesitiCompletiFrame() throws Exception {
-        if(UniCTest.getInstance().getUtenteAutenticato() instanceof Studente) throw new Exception("Solo i tutor possono visualizzare i quesiti");
+    private VisualizzaQuesitiCompletiFrame() throws StudentNotAllowedException {
         setContentPane(mainPanel);
         setTitle("Visualizza quesiti");
         setSize(880,500);
@@ -32,14 +32,8 @@ public class VisualizzaQuesitiCompletiFrame extends JFrame{
         }
     }
 
-    public static VisualizzaQuesitiCompletiFrame getInstance(){
-        if(visualizzaQuesitiCompletiFrame==null) {
-            try {
-                visualizzaQuesitiCompletiFrame=new VisualizzaQuesitiCompletiFrame();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+    public static VisualizzaQuesitiCompletiFrame getInstance() throws StudentNotAllowedException {
+        if(visualizzaQuesitiCompletiFrame==null) visualizzaQuesitiCompletiFrame=new VisualizzaQuesitiCompletiFrame();
         return visualizzaQuesitiCompletiFrame;
     }
     public static void destroyInstance() {

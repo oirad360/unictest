@@ -25,7 +25,7 @@ public class Amministratore extends Decorator implements Serializable{
 
     @Override
     public String toString() {
-        return "\nAmministratore + "+impiegato.toString()+"\n";
+        return "Amministratore + "+impiegato.toString();
     }
 
     //////////////////////////////////////////////METODI DCD//////////////////////////////////////////////
@@ -122,5 +122,14 @@ public class Amministratore extends Decorator implements Serializable{
         System.out.println("Non sei TutorSimulazione, quindi non rimuovo nulla");
         return imp;
     }
-
+    ///////////////////////UC6 NUOVO TUTOR//////////////////////7
+    @Override
+    public Impiegato nuovoTutor(String cf, String nome, String cognome) {
+        return new Tutor(nome,cognome,cf);
+    }
+    ///////////////////////UC6 NUOVO STUDENTE//////////////////////7
+    @Override
+    public Studente nuovoStudente(String cf, String nome, String cognome) {
+        return new Studente(nome,cognome,cf);
+    }
 }

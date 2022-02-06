@@ -1,5 +1,7 @@
 package com.ing_sw_2022.app.ui;
 
+import com.ing_sw_2022.app.NotAllowedException;
+import com.ing_sw_2022.app.eccezioni.StudentNotAllowedException;
 import com.ing_sw_2022.app.UniCTest;
 
 import javax.swing.*;
@@ -38,12 +40,25 @@ public class NuovoTemplateUffPanel extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
         try {
             UniCTest.getInstance().nuovoTemplateU(textField.getText());
             NuovoTemplateUffFrame.getInstance().setContentPane(new InsInfoTemplateUffPanel().getMainPanel());
             NuovoTemplateUffFrame.getInstance().revalidate();
-        } catch (Exception ex) {
+        } catch (NotAllowedException ex) {
             ex.printStackTrace();
+            JOptionPane.showMessageDialog(new JFrame(),
+                    ex.getMessage(),
+                    "Inane warning",
+                    JOptionPane.WARNING_MESSAGE);
+        } catch (StudentNotAllowedException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(new JFrame(),
+                    ex.getMessage(),
+                    "Inane warning",
+                    JOptionPane.WARNING_MESSAGE);
         }
+
+
     }
 }

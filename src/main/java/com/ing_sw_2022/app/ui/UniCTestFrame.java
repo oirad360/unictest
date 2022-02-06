@@ -1,6 +1,8 @@
 package com.ing_sw_2022.app.ui;
 
 import com.ing_sw_2022.app.*;
+import com.ing_sw_2022.app.eccezioni.EmployeeNotAllowedException;
+import com.ing_sw_2022.app.eccezioni.StudentNotAllowedException;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -19,7 +21,8 @@ public class UniCTestFrame extends JFrame{
     private JButton btnTestCartaceo;
     private JButton btnCorreggiSimulazione;
     private JButton btnQuesiti;
-    private JButton btnTest;
+    private JButton btnTestSvolti;
+    private JButton btnNuovoUtente;
     private static UniCTestFrame unictestFrame;
     private static final Integer pos = 100;
     private UniCTestFrame(){
@@ -32,24 +35,36 @@ public class UniCTestFrame extends JFrame{
         btnNuovoQuesito.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                NuovoQuesitoFrame quesitoFrame = NuovoQuesitoFrame.getInstance();
-                btnNuovoQuesito.setEnabled(false);
+                NuovoQuesitoFrame quesitoFrame = null;
+                try {
+                    quesitoFrame = NuovoQuesitoFrame.getInstance();
+                } catch (StudentNotAllowedException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(new JFrame(),
+                            ex.getMessage(),
+                            "Inane warning",
+                            JOptionPane.WARNING_MESSAGE);
+                }
+                if(quesitoFrame!=null){
+                    btnNuovoQuesito.setEnabled(false);
 
-                quesitoFrame.addWindowListener(new WindowAdapter()
-                {
-                    @Override
-                    public void windowClosing(WindowEvent e)
+                    quesitoFrame.addWindowListener(new WindowAdapter()
                     {
-                        btnNuovoQuesito.setEnabled(true);
-                        NuovoQuesitoFrame.destroyInstance();
-                    }
-                    @Override
-                    public void windowClosed(WindowEvent e)
-                    {
-                        btnNuovoQuesito.setEnabled(true);
-                        NuovoQuesitoFrame.destroyInstance();
-                    }
-                });
+                        @Override
+                        public void windowClosing(WindowEvent e)
+                        {
+                            btnNuovoQuesito.setEnabled(true);
+                            NuovoQuesitoFrame.destroyInstance();
+                        }
+                        @Override
+                        public void windowClosed(WindowEvent e)
+                        {
+                            btnNuovoQuesito.setEnabled(true);
+                            NuovoQuesitoFrame.destroyInstance();
+                        }
+                    });
+                }
+
             }
         });
 
@@ -80,10 +95,18 @@ public class UniCTestFrame extends JFrame{
         btnAvviaSimulazione.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                AvviaSimulazioneFrame avviaSimulazioneFrame = AvviaSimulazioneFrame.getInstance();
+                AvviaSimulazioneFrame avviaSimulazioneFrame = null;
+                try {
+                    avviaSimulazioneFrame = AvviaSimulazioneFrame.getInstance();
+                } catch (EmployeeNotAllowedException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(new JFrame(),
+                            ex.getMessage(),
+                            "Inane warning",
+                            JOptionPane.WARNING_MESSAGE);
+                }
                 if(avviaSimulazioneFrame!=null){
                     btnAvviaSimulazione.setEnabled(false);
-
                     avviaSimulazioneFrame.addWindowListener(new WindowAdapter()
                     {
                         @Override
@@ -99,8 +122,7 @@ public class UniCTestFrame extends JFrame{
                             AvviaSimulazioneFrame.destroyInstance();
                         }
                     });
-                } else System.out.println("Solo gli studenti possono avviare simulazioni");
-
+                }
             }
         });
 
@@ -131,10 +153,24 @@ public class UniCTestFrame extends JFrame{
         btnTestCartaceo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                TestCartaceoFrame testCartaceoFrame = TestCartaceoFrame.getInstance();
+                TestCartaceoFrame testCartaceoFrame = null;
+                try {
+                    testCartaceoFrame = TestCartaceoFrame.getInstance();
+                } catch (StudentNotAllowedException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(new JFrame(),
+                            ex.getMessage(),
+                            "Inane warning",
+                            JOptionPane.WARNING_MESSAGE);
+                } catch (NotAllowedException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(new JFrame(),
+                            ex.getMessage(),
+                            "Inane warning",
+                            JOptionPane.WARNING_MESSAGE);
+                }
                 if(testCartaceoFrame!=null){
                     btnTestCartaceo.setEnabled(false);
-
                     testCartaceoFrame.addWindowListener(new WindowAdapter()
                     {
                         @Override
@@ -150,7 +186,7 @@ public class UniCTestFrame extends JFrame{
                             TestCartaceoFrame.destroyInstance();
                         }
                     });
-                } else System.out.println("Solo i tutor di simulazione possono creare test cartacei");
+                }
 
             }
         });
@@ -159,81 +195,114 @@ public class UniCTestFrame extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 CorreggiTestCartaceoFrame correggiTestCartaceoFrame = CorreggiTestCartaceoFrame.getInstance();
-                if(correggiTestCartaceoFrame!=null){
-                    btnCorreggiSimulazione.setEnabled(false);
+                btnCorreggiSimulazione.setEnabled(false);
+                correggiTestCartaceoFrame.addWindowListener(new WindowAdapter() {
+                    @Override
+                    public void windowClosing(WindowEvent e) {
+                        btnCorreggiSimulazione.setEnabled(true);
+                        CorreggiTestCartaceoFrame.destroyInstance();
+                    }
 
-                    correggiTestCartaceoFrame.addWindowListener(new WindowAdapter()
-                    {
-                        @Override
-                        public void windowClosing(WindowEvent e)
-                        {
-                            btnCorreggiSimulazione.setEnabled(true);
-                            CorreggiTestCartaceoFrame.destroyInstance();
-                        }
-                        @Override
-                        public void windowClosed(WindowEvent e)
-                        {
-                            btnCorreggiSimulazione.setEnabled(true);
-                            CorreggiTestCartaceoFrame.destroyInstance();
-                        }
-                    });
-                } else System.out.println("Solo i tutor di simulazione possono correggere test cartacei");
-
+                    @Override
+                    public void windowClosed(WindowEvent e) {
+                        btnCorreggiSimulazione.setEnabled(true);
+                        CorreggiTestCartaceoFrame.destroyInstance();
+                    }
+                });
             }
         });
 
         btnQuesiti.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                VisualizzaQuesitiCompletiFrame visualizzaQuesitiCompletiFrame = VisualizzaQuesitiCompletiFrame.getInstance();
+
+                VisualizzaQuesitiCompletiFrame visualizzaQuesitiCompletiFrame = null;
+                try {
+                    visualizzaQuesitiCompletiFrame = VisualizzaQuesitiCompletiFrame.getInstance();
+                } catch (StudentNotAllowedException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(new JFrame(),
+                            ex.getMessage(),
+                            "Inane warning",
+                            JOptionPane.WARNING_MESSAGE);
+                }
                 if(visualizzaQuesitiCompletiFrame!=null){
                     btnQuesiti.setEnabled(false);
 
-                    visualizzaQuesitiCompletiFrame.addWindowListener(new WindowAdapter()
-                    {
+                    visualizzaQuesitiCompletiFrame.addWindowListener(new WindowAdapter() {
                         @Override
-                        public void windowClosing(WindowEvent e)
-                        {
+                        public void windowClosing(WindowEvent e) {
                             btnQuesiti.setEnabled(true);
                             VisualizzaQuesitiCompletiFrame.destroyInstance();
                         }
+
                         @Override
-                        public void windowClosed(WindowEvent e)
-                        {
+                        public void windowClosed(WindowEvent e) {
                             btnQuesiti.setEnabled(true);
                             VisualizzaQuesitiCompletiFrame.destroyInstance();
                         }
                     });
-                } else System.out.println("Solo i tutor possono visualizzare i quesiti");
+                }
 
             }
         });
 
-        btnTest.addActionListener(new ActionListener() {
+        btnTestSvolti.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                VisualizzaTestFrame visualizzaTestFrame = VisualizzaTestFrame.getInstance();
+                VisualizzaTestFrame visualizzaTestFrame = null;
+                try {
+                    visualizzaTestFrame = VisualizzaTestFrame.getInstance();
+                } catch (EmployeeNotAllowedException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(new JFrame(),
+                            ex.getMessage(),
+                            "Inane warning",
+                            JOptionPane.WARNING_MESSAGE);
+                }
                 if(visualizzaTestFrame!=null){
-                    btnTest.setEnabled(false);
-
+                    btnTestSvolti.setEnabled(false);
                     visualizzaTestFrame.addWindowListener(new WindowAdapter()
                     {
                         @Override
                         public void windowClosing(WindowEvent e)
                         {
-                            btnTest.setEnabled(true);
+                            btnTestSvolti.setEnabled(true);
                             VisualizzaTestFrame.destroyInstance();
                         }
                         @Override
                         public void windowClosed(WindowEvent e)
                         {
-                            btnTest.setEnabled(true);
+                            btnTestSvolti.setEnabled(true);
                             VisualizzaTestFrame.destroyInstance();
                         }
                     });
-                } else System.out.println("Solo gli studenti possono visualizzare i test svolti");
+                }
 
             }
+        });
+        btnNuovoUtente.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                NuovoUtenteFrame nuovoUtenteFrame = NuovoUtenteFrame.getInstance();
+                btnNuovoUtente.setEnabled(false);
+                nuovoUtenteFrame.addWindowListener(new WindowAdapter()
+                    {
+                        @Override
+                        public void windowClosing(WindowEvent e)
+                        {
+                            btnNuovoUtente.setEnabled(true);
+                            NuovoUtenteFrame.destroyInstance();
+                        }
+                        @Override
+                        public void windowClosed(WindowEvent e)
+                        {
+                            btnNuovoUtente.setEnabled(true);
+                            NuovoUtenteFrame.destroyInstance();
+                        }
+                    });
+            }
+
         });
     }
 
@@ -251,7 +320,11 @@ public class UniCTestFrame extends JFrame{
         UniCTest unictest = UniCTest.getInstance(); //esegue il caso d'uso di avviamento
         for(Materia m: unictest.getMappaMaterie().values()) {
             System.out.println("----------------QUESITI "+m.getNome()+"----------------");
-            System.out.println(m.getMappaQuesiti());
+            try {
+                System.out.println(m.getMappaQuesiti());
+            } catch (StudentNotAllowedException e) {
+                e.printStackTrace();
+            }
         }
         System.out.println("------------------TEMPLATE UFFICIALI-----------------");
         System.out.println(unictest.getMappaTemplateUfficiali());
@@ -262,7 +335,7 @@ public class UniCTestFrame extends JFrame{
         PPPMRA80A01C351X --> Amministratore, TutorSimulazione
         VRDLGI99R21C351J --> Studente
         */
-        unictest.setUtenteAutenticato("PPPMRA80A01C351X");
+        unictest.setUtenteAutenticato("CTNLCU80A01C351K");
         System.out.println("-------------------UTENTE AUTENTICATO----------------");
         System.out.println(unictest.getUtenteAutenticato());
         System.out.println("--------------TEMPLATE PERSONALIZZATI DELL'UTENTE------------");

@@ -1,6 +1,7 @@
 package com.ing_sw_2022.app.ui;
 
 import com.ing_sw_2022.app.Materia;
+import com.ing_sw_2022.app.eccezioni.StudentNotAllowedException;
 import com.ing_sw_2022.app.UniCTest;
 
 import java.awt.*;
@@ -11,7 +12,7 @@ import javax.swing.*;
 
 public class VisualizzaMateriePanel extends JPanel implements ActionListener{
 
-    public VisualizzaMateriePanel() {
+    public VisualizzaMateriePanel() throws StudentNotAllowedException {
 
         setLayout(new BorderLayout());
 
@@ -51,9 +52,14 @@ public class VisualizzaMateriePanel extends JPanel implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         //esegue il metodo nuovoQuesito di unictest e apre la nuova panel per il metodo inserisciFonte
         UniCTest unictest = UniCTest.getInstance();
-        NuovoQuesitoFrame nuovoQuesitoFrame = NuovoQuesitoFrame.getInstance();
-        String codiceMateria=((JButton)e.getSource()).getName(); //prende il nome della materia dal bottone che ha scatenato l'evento "e"
-        unictest.nuovoQuesito(codiceMateria);
+        NuovoQuesitoFrame nuovoQuesitoFrame = null;
+        try {
+            nuovoQuesitoFrame = NuovoQuesitoFrame.getInstance();
+            String codiceMateria=((JButton)e.getSource()).getName(); //prende il nome della materia dal bottone che ha scatenato l'evento "e"
+            unictest.nuovoQuesito(codiceMateria);
+        } catch (StudentNotAllowedException ex) {
+            ex.printStackTrace();
+        }
         nuovoQuesitoFrame.setContentPane(new InserisciFontePanel().getMainPanel());
         nuovoQuesitoFrame.revalidate(); //serve per far comparire la nuova panel, altrimenti compare solo dopo aver ridimensionato la finestra (boh)
     }

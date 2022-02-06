@@ -1,5 +1,7 @@
 package com.ing_sw_2022.app;
 
+import com.ing_sw_2022.app.eccezioni.NotEnoughQuestionsException;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
@@ -40,8 +42,8 @@ public class Studente extends Utente implements Serializable {
                 "nome='" + super.getNome() + '\'' +
                 ", cognome='" + super.getCognome() + '\'' +
                 ", cf='" + super.getCf() + '\'' +
-                ", mappaTemplatePersonalizzati=" + mappaTemplatePersonalizzati +
-                '}';
+                /*", mappaTemplatePersonalizzati=" + mappaTemplatePersonalizzati +*/
+                "}\n";
     }
 
     /////////////////////////////////////////////METODI DCD///////////////////////////////////////////////
@@ -71,7 +73,7 @@ public class Studente extends Utente implements Serializable {
         ArrayList<TemplatePersonalizzato> listaTemplate = new ArrayList<>(mappaTemplatePersonalizzati.values());
         return listaTemplate;
     }
-    public Test avviaSimulazione(String idTemplate) throws Exception{
+    public Test avviaSimulazione(String idTemplate) throws NotEnoughQuestionsException, CloneNotSupportedException {
         /*
          * Quando avvio una simulazione online devo clonare il template ufficiale nella mia
          * mappaTemplateTestSvolti per salvare il Test nella mappaTest del clone.

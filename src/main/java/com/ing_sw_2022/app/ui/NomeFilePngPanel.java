@@ -1,7 +1,8 @@
 package com.ing_sw_2022.app.ui;
 
+import com.ing_sw_2022.app.NotAllowedException;
+import com.ing_sw_2022.app.eccezioni.StudentNotAllowedException;
 import com.ing_sw_2022.app.UniCTest;
-import com.ing_sw_2022.app.ui.TestCartaceoFrame;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
@@ -37,12 +38,23 @@ public class NomeFilePngPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        Map<String,String> mappaInfo= null;
         try {
-            Map<String,String> mappaInfo=UniCTest.getInstance().recuperaInfoTestCartaceo(textField.getText());
-            CorreggiTestCartaceoFrame.getInstance().setContentPane(new ConfermaInfoTestPanel(mappaInfo.get("cfStudente"),mappaInfo.get("cfTutor"),mappaInfo.get("idTest")).getMainPanel());
-            CorreggiTestCartaceoFrame.getInstance().revalidate();
-        } catch (Exception ex) {
+            mappaInfo = UniCTest.getInstance().recuperaInfoTestCartaceo(textField.getText());
+        } catch (NotAllowedException ex) {
             ex.printStackTrace();
+            JOptionPane.showMessageDialog(new JFrame(),
+                    ex.getMessage(),
+                    "Inane warning",
+                    JOptionPane.WARNING_MESSAGE);
+        } catch (StudentNotAllowedException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(new JFrame(),
+                    ex.getMessage(),
+                    "Inane warning",
+                    JOptionPane.WARNING_MESSAGE);
         }
+        CorreggiTestCartaceoFrame.getInstance().setContentPane(new ConfermaInfoTestPanel(mappaInfo.get("cfStudente"),mappaInfo.get("cfTutor"),mappaInfo.get("idTest")).getMainPanel());
+        CorreggiTestCartaceoFrame.getInstance().revalidate();
     }
 }

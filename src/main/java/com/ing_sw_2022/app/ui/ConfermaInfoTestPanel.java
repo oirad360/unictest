@@ -1,5 +1,7 @@
 package com.ing_sw_2022.app.ui;
 
+import com.ing_sw_2022.app.NotAllowedException;
+import com.ing_sw_2022.app.eccezioni.StudentNotAllowedException;
 import com.ing_sw_2022.app.Test;
 import com.ing_sw_2022.app.UniCTest;
 
@@ -61,7 +63,9 @@ public class ConfermaInfoTestPanel implements ActionListener {
         Test t=null;
         try {
             t= UniCTest.getInstance().correggiTestCartaceo(cfStudente.getText(),cfTutor.getText(),idTest.getText());
-        } catch (Exception ex) {
+        } catch (NotAllowedException ex) {
+            ex.printStackTrace();
+        } catch (StudentNotAllowedException ex) {
             ex.printStackTrace();
         }
         if(t!=null){
