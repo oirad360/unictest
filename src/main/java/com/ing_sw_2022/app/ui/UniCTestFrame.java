@@ -21,7 +21,8 @@ public class UniCTestFrame extends JFrame{
     private JButton btnTestCartaceo;
     private JButton btnCorreggiSimulazione;
     private JButton btnQuesiti;
-    private JButton btnTest;
+    private JButton btnTestSvolti;
+    private JButton btnNuovoUtente;
     private static UniCTestFrame unictestFrame;
     private static final Integer pos = 100;
     private UniCTestFrame(){
@@ -246,7 +247,7 @@ public class UniCTestFrame extends JFrame{
             }
         });
 
-        btnTest.addActionListener(new ActionListener() {
+        btnTestSvolti.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 VisualizzaTestFrame visualizzaTestFrame = null;
@@ -260,25 +261,48 @@ public class UniCTestFrame extends JFrame{
                             JOptionPane.WARNING_MESSAGE);
                 }
                 if(visualizzaTestFrame!=null){
-                    btnTest.setEnabled(false);
+                    btnTestSvolti.setEnabled(false);
                     visualizzaTestFrame.addWindowListener(new WindowAdapter()
                     {
                         @Override
                         public void windowClosing(WindowEvent e)
                         {
-                            btnTest.setEnabled(true);
+                            btnTestSvolti.setEnabled(true);
                             VisualizzaTestFrame.destroyInstance();
                         }
                         @Override
                         public void windowClosed(WindowEvent e)
                         {
-                            btnTest.setEnabled(true);
+                            btnTestSvolti.setEnabled(true);
                             VisualizzaTestFrame.destroyInstance();
                         }
                     });
                 }
 
             }
+        });
+        btnNuovoUtente.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                NuovoUtenteFrame nuovoUtenteFrame = NuovoUtenteFrame.getInstance();
+                btnNuovoUtente.setEnabled(false);
+                nuovoUtenteFrame.addWindowListener(new WindowAdapter()
+                    {
+                        @Override
+                        public void windowClosing(WindowEvent e)
+                        {
+                            btnNuovoUtente.setEnabled(true);
+                            NuovoUtenteFrame.destroyInstance();
+                        }
+                        @Override
+                        public void windowClosed(WindowEvent e)
+                        {
+                            btnNuovoUtente.setEnabled(true);
+                            NuovoUtenteFrame.destroyInstance();
+                        }
+                    });
+            }
+
         });
     }
 
@@ -311,7 +335,7 @@ public class UniCTestFrame extends JFrame{
         PPPMRA80A01C351X --> Amministratore, TutorSimulazione
         VRDLGI99R21C351J --> Studente
         */
-        unictest.setUtenteAutenticato("PPPMRA80A01C351X");
+        unictest.setUtenteAutenticato("CTNLCU80A01C351K");
         System.out.println("-------------------UTENTE AUTENTICATO----------------");
         System.out.println(unictest.getUtenteAutenticato());
         System.out.println("--------------TEMPLATE PERSONALIZZATI DELL'UTENTE------------");

@@ -1,9 +1,6 @@
 package com.ing_sw_2022.app;
 
-import com.ing_sw_2022.app.eccezioni.EmployeeNotAllowedException;
-import com.ing_sw_2022.app.eccezioni.NotEnoughQuestionsException;
-import com.ing_sw_2022.app.eccezioni.QuestionNotFoundException;
-import com.ing_sw_2022.app.eccezioni.StudentNotAllowedException;
+import com.ing_sw_2022.app.eccezioni.*;
 
 import java.io.*;
 import java.util.*;
@@ -298,7 +295,24 @@ public class UniCTest implements Serializable{
         if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono correggere simulazioni cartacee.");
         return ((Impiegato)utenteAutenticato).confermaCorrezione();
     }
-
+    ///////////////////////////////UC6 NUOVO TUTOR///////////////////////////////
+    public void nuovoTutor(String cf, String nome, String cognome) throws NotAllowedException, StudentNotAllowedException, AlreadyRegisteredException {
+        if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono registrare nuovi tutor");
+        if(mappaUtenti.containsKey(cf.toUpperCase())) throw new AlreadyRegisteredException("Codice fiscale già presente nel sistema.");
+        nome=nome.substring(0,1).toUpperCase()+nome.substring(1).toLowerCase();
+        cognome=cognome.substring(0,1).toUpperCase()+cognome.substring(1).toLowerCase();
+        Impiegato t=((Impiegato)utenteAutenticato).nuovoTutor(cf.toUpperCase(), nome, cognome);
+        mappaUtenti.put(t.getCf(),t);
+    }
+    //////////////////////////////UC5 NUOVO STUDENTE/////////////////////
+    public void nuovoStudente(String cf, String nome, String cognome) throws NotAllowedException, StudentNotAllowedException, AlreadyRegisteredException {
+        if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono registrare nuovi studenti");
+        if(mappaUtenti.containsKey(cf.toUpperCase())) throw new AlreadyRegisteredException("Codice fiscale già presente nel sistema.");
+        nome=nome.substring(0,1).toUpperCase()+nome.substring(1).toLowerCase();
+        cognome=cognome.substring(0,1).toUpperCase()+cognome.substring(1).toLowerCase();
+        Studente s=((Impiegato)utenteAutenticato).nuovoStudente(cf.toUpperCase(), nome, cognome);
+        mappaUtenti.put(s.getCf(),s);
+    }
                         ////////////METODI PER CASO D'USO DI AVVIAMENTO//////////////
 
     private void loadMaterie(){

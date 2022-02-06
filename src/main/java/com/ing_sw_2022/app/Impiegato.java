@@ -2,6 +2,7 @@ package com.ing_sw_2022.app;
 
 import com.ing_sw_2022.app.eccezioni.NotEnoughQuestionsException;
 import com.ing_sw_2022.app.eccezioni.QuestionNotFoundException;
+import com.ing_sw_2022.app.eccezioni.TemplateSectionException;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -88,4 +89,8 @@ public abstract class Impiegato extends Utente implements Serializable {
     public abstract Test confermaCorrezione() throws NotAllowedException;
 
     public abstract void selezionaRisposta(String idQuesitoReale, String idRisposta) throws NotAllowedException;
+    //////////////////////////UC6 NUOVO TUTOR//////////////////////////////////
+    public abstract Impiegato nuovoTutor(String cf, String nome, String cognome) throws NotAllowedException;
+    //////////////////////////UC5 NUOVO STUDENTE//////////////////////////////////
+    public abstract Studente nuovoStudente(String cf, String nome, String cognome) throws NotAllowedException;
 }

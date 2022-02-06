@@ -42,8 +42,8 @@ public class Studente extends Utente implements Serializable {
                 "nome='" + super.getNome() + '\'' +
                 ", cognome='" + super.getCognome() + '\'' +
                 ", cf='" + super.getCf() + '\'' +
-                ", mappaTemplatePersonalizzati=" + mappaTemplatePersonalizzati +
-                '}';
+                /*", mappaTemplatePersonalizzati=" + mappaTemplatePersonalizzati +*/
+                "}\n";
     }
 
     /////////////////////////////////////////////METODI DCD///////////////////////////////////////////////

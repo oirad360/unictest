@@ -2,6 +2,7 @@ package com.ing_sw_2022.app;
 
 import com.ing_sw_2022.app.eccezioni.NotEnoughQuestionsException;
 import com.ing_sw_2022.app.eccezioni.QuestionNotFoundException;
+import com.ing_sw_2022.app.eccezioni.TemplateSectionException;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -62,7 +63,7 @@ public class TutorSimulazione extends Decorator implements Serializable {
 
     @Override
     public String toString() {
-        return "\nTutorSimulazione + "+impiegato.toString()+"\n";
+        return "TutorSimulazione + "+impiegato.toString();
     }
     ////////////////////////////////////////////METODI DCD//////////////////////////////////////////////////
                 ////////////////////UC2/T CREA TEMPLATE DI TEST PERSONALIZZATO/////////////////////

@@ -86,12 +86,12 @@ public class Tutor extends Impiegato implements Serializable{
 
     @Override
     public String toString() {
-        return "\nTutor{" +
+        return "Tutor{" +
                 "nome='" + super.getNome() + '\'' +
                 ", cognome='" + super.getCognome() + '\'' +
                 ", cf='" + super.getCf() + '\'' +
                 ", materieInsegnate=" + materieInsegnate +
-                '}';
+                "}\n";
     }
     //////////////////////////////////////////////METODI DCD//////////////////////////////////////////////
                 /////////////////////////////UC7 NUOVO QUESITO///////////////////////////////
@@ -214,5 +214,18 @@ public class Tutor extends Impiegato implements Serializable{
     @Override
     public void selezionaRisposta(String idQuesitoReale, String idRisposta) throws NotAllowedException{
         throw new NotAllowedException("Non ho i permessi di TutorSimulazione");
+    }
+    ///////////////////////UC6 NUOVO TUTOR//////////////////////7
+    @Override
+    public Impiegato nuovoTutor(String cf, String nome, String cognome) throws NotAllowedException {
+        System.out.println("b");
+        throw new NotAllowedException("Non ho i permessi di Amministratore");
+    }
+    ///////////////////////UC6 NUOVO STUDENTE//////////////////////7
+    @Override
+    public Studente nuovoStudente(String cf, String nome, String cognome) throws NotAllowedException {
+        System.out.println("a");
+        throw new NotAllowedException("Non ho i permessi di Amministratore");
+
     }
 }

@@ -2,6 +2,7 @@ package com.ing_sw_2022.app;
 
 import com.ing_sw_2022.app.eccezioni.NotEnoughQuestionsException;
 import com.ing_sw_2022.app.eccezioni.QuestionNotFoundException;
+import com.ing_sw_2022.app.eccezioni.TemplateSectionException;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -193,5 +194,15 @@ public abstract class Decorator extends Impiegato implements Serializable{
     @Override
     public void selezionaRisposta(String idQuesitoReale, String idRisposta) throws NotAllowedException{
         impiegato.selezionaRisposta(idQuesitoReale, idRisposta);
+    }
+    ///////////////////////UC6 NUOVO TUTOR//////////////////////7
+    @Override
+    public Impiegato nuovoTutor(String cf, String nome, String cognome) throws NotAllowedException {
+        return impiegato.nuovoTutor(cf, nome, cognome);
+    }
+    ///////////////////////UC5 NUOVO STUDENTE//////////////////////7
+    @Override
+    public Studente nuovoStudente(String cf, String nome, String cognome) throws NotAllowedException{
+        return impiegato.nuovoStudente(cf, nome, cognome);
     }
 }
