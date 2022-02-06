@@ -1,6 +1,8 @@
 package com.ing_sw_2022.app.ui;
 
 import com.ing_sw_2022.app.Materia;
+import com.ing_sw_2022.app.NotAllowedException;
+import com.ing_sw_2022.app.StudentNotAllowedException;
 import com.ing_sw_2022.app.UniCTest;
 
 import javax.swing.*;
@@ -62,13 +64,18 @@ public class InsInfoTemplateUffPanel implements ActionListener, ChangeListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
         try {
             UniCTest.getInstance().inserisciInfoTemplateU(fonte.getText(), Float.parseFloat(puntiCorretta.getValue().toString()),Float.parseFloat(puntiErrata.getValue().toString()),Float.parseFloat(puntiNonData.getValue().toString()),(int)numRisposte.getValue(),(int)minRisposteCorrette.getValue(),(int)maxRisposteCorrette.getValue(),(int)tempoTotale.getValue());
             NuovoTemplateUffFrame.getInstance().setContentPane(new CreaSezioneUffPanel().getMainPanel());
             NuovoTemplateUffFrame.getInstance().revalidate();
-        } catch (Exception ex) {
+        } catch (NotAllowedException ex) {
+            ex.printStackTrace();
+        } catch (StudentNotAllowedException ex) {
             ex.printStackTrace();
         }
+
+
 
     }
 

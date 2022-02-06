@@ -19,7 +19,11 @@ class TestNuovoQuesito {
     @Test
     @BeforeEach
     void testNuovoQuesito(){
-        unictest.nuovoQuesito("MAT01");//inizializzo la materia corrente e il quesito corrente
+        try {
+            unictest.nuovoQuesito("MAT01");//inizializzo la materia corrente e il quesito corrente
+        } catch (StudentNotAllowedException e) {
+            e.printStackTrace();
+        }
         assertNotNull(((Tutor)unictest.getUtenteAutenticato()).getMateriaCorrente());
         assertNotNull(((Tutor)unictest.getUtenteAutenticato()).getMateriaCorrente().getQuesitoCorrente());
     }
@@ -28,14 +32,22 @@ class TestNuovoQuesito {
     void testVisualizzaMaterieInsegnate() {
         //Visualizza materie restituisce la lista di Materie insegnate dal tutor autenticato
         //Verifichiamo che tale lista non sia null
-        assertNotNull(unictest.visualizzaMaterieInsegnate());
-        //E il numero di materie inserite è > 0
-        assertTrue(unictest.visualizzaMaterieInsegnate().size()>0);
+        try {
+            assertNotNull(unictest.visualizzaMaterieInsegnate());
+            //E il numero di materie inserite è > 0
+            assertTrue(unictest.visualizzaMaterieInsegnate().size()>0);
+        } catch (StudentNotAllowedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     void testInserisciFonte() {
-        unictest.inserisciFonte("MIUR");
+        try {
+            unictest.inserisciFonte("MIUR");
+        } catch (StudentNotAllowedException e) {
+            e.printStackTrace();
+        }
         //Visualizza che la fonte del quesitoCorrente non sia null
         assertNotNull(((Tutor)unictest.getUtenteAutenticato()).getMateriaCorrente().getQuesitoCorrente().getFonte());
         assertEquals(((Tutor)unictest.getUtenteAutenticato()).getMateriaCorrente().getQuesitoCorrente().getFonte(),"MIUR");
@@ -43,7 +55,11 @@ class TestNuovoQuesito {
 
     @Test
     void testInserisciTesto(){
-        unictest.inserisciTesto("Quanto fa 2+2?");
+        try {
+            unictest.inserisciTesto("Quanto fa 2+2?");
+        } catch (StudentNotAllowedException e) {
+            e.printStackTrace();
+        }
         //Visualizza che il testo del quesitoCorrente non sia null
         assertNotNull(((Tutor)unictest.getUtenteAutenticato()).getMateriaCorrente().getQuesitoCorrente().getTesto());
         assertEquals(((Tutor)unictest.getUtenteAutenticato()).getMateriaCorrente().getQuesitoCorrente().getTesto(),"Quanto fa 2+2?");
@@ -52,7 +68,11 @@ class TestNuovoQuesito {
 
     @Test
     void testInserisciDifficoltà(){
-        unictest.inserisciDifficoltà(3);
+        try {
+            unictest.inserisciDifficoltà(3);
+        } catch (StudentNotAllowedException e) {
+            e.printStackTrace();
+        }
         //Visualizza che la difficoltà del quesitoCorrente non sia null
         assertNotNull(((Tutor)unictest.getUtenteAutenticato()).getMateriaCorrente().getQuesitoCorrente().getDifficoltà());
         assertEquals(((Tutor)unictest.getUtenteAutenticato()).getMateriaCorrente().getQuesitoCorrente().getDifficoltà(),3);
@@ -61,10 +81,15 @@ class TestNuovoQuesito {
 
     @Test
     void testInserisciRisposte(){
-        unictest.inserisciRisposta("4",true);
-        unictest.inserisciRisposta("5",false);
-        unictest.inserisciRisposta("sqrt(16)",true);
-        unictest.inserisciRisposta("9",false);
+        try {
+            unictest.inserisciRisposta("4",true);
+            unictest.inserisciRisposta("5",false);
+            unictest.inserisciRisposta("sqrt(16)",true);
+            unictest.inserisciRisposta("9",false);
+        } catch (StudentNotAllowedException e) {
+            e.printStackTrace();
+        }
+
         //Visualizza che la lista delle rispsote del quesitoCorrente non sia null
         assertNotNull(((Tutor)unictest.getUtenteAutenticato()).getMateriaCorrente().getQuesitoCorrente().getRisposte());
         assertEquals(4, ((Tutor)unictest.getUtenteAutenticato()).getMateriaCorrente().getQuesitoCorrente().getRisposte().size());
@@ -73,9 +98,16 @@ class TestNuovoQuesito {
 
     @Test
     void testConfermaQuesito(){
-        Map<String, QuesitoDescrizione> mappaQuesiti = ((Tutor)unictest.getUtenteAutenticato()).getMateriaCorrente().getMappaQuesiti();
+        Map<String, QuesitoDescrizione> mappaQuesiti = null;
+
+        try {
+            mappaQuesiti = ((Tutor)unictest.getUtenteAutenticato()).getMateriaCorrente().getMappaQuesiti();
+
+            unictest.confermaQuesito("p1");
+        } catch (StudentNotAllowedException e) {
+            e.printStackTrace();
+        }
         int size = mappaQuesiti.size();
-        unictest.confermaQuesito("p1");
         assertEquals(size+1, mappaQuesiti.size());
         assertNull(((Tutor)unictest.getUtenteAutenticato()).getMateriaCorrente());
     }

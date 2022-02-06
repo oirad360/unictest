@@ -1,5 +1,6 @@
 package com.ing_sw_2022.app.ui;
 
+import com.ing_sw_2022.app.StudentNotAllowedException;
 import com.ing_sw_2022.app.UniCTest;
 
 import javax.swing.*;
@@ -38,8 +39,13 @@ public class InserisciTestoPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         UniCTest unictest = UniCTest.getInstance();
-        unictest.inserisciTesto(textArea.getText());
-        NuovoQuesitoFrame nuovoQuesitoFrame= NuovoQuesitoFrame.getInstance();
+        NuovoQuesitoFrame nuovoQuesitoFrame= null;
+        try {
+            unictest.inserisciTesto(textArea.getText());
+            nuovoQuesitoFrame = NuovoQuesitoFrame.getInstance();
+        } catch (StudentNotAllowedException ex) {
+            ex.printStackTrace();
+        }
         nuovoQuesitoFrame.setContentPane(new InserisciRispostePanel().getMainPanel());
         nuovoQuesitoFrame.revalidate();
     }

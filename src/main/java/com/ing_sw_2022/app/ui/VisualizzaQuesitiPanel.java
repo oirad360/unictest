@@ -18,7 +18,7 @@ public class VisualizzaQuesitiPanel implements ActionListener {
     private ArrayList<String> listaIdQuesiti;
     private List<Sezione> listaSezioni;
 
-    public VisualizzaQuesitiPanel(String idSezione,int numQuesiti,List<Sezione> listaSezioni) throws Exception {
+    public VisualizzaQuesitiPanel(String idSezione,int numQuesiti,List<Sezione> listaSezioni) throws StudentNotAllowedException, NotEnoughQuestionsException, NotAllowedException {
         this.numQuesiti=numQuesiti;
         this.listaSezioni=listaSezioni;
         listaIdQuesiti = new ArrayList<>();

@@ -1,5 +1,6 @@
 package com.ing_sw_2022.app.ui;
 
+import com.ing_sw_2022.app.StudentNotAllowedException;
 import com.ing_sw_2022.app.UniCTest;
 
 import javax.swing.*;
@@ -42,8 +43,13 @@ public class ConfermaQuesitoPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        UniCTest.getInstance().confermaQuesito(textField.getText());
-        UniCTest.getInstance().serialize();
-        NuovoQuesitoFrame.getInstance().dispose();
+        try {
+            UniCTest.getInstance().confermaQuesito(textField.getText());
+            UniCTest.getInstance().serialize();
+            NuovoQuesitoFrame.getInstance().dispose();
+        } catch (StudentNotAllowedException ex) {
+            ex.printStackTrace();
+        }
+
     }
 }

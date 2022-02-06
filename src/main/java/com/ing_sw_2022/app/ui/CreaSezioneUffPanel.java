@@ -1,6 +1,8 @@
 package com.ing_sw_2022.app.ui;
 
 import com.ing_sw_2022.app.Materia;
+import com.ing_sw_2022.app.NotAllowedException;
+import com.ing_sw_2022.app.StudentNotAllowedException;
 import com.ing_sw_2022.app.UniCTest;
 
 import javax.swing.*;
@@ -29,16 +31,24 @@ public class CreaSezioneUffPanel implements ActionListener {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                boolean exception=false;
                 try {
+                    UniCTest.getInstance().creaSezioneU(materia.getText(),(int)numQuesiti.getValue());
+                } catch (NotAllowedException ex) {
+                    ex.printStackTrace();
+                    exception=true;
+                } catch (StudentNotAllowedException ex) {
+                    ex.printStackTrace();
+                    exception=true;
+                }
+                if(!exception){
                     counter++;
                     buttonConferma.setEnabled(true);
                     numSezioni.setText(counter.toString());
-                    UniCTest.getInstance().creaSezioneU(materia.getText(),(int)numQuesiti.getValue());
                     materia.setText("");
-                } catch (Exception ex) {
-                    ex.printStackTrace();
                 }
+
+
 
             }
         });

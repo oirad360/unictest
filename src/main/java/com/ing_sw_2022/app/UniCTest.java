@@ -173,7 +173,7 @@ public class UniCTest implements Serializable{
     }
 
     public void creaSezioneP(String codiceMateria, int numQuesiti) throws StudentNotAllowedException, NotAllowedException {
-        if(utenteAutenticato instanceof Impiegato) throw new StudentNotAllowedException("I tutor non possono creare template per simulazioni cartacee.");
+        if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono creare template per simulazioni cartacee.");
         Materia m=mappaMaterie.get(codiceMateria);
         ((Impiegato)utenteAutenticato).creaSezioneP(m,numQuesiti);//potrebbe lanciare eccezione se l'impiegato non è tutor di simulazione (Exception generica, non catturata da ClassCastException)
     }
@@ -260,31 +260,38 @@ public class UniCTest implements Serializable{
         return lista;
     }
 
-    public List<Sezione> creaTestCartaceo(String idTemplate) throws ClassCastException,NotAllowedException {
+    public List<Sezione> creaTestCartaceo(String idTemplate) throws StudentNotAllowedException,NotAllowedException {
+        if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono creare test cartacei.");
         return ((Impiegato)utenteAutenticato).creaTestCartaceo(idTemplate);
     }
 
-    public ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione) throws ClassCastException, NotAllowedException, NotEnoughQuestionsException {
+    public ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione) throws NotAllowedException, NotEnoughQuestionsException, StudentNotAllowedException {
+        if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono creare test cartacei.");
         return ((Impiegato)utenteAutenticato).visualizzaQuesiti(idSezione);
     }
 
-    public void inserisciQuesiti(List<String> listaIdQuesiti) throws NotAllowedException, QuestionNotFoundException, TemplateSectionException {
+    public void inserisciQuesiti(List<String> listaIdQuesiti) throws NotAllowedException, QuestionNotFoundException, TemplateSectionException, StudentNotAllowedException {
+        if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono creare test cartacei.");
         ((Impiegato)utenteAutenticato).inserisciQuesiti(listaIdQuesiti);
     }
 
-    public void stampaTest(String nomeFile) throws NotAllowedException {
+    public void stampaTest(String nomeFile) throws NotAllowedException, StudentNotAllowedException {
+        if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono creare test cartacei.");
         ((Impiegato)utenteAutenticato).stampaTest(nomeFile);
     }
     ////////////////////////////UC10 CORREGGI SIMULAZIONI CARTACEO////////////////////////
-    public Map<String,String> recuperaInfoTestCartaceo(String fileName) throws ClassCastException,NotAllowedException {
+    public Map<String,String> recuperaInfoTestCartaceo(String fileName) throws NotAllowedException, StudentNotAllowedException {
+        if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono correggere simulazioni cartacee.");
         return ((Impiegato)utenteAutenticato).recuperaInfoTestCartaceo(fileName);
     }
 
-    public Test correggiTestCartaceo(String cfStudente, String cfTutor, String idTest) throws ClassCastException,NotAllowedException {
+    public Test correggiTestCartaceo(String cfStudente, String cfTutor, String idTest) throws NotAllowedException, StudentNotAllowedException {
+        if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono correggere simulazioni cartacee.");
         return ((Impiegato)utenteAutenticato).correggiTestCartaceo(cfStudente, cfTutor, idTest);
     }
 
-    public Test confermaCorrezione() throws ClassCastException,NotAllowedException {
+    public Test confermaCorrezione() throws NotAllowedException, StudentNotAllowedException {
+        if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono correggere simulazioni cartacee.");
         return ((Impiegato)utenteAutenticato).confermaCorrezione();
     }
 

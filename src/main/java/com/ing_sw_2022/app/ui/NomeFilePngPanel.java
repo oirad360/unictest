@@ -1,5 +1,7 @@
 package com.ing_sw_2022.app.ui;
 
+import com.ing_sw_2022.app.NotAllowedException;
+import com.ing_sw_2022.app.StudentNotAllowedException;
 import com.ing_sw_2022.app.UniCTest;
 import com.ing_sw_2022.app.ui.TestCartaceoFrame;
 
@@ -40,8 +42,18 @@ public class NomeFilePngPanel implements ActionListener {
         Map<String,String> mappaInfo= null;
         try {
             mappaInfo = UniCTest.getInstance().recuperaInfoTestCartaceo(textField.getText());
-        } catch (Exception ex) {
+        } catch (NotAllowedException ex) {
             ex.printStackTrace();
+            JOptionPane.showMessageDialog(new JFrame(),
+                    ex.getMessage(),
+                    "Inane warning",
+                    JOptionPane.WARNING_MESSAGE);
+        } catch (StudentNotAllowedException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(new JFrame(),
+                    ex.getMessage(),
+                    "Inane warning",
+                    JOptionPane.WARNING_MESSAGE);
         }
         CorreggiTestCartaceoFrame.getInstance().setContentPane(new ConfermaInfoTestPanel(mappaInfo.get("cfStudente"),mappaInfo.get("cfTutor"),mappaInfo.get("idTest")).getMainPanel());
         CorreggiTestCartaceoFrame.getInstance().revalidate();

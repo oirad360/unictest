@@ -1,5 +1,6 @@
 package com.ing_sw_2022.app.ui;
 
+import com.ing_sw_2022.app.StudentNotAllowedException;
 import com.ing_sw_2022.app.UniCTest;
 
 import javax.swing.*;
@@ -52,21 +53,33 @@ public class InserisciRispostePanel {
         btnInserisci.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(val) checkTrue=true;
-                UniCTest.getInstance().inserisciRisposta(textField.getText(),val);
-                counter++;
-                labelNumRisposte.setText(counter.toString());
-                if(counter >= 2 && checkTrue){
-                    btnConfermaRisposte.setEnabled(true);
+                boolean exception=false;
+                try {
+                    UniCTest.getInstance().inserisciRisposta(textField.getText(),val);
+                } catch (StudentNotAllowedException ex) {
+                    ex.printStackTrace();
+                    exception=true;
                 }
-                textField.setText("");
-
+                if(!exception){
+                    if(val) checkTrue=true;
+                    counter++;
+                    labelNumRisposte.setText(counter.toString());
+                    if(counter >= 2 && checkTrue){
+                        btnConfermaRisposte.setEnabled(true);
+                    }
+                    textField.setText("");
+                }
             }
         });
         btnConfermaRisposte.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                NuovoQuesitoFrame nuovoQuesitoFrame= NuovoQuesitoFrame.getInstance();
+                NuovoQuesitoFrame nuovoQuesitoFrame= null;
+                try {
+                    nuovoQuesitoFrame = NuovoQuesitoFrame.getInstance();
+                } catch (StudentNotAllowedException ex) {
+                    ex.printStackTrace();
+                }
                 nuovoQuesitoFrame.setContentPane(new InserisciDifficoltàPanel().getMainPanel());
                 nuovoQuesitoFrame.revalidate();
             }

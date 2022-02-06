@@ -39,9 +39,9 @@ public class Materia implements Serializable {
         this.codice = codice;
     }
 
-    public Map<String, QuesitoDescrizione> getMappaQuesiti() {
-        if(UniCTest.getInstance().getUtenteAutenticato() instanceof Impiegato) return mappaQuesiti;
-        else return null;
+    public Map<String, QuesitoDescrizione> getMappaQuesiti() throws StudentNotAllowedException {
+        if(UniCTest.getInstance().getUtenteAutenticato() instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono vedere i quesiti.");
+            return mappaQuesiti;
     }
 
     public QuesitoDescrizione getQuesitoCorrente() {

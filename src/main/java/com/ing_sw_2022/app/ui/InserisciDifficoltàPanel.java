@@ -1,5 +1,6 @@
 package com.ing_sw_2022.app.ui;
 
+import com.ing_sw_2022.app.StudentNotAllowedException;
 import com.ing_sw_2022.app.UniCTest;
 
 import javax.swing.*;
@@ -28,8 +29,13 @@ public class InserisciDifficoltàPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        UniCTest.getInstance().inserisciDifficoltà(Integer.parseInt(spinner.getValue().toString()));
-        NuovoQuesitoFrame.getInstance().setContentPane(new ConfermaQuesitoPanel().getMainPanel());
-        NuovoQuesitoFrame.getInstance().revalidate();
+        try {
+            UniCTest.getInstance().inserisciDifficoltà(Integer.parseInt(spinner.getValue().toString()));
+            NuovoQuesitoFrame.getInstance().setContentPane(new ConfermaQuesitoPanel().getMainPanel());
+            NuovoQuesitoFrame.getInstance().revalidate();
+        } catch (StudentNotAllowedException ex) {
+            ex.printStackTrace();
+        }
+
     }
 }

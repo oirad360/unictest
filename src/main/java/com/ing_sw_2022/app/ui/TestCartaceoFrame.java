@@ -1,11 +1,15 @@
 package com.ing_sw_2022.app.ui;
 
+import com.ing_sw_2022.app.EmployeeNotAllowedException;
+import com.ing_sw_2022.app.NotAllowedException;
+import com.ing_sw_2022.app.StudentNotAllowedException;
+
 import javax.swing.*;
 
 public class TestCartaceoFrame extends JFrame{
     private static TestCartaceoFrame testCartaceoFrame;
 
-    private TestCartaceoFrame() {
+    private TestCartaceoFrame() throws EmployeeNotAllowedException, StudentNotAllowedException, NotAllowedException {
         setContentPane(new VisualizzaTemplatePanel().getMainPanel());
         setTitle("Crea test per simulazione cartacea");
         setSize(880,500);
@@ -14,7 +18,7 @@ public class TestCartaceoFrame extends JFrame{
         setLocation(UniCTestFrame.getPos()+30,UniCTestFrame.getPos()+30);
 
     }
-    public static TestCartaceoFrame getInstance() {
+    public static TestCartaceoFrame getInstance() throws EmployeeNotAllowedException, StudentNotAllowedException, NotAllowedException {
         if (testCartaceoFrame == null) testCartaceoFrame = new TestCartaceoFrame();
         return testCartaceoFrame;
     }

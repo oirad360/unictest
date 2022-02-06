@@ -1,5 +1,7 @@
 package com.ing_sw_2022.app.ui;
 
+import com.ing_sw_2022.app.EmployeeNotAllowedException;
+import com.ing_sw_2022.app.NotAllowedException;
 import com.ing_sw_2022.app.UniCTest;
 
 import javax.swing.*;
@@ -37,14 +39,17 @@ public class NuovoTemplatePersPanel extends JPanel implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e){
         try {
             UniCTest.getInstance().nuovoTemplateP(textField.getText());
             NuovoTemplatePersFrame.getInstance().setContentPane(new InsInfoTemplatePanel().getMainPanel());
             NuovoTemplatePersFrame.getInstance().revalidate();
-        } catch (Exception ex) {
+        } catch (NotAllowedException ex) {
             ex.printStackTrace();
+            JOptionPane.showMessageDialog(new JFrame(),
+                    ex.getMessage(),
+                    "Inane warning",
+                    JOptionPane.WARNING_MESSAGE);
         }
-
     }
 }

@@ -33,7 +33,9 @@ public class CorreggiRispostePanel implements ActionListener {
         Test t= null;
         try {
             t = UniCTest.getInstance().confermaCorrezione();
-        } catch (Exception ex) {
+        } catch (NotAllowedException ex) {
+            ex.printStackTrace();
+        } catch (StudentNotAllowedException ex) {
             ex.printStackTrace();
         }
         if(t!=null){

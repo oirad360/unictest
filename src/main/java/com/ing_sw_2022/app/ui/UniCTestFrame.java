@@ -32,24 +32,36 @@ public class UniCTestFrame extends JFrame{
         btnNuovoQuesito.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                NuovoQuesitoFrame quesitoFrame = NuovoQuesitoFrame.getInstance();
-                btnNuovoQuesito.setEnabled(false);
+                NuovoQuesitoFrame quesitoFrame = null;
+                try {
+                    quesitoFrame = NuovoQuesitoFrame.getInstance();
+                } catch (StudentNotAllowedException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(new JFrame(),
+                            ex.getMessage(),
+                            "Inane warning",
+                            JOptionPane.WARNING_MESSAGE);
+                }
+                if(quesitoFrame!=null){
+                    btnNuovoQuesito.setEnabled(false);
 
-                quesitoFrame.addWindowListener(new WindowAdapter()
-                {
-                    @Override
-                    public void windowClosing(WindowEvent e)
+                    quesitoFrame.addWindowListener(new WindowAdapter()
                     {
-                        btnNuovoQuesito.setEnabled(true);
-                        NuovoQuesitoFrame.destroyInstance();
-                    }
-                    @Override
-                    public void windowClosed(WindowEvent e)
-                    {
-                        btnNuovoQuesito.setEnabled(true);
-                        NuovoQuesitoFrame.destroyInstance();
-                    }
-                });
+                        @Override
+                        public void windowClosing(WindowEvent e)
+                        {
+                            btnNuovoQuesito.setEnabled(true);
+                            NuovoQuesitoFrame.destroyInstance();
+                        }
+                        @Override
+                        public void windowClosed(WindowEvent e)
+                        {
+                            btnNuovoQuesito.setEnabled(true);
+                            NuovoQuesitoFrame.destroyInstance();
+                        }
+                    });
+                }
+
             }
         });
 
@@ -83,6 +95,18 @@ public class UniCTestFrame extends JFrame{
                 AvviaSimulazioneFrame avviaSimulazioneFrame = null;
                 try {
                     avviaSimulazioneFrame = AvviaSimulazioneFrame.getInstance();
+                } catch (StudentNotAllowedException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(new JFrame(),
+                            ex.getMessage(),
+                            "Inane warning",
+                            JOptionPane.WARNING_MESSAGE);
+                } catch (NotAllowedException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(new JFrame(),
+                            ex.getMessage(),
+                            "Inane warning",
+                            JOptionPane.WARNING_MESSAGE);
                 } catch (EmployeeNotAllowedException ex) {
                     ex.printStackTrace();
                     JOptionPane.showMessageDialog(new JFrame(),
@@ -138,64 +162,86 @@ public class UniCTestFrame extends JFrame{
         btnTestCartaceo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                TestCartaceoFrame testCartaceoFrame = TestCartaceoFrame.getInstance();
-                btnTestCartaceo.setEnabled(false);
-                testCartaceoFrame.addWindowListener(new WindowAdapter()
-                {
-                    @Override
-                    public void windowClosing(WindowEvent e)
+                TestCartaceoFrame testCartaceoFrame = null;
+                try {
+                    testCartaceoFrame = TestCartaceoFrame.getInstance();
+                } catch (EmployeeNotAllowedException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(new JFrame(),
+                            ex.getMessage(),
+                            "Inane warning",
+                            JOptionPane.WARNING_MESSAGE);
+                } catch (StudentNotAllowedException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(new JFrame(),
+                            ex.getMessage(),
+                            "Inane warning",
+                            JOptionPane.WARNING_MESSAGE);
+                } catch (NotAllowedException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(new JFrame(),
+                            ex.getMessage(),
+                            "Inane warning",
+                            JOptionPane.WARNING_MESSAGE);
+                }
+                if(testCartaceoFrame!=null){
+                    btnTestCartaceo.setEnabled(false);
+                    testCartaceoFrame.addWindowListener(new WindowAdapter()
                     {
-                        btnTestCartaceo.setEnabled(true);
-                        TestCartaceoFrame.destroyInstance();
-                    }
-                    @Override
-                    public void windowClosed(WindowEvent e)
-                    {
-                        btnTestCartaceo.setEnabled(true);
-                        TestCartaceoFrame.destroyInstance();
-                    }
-                });
+                        @Override
+                        public void windowClosing(WindowEvent e)
+                        {
+                            btnTestCartaceo.setEnabled(true);
+                            TestCartaceoFrame.destroyInstance();
+                        }
+                        @Override
+                        public void windowClosed(WindowEvent e)
+                        {
+                            btnTestCartaceo.setEnabled(true);
+                            TestCartaceoFrame.destroyInstance();
+                        }
+                    });
+                }
+
             }
         });
 
         btnCorreggiSimulazione.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(UniCTest.getInstance().getUtenteAutenticato() instanceof Studente)
-                    JOptionPane.showMessageDialog(new JFrame(),
-                            "Solo i tutor possono correggere le simulazioni.",
-                            "Inane warning",
-                            JOptionPane.WARNING_MESSAGE);
-                else {
-                    CorreggiTestCartaceoFrame correggiTestCartaceoFrame = CorreggiTestCartaceoFrame.getInstance();
-                    btnCorreggiSimulazione.setEnabled(false);
-                    correggiTestCartaceoFrame.addWindowListener(new WindowAdapter() {
-                        @Override
-                        public void windowClosing(WindowEvent e) {
-                            btnCorreggiSimulazione.setEnabled(true);
-                            CorreggiTestCartaceoFrame.destroyInstance();
-                        }
+                CorreggiTestCartaceoFrame correggiTestCartaceoFrame = CorreggiTestCartaceoFrame.getInstance();
+                btnCorreggiSimulazione.setEnabled(false);
+                correggiTestCartaceoFrame.addWindowListener(new WindowAdapter() {
+                    @Override
+                    public void windowClosing(WindowEvent e) {
+                        btnCorreggiSimulazione.setEnabled(true);
+                        CorreggiTestCartaceoFrame.destroyInstance();
+                    }
 
-                        @Override
-                        public void windowClosed(WindowEvent e) {
-                            btnCorreggiSimulazione.setEnabled(true);
-                            CorreggiTestCartaceoFrame.destroyInstance();
-                        }
-                    });
-                }
+                    @Override
+                    public void windowClosed(WindowEvent e) {
+                        btnCorreggiSimulazione.setEnabled(true);
+                        CorreggiTestCartaceoFrame.destroyInstance();
+                    }
+                });
             }
         });
 
         btnQuesiti.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(UniCTest.getInstance().getUtenteAutenticato() instanceof Studente)
+
+                VisualizzaQuesitiCompletiFrame visualizzaQuesitiCompletiFrame = null;
+                try {
+                    visualizzaQuesitiCompletiFrame = VisualizzaQuesitiCompletiFrame.getInstance();
+                } catch (StudentNotAllowedException ex) {
+                    ex.printStackTrace();
                     JOptionPane.showMessageDialog(new JFrame(),
-                            "Solo i tutor possono visualizzare i quesiti.",
+                            ex.getMessage(),
                             "Inane warning",
                             JOptionPane.WARNING_MESSAGE);
-                else {
-                    VisualizzaQuesitiCompletiFrame visualizzaQuesitiCompletiFrame = VisualizzaQuesitiCompletiFrame.getInstance();
+                }
+                if(visualizzaQuesitiCompletiFrame!=null){
                     btnQuesiti.setEnabled(false);
 
                     visualizzaQuesitiCompletiFrame.addWindowListener(new WindowAdapter() {
@@ -212,29 +258,42 @@ public class UniCTestFrame extends JFrame{
                         }
                     });
                 }
+
             }
         });
 
         btnTest.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                VisualizzaTestFrame visualizzaTestFrame = VisualizzaTestFrame.getInstance();
-                btnTest.setEnabled(false);
-                visualizzaTestFrame.addWindowListener(new WindowAdapter()
-                {
-                    @Override
-                    public void windowClosing(WindowEvent e)
+                VisualizzaTestFrame visualizzaTestFrame = null;
+                try {
+                    visualizzaTestFrame = VisualizzaTestFrame.getInstance();
+                } catch (EmployeeNotAllowedException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(new JFrame(),
+                            ex.getMessage(),
+                            "Inane warning",
+                            JOptionPane.WARNING_MESSAGE);
+                }
+                if(visualizzaTestFrame!=null){
+                    btnTest.setEnabled(false);
+                    visualizzaTestFrame.addWindowListener(new WindowAdapter()
                     {
-                        btnTest.setEnabled(true);
-                        VisualizzaTestFrame.destroyInstance();
-                    }
-                    @Override
-                    public void windowClosed(WindowEvent e)
-                    {
-                        btnTest.setEnabled(true);
-                        VisualizzaTestFrame.destroyInstance();
-                    }
-                });
+                        @Override
+                        public void windowClosing(WindowEvent e)
+                        {
+                            btnTest.setEnabled(true);
+                            VisualizzaTestFrame.destroyInstance();
+                        }
+                        @Override
+                        public void windowClosed(WindowEvent e)
+                        {
+                            btnTest.setEnabled(true);
+                            VisualizzaTestFrame.destroyInstance();
+                        }
+                    });
+                }
+
             }
         });
     }
@@ -253,7 +312,11 @@ public class UniCTestFrame extends JFrame{
         UniCTest unictest = UniCTest.getInstance(); //esegue il caso d'uso di avviamento
         for(Materia m: unictest.getMappaMaterie().values()) {
             System.out.println("----------------QUESITI "+m.getNome()+"----------------");
-            System.out.println(m.getMappaQuesiti());
+            try {
+                System.out.println(m.getMappaQuesiti());
+            } catch (StudentNotAllowedException e) {
+                e.printStackTrace();
+            }
         }
         System.out.println("------------------TEMPLATE UFFICIALI-----------------");
         System.out.println(unictest.getMappaTemplateUfficiali());

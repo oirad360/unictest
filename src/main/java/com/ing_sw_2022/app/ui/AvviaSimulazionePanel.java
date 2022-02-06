@@ -36,12 +36,20 @@ public class AvviaSimulazionePanel implements ActionListener {
 
         });
         timer.start();
-        AvviaSimulazioneFrame.getInstance().addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                timer.stop();
-            }
-        });
+        try {
+            AvviaSimulazioneFrame.getInstance().addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosing(WindowEvent e) {
+                    timer.stop();
+                }
+            });
+        } catch (EmployeeNotAllowedException e) {
+            e.printStackTrace();
+        } catch (StudentNotAllowedException e) {
+            e.printStackTrace();
+        } catch (NotAllowedException e) {
+            e.printStackTrace();
+        }
     }
 
     public JPanel getMainPanel(){
@@ -51,9 +59,18 @@ public class AvviaSimulazionePanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         timer.stop();
-        Test t= UniCTest.getInstance().terminaSimulazione();
-        UniCTest.getInstance().serialize();
-        AvviaSimulazioneFrame.getInstance().setContentPane(new TestCorrettoPanel(t).getMainPanel());
-        AvviaSimulazioneFrame.getInstance().revalidate();
+        try {
+            Test t = UniCTest.getInstance().terminaSimulazione();
+            UniCTest.getInstance().serialize();
+            AvviaSimulazioneFrame.getInstance().setContentPane(new TestCorrettoPanel(t).getMainPanel());
+            AvviaSimulazioneFrame.getInstance().revalidate();
+        } catch (EmployeeNotAllowedException ex) {
+            ex.printStackTrace();
+        } catch (StudentNotAllowedException ex) {
+            ex.printStackTrace();
+        } catch (NotAllowedException ex) {
+            ex.printStackTrace();
+        }
+
     }
 }

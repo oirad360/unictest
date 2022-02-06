@@ -10,7 +10,7 @@ public class VisualizzaQuesitiCompletiFrame extends JFrame{
     private JPanel mainPanel;
     private JPanel containerQuesiti;
     private static VisualizzaQuesitiCompletiFrame visualizzaQuesitiCompletiFrame;
-    private VisualizzaQuesitiCompletiFrame() {
+    private VisualizzaQuesitiCompletiFrame() throws StudentNotAllowedException {
         setContentPane(mainPanel);
         setTitle("Visualizza quesiti");
         setSize(880,500);
@@ -31,14 +31,8 @@ public class VisualizzaQuesitiCompletiFrame extends JFrame{
         }
     }
 
-    public static VisualizzaQuesitiCompletiFrame getInstance(){
-        if(visualizzaQuesitiCompletiFrame==null) {
-            try {
-                visualizzaQuesitiCompletiFrame=new VisualizzaQuesitiCompletiFrame();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+    public static VisualizzaQuesitiCompletiFrame getInstance() throws StudentNotAllowedException {
+        if(visualizzaQuesitiCompletiFrame==null) visualizzaQuesitiCompletiFrame=new VisualizzaQuesitiCompletiFrame();
         return visualizzaQuesitiCompletiFrame;
     }
     public static void destroyInstance() {

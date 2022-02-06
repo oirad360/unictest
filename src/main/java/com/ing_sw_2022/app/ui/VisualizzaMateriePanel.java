@@ -55,11 +55,11 @@ public class VisualizzaMateriePanel extends JPanel implements ActionListener{
         NuovoQuesitoFrame nuovoQuesitoFrame = null;
         try {
             nuovoQuesitoFrame = NuovoQuesitoFrame.getInstance();
+            String codiceMateria=((JButton)e.getSource()).getName(); //prende il nome della materia dal bottone che ha scatenato l'evento "e"
+            unictest.nuovoQuesito(codiceMateria);
         } catch (StudentNotAllowedException ex) {
             ex.printStackTrace();
         }
-        String codiceMateria=((JButton)e.getSource()).getName(); //prende il nome della materia dal bottone che ha scatenato l'evento "e"
-        unictest.nuovoQuesito(codiceMateria);
         nuovoQuesitoFrame.setContentPane(new InserisciFontePanel().getMainPanel());
         nuovoQuesitoFrame.revalidate(); //serve per far comparire la nuova panel, altrimenti compare solo dopo aver ridimensionato la finestra (boh)
     }
