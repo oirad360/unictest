@@ -72,7 +72,6 @@ class TestAvviaSimulazione {
         Materia m = unictest.getMappaMaterie().get("MAT01");//matematica
         //creo un template che richiede 800 quesiti di matematica (mi aspetto che l'avvio della simulazione fallisca)
 
-
         try {
             unictest.nuovoTemplateP("Test template personalizzato");
             unictest.inserisciInfoTemplateP((float)1.0,(float)0.0,(float)0.0,2,1,2,1);
@@ -90,19 +89,15 @@ class TestAvviaSimulazione {
 
         try {
             t=unictest.avviaSimulazione(mappaTemplate.get(mappaTemplate.lastKey()).getId());
+            fail("Eccezione non avvenuta"); //mi aspetto che l'istruzione avviaSimulazione lanci un'eccezione, se arrivo qui considero fallito il test
+
         } catch (NotEnoughQuestionsException e) {
-            try {
-                assertEquals(e.getMessage(),"la materia "+m.getNome()+" contiene solo "+m.getMappaQuesiti().size()+" quesiti contro i "+800+" richiesti");
-            } catch (StudentNotAllowedException ex) {
-                fail("Eccezione inaspettata");
-            }
             assertNull(t);
         } catch (CloneNotSupportedException e) {
             fail("Eccezione inaspettata");
         } catch (EmployeeNotAllowedException e) {
             fail("Eccezione inaspettata");
         }
-        fail("Eccezione non avvenuta"); //mi aspetto che l'istruzione avviaSimulazione lanci un'eccezione, se arrivo qui considero fallito il test
 
         mappaTemplate.remove(mappaTemplate.lastKey());
         //creo un template che richiede quesiti con 100 risposte (mi aspetto che l'avvio della simulazione fallisca)

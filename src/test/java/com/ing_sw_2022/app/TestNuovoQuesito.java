@@ -24,8 +24,8 @@ class TestNuovoQuesito {
         } catch (StudentNotAllowedException e) {
             e.printStackTrace();
         }
-        assertNotNull(((Tutor)unictest.getUtenteAutenticato()).getMateriaCorrente());
-        assertNotNull(((Tutor)unictest.getUtenteAutenticato()).getMateriaCorrente().getQuesitoCorrente());
+        assertNotNull(((Impiegato)unictest.getUtenteAutenticato()).getMateriaCorrente());
+        assertNotNull(((Impiegato)unictest.getUtenteAutenticato()).getMateriaCorrente().getQuesitoCorrente());
     }
 
     @Test
@@ -49,8 +49,8 @@ class TestNuovoQuesito {
             e.printStackTrace();
         }
         //Visualizza che la fonte del quesitoCorrente non sia null
-        assertNotNull(((Tutor)unictest.getUtenteAutenticato()).getMateriaCorrente().getQuesitoCorrente().getFonte());
-        assertEquals(((Tutor)unictest.getUtenteAutenticato()).getMateriaCorrente().getQuesitoCorrente().getFonte(),"MIUR");
+        assertNotNull(((Impiegato)unictest.getUtenteAutenticato()).getMateriaCorrente().getQuesitoCorrente().getFonte());
+        assertEquals(((Impiegato)unictest.getUtenteAutenticato()).getMateriaCorrente().getQuesitoCorrente().getFonte(),"MIUR");
     }
 
     @Test
@@ -61,8 +61,8 @@ class TestNuovoQuesito {
             e.printStackTrace();
         }
         //Visualizza che il testo del quesitoCorrente non sia null
-        assertNotNull(((Tutor)unictest.getUtenteAutenticato()).getMateriaCorrente().getQuesitoCorrente().getTesto());
-        assertEquals(((Tutor)unictest.getUtenteAutenticato()).getMateriaCorrente().getQuesitoCorrente().getTesto(),"Quanto fa 2+2?");
+        assertNotNull(((Impiegato)unictest.getUtenteAutenticato()).getMateriaCorrente().getQuesitoCorrente().getTesto());
+        assertEquals(((Impiegato)unictest.getUtenteAutenticato()).getMateriaCorrente().getQuesitoCorrente().getTesto(),"Quanto fa 2+2?");
 
     }
 
@@ -74,8 +74,8 @@ class TestNuovoQuesito {
             e.printStackTrace();
         }
         //Visualizza che la difficoltà del quesitoCorrente non sia null
-        assertNotNull(((Tutor)unictest.getUtenteAutenticato()).getMateriaCorrente().getQuesitoCorrente().getDifficoltà());
-        assertEquals(((Tutor)unictest.getUtenteAutenticato()).getMateriaCorrente().getQuesitoCorrente().getDifficoltà(),3);
+        assertNotNull(((Impiegato)unictest.getUtenteAutenticato()).getMateriaCorrente().getQuesitoCorrente().getDifficoltà());
+        assertEquals(((Impiegato)unictest.getUtenteAutenticato()).getMateriaCorrente().getQuesitoCorrente().getDifficoltà(),3);
 
     }
 
@@ -91,25 +91,25 @@ class TestNuovoQuesito {
         }
 
         //Visualizza che la lista delle rispsote del quesitoCorrente non sia null
-        assertNotNull(((Tutor)unictest.getUtenteAutenticato()).getMateriaCorrente().getQuesitoCorrente().getRisposte());
-        assertEquals(4, ((Tutor)unictest.getUtenteAutenticato()).getMateriaCorrente().getQuesitoCorrente().getRisposte().size());
+        assertNotNull(((Impiegato)unictest.getUtenteAutenticato()).getMateriaCorrente().getQuesitoCorrente().getRisposte());
+        assertEquals(4, ((Impiegato)unictest.getUtenteAutenticato()).getMateriaCorrente().getQuesitoCorrente().getRisposte().size());
 
     }
 
     @Test
     void testConfermaQuesito(){
         Map<String, QuesitoDescrizione> mappaQuesiti = null;
-
+        Integer size =null;
         try {
-            mappaQuesiti = ((Tutor)unictest.getUtenteAutenticato()).getMateriaCorrente().getMappaQuesiti();
-
+            mappaQuesiti = ((Impiegato)unictest.getUtenteAutenticato()).getMateriaCorrente().getMappaQuesiti();
+            size = mappaQuesiti.size();
             unictest.confermaQuesito("p1");
         } catch (StudentNotAllowedException e) {
-            e.printStackTrace();
+            System.out.println("a");
         }
-        int size = mappaQuesiti.size();
+
         assertEquals(size+1, mappaQuesiti.size());
-        assertNull(((Tutor)unictest.getUtenteAutenticato()).getMateriaCorrente());
+        assertNull(((Impiegato)unictest.getUtenteAutenticato()).getMateriaCorrente());
     }
 
 }
