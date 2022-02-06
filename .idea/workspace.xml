@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="466ccce6-c6a1-4926-aa20-114b33a6504a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestAvviaSimulazione.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestAvviaSimulazione.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestNuovoQuesito.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestNuovoQuesito.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestAvviaSimulazione.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestAvviaSimulazione.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestNuovoQuesito.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestNuovoQuesito.class" afterDir="false" />
-    </list>
+    <list default="true" id="466ccce6-c6a1-4926-aa20-114b33a6504a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -89,7 +83,7 @@
       <module name="unictest" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ing_sw_2022.app.*" />
+          <option name="PATTERN" value="com.ing_sw_2022.app.eccezioni.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -104,7 +98,7 @@
       <module name="unictest" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ing_sw_2022.app.*" />
+          <option name="PATTERN" value="com.ing_sw_2022.app.eccezioni.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -119,7 +113,7 @@
       <module name="unictest" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ing_sw_2022.app.*" />
+          <option name="PATTERN" value="com.ing_sw_2022.app.eccezioni.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -134,7 +128,7 @@
       <module name="unictest" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ing_sw_2022.app.*" />
+          <option name="PATTERN" value="com.ing_sw_2022.app.eccezioni.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -149,7 +143,7 @@
       <module name="unictest" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ing_sw_2022.app.*" />
+          <option name="PATTERN" value="com.ing_sw_2022.app.eccezioni.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -231,7 +225,7 @@
       <workItem from="1644086956283" duration="3332000" />
       <workItem from="1644056232322" duration="24188000" />
       <workItem from="1644088555020" duration="6708000" />
-      <workItem from="1644159371571" duration="9854000" />
+      <workItem from="1644159371571" duration="10556000" />
     </task>
     <servers />
   </component>

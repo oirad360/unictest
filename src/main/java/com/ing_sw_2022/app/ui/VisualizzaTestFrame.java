@@ -1,6 +1,6 @@
 package com.ing_sw_2022.app.ui;
 
-import com.ing_sw_2022.app.EmployeeNotAllowedException;
+import com.ing_sw_2022.app.eccezioni.EmployeeNotAllowedException;
 
 import javax.swing.*;
 

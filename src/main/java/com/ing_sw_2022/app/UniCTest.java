@@ -1,6 +1,10 @@
 package com.ing_sw_2022.app;
 
-import javax.swing.*;
+import com.ing_sw_2022.app.eccezioni.EmployeeNotAllowedException;
+import com.ing_sw_2022.app.eccezioni.NotEnoughQuestionsException;
+import com.ing_sw_2022.app.eccezioni.QuestionNotFoundException;
+import com.ing_sw_2022.app.eccezioni.StudentNotAllowedException;
+
 import java.io.*;
 import java.util.*;
 
@@ -113,7 +117,7 @@ public class UniCTest implements Serializable{
     } //MOMENTANEO
     /////////////////////////////////////////////METODI DCD///////////////////////////////////////////////
                      ////////////////////UC7 INSERISCI QUESITO/////////////////////
-    public List<Materia> visualizzaMaterieInsegnate() throws StudentNotAllowedException{
+    public List<Materia> visualizzaMaterieInsegnate() throws StudentNotAllowedException {
         if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono inserire quesiti.");
         return ((Impiegato)utenteAutenticato).getMaterieInsegnate();
     }
@@ -166,7 +170,7 @@ public class UniCTest implements Serializable{
         return list;
     }
 
-    public void creaSezioneP(String codiceMateria, int numQuesiti, int difficoltàMedia) throws EmployeeNotAllowedException{
+    public void creaSezioneP(String codiceMateria, int numQuesiti, int difficoltàMedia) throws EmployeeNotAllowedException {
         if(utenteAutenticato instanceof Impiegato) throw new EmployeeNotAllowedException("I tutor non possono creare template per simulazioni online.");
         Materia m=mappaMaterie.get(codiceMateria);
         ((Studente)utenteAutenticato).creaSezioneP(m,numQuesiti,difficoltàMedia);

@@ -1,5 +1,6 @@
 package com.ing_sw_2022.app;
 
+import com.ing_sw_2022.app.eccezioni.StudentNotAllowedException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,9 +1,8 @@
 package com.ing_sw_2022.app.ui;
 
 import com.ing_sw_2022.app.NotAllowedException;
-import com.ing_sw_2022.app.StudentNotAllowedException;
+import com.ing_sw_2022.app.eccezioni.StudentNotAllowedException;
 import com.ing_sw_2022.app.UniCTest;
-import com.ing_sw_2022.app.ui.TestCartaceoFrame;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;

@@ -1,7 +1,7 @@
 package com.ing_sw_2022.app.ui;
 
 import com.ing_sw_2022.app.Materia;
-import com.ing_sw_2022.app.StudentNotAllowedException;
+import com.ing_sw_2022.app.eccezioni.StudentNotAllowedException;
 import com.ing_sw_2022.app.UniCTest;
 
 import java.awt.*;

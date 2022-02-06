@@ -2,6 +2,10 @@ package com.ing_sw_2022.app;
 
 //import sun.reflect.generics.tree.Tree;
 
+import com.ing_sw_2022.app.eccezioni.NotEnoughQuestionsException;
+import com.ing_sw_2022.app.eccezioni.QuestionNotFoundException;
+import com.ing_sw_2022.app.eccezioni.StudentNotAllowedException;
+
 import java.io.*;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
@@ -91,7 +95,7 @@ public class Materia implements Serializable {
         quesitoDescrizioneCorrente = null;
     }
                  ///////////////////////////UC1 AVVIA SIMULAZIONE//////////////////////
-    public List<QuesitoDescrizione> generaQuesiti(Template t, Sezione s) throws NotEnoughQuestionsException{
+    public List<QuesitoDescrizione> generaQuesiti(Template t, Sezione s) throws NotEnoughQuestionsException {
         int n=s.getNumQuesiti();
         int dim=mappaQuesiti.size();
         if(n>dim) throw new NotEnoughQuestionsException("la materia "+s.getMateria().getNome()+" contiene solo "+dim+" quesiti contro i "+n+" richiesti");

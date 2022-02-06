@@ -1,6 +1,8 @@
 package com.ing_sw_2022.app.ui;
 
 import com.ing_sw_2022.app.*;
+import com.ing_sw_2022.app.eccezioni.NotEnoughQuestionsException;
+import com.ing_sw_2022.app.eccezioni.StudentNotAllowedException;
 
 import javax.swing.*;
 import java.awt.*;

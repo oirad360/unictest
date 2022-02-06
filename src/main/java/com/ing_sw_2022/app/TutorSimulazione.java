@@ -1,5 +1,8 @@
 package com.ing_sw_2022.app;
 
+import com.ing_sw_2022.app.eccezioni.NotEnoughQuestionsException;
+import com.ing_sw_2022.app.eccezioni.QuestionNotFoundException;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

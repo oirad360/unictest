@@ -1,8 +1,7 @@
 package com.ing_sw_2022.app.ui;
 
-import com.ing_sw_2022.app.Materia;
 import com.ing_sw_2022.app.NotAllowedException;
-import com.ing_sw_2022.app.StudentNotAllowedException;
+import com.ing_sw_2022.app.eccezioni.StudentNotAllowedException;
 import com.ing_sw_2022.app.UniCTest;
 
 import javax.swing.*;
@@ -12,7 +11,6 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 
 public class InsInfoTemplateUffPanel implements ActionListener, ChangeListener {
     private JPanel mainPanel;

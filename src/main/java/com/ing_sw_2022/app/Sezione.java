@@ -1,5 +1,8 @@
 package com.ing_sw_2022.app;
 
+import com.ing_sw_2022.app.eccezioni.NotEnoughQuestionsException;
+import com.ing_sw_2022.app.eccezioni.QuestionNotFoundException;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -79,7 +82,7 @@ public class Sezione implements Serializable {
         return lista;
     }
 
-    public List<QuesitoDescrizione> recuperaQuesiti(List<String> listaIdQuesiti)throws TemplateSectionException,QuestionNotFoundException{
+    public List<QuesitoDescrizione> recuperaQuesiti(List<String> listaIdQuesiti)throws TemplateSectionException, QuestionNotFoundException {
         if(listaIdQuesiti.size()!=numQuesiti) throw new TemplateSectionException("Sono stati inseriti "+listaIdQuesiti.size()+" quesiti ma ne sono richiesti "+numQuesiti);
         return materia.recuperaQuesiti(listaIdQuesiti);
     }

@@ -1,13 +1,15 @@
 package com.ing_sw_2022.app.ui;
 
 import com.ing_sw_2022.app.*;
+import com.ing_sw_2022.app.eccezioni.EmployeeNotAllowedException;
+import com.ing_sw_2022.app.eccezioni.NotEnoughQuestionsException;
+import com.ing_sw_2022.app.eccezioni.StudentNotAllowedException;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.List;
 
 public class VisualizzaTemplatePanel implements ActionListener {
     private JPanel mainPanel;
