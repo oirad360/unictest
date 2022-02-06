@@ -306,12 +306,21 @@ public class UniCTest implements Serializable{
     }
     //////////////////////////////UC5 NUOVO STUDENTE/////////////////////
     public void nuovoStudente(String cf, String nome, String cognome) throws NotAllowedException, StudentNotAllowedException, AlreadyRegisteredException {
-        if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono registrare nuovi studenti");
+        if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono registrare nuovi studenti.");
         if(mappaUtenti.containsKey(cf.toUpperCase())) throw new AlreadyRegisteredException("Codice fiscale già presente nel sistema.");
         nome=nome.substring(0,1).toUpperCase()+nome.substring(1).toLowerCase();
         cognome=cognome.substring(0,1).toUpperCase()+cognome.substring(1).toLowerCase();
         Studente s=((Impiegato)utenteAutenticato).nuovoStudente(cf.toUpperCase(), nome, cognome);
         mappaUtenti.put(s.getCf(),s);
+    }
+    ///////////////////////UC AGGIUNGI MATERIA INSEGNATA////////////////////////
+    public void aggiungiMateriaInsegnata(String cf, String nomeMateria) throws NotAllowedException, StudentNotAllowedException,UserNotFoundException{
+        if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono aggiungere materie.");
+        if(!mappaUtenti.containsKey(cf.toUpperCase())) throw new UserNotFoundException("Utente non trovato");
+        if(!(mappaUtenti.get(cf) instanceof Impiegato)) throw new UserNotFoundException("L'utente inserito non è un tutor");
+        Impiegato imp= (Impiegato) mappaUtenti.get(cf);
+        ((Impiegato)utenteAutenticato).aggiungiMateriaInsegnata(imp,nomeMateria);
+        System.out.println(mappaUtenti);
     }
                         ////////////METODI PER CASO D'USO DI AVVIAMENTO//////////////
 
