@@ -23,6 +23,7 @@ public class UniCTestFrame extends JFrame{
     private JButton btnQuesiti;
     private JButton btnTestSvolti;
     private JButton btnNuovoUtente;
+    private JButton btnMateria;
     private static UniCTestFrame unictestFrame;
     private static final Integer pos = 100;
     private UniCTestFrame(){
