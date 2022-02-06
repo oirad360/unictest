@@ -68,9 +68,17 @@ public class App
 
 
         Impiegato prova = new Amministratore(new Tutor("Luca", "Bianchi", "LCABNC80A02C456P"));
-        Impiegato daDecorare = new Tutor("Luca", "Bianchi", "LCABNC80A02C456P");
         prova.whoAmI();
-        //prova.rendiTutorSimulazione(da);
+        Impiegato daDecorare = new Tutor("Luca", "Bianchi", "LCABNC80A02C456P");
+        UniCTest.getInstance().getMappaUtenti().put("LCABNC80A02C456P", daDecorare);
+        daDecorare.whoAmI();
+        daDecorare = prova.rendiTutorSimulazione(daDecorare);
+        daDecorare = prova.rendiAmministratore(daDecorare);
+        System.out.println(daDecorare instanceof Amministratore);
+        daDecorare.whoAmI();
+        daDecorare = prova.rimuoviTutorSimulazione(daDecorare);
+        daDecorare.whoAmI();
+
         //UniCTest.getInstance().getMappaUtenti().put(prova.getCf(),prova);
         System.out.println("UTENTI:");
         System.out.println(UniCTest.getInstance().getMappaUtenti());

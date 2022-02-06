@@ -23,24 +23,26 @@ public class TutorSimulazione extends Decorator implements Serializable {
     @Override
     public String whoAmI(){
         String chiSonoIo = "TutorSimulazione";
-        System.out.println(chiSonoIo + ", ");
+        System.out.print(chiSonoIo + ", ");
         return chiSonoIo+this.impiegato.whoAmI();
     }
     @Override
-    public void rendiAmministratore(Impiegato imp){
+    public Impiegato rendiAmministratore(Impiegato imp){
         this.impiegato.rendiAmministratore(imp);
+        return imp;
     }
     @Override
-    public void rendiTutorSimulazione(Impiegato imp){
-        this.impiegato.rendiAmministratore(imp);
+    public Impiegato rendiTutorSimulazione(Impiegato imp){
+        this.impiegato.rendiTutorSimulazione(imp);
+        return imp;
     }
     @Override
-    public void rimuoviAmministratore(Impiegato imp){
-        this.impiegato.rendiAmministratore(imp);
+    public Impiegato rimuoviAmministratore(Impiegato imp){
+        return this.impiegato.rimuoviAmministratore(imp);
     }
     @Override
-    public void rimuoviTutorSimulazione(Impiegato imp){
-        this.impiegato.rendiAmministratore(imp);
+    public Impiegato rimuoviTutorSimulazione(Impiegato imp){
+        return this.impiegato.rimuoviTutorSimulazione(imp);
     }
 
     public TemplatePersonalizzato getTemplatePersonalizzatoCorrente() {
