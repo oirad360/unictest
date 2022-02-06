@@ -1,8 +1,6 @@
 package com.ing_sw_2022.app;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Map;
 import java.util.TreeMap;
 
 public class Amministratore extends Decorator implements Serializable{
@@ -27,7 +25,7 @@ public class Amministratore extends Decorator implements Serializable{
 
     @Override
     public String toString() {
-        return impiegato.toString()+"\nSono un Amministratore";
+        return "\nAmministratore + "+impiegato.toString()+"\n";
     }
 
     //////////////////////////////////////////////METODI DCD//////////////////////////////////////////////
@@ -60,53 +58,69 @@ public class Amministratore extends Decorator implements Serializable{
     }
 
     @Override
-    public void rendiAmministratore(Impiegato imp){
+    public Impiegato rendiAmministratore(Impiegato imp){
         Impiegato impDecorato = new Amministratore(imp);
-        UniCTest unictest = UniCTest.getInstance();
-        unictest.getMappaUtenti().replace(imp.getCf(), impDecorato, imp);
+        UniCTest.getInstance().getMappaUtenti().replace(imp.getCf(), impDecorato);
+        return impDecorato;
     }
 
     @Override
-    public void rendiTutorSimulazione(Impiegato imp){
+    public Impiegato rendiTutorSimulazione(Impiegato imp){
         Impiegato impDecorato = new TutorSimulazione(imp);
-        UniCTest unictest = UniCTest.getInstance();
-        unictest.getMappaUtenti().replace(imp.getCf(), impDecorato, imp);
+        UniCTest.getInstance().getMappaUtenti().replace(imp.getCf(), impDecorato);
+        return impDecorato;
     }
 
     @Override
-    public void rimuoviAmministratore(Impiegato imp){
-        int flag=0;
+    public Impiegato rimuoviAmministratore(Impiegato imp){
+        //int flag=0;
         Impiegato attuale = imp;
         Impiegato precedente = null;
         Impiegato successivo = imp.getImpiegato();   //Struttura:  PREC(ATTUALE(SUCC))
-        do{
+        while(/*flag == 0 &&*/ successivo != null){
             if(attuale instanceof Amministratore){
+                if(precedente!=null){
                 precedente.setImpiegato(successivo);
-                flag = 1;
+                //flag = 1;
+                return imp;
+                } else {
+                    UniCTest.getInstance().getMappaUtenti().replace(imp.getCf(), successivo);
+                    return successivo;
+                }
             } else { //Scaliamo tutti al successivo
-                successivo = successivo.getImpiegato(); //Il SUCC diventa più SUCC
-                attuale = successivo; //L'ATT diventa il SUCC
                 precedente = attuale; //Il PREC diventa l'ATT
+                attuale = successivo; //L'ATT diventa il SUCC
+                successivo = successivo.getImpiegato(); //Il SUCC diventa più SUCC
             }
-        }while(flag == 0 && successivo != null); //Interrompo se lo trovo o se non ho più successivi (cioè più interni)! --> Infatti il Tutor restituisce null perché non ha interni.
+        } //Interrompo se lo trovo o se non ho più successivi (cioè più interni)! --> Infatti il Tutor restituisce null perché non ha interni.
+        System.out.println("Non sei Amministratore, quindi non rimuovo nulla");
+        return imp;
     }
 
     @Override
-    public void rimuoviTutorSimulazione(Impiegato imp){
-        int flag=0;
+    public Impiegato rimuoviTutorSimulazione(Impiegato imp){
+        //int flag=0;
         Impiegato attuale = imp;
         Impiegato precedente = null;
         Impiegato successivo = imp.getImpiegato();   //Struttura:  PREC(ATTUALE(SUCC))
-        do{
+        while(/*flag == 0 &&*/ successivo != null){
             if(attuale instanceof TutorSimulazione){
-                precedente.setImpiegato(successivo);
-                flag = 1;
+                if(precedente!=null){
+                    precedente.setImpiegato(successivo);
+                    //flag = 1;
+                    return imp;
+                } else {
+                    UniCTest.getInstance().getMappaUtenti().replace(imp.getCf(), successivo);
+                    return successivo;
+                }
             } else { //Scaliamo tutti al successivo
-                successivo = successivo.getImpiegato(); //Il SUCC diventa più SUCC
-                attuale = successivo; //L'ATT diventa il SUCC
                 precedente = attuale; //Il PREC diventa l'ATT
+                attuale = successivo; //L'ATT diventa il SUCC
+                successivo = successivo.getImpiegato(); //Il SUCC diventa più SUCC
             }
-        }while(flag == 0 && successivo != null); //Interrompo se lo trovo o se non ho più successivi (cioè più interni)! --> Infatti il Tutor restituisce null perché non ha interni.
+        } //Interrompo se lo trovo o se non ho più successivi (cioè più interni)! --> Infatti il Tutor restituisce null perché non ha interni.
+        System.out.println("Non sei TutorSimulazione, quindi non rimuovo nulla");
+        return imp;
     }
 
 }

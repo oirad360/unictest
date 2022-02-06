@@ -19,10 +19,10 @@ public abstract class Impiegato extends Utente implements Serializable {
 
     public abstract String whoAmI();
 
-    public abstract void rendiAmministratore(Impiegato imp);
-    public abstract void rendiTutorSimulazione(Impiegato imp);
-    public abstract void rimuoviAmministratore(Impiegato imp);
-    public abstract void rimuoviTutorSimulazione(Impiegato imp);
+    public abstract Impiegato rendiAmministratore(Impiegato imp);
+    public abstract Impiegato rendiTutorSimulazione(Impiegato imp);
+    public abstract Impiegato rimuoviAmministratore(Impiegato imp);
+    public abstract Impiegato rimuoviTutorSimulazione(Impiegato imp);
 
     public abstract void addMateriaInsegnata(Materia m);
 

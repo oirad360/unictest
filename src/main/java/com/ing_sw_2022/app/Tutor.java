@@ -28,20 +28,24 @@ public class Tutor extends Impiegato implements Serializable{
     }
 
     @Override
-    public void rendiAmministratore(Impiegato imp){
+    public Impiegato rendiAmministratore(Impiegato imp){
         System.out.println("Non lo posso fare. Non sono un Amministratore.");
+        return imp;
     }
     @Override
-    public void rendiTutorSimulazione(Impiegato imp){
+    public Impiegato rendiTutorSimulazione(Impiegato imp){
         System.out.println("Non lo posso fare. Non sono un Amministratore.");
+        return imp;
     }
     @Override
-    public void rimuoviAmministratore(Impiegato imp){
+    public Impiegato rimuoviAmministratore(Impiegato imp){
         System.out.println("Non lo posso fare. Non sono un Amministratore.");
+        return imp;
     }
     @Override
-    public void rimuoviTutorSimulazione(Impiegato imp){
+    public Impiegato rimuoviTutorSimulazione(Impiegato imp){
         System.out.println("Non lo posso fare. Non sono un Amministratore.");
+        return imp;
     }
 
     @Override
@@ -82,7 +86,7 @@ public class Tutor extends Impiegato implements Serializable{
 
     @Override
     public String toString() {
-        return "Tutor{" +
+        return "\nTutor{" +
                 "nome='" + super.getNome() + '\'' +
                 ", cognome='" + super.getCognome() + '\'' +
                 ", cf='" + super.getCf() + '\'' +

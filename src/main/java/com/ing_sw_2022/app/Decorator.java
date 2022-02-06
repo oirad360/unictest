@@ -24,20 +24,22 @@ public abstract class Decorator extends Impiegato implements Serializable{
         return impiegato;
     }
     @Override
-    public void rendiAmministratore(Impiegato imp){
+    public Impiegato rendiAmministratore(Impiegato imp){
         this.impiegato.rendiAmministratore(imp);
+        return imp;
     }
     @Override
-    public void rendiTutorSimulazione(Impiegato imp){
+    public Impiegato rendiTutorSimulazione(Impiegato imp){
         this.impiegato.rendiTutorSimulazione(imp);
+        return imp;
     }
     @Override
-    public void rimuoviAmministratore(Impiegato imp){
-        this.impiegato.rimuoviAmministratore(imp);
+    public Impiegato rimuoviAmministratore(Impiegato imp){
+        return this.impiegato.rimuoviAmministratore(imp);
     }
     @Override
-    public void rimuoviTutorSimulazione(Impiegato imp){
-        this.impiegato.rimuoviTutorSimulazione(imp);
+    public Impiegato rimuoviTutorSimulazione(Impiegato imp){
+        return this.impiegato.rimuoviTutorSimulazione(imp);
     }
 
     @Override
