@@ -19,6 +19,13 @@ public abstract class Decorator extends Impiegato implements Serializable{
         impiegato=imp;
     }
     @Override
+    public abstract String whoAmI();
+    @Override
+    public abstract boolean isAmministratore();
+    @Override
+    public abstract boolean isTutorSimulazione();
+
+    @Override
     public Impiegato getImpiegato() {
         return impiegato;
     }

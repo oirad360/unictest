@@ -6,19 +6,31 @@
   <component name="ChangeListManager">
     <list default="true" id="6316c2b3-ee47-4200-a26c-f6f3413af4fa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/4.0 Elaborazione 3/2022_01_18_UniCTest_Elaborazione_3.docx" beforeDir="false" afterPath="$PROJECT_DIR$/4.0 Elaborazione 3/2022_01_18_UniCTest_Elaborazione_3.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.1 Elaborazione 4/2022_01_29_UniCTest_Elaborazione_4.docx" beforeDir="false" afterPath="$PROJECT_DIR$/5.1 Elaborazione 4/2022_01_29_UniCTest_Elaborazione_4.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.1 Elaborazione 4/Pattern.asta" beforeDir="false" afterPath="$PROJECT_DIR$/5.1 Elaborazione 4/Pattern.asta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/6.1 Elaborazione 5/2022_02_03_UniCTest_Elaborazione_5.docx" beforeDir="false" afterPath="$PROJECT_DIR$/6.1 Elaborazione 5/2022_02_03_UniCTest_Elaborazione_5.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/6.1 Elaborazione 5/UniCTest_iterazione5.asta" beforeDir="false" afterPath="$PROJECT_DIR$/6.1 Elaborazione 5/UniCTest_iterazione5.asta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/7. Elaborazione 6/2022_01_29_UniCTest_Elaborazione_6.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/7. Elaborazione 6/UniCTest_iterazione6.asta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniCTest - Documentazione completa.docx" beforeDir="false" afterPath="$PROJECT_DIR$/UniCTest - Documentazione completa.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ser.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Amministratore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Amministratore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Decorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Decorator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Impiegato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Impiegato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Tutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Tutor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/TutorSimulazione.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/TutorSimulazione.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Amministratore.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Amministratore.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Decorator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Decorator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Impiegato.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Impiegato.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Tutor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Tutor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/TutorSimulazione.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/TutorSimulazione.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -39,6 +51,8 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="121" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="281" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RunManager">
@@ -71,6 +85,7 @@
       <updated>1644168527405</updated>
       <workItem from="1644168543967" duration="31000" />
       <workItem from="1644182968874" duration="2000" />
+      <workItem from="1644183235945" duration="3330000" />
     </task>
     <servers />
   </component>

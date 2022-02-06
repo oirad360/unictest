@@ -21,6 +21,14 @@ public class Amministratore extends Decorator implements Serializable{
         System.out.print(chiSonoIo + ", ");
         return chiSonoIo+this.impiegato.whoAmI();
     }
+    @Override
+    public boolean isAmministratore(){
+        return true;
+    }
+    @Override
+    public boolean isTutorSimulazione(){
+        return this.impiegato.isTutorSimulazione();
+    }
 
 
     @Override
@@ -59,16 +67,22 @@ public class Amministratore extends Decorator implements Serializable{
 
     @Override
     public Impiegato rendiAmministratore(Impiegato imp){
-        Impiegato impDecorato = new Amministratore(imp);
-        UniCTest.getInstance().getMappaUtenti().replace(imp.getCf(), impDecorato);
-        return impDecorato;
+        if(!imp.isAmministratore()) {
+            Impiegato impDecorato = new Amministratore(imp);
+            UniCTest.getInstance().getMappaUtenti().replace(imp.getCf(), impDecorato);
+            return impDecorato;
+        }
+        return imp; //Exception
     }
 
     @Override
     public Impiegato rendiTutorSimulazione(Impiegato imp){
-        Impiegato impDecorato = new TutorSimulazione(imp);
-        UniCTest.getInstance().getMappaUtenti().replace(imp.getCf(), impDecorato);
-        return impDecorato;
+        if(!imp.isTutorSimulazione()){
+            Impiegato impDecorato = new TutorSimulazione(imp);
+            UniCTest.getInstance().getMappaUtenti().replace(imp.getCf(), impDecorato);
+            return impDecorato;
+        }
+        return imp; //Exception
     }
 
     @Override

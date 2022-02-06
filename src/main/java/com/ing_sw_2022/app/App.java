@@ -85,6 +85,13 @@ public class App
         daDecorare = prova.rendiAmministratore(daDecorare);
         System.out.println(daDecorare instanceof Amministratore);
         daDecorare.whoAmI();
+        daDecorare = prova.rendiTutorSimulazione(daDecorare);
+        daDecorare.whoAmI();
+        daDecorare = prova.rendiAmministratore(daDecorare);
+        daDecorare.whoAmI();
+        daDecorare = prova.rendiTutorSimulazione(daDecorare);
+        daDecorare.whoAmI();
+
 
         System.out.println("\nUTENTI 3:");
         System.out.println(UniCTest.getInstance().getMappaUtenti());

@@ -13,18 +13,29 @@ public class Tutor extends Impiegato implements Serializable{
         this.materieInsegnate = new HashMap<>();
     }
 
+    @Override
     public Impiegato getImpiegato() {
         return null;
     }
 
+    @Override
     public Impiegato setImpiegato(Impiegato impiegato) {
         return null;
     }
 
+    @Override
     public String whoAmI(){
         String chiSonoIo = "Tutor";
         System.out.println(chiSonoIo + " e basta così.");
         return chiSonoIo;
+    }
+    @Override
+    public boolean isAmministratore(){
+        return false;
+    }
+    @Override
+    public boolean isTutorSimulazione(){
+        return false;
     }
 
     @Override

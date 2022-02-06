@@ -22,6 +22,8 @@ public abstract class Impiegato extends Utente implements Serializable {
     public abstract Impiegato setImpiegato(Impiegato impiegato);
 
     public abstract String whoAmI();
+    public abstract boolean isAmministratore();
+    public abstract boolean isTutorSimulazione();
 
     public abstract Impiegato rendiAmministratore(Impiegato imp);
     public abstract Impiegato rendiTutorSimulazione(Impiegato imp);

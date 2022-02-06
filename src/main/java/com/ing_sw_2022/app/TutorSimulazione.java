@@ -31,6 +31,15 @@ public class TutorSimulazione extends Decorator implements Serializable {
         return chiSonoIo+this.impiegato.whoAmI();
     }
     @Override
+    public boolean isAmministratore(){
+        return this.impiegato.isAmministratore();
+    }
+    @Override
+    public boolean isTutorSimulazione(){
+        return true;
+    }
+
+    @Override
     public Impiegato rendiAmministratore(Impiegato imp){
         this.impiegato.rendiAmministratore(imp);
         return imp;
