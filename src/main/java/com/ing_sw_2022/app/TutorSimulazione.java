@@ -56,9 +56,10 @@ public class TutorSimulazione extends Decorator implements Serializable {
     public TreeMap<String, Template> getMappaTemplateTestScritti() {
         return mappaTemplateTestScritti;
     }
+
     @Override
     public String toString() {
-        return impiegato.toString()+"\nSono un Tutor di Simulazione";
+        return "\nTutorSimulazione + "+impiegato.toString()+"\n";
     }
     ////////////////////////////////////////////METODI DCD//////////////////////////////////////////////////
                 ////////////////////UC2/T CREA TEMPLATE DI TEST PERSONALIZZATO/////////////////////

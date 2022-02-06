@@ -25,7 +25,7 @@ public class Amministratore extends Decorator implements Serializable{
 
     @Override
     public String toString() {
-        return impiegato.toString()+"\nSono un Amministratore";
+        return "\nAmministratore + "+impiegato.toString()+"\n";
     }
 
     //////////////////////////////////////////////METODI DCD//////////////////////////////////////////////
@@ -60,16 +60,14 @@ public class Amministratore extends Decorator implements Serializable{
     @Override
     public Impiegato rendiAmministratore(Impiegato imp){
         Impiegato impDecorato = new Amministratore(imp);
-        UniCTest unictest = UniCTest.getInstance();
-        unictest.getMappaUtenti().replace(imp.getCf(), impDecorato);
+        UniCTest.getInstance().getMappaUtenti().replace(imp.getCf(), impDecorato);
         return impDecorato;
     }
 
     @Override
     public Impiegato rendiTutorSimulazione(Impiegato imp){
         Impiegato impDecorato = new TutorSimulazione(imp);
-        UniCTest unictest = UniCTest.getInstance();
-        unictest.getMappaUtenti().replace(imp.getCf(), impDecorato);
+        UniCTest.getInstance().getMappaUtenti().replace(imp.getCf(), impDecorato);
         return impDecorato;
     }
 
@@ -85,7 +83,10 @@ public class Amministratore extends Decorator implements Serializable{
                 precedente.setImpiegato(successivo);
                 //flag = 1;
                 return imp;
-                } else return successivo;
+                } else {
+                    UniCTest.getInstance().getMappaUtenti().replace(imp.getCf(), successivo);
+                    return successivo;
+                }
             } else { //Scaliamo tutti al successivo
                 precedente = attuale; //Il PREC diventa l'ATT
                 attuale = successivo; //L'ATT diventa il SUCC
@@ -108,7 +109,10 @@ public class Amministratore extends Decorator implements Serializable{
                     precedente.setImpiegato(successivo);
                     //flag = 1;
                     return imp;
-                } else return successivo;
+                } else {
+                    UniCTest.getInstance().getMappaUtenti().replace(imp.getCf(), successivo);
+                    return successivo;
+                }
             } else { //Scaliamo tutti al successivo
                 precedente = attuale; //Il PREC diventa l'ATT
                 attuale = successivo; //L'ATT diventa il SUCC

@@ -86,7 +86,7 @@ public class Tutor extends Impiegato implements Serializable{
 
     @Override
     public String toString() {
-        return "Tutor{" +
+        return "\nTutor{" +
                 "nome='" + super.getNome() + '\'' +
                 ", cognome='" + super.getCognome() + '\'' +
                 ", cf='" + super.getCf() + '\'' +
