@@ -6,6 +6,7 @@ import net.sourceforge.tess4j.TesseractException;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public class TesseractObjAdapter implements Lettore{
     transient private Tesseract tesseract;
@@ -13,7 +14,7 @@ public class TesseractObjAdapter implements Lettore{
     private Studente studenteCorrente;
     private Template templateCorrente;
     private Test testCorrente;
-
+    private Pattern pattern = Pattern.compile("-?\\d+(\\.\\d+)?");
     public TesseractObjAdapter() {
 
     }
@@ -33,8 +34,6 @@ public class TesseractObjAdapter implements Lettore{
         int i=0;
         for(Object o1:o){
             line[i]=(String) o1;
-            System.out.println(line[i]);
-            System.out.println("---------");
             if(i==3) break;
             i++;
         }
@@ -57,7 +56,6 @@ public class TesseractObjAdapter implements Lettore{
         Impiegato imp=(Impiegato) UniCTest.getInstance().getMappaUtenti().get(cfTutor);
         Template te=imp.getMappaTemplateTestScritti().get(idTest.split("-")[0]);//lancia eccezione nel caso in cui l'impiegato che ha scritto il test non risulta essere tutor di simulazione
         //La prima parte dell'id del Test è l'id del Template su cui esso è basato
-        System.out.println((Test)te.getMappaTest().get(idTest));
         testCorrente=(Test)te.getMappaTest().get(idTest).clone();
         //il template corrente deve essere un clone del template con il quale il tutor ha scritto il test
         //vedo se il clone è già presente nella mappaTemplateTestSvolti dello studente, se lo trovo lo metto corrente
@@ -89,14 +87,22 @@ public class TesseractObjAdapter implements Lettore{
         for(String s: line){
             String parte1=s.split(" Risposta ")[0];
             String parte2=s.split(" Risposta ")[1];
-            int numDomanda=Integer.parseInt(parte1.split(" ")[1]);
+            String numDomandaString=parte1.split(" ")[1];
             String[] numRisposte=parte2.split(" ");
-            QuesitoReale qr=quesiti.get(idTest+"-"+(numDomanda-1));
-            Map<String,Risposta> risposteDate = qr.getRisposteDate();
-            for(String r: numRisposte){
-                Risposta risp=qr.getQuesitoDescrizione().getRisposte().get(qr.getQuesitoDescrizione().getId()+"-"+(Integer.parseInt(r)-1));
-                risposteDate.put(risp.getId(),risp);
+            int numDomanda=0;
+            if(isNumeric(numDomandaString)) {
+                numDomanda=Integer.parseInt(numDomandaString);
+                QuesitoReale qr=quesiti.get(idTest+"-"+(numDomanda-1));
+                Map<String,Risposta> risposteDate = qr.getRisposteDate();
+                for(String r: numRisposte){
+                    if(isNumeric(r)){
+                        Risposta risp=qr.getQuesitoDescrizione().getRisposte().get(qr.getQuesitoDescrizione().getId()+"-"+(Integer.parseInt(r)-1));
+                        risposteDate.put(risp.getId(),risp);
+                    }
+                }
             }
+
+
         }
         return testCorrente;
     }
@@ -134,5 +140,11 @@ public class TesseractObjAdapter implements Lettore{
         studenteCorrente=null;
         return t;
 
+    }
+    public boolean isNumeric(String strNum) {
+        if (strNum == null) {
+            return false;
+        }
+        return pattern.matcher(strNum).matches();
     }
 }

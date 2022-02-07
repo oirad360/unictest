@@ -92,7 +92,6 @@ public class PdfWriterObjAdapter implements Stampante{
                 document.add(new Paragraph(s,fontClassico));
             }
             document.close();
-            System.out.println("a");
         } catch (DocumentException e) {
             e.printStackTrace();
         } catch (FileNotFoundException e) {

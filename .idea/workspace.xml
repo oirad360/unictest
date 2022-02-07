@@ -6,60 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="ac0b655c-9a25-4065-92ee-542713136dbc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/7. Elaborazione 6 - NuovoTutor/UniCTest_iterazione6.asta" beforeDir="false" afterPath="$PROJECT_DIR$/7. Elaborazione 6 - NuovoTutor/UniCTest_iterazione6.asta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ser.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Decorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Decorator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Impiegato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Impiegato.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Materia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Materia.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/PdfWriterObjAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/PdfWriterObjAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Template.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Template.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/TesseractObjAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/TesseractObjAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Tutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Tutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/TutorSimulazione.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/TutorSimulazione.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/MainPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/MainPanel.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/MainPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/UniCTestFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/UniCTestFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestAvviaSimulazione.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestAvviaSimulazione.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestCreaTemplatePersTutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestCreaTemplatePersTutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestCreaTemplateUff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestCreaTemplateUff.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Decorator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Decorator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Impiegato.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Impiegato.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Tutor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Tutor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/TutorSimulazione.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/TutorSimulazione.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/UniCTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/UniCTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$10$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$10$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$11$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$11$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$2$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$3$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$3$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$4$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$4$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$5$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$5$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$6$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$6$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$7$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$7$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$8$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$8$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$9$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$9$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestAvviaSimulazione.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestAvviaSimulazione.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestCreaTemplatePersTutor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestCreaTemplatePersTutor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestCreaTemplateUff.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestCreaTemplateUff.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestCorreggiSimulazCartcea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestCorreggiSimulazCartcea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/PdfWriterObjAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/PdfWriterObjAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/TesseractObjAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/TesseractObjAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestCorreggiSimulazCartcea.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestCorreggiSimulazCartcea.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testingCorrezioneTest.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/testingCorrezioneTest.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testingCorrezioneTest.png" beforeDir="false" afterPath="$PROJECT_DIR$/testingCorrezioneTest.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testingCreazioneTest.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/testingCreazioneTest.pdf" afterDir="false" />
     </list>
-    <list id="1f280839-266a-4840-b6e3-3dbe03c2d721" name="Changes by franc" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -103,22 +60,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="281" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
-  <component name="RunManager" selected="JUnit.TestCorreggiSimulazCartcea.correggiTestCartaceo">
-    <configuration name="TestAggiungiResponsabilità" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="unictest" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ing_sw_2022.app.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ing_sw_2022.app" />
-      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestAggiungiResponsabilità" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.TestCorreggiSimulazCartcea">
     <configuration name="TestCorreggiSimulazCartcea" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="unictest" />
       <extension name="coverage">
@@ -130,6 +72,22 @@
       <option name="PACKAGE_NAME" value="com.ing_sw_2022.app" />
       <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestCorreggiSimulazCartcea" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestCorreggiSimulazCartcea.confermaCorrezione" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="unictest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ing_sw_2022.app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ing_sw_2022.app" />
+      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestCorreggiSimulazCartcea" />
+      <option name="METHOD_NAME" value="confermaCorrezione" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -166,7 +124,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestCreaTestCartaceo.testStampaTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestCreaTestCartaceo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="unictest" />
       <extension name="coverage">
         <pattern>
@@ -176,19 +134,18 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.ing_sw_2022.app" />
       <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestCreaTestCartaceo" />
-      <option name="METHOD_NAME" value="testStampaTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestAggiungiResponsabilità" />
+        <item itemvalue="JUnit.TestCorreggiSimulazCartcea" />
+        <item itemvalue="JUnit.TestCorreggiSimulazCartcea.confermaCorrezione" />
         <item itemvalue="JUnit.TestCorreggiSimulazCartcea.correggiTestCartaceo" />
         <item itemvalue="JUnit.TestCorreggiSimulazCartcea.testRecuperaInfo" />
-        <item itemvalue="JUnit.TestCorreggiSimulazCartcea" />
-        <item itemvalue="JUnit.TestCreaTestCartaceo.testStampaTest" />
+        <item itemvalue="JUnit.TestCreaTestCartaceo" />
       </list>
     </recent_temporary>
   </component>
@@ -203,7 +160,7 @@
       <workItem from="1644168543967" duration="31000" />
       <workItem from="1644182968874" duration="2000" />
       <workItem from="1644183235945" duration="3330000" />
-      <workItem from="1644229897105" duration="18424000" />
+      <workItem from="1644229897105" duration="21151000" />
     </task>
     <servers />
   </component>

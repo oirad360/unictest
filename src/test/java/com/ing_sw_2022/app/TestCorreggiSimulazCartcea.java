@@ -2,6 +2,8 @@ package com.ing_sw_2022.app;
 
 import com.ing_sw_2022.app.eccezioni.*;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -13,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TestCorreggiSimulazCartcea {
     static UniCTest unictest;
-    static String idTest;
+    static String idTemplate;
     @BeforeAll
     static void initTest(){
         unictest = UniCTest.getInstance();
@@ -31,6 +33,12 @@ class TestCorreggiSimulazCartcea {
             unictest.inserisciRisposta("4",true);
             unictest.inserisciRisposta("5",false);
             unictest.confermaQuesito("p2");
+            unictest.nuovoQuesito(m.getCodice());
+            unictest.inserisciTesto("Quanto fa 5*5?");
+            unictest.inserisciDifficoltà(3);
+            unictest.inserisciRisposta("25",true);
+            unictest.inserisciRisposta("5",false);
+            unictest.confermaQuesito("p2");
         } catch (StudentNotAllowedException e) {
             fail("Eccezione inaspettata");
         }
@@ -38,7 +46,7 @@ class TestCorreggiSimulazCartcea {
         try {
             unictest.nuovoTemplateP("Test template personalizzato");
             unictest.inserisciInfoTemplateP((float)1.0,(float)0.0,(float)0.0,2,1,2,1);
-            unictest.creaSezioneP(m.getCodice(),1);
+            unictest.creaSezioneP(m.getCodice(),2);
             unictest.confermaTemplateP();
         } catch (NotAllowedException e) {
             fail("Eccezione inaspettata");
@@ -48,8 +56,7 @@ class TestCorreggiSimulazCartcea {
         TreeMap<String,TemplatePersonalizzato> mappaTemplate=null;
         try {
             mappaTemplate= ((Impiegato)unictest.getUtenteAutenticato()).getMappaTemplatePersonalizzati();
-            idTest=mappaTemplate.lastKey();
-
+            idTemplate=mappaTemplate.lastKey();
         } catch (NotAllowedException e) {
             fail("Eccezione inaspettata");
         }
@@ -68,6 +75,7 @@ class TestCorreggiSimulazCartcea {
 
         List<String> listaIdQuesiti= new ArrayList<>();
         listaIdQuesiti.add(listaQuesiti.get(listaQuesiti.size()-1).getId());
+        listaIdQuesiti.add(listaQuesiti.get(listaQuesiti.size()-2).getId());
         try {
             unictest.inserisciQuesiti(listaIdQuesiti);
             unictest.stampaTest("testingCorrezioneTest");
@@ -83,6 +91,8 @@ class TestCorreggiSimulazCartcea {
 
     }
     @Test
+    @BeforeEach
+    @Order(1)
     void testRecuperaInfo(){
         Map<String,String> mappaInfo=null;
         try {
@@ -97,10 +107,12 @@ class TestCorreggiSimulazCartcea {
         }
     }
     @Test
+    @BeforeEach
+    @Order(2)
     void correggiTestCartaceo(){
         com.ing_sw_2022.app.Test t=null;
         try {
-            t=unictest.correggiTestCartaceo("VRDLGI99R21C351J","RSSMRA80A01C351O",idTest);
+            t=unictest.correggiTestCartaceo("VRDLGI99R21C351J","RSSMRA80A01C351O",idTemplate+"-0");
             assertNotNull(t);
         } catch (NotAllowedException e) {
             fail("Eccezione inaspettata");
@@ -113,7 +125,7 @@ class TestCorreggiSimulazCartcea {
         try {
             unictest.confermaCorrezione();
             assertTrue(((Studente)unictest.getMappaUtenti().get("VRDLGI99R21C351J")).getMappaTemplateTestSvolti().size()>0);
-            assertNotNull(((Studente)unictest.getMappaUtenti().get("VRDLGI99R21C351J")).getMappaTemplateTestSvolti().get(idTest.split("-")[0]).getMappaTest().get(idTest.split("-")[0]));
+            assertNotNull(((Studente)unictest.getMappaUtenti().get("VRDLGI99R21C351J")).getMappaTemplateTestSvolti().get(idTemplate).getMappaTest().get(idTemplate+"-0"));
         } catch (NotAllowedException e) {
             fail("Eccezione inaspettata");
         } catch (StudentNotAllowedException e) {
