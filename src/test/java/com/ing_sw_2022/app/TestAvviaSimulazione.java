@@ -77,7 +77,11 @@ class TestAvviaSimulazione {
             assertTrue(t.getMappaQuesiti().size()>0);
             assertNotNull(((Studente)unictest.getUtenteAutenticato()).getTemplateSelezionato());
             assertNotNull(((Studente)unictest.getUtenteAutenticato()).getTemplateSelezionato().getTestCorrente());
-        } catch (Exception e) {
+        } catch (EmployeeNotAllowedException e) {
+            fail("Eccezione inaspettata");
+        } catch (NotEnoughQuestionsException e) {
+            fail("Eccezione inaspettata");
+        } catch (CloneNotSupportedException e) {
             fail("Eccezione inaspettata");
         }
     }
@@ -101,19 +105,19 @@ class TestAvviaSimulazione {
 
         //lancio la simulazione che dovrebbe tornare null
         com.ing_sw_2022.app.Test t=null;
-
+        boolean exception=false;
         try {
             t=unictest.avviaSimulazione(mappaTemplate.get(mappaTemplate.lastKey()).getId());
             fail("Eccezione non avvenuta"); //mi aspetto che l'istruzione avviaSimulazione lanci un'eccezione, se arrivo qui considero fallito il test
 
         } catch (NotEnoughQuestionsException e) {
-            assertNull(t);
+            exception=true;
         } catch (CloneNotSupportedException e) {
             fail("Eccezione inaspettata");
         } catch (EmployeeNotAllowedException e) {
             fail("Eccezione inaspettata");
         }
-
+        assertTrue(exception);
         mappaTemplate.remove(mappaTemplate.lastKey());
         //creo un template che richiede quesiti con 100 risposte (mi aspetto che l'avvio della simulazione fallisca)
         try {
@@ -121,17 +125,25 @@ class TestAvviaSimulazione {
             unictest.inserisciInfoTemplateP((float)1.0,(float)0.0,(float)0.0,100,1,2,1);
             unictest.creaSezioneP(m.getCodice(),1,3);
             unictest.confermaTemplateP();
-        } catch (Exception e) {
+        } catch (EmployeeNotAllowedException e) {
+            fail("Eccezione inaspettata");
+        } catch (NotAllowedException e) {
             fail("Eccezione inaspettata");
         }
 
         //lancio la simulazione che dovrebbe tornare null
+        exception=false;
         try{
             t=unictest.avviaSimulazione(mappaTemplate.get(mappaTemplate.lastKey()).getId());
             fail("Eccezione non avvenuta"); //mi aspetto che l'istruzione avviaSimulazione lanci un'eccezione, se arrivo qui considero fallito il test
-        }catch (Exception e){
-            assertNull(t);
+        }catch (EmployeeNotAllowedException e){
+            fail("Eccezione inaspettata");
+        } catch (NotEnoughQuestionsException e) {
+            exception=true;
+        } catch (CloneNotSupportedException e) {
+            fail("Eccezione inaspettata");
         }
+        assertTrue(exception);
         mappaTemplate.remove(mappaTemplate.lastKey());
     }
     @Test
@@ -139,7 +151,7 @@ class TestAvviaSimulazione {
         ArrayList<Template> listaTemplate = null;
         try {
             listaTemplate = unictest.visualizzaTemplate();
-        } catch (Exception e) {
+        } catch (EmployeeNotAllowedException e) {
             fail("Eccezione inaspettata");
         }
         assertTrue(listaTemplate.size()>0);
@@ -154,14 +166,14 @@ class TestAvviaSimulazione {
         Risposta r=mappaRisposte.get(mappaRisposte.lastKey());
         try {
             unictest.selezionaRisposta(qr.getId(),r.getId());
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (NotAllowedException e) {
+            fail("Eccezione inaspettata");
         }
         assertEquals(qr.getRisposteDate().values().size(),1);
         try {
             unictest.selezionaRisposta(qr.getId(),r.getId());
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (NotAllowedException e) {
+            fail("Eccezione inaspettata");
         }
         assertEquals(qr.getRisposteDate().values().size(),0);
     }
