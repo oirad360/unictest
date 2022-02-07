@@ -98,7 +98,6 @@ public class Amministratore extends Decorator implements Serializable{
                 //flag = 1;
                 return imp;
                 } else {
-                    UniCTest.getInstance().getMappaUtenti().replace(imp.getCf(), successivo);
                     return successivo;
                 }
             } else { //Scaliamo tutti al successivo
@@ -124,7 +123,6 @@ public class Amministratore extends Decorator implements Serializable{
                     //flag = 1;
                     return imp;
                 } else {
-                    UniCTest.getInstance().getMappaUtenti().replace(imp.getCf(), successivo);
                     return successivo;
                 }
             } else { //Scaliamo tutti al successivo
@@ -148,7 +146,7 @@ public class Amministratore extends Decorator implements Serializable{
     }
     ///////////////////////UC AGGIUNGI MATERIA INSEGNATA//////////////////////
     @Override
-    public void aggiungiMateriaInsegnata(Impiegato tutor, String nomeMateria) throws NotAllowedException {
+    public void aggiungiMateriaInsegnata(Impiegato tutor, String nomeMateria) {
         tutor.addMateriaInsegnata(UniCTest.getInstance().getMateriaFlyweight(nomeMateria));
     }
 }

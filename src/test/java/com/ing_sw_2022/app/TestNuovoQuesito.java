@@ -1,6 +1,7 @@
 package com.ing_sw_2022.app;
 
 import com.ing_sw_2022.app.eccezioni.StudentNotAllowedException;
+import com.ing_sw_2022.app.eccezioni.UserNotFoundException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,7 +15,11 @@ class TestNuovoQuesito {
     @BeforeAll
     static void initTest() {
         unictest = UniCTest.getInstance();
-        unictest.setUtenteAutenticato("RSSMRA80A01C351O"); //autentico un tutor
+        try {
+            unictest.setUtenteAutenticato("RSSMRA80A01C351O"); //autentico un tutor
+        } catch (UserNotFoundException e) {
+            fail("Eccezione inaspettata");
+        }
     }
 
     @Test

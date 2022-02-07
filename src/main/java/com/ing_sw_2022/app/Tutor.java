@@ -22,7 +22,7 @@ public class Tutor extends Impiegato implements Serializable {
     public Impiegato setImpiegato(Impiegato impiegato) {
         return null;
     }
-    
+
     @Override
     public String whoAmI(){
         String chiSonoIo = "Tutor";
@@ -39,27 +39,23 @@ public class Tutor extends Impiegato implements Serializable {
     }
 
     @Override
-    public Impiegato rendiAmministratore(Impiegato imp) {
-        System.out.println("Non lo posso fare. Non sono un Amministratore.");
-        return imp;
+    public Impiegato rendiAmministratore(Impiegato imp) throws NotAllowedException{
+        throw new NotAllowedException("Non ho i permessi di Amministratore.");
     }
 
     @Override
-    public Impiegato rendiTutorSimulazione(Impiegato imp) {
-        System.out.println("Non lo posso fare. Non sono un Amministratore.");
-        return imp;
+    public Impiegato rendiTutorSimulazione(Impiegato imp) throws NotAllowedException{
+        throw new NotAllowedException("Non ho i permessi di Amministratore.");
     }
 
     @Override
-    public Impiegato rimuoviAmministratore(Impiegato imp) {
-        System.out.println("Non lo posso fare. Non sono un Amministratore.");
-        return imp;
+    public Impiegato rimuoviAmministratore(Impiegato imp) throws NotAllowedException{
+        throw new NotAllowedException("Non ho i permessi di Amministratore.");
     }
 
     @Override
-    public Impiegato rimuoviTutorSimulazione(Impiegato imp) {
-        System.out.println("Non lo posso fare. Non sono un Amministratore.");
-        return imp;
+    public Impiegato rimuoviTutorSimulazione(Impiegato imp) throws NotAllowedException{
+        throw new NotAllowedException("Non ho i permessi di Amministratore.");
     }
 
     @Override

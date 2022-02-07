@@ -25,10 +25,10 @@ public abstract class Impiegato extends Utente implements Serializable {
     public abstract boolean isAmministratore();
     public abstract boolean isTutorSimulazione();
 
-    public abstract Impiegato rendiAmministratore(Impiegato imp);
-    public abstract Impiegato rendiTutorSimulazione(Impiegato imp);
-    public abstract Impiegato rimuoviAmministratore(Impiegato imp);
-    public abstract Impiegato rimuoviTutorSimulazione(Impiegato imp);
+    public abstract Impiegato rendiAmministratore(Impiegato imp) throws NotAllowedException;
+    public abstract Impiegato rendiTutorSimulazione(Impiegato imp) throws NotAllowedException;
+    public abstract Impiegato rimuoviAmministratore(Impiegato imp) throws NotAllowedException;
+    public abstract Impiegato rimuoviTutorSimulazione(Impiegato imp) throws NotAllowedException;
 
     public abstract void addMateriaInsegnata(Materia m);
 

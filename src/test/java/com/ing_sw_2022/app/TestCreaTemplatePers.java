@@ -1,5 +1,6 @@
 package com.ing_sw_2022.app;
 
+import com.ing_sw_2022.app.eccezioni.UserNotFoundException;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,7 +16,11 @@ class TestCreaTemplatePers {
     @BeforeAll
     static void initTest() {
         unictest = UniCTest.getInstance();
-        unictest.setUtenteAutenticato("VRDLGI99R21C351J"); //autentico uno studente
+        try {
+            unictest.setUtenteAutenticato("VRDLGI99R21C351J"); //autentico uno studente
+        } catch (UserNotFoundException e) {
+            fail("Eccezione inaspettata");
+        }
     }
 
     @Test

@@ -64,6 +64,7 @@ public class AggiungiMateriaInsegnataFrame extends JFrame implements ActionListe
     public void actionPerformed(ActionEvent e) {
         try {
             UniCTest.getInstance().aggiungiMateriaInsegnata(cf.getText(),materia.getText());
+            UniCTest.getInstance().serialize();
         } catch (NotAllowedException ex) {
             ex.printStackTrace();
             JOptionPane.showMessageDialog(new JFrame(),

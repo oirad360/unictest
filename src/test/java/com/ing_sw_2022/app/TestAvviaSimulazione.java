@@ -3,6 +3,7 @@ package com.ing_sw_2022.app;
 import com.ing_sw_2022.app.eccezioni.EmployeeNotAllowedException;
 import com.ing_sw_2022.app.eccezioni.NotEnoughQuestionsException;
 import com.ing_sw_2022.app.eccezioni.StudentNotAllowedException;
+import com.ing_sw_2022.app.eccezioni.UserNotFoundException;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.Test;
 
@@ -24,7 +25,11 @@ class TestAvviaSimulazione {
         unictest = UniCTest.getInstance();
         Materia m = unictest.getMappaMaterie().get("MAT01");
         //creo quesiti per la simulazione
-        unictest.setUtenteAutenticato("RSSMRA80A01C351O"); //autentico un tutor
+        try {
+            unictest.setUtenteAutenticato("RSSMRA80A01C351O"); //autentico un tutor
+        } catch (UserNotFoundException e) {
+            fail("Eccezione inaspettata");
+        }
         try {
             unictest.nuovoQuesito(m.getCodice());
             unictest.inserisciTesto("Quanto fa 2+2?");
@@ -37,7 +42,11 @@ class TestAvviaSimulazione {
         }
 
         //creo un template per sceglierlo nel test dell'avvio della simulazione
-        unictest.setUtenteAutenticato("VRDLGI99R21C351J"); //autentico uno studente
+        try {
+            unictest.setUtenteAutenticato("VRDLGI99R21C351J"); //autentico uno studente
+        } catch (UserNotFoundException e) {
+            fail("Eccezione inaspettata");
+        }
         try {
             unictest.nuovoTemplateP("Test template personalizzato");
             unictest.inserisciInfoTemplateP((float)1.0,(float)0.0,(float)0.0,2,1,2,1);

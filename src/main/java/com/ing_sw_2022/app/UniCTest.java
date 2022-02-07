@@ -9,7 +9,7 @@ public class UniCTest implements Serializable{
     private static UniCTest unictest;
     private HashMap<String,Materia> mappaMaterie;
     private HashMap<String,Visibilità> mappaVisibilità;
-    private Utente utenteAutenticato;
+    transient private Utente utenteAutenticato;
     private HashMap<String, Utente> mappaUtenti;
     private TreeMap<String, TemplateUfficiale> mappaTemplateUfficiali;
     private static final long serialVersionUID = 1;
@@ -87,9 +87,10 @@ public class UniCTest implements Serializable{
         }
     }
 
-    public void setUtenteAutenticato(String cf){
-        utenteAutenticato=getMappaUtenti().get(cf);
-    } //MOMENTANEO
+    public void setUtenteAutenticato(String cf) throws UserNotFoundException{
+        if(!mappaUtenti.containsKey(cf.toUpperCase())) throw new UserNotFoundException("Utente inesistente.");
+        utenteAutenticato=mappaUtenti.get(cf);
+    }
 
     public Impiegato setAmministratore(String cf){
         if(mappaUtenti.get(cf) instanceof Impiegato){
@@ -320,8 +321,49 @@ public class UniCTest implements Serializable{
         if(!(mappaUtenti.get(cf) instanceof Impiegato)) throw new UserNotFoundException("L'utente inserito non è un tutor");
         Impiegato imp= (Impiegato) mappaUtenti.get(cf);
         ((Impiegato)utenteAutenticato).aggiungiMateriaInsegnata(imp,nomeMateria);
-        System.out.println(mappaUtenti);
     }
+    ////////////////////////UC AGGIUNTA RESPONSABILITA'///////////////////////
+    public void rendiAmministratore(String cf) throws NotAllowedException, StudentNotAllowedException, UserNotFoundException {
+        if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono aggiungere responsabilità.");
+        if(!mappaUtenti.containsKey(cf.toUpperCase())) throw new UserNotFoundException("Utente non trovato");
+        if(!(mappaUtenti.get(cf) instanceof Impiegato)) throw new UserNotFoundException("L'utente inserito non è un tutor");
+        Impiegato imp= (Impiegato) mappaUtenti.get(cf);
+        imp = ((Impiegato)utenteAutenticato).rendiAmministratore(imp);
+        mappaUtenti.replace(imp.getCf(), imp);
+        if(utenteAutenticato.getCf().equals(cf)) utenteAutenticato=imp;
+    }
+
+    public void rendiTutorSimulazione(String cf) throws NotAllowedException, StudentNotAllowedException, UserNotFoundException {
+        if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono aggiungere responsabilità.");
+        if(!mappaUtenti.containsKey(cf.toUpperCase())) throw new UserNotFoundException("Utente non trovato");
+        if(!(mappaUtenti.get(cf) instanceof Impiegato)) throw new UserNotFoundException("L'utente inserito non è un tutor");
+        Impiegato imp= (Impiegato) mappaUtenti.get(cf);
+        imp = ((Impiegato)utenteAutenticato).rendiTutorSimulazione(imp);
+        mappaUtenti.replace(cf, imp);
+        if(utenteAutenticato.getCf().equals(cf)) utenteAutenticato=imp;
+    }
+
+    public void rimuoviAmministratore(String cf) throws NotAllowedException, StudentNotAllowedException, UserNotFoundException {
+        if(utenteAutenticato.getCf().equals(cf)) throw new NotAllowedException("Non puoi rimuovere a te stesso il ruolo di Amministratore.");
+        if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono rimuovere responsabilità.");
+        if(!mappaUtenti.containsKey(cf.toUpperCase())) throw new UserNotFoundException("Utente non trovato");
+        if(!(mappaUtenti.get(cf) instanceof Impiegato)) throw new UserNotFoundException("L'utente inserito non è un tutor");
+        Impiegato imp= (Impiegato) mappaUtenti.get(cf);
+        imp = ((Impiegato)utenteAutenticato).rimuoviAmministratore(imp);
+        mappaUtenti.replace(cf, imp);
+        if(utenteAutenticato.getCf().equals(cf)) utenteAutenticato=imp;
+    }
+
+    public void rimuoviTutorSimulazione(String cf) throws NotAllowedException, StudentNotAllowedException, UserNotFoundException {
+        if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono rimuovere responsabilità.");
+        if(!mappaUtenti.containsKey(cf.toUpperCase())) throw new UserNotFoundException("Utente non trovato");
+        if(!(mappaUtenti.get(cf) instanceof Impiegato)) throw new UserNotFoundException("L'utente inserito non è un tutor");
+        Impiegato imp= (Impiegato) mappaUtenti.get(cf);
+        imp = ((Impiegato)utenteAutenticato).rimuoviTutorSimulazione(imp);
+        mappaUtenti.replace(imp.getCf(), imp);
+        if(utenteAutenticato.getCf().equals(cf)) utenteAutenticato=imp;
+    }
+
                         ////////////METODI PER CASO D'USO DI AVVIAMENTO//////////////
 
     private void loadMaterie(){

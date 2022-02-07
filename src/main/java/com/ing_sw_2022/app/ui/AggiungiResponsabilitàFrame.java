@@ -4,6 +4,7 @@ import com.ing_sw_2022.app.NotAllowedException;
 import com.ing_sw_2022.app.UniCTest;
 import com.ing_sw_2022.app.eccezioni.AlreadyRegisteredException;
 import com.ing_sw_2022.app.eccezioni.StudentNotAllowedException;
+import com.ing_sw_2022.app.eccezioni.UserNotFoundException;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
@@ -36,25 +37,109 @@ public class AggiungiResponsabilitàFrame extends JFrame{
         rendiAmministratoreButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                try {
+                    UniCTest.getInstance().rendiAmministratore(cfTextField.getText());
+                    UniCTest.getInstance().serialize();
+                } catch (NotAllowedException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(new JFrame(),
+                            ex.getMessage(),
+                            "Inane warning",
+                            JOptionPane.WARNING_MESSAGE);
+                } catch (StudentNotAllowedException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(new JFrame(),
+                            ex.getMessage(),
+                            "Inane warning",
+                            JOptionPane.WARNING_MESSAGE);
+                } catch (UserNotFoundException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(new JFrame(),
+                            ex.getMessage(),
+                            "Inane warning",
+                            JOptionPane.WARNING_MESSAGE);
+                }
             }
         });
         rendiTutorSimulazioneButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                try {
+                    UniCTest.getInstance().rendiTutorSimulazione(cfTextField.getText());
+                    UniCTest.getInstance().serialize();
+                } catch (NotAllowedException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(new JFrame(),
+                            ex.getMessage(),
+                            "Inane warning",
+                            JOptionPane.WARNING_MESSAGE);
+                } catch (StudentNotAllowedException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(new JFrame(),
+                            ex.getMessage(),
+                            "Inane warning",
+                            JOptionPane.WARNING_MESSAGE);
+                } catch (UserNotFoundException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(new JFrame(),
+                            ex.getMessage(),
+                            "Inane warning",
+                            JOptionPane.WARNING_MESSAGE);
+                }
             }
         });
         rimuoviAmministratoreButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                try {
+                    UniCTest.getInstance().rimuoviAmministratore(cfTextField.getText());
+                    UniCTest.getInstance().serialize();
+                } catch (NotAllowedException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(new JFrame(),
+                            ex.getMessage(),
+                            "Inane warning",
+                            JOptionPane.WARNING_MESSAGE);
+                } catch (StudentNotAllowedException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(new JFrame(),
+                            ex.getMessage(),
+                            "Inane warning",
+                            JOptionPane.WARNING_MESSAGE);
+                } catch (UserNotFoundException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(new JFrame(),
+                            ex.getMessage(),
+                            "Inane warning",
+                            JOptionPane.WARNING_MESSAGE);
+                }
             }
         });
         rimuoviTutorSimulazioneButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                try {
+                    UniCTest.getInstance().rimuoviTutorSimulazione(cfTextField.getText());
+                    UniCTest.getInstance().serialize();
+                } catch (NotAllowedException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(new JFrame(),
+                            ex.getMessage(),
+                            "Inane warning",
+                            JOptionPane.WARNING_MESSAGE);
+                } catch (StudentNotAllowedException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(new JFrame(),
+                            ex.getMessage(),
+                            "Inane warning",
+                            JOptionPane.WARNING_MESSAGE);
+                } catch (UserNotFoundException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(new JFrame(),
+                            ex.getMessage(),
+                            "Inane warning",
+                            JOptionPane.WARNING_MESSAGE);
+                }
             }
         });
 

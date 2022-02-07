@@ -66,42 +66,48 @@ public class App
             i++;
         }*/
 
+        try {
+            Impiegato prova = new Amministratore(new Tutor("Luca", "Bianchi", "LCABNC80A02C456P"));
+            UniCTest.getInstance().getMappaUtenti().put("LCABNC80A02C456P", prova);
+            prova.whoAmI();
+            Impiegato daDecorare = new Tutor("Ciao", "ATutti", "CTTGO80A02C456P");
+            UniCTest.getInstance().getMappaUtenti().put("CTTGO80A02C456P", daDecorare);
+            daDecorare.whoAmI();
 
-        Impiegato prova = new Amministratore(new Tutor("Luca", "Bianchi", "LCABNC80A02C456P"));
-        UniCTest.getInstance().getMappaUtenti().put("LCABNC80A02C456P", prova);
-        prova.whoAmI();
-        Impiegato daDecorare = new Tutor("Ciao", "ATutti", "CTTGO80A02C456P");
-        UniCTest.getInstance().getMappaUtenti().put("CTTGO80A02C456P", daDecorare);
-        daDecorare.whoAmI();
+            System.out.println("\nUTENTI 1:");
+            System.out.println(UniCTest.getInstance().getMappaUtenti());
 
-        System.out.println("\nUTENTI 1:");
-        System.out.println(UniCTest.getInstance().getMappaUtenti());
+            daDecorare = prova.rendiTutorSimulazione(daDecorare);
 
-        daDecorare = prova.rendiTutorSimulazione(daDecorare);
+            System.out.println("\nUTENTI 2:");
+            System.out.println(UniCTest.getInstance().getMappaUtenti());
 
-        System.out.println("\nUTENTI 2:");
-        System.out.println(UniCTest.getInstance().getMappaUtenti());
-
-        daDecorare = prova.rendiAmministratore(daDecorare);
-        System.out.println(daDecorare instanceof Amministratore);
-        daDecorare.whoAmI();
-        daDecorare = prova.rendiTutorSimulazione(daDecorare);
-        daDecorare.whoAmI();
-        daDecorare = prova.rendiAmministratore(daDecorare);
-        daDecorare.whoAmI();
-        daDecorare = prova.rendiTutorSimulazione(daDecorare);
-        daDecorare.whoAmI();
+            daDecorare = prova.rendiAmministratore(daDecorare);
+            System.out.println(daDecorare instanceof Amministratore);
+            daDecorare.whoAmI();
+            daDecorare = prova.rendiTutorSimulazione(daDecorare);
+            daDecorare.whoAmI();
+            daDecorare = prova.rendiAmministratore(daDecorare);
+            daDecorare.whoAmI();
+            daDecorare = prova.rendiTutorSimulazione(daDecorare);
+            daDecorare.whoAmI();
 
 
-        System.out.println("\nUTENTI 3:");
-        System.out.println(UniCTest.getInstance().getMappaUtenti());
+            System.out.println("\nUTENTI 3:");
+            System.out.println(UniCTest.getInstance().getMappaUtenti());
 
-        daDecorare = prova.rimuoviAmministratore(daDecorare);
-        daDecorare.whoAmI();
+            daDecorare = prova.rimuoviTutorSimulazione(daDecorare);
+            daDecorare.whoAmI();
 
-        //UniCTest.getInstance().getMappaUtenti().put(prova.getCf(),prova);
-        System.out.println("\nUTENTI 4:");
-        System.out.println(UniCTest.getInstance().getMappaUtenti());
+            daDecorare = prova.rimuoviAmministratore(daDecorare);
+            daDecorare.whoAmI();
+
+            //UniCTest.getInstance().getMappaUtenti().put(prova.getCf(),prova);
+            System.out.println("\nUTENTI 4:");
+            System.out.println(UniCTest.getInstance().getMappaUtenti());
+        } catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
 }

@@ -39,25 +39,6 @@ public class TutorSimulazione extends Decorator implements Serializable {
         return true;
     }
 
-    @Override
-    public Impiegato rendiAmministratore(Impiegato imp){
-        this.impiegato.rendiAmministratore(imp);
-        return imp;
-    }
-    @Override
-    public Impiegato rendiTutorSimulazione(Impiegato imp){
-        this.impiegato.rendiTutorSimulazione(imp);
-        return imp;
-    }
-    @Override
-    public Impiegato rimuoviAmministratore(Impiegato imp){
-        return this.impiegato.rimuoviAmministratore(imp);
-    }
-    @Override
-    public Impiegato rimuoviTutorSimulazione(Impiegato imp){
-        return this.impiegato.rimuoviTutorSimulazione(imp);
-    }
-
     public TemplatePersonalizzato getTemplatePersonalizzatoCorrente() {
         return templateCorrente;
     }
