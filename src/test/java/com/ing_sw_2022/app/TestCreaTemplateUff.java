@@ -1,5 +1,6 @@
 package com.ing_sw_2022.app;
 
+import com.ing_sw_2022.app.eccezioni.StudentNotAllowedException;
 import com.ing_sw_2022.app.eccezioni.UserNotFoundException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,8 +30,10 @@ class TestCreaTemplateUff {
     void testNuovoTemplateU(){
         try {
             unictest.nuovoTemplateU("Test template ufficiale"); //inizializzo il template corrente per i test successivi
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (NotAllowedException e) {
+            fail("Eccezione inaspettata");
+        } catch (StudentNotAllowedException e) {
+            fail("Eccezione inaspettata");
         }
         TemplateUfficiale t=((Amministratore)unictest.getUtenteAutenticato()).getTemplateUfficialeCorrente();
         assertNotNull(t);
@@ -42,8 +45,10 @@ class TestCreaTemplateUff {
         TemplateUfficiale t=((Amministratore)unictest.getUtenteAutenticato()).getTemplateUfficialeCorrente();
         try {
             unictest.inserisciInfoTemplateU("MIUR",(float)1.0,(float)0.0,(float)0.0,4,1,4,50);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (NotAllowedException e) {
+            fail("Eccezione inaspettata");
+        } catch (StudentNotAllowedException e) {
+            fail("Eccezione inaspettata");
         }
         assertEquals((float)1.0,t.getPuntiCorretta(),(float)0.0);
         assertEquals((float)0.0,t.getPuntiErrata(),(float)0.0);
@@ -59,8 +64,10 @@ class TestCreaTemplateUff {
         Template t=((Amministratore)unictest.getUtenteAutenticato()).getTemplateUfficialeCorrente();
         try {
             unictest.creaSezioneU("Matematica",10);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (NotAllowedException e) {
+            fail("Eccezione inaspettata");
+        } catch (StudentNotAllowedException e) {
+            fail("Eccezione inaspettata");
         }
         assertNotNull(t.getListaSezioni());
         Sezione s = t.getListaSezioni().get(0);
@@ -69,8 +76,10 @@ class TestCreaTemplateUff {
         assertEquals(s.getNumQuesiti(),10);
         try {
             unictest.creaSezioneU("Astronomia",10);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (NotAllowedException e) {
+            fail("Eccezione inaspettata");
+        } catch (StudentNotAllowedException e) {
+            fail("Eccezione inaspettata");
         }
         assertNotNull(t.getListaSezioni());
         s = t.getListaSezioni().get(1);
@@ -84,8 +93,10 @@ class TestCreaTemplateUff {
     void testConfermaTemplateU(){
         try {
             unictest.confermaTemplateU(); //il template corrente viene eliminato
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (NotAllowedException e) {
+            fail("Eccezione inaspettata");
+        } catch (StudentNotAllowedException e) {
+            fail("Eccezione inaspettata");
         }
         assertNull(((Amministratore)unictest.getUtenteAutenticato()).getTemplateUfficialeCorrente());
         assertTrue(unictest.getMappaTemplateUfficiali().size()>0);
