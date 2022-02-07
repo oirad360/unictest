@@ -5,23 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac0b655c-9a25-4065-92ee-542713136dbc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1.0 Ideazione/~$22_01_04_UniCTest_Ideazione.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.1 Elaborazione 4/2022_01_29_UniCTest_Elaborazione_4.docx" beforeDir="false" afterPath="$PROJECT_DIR$/5.1 Elaborazione 4/2022_01_29_UniCTest_Elaborazione_4.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/6.0 Ideazione - Revisione 3/2022_01_28_UniCTest_Ideazione_revisione3.docx" beforeDir="false" afterPath="$PROJECT_DIR$/6.0 Ideazione - Revisione 3/2022_01_28_UniCTest_Ideazione_revisione3.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/6.0 Ideazione - Revisione 3/~$22_01_28_UniCTest_Ideazione_revisione3.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/6.1 Elaborazione 5/2022_02_03_UniCTest_Elaborazione_5.docx" beforeDir="false" afterPath="$PROJECT_DIR$/6.1 Elaborazione 5/2022_02_03_UniCTest_Elaborazione_5.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/7.0 Ideazione - Revisione 4/2022_02_06_UniCTest_Ideazione_revisione4.docx" beforeDir="false" afterPath="$PROJECT_DIR$/7.0 Ideazione - Revisione 4/2022_02_06_UniCTest_Ideazione_revisione4.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/7.0 Ideazione - Revisione 4/~$22_02_06_UniCTest_Ideazione_revisione4.docx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/7.1 Elaborazione 6/2022_02_06_UniCTest_Elaborazione_6.docx" beforeDir="false" afterPath="$PROJECT_DIR$/7.1 Elaborazione 6/2022_02_06_UniCTest_Elaborazione_6.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/7.1 Elaborazione 6/UniCTest_iterazione6.asta" beforeDir="false" afterPath="$PROJECT_DIR$/7.1 Elaborazione 6/UniCTest_iterazione6.asta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/7.1 Elaborazione 6/~$22_02_06_UniCTest_Elaborazione_6.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/7.1 Elaborazione 6/~WRL1720.tmp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/UniCTest - Documentazione completa.docx" beforeDir="false" afterPath="$PROJECT_DIR$/UniCTest - Documentazione completa.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Amministratore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Amministratore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestAggiungiResponsabilità.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestAggiungiResponsabilità.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestCreaTemplatePers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestCreaTemplatePers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestNuovoQuesito.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestNuovoQuesito.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/MainPanel$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestAggiungiResponsabilità.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestAggiungiResponsabilità.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/~$iCTest - Documentazione completa.docx" beforeDir="false" afterPath="$PROJECT_DIR$/~$iCTest - Documentazione completa.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/~WRL3407.tmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/~$iCTest - Documentazione completa.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/~WRL2011.tmp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
