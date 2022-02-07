@@ -79,6 +79,10 @@ public abstract class Template implements Serializable, Cloneable {
         return testCorrente;
     }
 
+    public Sezione getSezioneCorrente() {
+        return sezioneCorrente;
+    }
+
     public void setInfoTemplate(float puntiCorretta, float puntiErrata, float puntiNonData, int numRisposte, int minRisposteCorrette, int maxRisposteCorrette){
         this.puntiCorretta=puntiCorretta;
         this.puntiErrata=puntiErrata;

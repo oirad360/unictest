@@ -163,6 +163,8 @@ class TestCreaTestCartaceo {
         List<QuesitoDescrizione> listaQuesiti=null;
         try {
             listaQuesiti=unictest.visualizzaQuesiti(tp1.getListaSezioni().get(0).getId());
+            assertTrue(listaQuesiti.size()>0);
+            assertNotNull(((Impiegato)unictest.getUtenteAutenticato()).getTemplateSelezionato().getSezioneCorrente());
             List<String> listaIdQuesiti= new ArrayList<>();
             listaIdQuesiti.add(listaQuesiti.get(listaQuesiti.size()-1).getId());
             unictest.inserisciQuesiti(listaIdQuesiti);
