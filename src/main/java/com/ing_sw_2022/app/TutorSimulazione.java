@@ -39,6 +39,11 @@ public class TutorSimulazione extends Decorator implements Serializable {
         return true;
     }
 
+    @Override
+    public Template getTemplateSelezionato() {
+        return templateSelezionato;
+    }
+
     public TemplatePersonalizzato getTemplatePersonalizzatoCorrente() {
         return templateCorrente;
     }
@@ -152,6 +157,7 @@ public class TutorSimulazione extends Decorator implements Serializable {
             } else mappaTemplateTestScritti.put(templateSelezionato.getId(),templateSelezionato);
 
         }
+
         templateSelezionato.stampaTest(nomeFile);
         templateSelezionato=null;
     }

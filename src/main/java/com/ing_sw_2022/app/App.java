@@ -24,7 +24,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        /*Tesseract tesseract = new Tesseract();
+        Tesseract tesseract = new Tesseract();
         tesseract.setDatapath("C:/Users/oirad/unictest/tesseract");
         tesseract.setLanguage("ita");
         String text = null;
@@ -34,7 +34,7 @@ public class App
 
         } catch (TesseractException e) {
             e.printStackTrace();
-        }*/
+        }
         //System.out.println(text);
         /*Object[] o=text.lines().toArray();
         String[] line=new String[o.length];

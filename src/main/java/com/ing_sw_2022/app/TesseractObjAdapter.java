@@ -57,6 +57,7 @@ public class TesseractObjAdapter implements Lettore{
         Impiegato imp=(Impiegato) UniCTest.getInstance().getMappaUtenti().get(cfTutor);
         Template te=imp.getMappaTemplateTestScritti().get(idTest.split("-")[0]);//lancia eccezione nel caso in cui l'impiegato che ha scritto il test non risulta essere tutor di simulazione
         //La prima parte dell'id del Test è l'id del Template su cui esso è basato
+        System.out.println((Test)te.getMappaTest().get(idTest));
         testCorrente=(Test)te.getMappaTest().get(idTest).clone();
         //il template corrente deve essere un clone del template con il quale il tutor ha scritto il test
         //vedo se il clone è già presente nella mappaTemplateTestSvolti dello studente, se lo trovo lo metto corrente

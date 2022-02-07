@@ -74,6 +74,11 @@ public class Tutor extends Impiegato implements Serializable {
     }
 
     @Override
+    public Template getTemplateSelezionato() throws NotAllowedException {
+        throw new NotAllowedException("Non ho i permessi di TutorSimulazione");
+    }
+
+    @Override
     public TemplatePersonalizzato getTemplatePersonalizzatoCorrente() throws NotAllowedException {
         throw new NotAllowedException("Non ho i permessi di TutorSimulazione");
     }

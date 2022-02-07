@@ -20,6 +20,10 @@ public class UniCTestFrame extends JFrame{
     private JTextField cf;
     private JButton accediButton;
 
+    public JPanel getLoginPanel() {
+        return loginPanel;
+    }
+
     private UniCTestFrame(){
         setContentPane(loginPanel);
         setTitle("UniCTest");
@@ -70,8 +74,8 @@ public class UniCTestFrame extends JFrame{
 
     public static void main(String[] args )
     {
-        UniCTest unictest = UniCTest.getInstance(); //esegue il caso d'uso di avviamento
-        for(Materia m: unictest.getMappaMaterie().values()) {
+        UniCTest.getInstance(); //esegue il caso d'uso di avviamento
+        /*for(Materia m: unictest.getMappaMaterie().values()) {
             System.out.println("----------------QUESITI "+m.getNome()+"----------------");
             try {
                 System.out.println(m.getMappaQuesiti());
@@ -80,7 +84,7 @@ public class UniCTestFrame extends JFrame{
             }
         }
         System.out.println("------------------TEMPLATE UFFICIALI-----------------");
-        System.out.println(unictest.getMappaTemplateUfficiali());
+        System.out.println(unictest.getMappaTemplateUfficiali());*/
         /*
         RSSMRA80A01C351O --> Tutor
         CTNLCU80A01C351K --> TutorSimulazione
@@ -88,7 +92,11 @@ public class UniCTestFrame extends JFrame{
         PPPMRA80A01C351X --> Amministratore, TutorSimulazione
         VRDLGI99R21C351J --> Studente
         */
-        //unictest.setUtenteAutenticato("CTNLCU80A01C351K");
+        /*try {
+            unictest.setUtenteAutenticato("CTNLCU80A01C351K");
+        } catch (UserNotFoundException e) {
+            e.printStackTrace();
+        }
         System.out.println("-------------------UTENTE AUTENTICATO----------------");
         System.out.println(unictest.getUtenteAutenticato());
         System.out.println("--------------TEMPLATE PERSONALIZZATI DELL'UTENTE------------");
@@ -113,7 +121,7 @@ public class UniCTestFrame extends JFrame{
         System.out.println("/////////////////////////////////////////////////////////");
         System.out.println("/////////////////////////////////////////////////////////");
         System.out.println("/////////////////////////////////////////////////////////");
-        System.out.println("/////////////////////////////////////////////////////////");
+        System.out.println("/////////////////////////////////////////////////////////");*/
         ///////////////// APERTURA GUI ///////////////
         UniCTestFrame.getInstance();
     }

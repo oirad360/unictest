@@ -62,6 +62,11 @@ public abstract class Decorator extends Impiegato implements Serializable{
     }
 
     @Override
+    public Template getTemplateSelezionato() throws NotAllowedException {
+        return impiegato.getTemplateSelezionato();
+    }
+
+    @Override
     public TreeMap<String, TemplatePersonalizzato> getMappaTemplatePersonalizzati() throws NotAllowedException{
         return impiegato.getMappaTemplatePersonalizzati();
     }

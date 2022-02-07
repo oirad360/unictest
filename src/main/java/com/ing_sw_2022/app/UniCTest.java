@@ -92,7 +92,11 @@ public class UniCTest implements Serializable{
         utenteAutenticato=mappaUtenti.get(cf);
     }
 
-    public Impiegato setAmministratore(String cf){
+    public void logout(){
+        utenteAutenticato=null;
+    }
+
+   public Impiegato setAmministratore(String cf){
         if(mappaUtenti.get(cf) instanceof Impiegato){
             Impiegato oldImp = (Impiegato)mappaUtenti.get(cf);
             Impiegato newImp = new Amministratore(oldImp);
@@ -344,8 +348,8 @@ public class UniCTest implements Serializable{
     }
 
     public void rimuoviAmministratore(String cf) throws NotAllowedException, StudentNotAllowedException, UserNotFoundException {
-        if(utenteAutenticato.getCf().equals(cf)) throw new NotAllowedException("Non puoi rimuovere a te stesso il ruolo di Amministratore.");
         if(utenteAutenticato instanceof Studente) throw new StudentNotAllowedException("Gli studenti non possono rimuovere responsabilità.");
+        if(utenteAutenticato.getCf().equals(cf) && ((Impiegato)utenteAutenticato).isAmministratore()) throw new NotAllowedException("Non puoi rimuovere a te stesso il ruolo di Amministratore.");
         if(!mappaUtenti.containsKey(cf.toUpperCase())) throw new UserNotFoundException("Utente non trovato");
         if(!(mappaUtenti.get(cf) instanceof Impiegato)) throw new UserNotFoundException("L'utente inserito non è un tutor");
         Impiegato imp= (Impiegato) mappaUtenti.get(cf);

@@ -3,11 +3,8 @@ package com.ing_sw_2022.app.ui;
 import com.ing_sw_2022.app.*;
 import com.ing_sw_2022.app.eccezioni.EmployeeNotAllowedException;
 import com.ing_sw_2022.app.eccezioni.StudentNotAllowedException;
-import com.ing_sw_2022.app.eccezioni.UserNotFoundException;
 
 import javax.swing.*;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -28,6 +25,7 @@ public class MainPanel {
     private JButton btnNuovoUtente;
     private JButton btnMateria;
     private JButton btnResponsabilità;
+    private JButton logoutButton;
     private boolean studente;
 
     public MainPanel(){
@@ -46,6 +44,13 @@ public class MainPanel {
         btnMateria.setVisible(!studente);
         btnResponsabilità.setVisible(!studente);
 
+        logoutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                UniCTest.getInstance().logout();
+                UniCTestFrame.getInstance().setContentPane(UniCTestFrame.getInstance().getLoginPanel());
+            }
+        });
 
         btnNuovoQuesito.addActionListener(new ActionListener() {
             @Override
