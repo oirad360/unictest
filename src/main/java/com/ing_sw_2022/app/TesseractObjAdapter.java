@@ -75,6 +75,7 @@ public class TesseractObjAdapter implements Lettore{
         Object[] o=text.lines().toArray();
         String[] line=new String[o.length-4];
         int i=0;
+        System.out.println(text);
         for(Object o1:o){
             if(i>3){
                 line[i-4]=(String) o1;

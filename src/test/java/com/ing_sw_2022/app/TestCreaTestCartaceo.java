@@ -188,6 +188,7 @@ class TestCreaTestCartaceo {
             File f = new File("testingCreazioneTest.pdf");
             assertTrue(f.exists());
             assertTrue(!f.isDirectory());
+            f.delete();
         } catch (StudentNotAllowedException e) {
             fail("Eccezione inaspettata");
         } catch (NotAllowedException e) {
