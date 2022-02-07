@@ -13,22 +13,20 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class TestCreaTemplatePersTutor {
     static UniCTest unictest;
-    static Impiegato imp;
 
     @BeforeAll
     static void initTest() {
         unictest = UniCTest.getInstance();
-        try {
-            unictest.setUtenteAutenticato("RSSMRA80A01C351O"); //autentico un impiegato
-        } catch (UserNotFoundException e) {
-            fail("Eccezione inaspettata");
-        }
-        imp=(Impiegato) unictest.getUtenteAutenticato();
     }
 
     @Test
     @BeforeEach
     void testNuovoTemplate(){
+        try {
+            unictest.setUtenteAutenticato("RSSMRA80A01C351O"); //autentico un impiegato
+        } catch (UserNotFoundException e) {
+            fail("Eccezione inaspettata");
+        }
         unictest.setTutorSimulazione("RSSMRA80A01C351O");
         TemplatePersonalizzato tp=null;
         try {
@@ -44,16 +42,27 @@ class TestCreaTemplatePersTutor {
     @Test
     void testEccezioni(){
         try {
+            unictest.setUtenteAutenticato("MNTATNOR21C350L"); //autentico un tutor senza permessi
+        } catch (UserNotFoundException e) {
+            fail("Eccezione inaspettata");
+        }
+        boolean exception=false;
+        try {
             unictest.nuovoTemplateP("Test template personalizzato");
         } catch (NotAllowedException e) {
+            exception=true;
             assertEquals(e.getMessage(),"Non ho i permessi di TutorSimulazione");
         }
+        assertTrue(exception);
         unictest.setAmministratore("RSSMRA80A01C351O");
         try {
             unictest.nuovoTemplateP("Test template personalizzato");
         } catch (NotAllowedException e) {
+            exception=true;
             assertEquals(e.getMessage(),"Non ho i permessi di TutorSimulazione");
         }
+        assertTrue(exception);
+
     }
 
     @Test
