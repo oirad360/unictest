@@ -1,5 +1,7 @@
 package com.ing_sw_2022.app;
 
+import com.ing_sw_2022.app.eccezioni.EmployeeNotAllowedException;
+import com.ing_sw_2022.app.eccezioni.StudentNotAllowedException;
 import com.ing_sw_2022.app.eccezioni.UserNotFoundException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,7 +11,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestCreaTemplatePersTutor {
+class TestCreaTemplatePersTutor {
     static UniCTest unictest;
     static Impiegato imp;
 
@@ -32,7 +34,7 @@ public class TestCreaTemplatePersTutor {
         try {
             unictest.nuovoTemplateP("Test template personalizzato");
             tp = ((Impiegato)unictest.getUtenteAutenticato()).getTemplatePersonalizzatoCorrente();
-        } catch (Exception e) {
+        } catch (NotAllowedException e) {
             fail("Eccezione inaspettata");
         }
         assertNotNull(tp);
@@ -43,13 +45,13 @@ public class TestCreaTemplatePersTutor {
     void testEccezioni(){
         try {
             unictest.nuovoTemplateP("Test template personalizzato");
-        } catch (Exception e) {
+        } catch (NotAllowedException e) {
             assertEquals(e.getMessage(),"Non ho i permessi di TutorSimulazione");
         }
         unictest.setAmministratore("RSSMRA80A01C351O");
         try {
             unictest.nuovoTemplateP("Test template personalizzato");
-        } catch (Exception e) {
+        } catch (NotAllowedException e) {
             assertEquals(e.getMessage(),"Non ho i permessi di TutorSimulazione");
         }
     }
@@ -59,13 +61,13 @@ public class TestCreaTemplatePersTutor {
         TemplatePersonalizzato tp= null;
         try {
             tp = ((Impiegato)unictest.getUtenteAutenticato()).getTemplatePersonalizzatoCorrente();
-        } catch (Exception e) {
+        } catch (NotAllowedException e) {
             fail("Eccezione inaspettata");
         }
         List<Materia> listaMaterie= null;
         try {
             listaMaterie = unictest.inserisciInfoTemplateP((float)1.0,(float)0.0,(float)0.0,4,1,4,1);
-        } catch (Exception e) {
+        } catch (NotAllowedException e) {
             fail("Eccezione inaspettata");
         }
         assertNotNull(listaMaterie);
@@ -84,14 +86,16 @@ public class TestCreaTemplatePersTutor {
         TemplatePersonalizzato tp= null;
         try {
             tp = ((Impiegato)unictest.getUtenteAutenticato()).getTemplatePersonalizzatoCorrente();
-        } catch (Exception e) {
+        } catch (NotAllowedException e) {
             fail("Eccezione inaspettata");
         }
         int i=0;
         for(Materia m : unictest.getMappaMaterie().values()){
             try {
                 unictest.creaSezioneP(m.getCodice(),10);
-            } catch (Exception e) {
+            } catch (NotAllowedException e) {
+                fail("Eccezione inaspettata");
+            } catch (StudentNotAllowedException e) {
                 fail("Eccezione inaspettata");
             }
             Sezione s = tp.getListaSezioni().get(i);
@@ -110,7 +114,7 @@ public class TestCreaTemplatePersTutor {
             unictest.confermaTemplateP(); //il template corrente viene eliminato
             assertNull(((Impiegato)unictest.getUtenteAutenticato()).getTemplatePersonalizzatoCorrente());
             assertTrue(((Impiegato)unictest.getUtenteAutenticato()).getMappaTemplatePersonalizzati().size()>0);
-        } catch (Exception e) {
+        } catch (NotAllowedException e) {
             fail("Eccezione inaspettata");
         }
     }

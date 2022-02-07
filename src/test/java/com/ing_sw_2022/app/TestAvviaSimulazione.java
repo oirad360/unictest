@@ -38,7 +38,7 @@ class TestAvviaSimulazione {
             unictest.inserisciRisposta("5",false);
             unictest.confermaQuesito("p3");
         } catch (StudentNotAllowedException e) {
-            e.printStackTrace();
+            fail("Eccezione inaspettata");
         }
 
         //creo un template per sceglierlo nel test dell'avvio della simulazione
@@ -47,19 +47,22 @@ class TestAvviaSimulazione {
         } catch (UserNotFoundException e) {
             fail("Eccezione inaspettata");
         }
+
         try {
             unictest.nuovoTemplateP("Test template personalizzato");
             unictest.inserisciInfoTemplateP((float)1.0,(float)0.0,(float)0.0,2,1,2,1);
             unictest.creaSezioneP(m.getCodice(),1,3);
             unictest.confermaTemplateP();
-        } catch (Exception e) {
+        } catch (EmployeeNotAllowedException e) {
             fail("Eccezione inaspettata");
-            /*non mi aspetto che lanci un'eccezione perchè ho autenticato uno studente, che dovrebbe
-            * avere sempre i permessi per creare un template personalizzato. Invece, se avessi autenticato
-            * un impiegato, lancerebbe un'eccezione qualora quell'impiegato non fosse un Tutor di Simulazione
-            * poichè solo quest'ultimo ha i permessi per creare un template personalizzato.*/
+            /*non mi aspetto che lanci questa eccezione perchè ho autenticato uno studente, che dovrebbe
+             * avere sempre i permessi per creare un template personalizzato. Invece, se avessi autenticato
+             * un impiegato, lancerebbe un'eccezione qualora quell'impiegato non fosse un Tutor di Simulazione
+             * poichè solo quest'ultimo ha i permessi per creare un template personalizzato.*/
+        } catch (NotAllowedException e) {
+            fail("Eccezione inaspettata");
+            //questa non avverrà perchè l'utente è uno studente
         }
-
         mappaTemplate= (TreeMap<String, TemplatePersonalizzato>) ((Studente)unictest.getUtenteAutenticato()).getMappaTemplatePersonalizzati();
         tp1 = mappaTemplate.get(mappaTemplate.lastKey());
     }

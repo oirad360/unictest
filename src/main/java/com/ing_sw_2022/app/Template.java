@@ -160,23 +160,20 @@ public abstract class Template implements Serializable, Cloneable {
 
     public ArrayList<QuesitoDescrizione> visualizzaQuesiti(String idSezione) throws NotEnoughQuestionsException {
         //Ricerca sezione
-        sezioneCorrente=null;
         for (Sezione s: listaSezioni) {
             if(s.getId().equals(idSezione)) {
                 sezioneCorrente = s; //Poi la sezioneCorrente va svuotata
                 break;
             }
         }
-        if(sezioneCorrente!=null){
-            ArrayList<QuesitoDescrizione> lista = sezioneCorrente.visualizzaQuesiti(this);
-            return lista;
-        }
-        return null;
+        ArrayList<QuesitoDescrizione> lista = sezioneCorrente.visualizzaQuesiti(this);
+        return lista;
     }
 
     public void inserisciQuesiti(List<String> listaIdQuesiti) throws QuestionNotFoundException, TemplateSectionException {
         List<QuesitoDescrizione> listaQuesiti=sezioneCorrente.recuperaQuesiti(listaIdQuesiti);
         testCorrente.inserisciQuesiti(listaQuesiti);
+        sezioneCorrente=null;
     }
 
     public void stampaTest(String nomeFile){

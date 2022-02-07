@@ -36,6 +36,8 @@ public abstract class Impiegato extends Utente implements Serializable {
 
     public abstract Materia getMateriaCorrente();
 
+    public abstract Template getTemplateSelezionato() throws NotAllowedException;
+
     public abstract TemplatePersonalizzato getTemplatePersonalizzatoCorrente() throws NotAllowedException;
 
     public abstract TemplateUfficiale getTemplateUfficialeCorrente() throws NotAllowedException;

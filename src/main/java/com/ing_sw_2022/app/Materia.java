@@ -154,7 +154,6 @@ public class Materia implements Serializable {
         int minCorrette=t.getMinRisposteCorrette();
         int count=0;
         for(QuesitoDescrizione qd: mappaQuesiti.values()){
-            if(mappaQuesiti.size()-count<s.getNumQuesiti()-listaQuesiti.size()) throw new NotEnoughQuestionsException("non ci sono abbastanza quesiti validi per la materia "+s.getMateria().getNome()+",\n ne sono già stati presi in considerazione "+count+" su "+mappaQuesiti.size()+" ma solo "+listaQuesiti.size()+" contro i "+s.getNumQuesiti()+" richiesti sono validi");
             boolean error=false;
             if(!qd.getVisibilità().getCodice().equals("p2")) error = true;
             if(!error){
@@ -167,6 +166,8 @@ public class Materia implements Serializable {
                 }
             }
             count++;
+            //se il numero di quesiti che la materia non ha ancora controllato è inferiore al numero di quesiti che servono attualmente è inutile continuare, lancio eccezione
+            if(mappaQuesiti.size()-count<s.getNumQuesiti()-listaQuesiti.size()) throw new NotEnoughQuestionsException("non ci sono abbastanza quesiti validi per la materia "+s.getMateria().getNome()+",\n ne sono già stati presi in considerazione "+count+" su "+mappaQuesiti.size()+" ma solo "+listaQuesiti.size()+" contro i "+s.getNumQuesiti()+" richiesti sono validi");
         }
         return listaQuesiti;
     }
