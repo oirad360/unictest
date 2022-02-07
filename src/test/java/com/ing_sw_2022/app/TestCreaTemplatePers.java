@@ -1,5 +1,6 @@
 package com.ing_sw_2022.app;
 
+import com.ing_sw_2022.app.eccezioni.EmployeeNotAllowedException;
 import com.ing_sw_2022.app.eccezioni.UserNotFoundException;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -28,7 +29,7 @@ class TestCreaTemplatePers {
     void testNuovoTemplate(){
         try {
             unictest.nuovoTemplateP("Test template personalizzato"); //inizializzo il template corrente per i test successivi
-        } catch (Exception e) {
+        } catch (NotAllowedException e) {
             fail("Eccezione inaspettata");
             /*non mi aspetto che lanci un'eccezione perchè ho autenticato uno studente, che dovrebbe
              * avere sempre i permessi per creare un template personalizzato. Invece, se avessi autenticato
@@ -46,7 +47,7 @@ class TestCreaTemplatePers {
         List<Materia> listaMaterie= null;
         try {
             listaMaterie = unictest.inserisciInfoTemplateP((float)1.0,(float)0.0,(float)0.0,4,1,4,1);
-        } catch (Exception e) {
+        } catch (NotAllowedException e) {
             fail("Eccezione inaspettata");
         }
         assertNotNull(listaMaterie);
@@ -67,7 +68,7 @@ class TestCreaTemplatePers {
         for(Materia m : unictest.getMappaMaterie().values()){
             try {
                 unictest.creaSezioneP(m.getCodice(),10,3);
-            } catch (Exception e) {
+            } catch (EmployeeNotAllowedException e) {
                 fail("Eccezione inaspettata");
             }
             Sezione s = tp.getListaSezioni().get(i);
@@ -85,7 +86,7 @@ class TestCreaTemplatePers {
     void testConfermaTemplate(){
         try {
             unictest.confermaTemplateP(); //il template corrente viene eliminato
-        } catch (Exception e) {
+        } catch (NotAllowedException e) {
             fail("Eccezione inaspettata");
         }
         assertNull(((Studente)unictest.getUtenteAutenticato()).getTemplateCorrente());

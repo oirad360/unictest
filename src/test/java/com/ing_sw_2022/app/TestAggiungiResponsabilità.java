@@ -15,15 +15,15 @@ class TestAggiungiResponsabilità {
     static Impiegato aggiungeResponsabilità;
     static Impiegato daDecorare;
     static Studente studente;
+    static Impiegato nonAmministratore;
 
-    @Test
     @BeforeAll
     static void initTest() {
         unictest = UniCTest.getInstance();
 
         //1. L'Amministratore che aggiunge le responsabilità viene creato "a mano". Le primitive per l'aggiunta delle responsabilità vengono testate dopo.
-        aggiungeResponsabilità = new Amministratore(new Tutor("Luca", "Bianchi", "LCABNC80A02C456P"));
-        UniCTest.getInstance().getMappaUtenti().put("LCABNC80A02C456P", aggiungeResponsabilità);
+        aggiungeResponsabilità = new Amministratore(new Tutor("Luca", "Bianchi", "LCABNC87702C456P"));
+        UniCTest.getInstance().getMappaUtenti().put("LCABNC87702C456P", aggiungeResponsabilità);
         //Quindi DEVE essere Amministratore.
         assertTrue(aggiungeResponsabilità.isAmministratore());
 
@@ -36,82 +36,175 @@ class TestAggiungiResponsabilità {
 
         //3. Inserisco uno Studente
         studente = new Studente("Giacomo", "Giacomi", "GCMGCM80A02C555X");
-        UniCTest.getInstance().getMappaUtenti().put("GCMGCM80A02C555X", daDecorare);
+        UniCTest.getInstance().getMappaUtenti().put("GCMGCM80A02C555X", studente);
+
+        //4. Creo anche un Tutor NON Amministratore che tenterà di godere dei diritti di Amministratore senza successo.
+        nonAmministratore = new  Tutor("Marco", "Bianco", "MRCBNC80A02C997Z");
+        UniCTest.getInstance().getMappaUtenti().put("MRCBNC80A02C997Z", nonAmministratore);
     }
 
     //Test driven development --> Test BLACK BOX
     @Test
     void dirittiDiAggiuntaAmministratore(){
+        boolean exception = false;
+        //nonAmministratore diventa l'utenteAutenticato del Sistema.
+        //nonAmministratore non è un Amministratore, quindi non può aggiungere Amministratori
         try {
-            aggiungeResponsabilità.rendiAmministratore(daDecorare);
-        } catch (NotAllowedException e) {
-            fail("Eccezione inattesa: dovresti poter rendere Amministratore qualcuno, dato che sei Amministratore");
+            unictest.setUtenteAutenticato(nonAmministratore.getCf());
+        } catch (UserNotFoundException e) {
+            fail("L'Utente inserito non è presente nel Sistema");
         }
+
+        try {
+            unictest.rendiAmministratore(daDecorare.getCf());
+        } catch (NotAllowedException e) {
+            exception=true;
+        } catch (Exception e) {
+            fail("Non è stata catchata l'eccezione corretta.");
+        }
+        assertTrue(exception);
     }
 
     @Test
     void dirittiDiAggiuntaTutorSimulazione(){
+        boolean exception = false;
+        //nonAmministratore diventa l'utenteAutenticato del Sistema.
+        //nonAmministratore non è un Amministratore, quindi non può aggiungere Amministratori
         try {
-            aggiungeResponsabilità.rendiTutorSimulazione(daDecorare);
-        } catch (NotAllowedException e) {
-            fail("Eccezione inattesa: dovresti poter rendere Amministratore qualcuno, dato che sei Amministratore");
+            unictest.setUtenteAutenticato(nonAmministratore.getCf());
+        } catch (UserNotFoundException e) {
+            fail("L'Utente inserito non è presente nel Sistema");
         }
+
+        try {
+            unictest.rendiTutorSimulazione(daDecorare.getCf());
+            daDecorare= (Impiegato) unictest.getMappaUtenti().get(daDecorare.getCf());
+        } catch (NotAllowedException e) {
+            exception=true;
+        } catch (Exception e) {
+            fail("Non è stata catchata l'eccezione corretta.");
+        }
+        assertTrue(exception);
     }
 
     @Test
     void aggiungiAmministratore(){
+        //aggiungeResponsabilità diventa l'utenteAutenticato del Sistema.
         try {
-            aggiungeResponsabilità.rendiAmministratore(daDecorare);
+            unictest.setUtenteAutenticato(aggiungeResponsabilità.getCf());
+        } catch (UserNotFoundException e) {
+            fail("L'Utente inserito non è presente nel Sistema");
+        }
+
+        try {
+            unictest.rendiAmministratore(daDecorare.getCf());
+            daDecorare= (Impiegato) unictest.getMappaUtenti().get(daDecorare.getCf());
         } catch (NotAllowedException e) {
-            fail("Eccezione inattesa relativa al test dirittiDiAggiuntaAmministratore()");
+            fail("NotAllowedException inattesa. NON dovrebbe essere generata alcuna eccezione NotAllowedException.");
+        } catch (StudentNotAllowedException e) {
+            fail("StudentNotAllowedException inattesa. NON dovrebbe essere generata alcuna eccezione StudentNotAllowedException.");
+        } catch (UserNotFoundException e) {
+            fail("UserNotFoundException inattesa. NON dovrebbe essere generata alcuna eccezione UserNotFoundException.");
         }
         assertTrue(daDecorare.isAmministratore());
     }
 
     @Test
     void aggiungiTutorSimulazione(){
+        //aggiungeResponsabilità diventa l'utenteAutenticato del Sistema.
         try {
-            aggiungeResponsabilità.rendiTutorSimulazione(daDecorare);
-        } catch (NotAllowedException e) {
-            fail("Eccezione inattesa relativa al test dirittiDiAggiuntaTutorSimulazione()");
+            unictest.setUtenteAutenticato(aggiungeResponsabilità.getCf());
+        } catch (UserNotFoundException e) {
+            fail("L'Utente inserito non è presente nel Sistema");
         }
+
+        try {
+            unictest.rendiTutorSimulazione(daDecorare.getCf());
+            daDecorare= (Impiegato) unictest.getMappaUtenti().get(daDecorare.getCf());
+        } catch (NotAllowedException e) {
+            fail("NotAllowedException inattesa. NON dovrebbe essere generata alcuna eccezione NotAllowedException.");
+        } catch (StudentNotAllowedException e) {
+            fail("StudentNotAllowedException inattesa. NON dovrebbe essere generata alcuna eccezione StudentNotAllowedException.");
+        } catch (UserNotFoundException e) {
+            fail("UserNotFoundException inattesa. NON dovrebbe essere generata alcuna eccezione UserNotFoundException.");
+        }
+
         assertTrue(daDecorare.isTutorSimulazione());
     }
 
     //Test WHITE BOX --> Conoscendo i dettagli implementativi delle funzioni realizzate
     @Test
     void testoResponsabilitàInterna(){ //Testo la responsabilità più "interna"
+        //aggiungeResponsabilità diventa l'utenteAutenticato del Sistema.
         try {
-            aggiungeResponsabilità.rendiTutorSimulazione(daDecorare); //Lui è la responsabilità più interna
-            aggiungeResponsabilità.rendiAmministratore(daDecorare);
-        } catch (NotAllowedException e) {
-            fail("Eccezione inattesa relativa al test dirittiDiAggiuntaTutorSimulazione()");
+            unictest.setUtenteAutenticato(aggiungeResponsabilità.getCf());
+        } catch (UserNotFoundException e) {
+            fail("L'Utente inserito non è presente nel Sistema");
         }
+
+        try {
+            unictest.rendiTutorSimulazione(daDecorare.getCf()); //Lui è la responsabilità più interna
+            unictest.rendiAmministratore(daDecorare.getCf());
+            daDecorare= (Impiegato) unictest.getMappaUtenti().get(daDecorare.getCf());
+        } catch (NotAllowedException e) {
+            fail("NotAllowedException inattesa. NON dovrebbe essere generata alcuna eccezione NotAllowedException.");
+        } catch (StudentNotAllowedException e) {
+            fail("StudentNotAllowedException inattesa. NON dovrebbe essere generata alcuna eccezione StudentNotAllowedException.");
+        } catch (UserNotFoundException e) {
+            fail("UserNotFoundException inattesa. NON dovrebbe essere generata alcuna eccezione UserNotFoundException.");
+        }
+
         assertTrue(daDecorare.isTutorSimulazione());
     }
 
     @Test
     void testoResponsabilitàEsterna(){ //Testo la responsabilità più "esterna"
+        //aggiungeResponsabilità diventa l'utenteAutenticato del Sistema.
         try {
-            aggiungeResponsabilità.rendiAmministratore(daDecorare);
-            aggiungeResponsabilità.rendiTutorSimulazione(daDecorare); //Lui è la responsabilità più esterna
-        } catch (NotAllowedException e) {
-            fail("Eccezione inattesa relativa al test dirittiDiAggiuntaTutorSimulazione()");
+            unictest.setUtenteAutenticato(aggiungeResponsabilità.getCf());
+        } catch (UserNotFoundException e) {
+            fail("L'Utente inserito non è presente nel Sistema");
         }
-        assertTrue(daDecorare.isTutorSimulazione());
+
+        try {
+            unictest.rendiTutorSimulazione(daDecorare.getCf());
+            unictest.rendiAmministratore(daDecorare.getCf()); //Lui è la responsabilità più esterna
+            daDecorare= (Impiegato) unictest.getMappaUtenti().get(daDecorare.getCf());
+        } catch (NotAllowedException e) {
+            fail("NotAllowedException inattesa. NON dovrebbe essere generata alcuna eccezione NotAllowedException.");
+        } catch (StudentNotAllowedException e) {
+            fail("StudentNotAllowedException inattesa. NON dovrebbe essere generata alcuna eccezione StudentNotAllowedException.");
+        } catch (UserNotFoundException e) {
+            fail("UserNotFoundException inattesa. NON dovrebbe essere generata alcuna eccezione UserNotFoundException.");
+        }
+
+        assertTrue(daDecorare.isAmministratore());
     }
 
 
     @Test
-    void autoRimuoviAmministratore(){
+    void autoRimuoviAmministratore(){ //NON deve essere possibile auto-rimuovere la responsabilità di Amministratore
         boolean exception = false;
+        //aggiungeResponsabilità diventa l'utenteAutenticato del Sistema.
         try {
-            aggiungeResponsabilità.rimuoviAmministratore(aggiungeResponsabilità);
-        } catch (NotAllowedException e) {
-            exception=true;
+            unictest.setUtenteAutenticato(aggiungeResponsabilità.getCf());
+        } catch (UserNotFoundException e) {
+            fail("L'Utente inserito non è presente nel Sistema");
         }
-        //L'eccezione DEVE essere avvenuta, in quanto un Amministratore non ha il diritto di rimuovere a sé stesso i diritti di amministrazione
-        assertTrue(exception);
+
+        try {
+            unictest.rimuoviAmministratore(aggiungeResponsabilità.getCf());
+            aggiungeResponsabilità= (Impiegato) unictest.getMappaUtenti().get(aggiungeResponsabilità.getCf());
+        } catch (NotAllowedException e) {
+            exception = true;
+        } catch (StudentNotAllowedException e) {
+            fail("StudentNotAllowedException inattesa. NON dovrebbe essere generata alcuna eccezione StudentNotAllowedException.");
+        } catch (UserNotFoundException e) {
+            fail("UserNotFoundException inattesa. NON dovrebbe essere generata alcuna eccezione UserNotFoundException.");
+        }
+
+        assertTrue(aggiungeResponsabilità.isAmministratore()); //DEVO essere ancora un amministratore
+        assertTrue(exception); //DEVO aver generato l'eccezione
     }
 
 }

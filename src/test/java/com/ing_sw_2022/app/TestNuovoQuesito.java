@@ -28,7 +28,7 @@ class TestNuovoQuesito {
         try {
             unictest.nuovoQuesito("MAT01");//inizializzo la materia corrente e il quesito corrente
         } catch (StudentNotAllowedException e) {
-            e.printStackTrace();
+            fail("Eccezione inaspettata");
         }
         assertNotNull(((Impiegato)unictest.getUtenteAutenticato()).getMateriaCorrente());
         assertNotNull(((Impiegato)unictest.getUtenteAutenticato()).getMateriaCorrente().getQuesitoCorrente());
@@ -43,7 +43,7 @@ class TestNuovoQuesito {
             //E il numero di materie inserite è > 0
             assertTrue(unictest.visualizzaMaterieInsegnate().size()>0);
         } catch (StudentNotAllowedException e) {
-            e.printStackTrace();
+            fail("Eccezione inattesa");
         }
     }
 

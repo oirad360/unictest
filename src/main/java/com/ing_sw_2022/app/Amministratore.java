@@ -91,7 +91,7 @@ public class Amministratore extends Decorator implements Serializable{
         Impiegato attuale = imp;
         Impiegato precedente = null;
         Impiegato successivo = imp.getImpiegato();   //Struttura:  PREC(ATTUALE(SUCC))
-        while(/*flag == 0 &&*/ successivo != null){
+        while(successivo != null){
             if(attuale instanceof Amministratore){
                 if(precedente!=null){
                 precedente.setImpiegato(successivo);
