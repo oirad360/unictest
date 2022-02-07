@@ -6,10 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="ac0b655c-9a25-4065-92ee-542713136dbc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Template.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/Template.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestCreaTestCartaceo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestCreaTestCartaceo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Template.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/Template.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestCreaTestCartaceo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestCreaTestCartaceo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ser.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/UniCTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/UniCTestFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ing_sw_2022/app/ui/UniCTestFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestCorreggiSimulazCartcea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestCorreggiSimulazCartcea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestCreaTemplatePersTutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ing_sw_2022/app/TestCreaTemplatePersTutor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/UniCTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/UniCTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ing_sw_2022/app/ui/UniCTestFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestCorreggiSimulazCartcea.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestCorreggiSimulazCartcea.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestCreaTemplatePersTutor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/ing_sw_2022/app/TestCreaTemplatePersTutor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testingCorrezioneTest.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/testingCorrezioneTest.pdf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,22 +60,7 @@
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="281" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
-  <component name="RunManager" selected="JUnit.TestCreaTestCartaceo">
-    <configuration name="TestAvviaSimulazione" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="unictest" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ing_sw_2022.app.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ing_sw_2022.app" />
-      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestAvviaSimulazione" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.TestCreaTemplatePersTutor">
     <configuration name="TestCorreggiSimulazCartcea" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="unictest" />
       <extension name="coverage">
@@ -101,6 +92,37 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestCreaTemplatePersTutor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="unictest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ing_sw_2022.app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ing_sw_2022.app" />
+      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestCreaTemplatePersTutor" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestCreaTemplatePersTutor.testEccezioni" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="unictest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ing_sw_2022.app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ing_sw_2022.app" />
+      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestCreaTemplatePersTutor" />
+      <option name="METHOD_NAME" value="testEccezioni" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestCreaTestCartaceo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="unictest" />
       <extension name="coverage">
@@ -116,29 +138,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestCreaTestCartaceo.testStampaTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="unictest" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ing_sw_2022.app.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ing_sw_2022.app" />
-      <option name="MAIN_CLASS_NAME" value="com.ing_sw_2022.app.TestCreaTestCartaceo" />
-      <option name="METHOD_NAME" value="testStampaTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestCreaTestCartaceo" />
-        <item itemvalue="JUnit.TestAvviaSimulazione" />
-        <item itemvalue="JUnit.TestCorreggiSimulazCartcea" />
-        <item itemvalue="JUnit.TestCreaTestCartaceo.testStampaTest" />
+        <item itemvalue="JUnit.TestCreaTemplatePersTutor" />
+        <item itemvalue="JUnit.TestCreaTemplatePersTutor.testEccezioni" />
         <item itemvalue="JUnit.TestCorreggiSimulazCartcea.confermaCorrezione" />
+        <item itemvalue="JUnit.TestCorreggiSimulazCartcea" />
+        <item itemvalue="JUnit.TestCreaTestCartaceo" />
       </list>
     </recent_temporary>
   </component>
@@ -153,7 +159,7 @@
       <workItem from="1644168543967" duration="31000" />
       <workItem from="1644182968874" duration="2000" />
       <workItem from="1644183235945" duration="3330000" />
-      <workItem from="1644229897105" duration="27500000" />
+      <workItem from="1644229897105" duration="30693000" />
     </task>
     <servers />
   </component>
