@@ -396,12 +396,10 @@ public class UniCTest implements Serializable{
         t4 = new Amministratore(t4);
         t4 = new TutorSimulazione(t4);
         Studente s = new Studente("Luigi","Verdi","VRDLGI99R21C351J");
-        Impiegato t5 = new Tutor("Antonio","Monti","MNTATNOR21C350L");
         mappaUtenti.put(t1.getCf(),t1);
         mappaUtenti.put(t2.getCf(),t2);
         mappaUtenti.put(t3.getCf(),t3);
         mappaUtenti.put(t4.getCf(),t4);
-        mappaUtenti.put(t5.getCf(),t5);
         mappaUtenti.put(s.getCf(),s);
         t1.addMateriaInsegnata(mappaMaterie.get("MAT01"));
         t1.addMateriaInsegnata(mappaMaterie.get("ITA02"));

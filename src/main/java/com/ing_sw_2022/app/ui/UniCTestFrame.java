@@ -86,7 +86,6 @@ public class UniCTestFrame extends JFrame{
         System.out.println("------------------TEMPLATE UFFICIALI-----------------");
         System.out.println(unictest.getMappaTemplateUfficiali());*/
         /*
-        MNTATNOR21C350L --> Tutor
         RSSMRA80A01C351O --> Tutor
         CTNLCU80A01C351K --> TutorSimulazione
         MSSNDR80A01C351P --> Amministratore
@@ -110,7 +109,6 @@ public class UniCTestFrame extends JFrame{
         else if(unictest.getUtenteAutenticato() instanceof Studente){
             System.out.println(((Studente)unictest.getUtenteAutenticato()).getMappaTemplatePersonalizzati());
         }
-
         System.out.println("--------------TEST SVOLTI DALL'UTENTE------------");
         if(unictest.getUtenteAutenticato() instanceof Impiegato)
                 System.out.println("l'utente non è uno studente");
