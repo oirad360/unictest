@@ -123,9 +123,12 @@ class TestCorreggiSimulazCartcea {
     @Test
     void confermaCorrezione(){
         try {
+            int size=((Studente)unictest.getMappaUtenti().get("VRDLGI99R21C351J")).getMappaTemplateTestSvolti().size();
+
             unictest.confermaCorrezione();
-            assertTrue(((Studente)unictest.getMappaUtenti().get("VRDLGI99R21C351J")).getMappaTemplateTestSvolti().size()>0);
+            assertEquals(((Studente)unictest.getMappaUtenti().get("VRDLGI99R21C351J")).getMappaTemplateTestSvolti().size(),size+1);
             assertNotNull(((Studente)unictest.getMappaUtenti().get("VRDLGI99R21C351J")).getMappaTemplateTestSvolti().get(idTemplate).getMappaTest().get(idTemplate+"-0"));
+            assertNotNull(((Studente)unictest.getMappaUtenti().get("VRDLGI99R21C351J")).getMappaTemplateTestSvolti().get(idTemplate).getMappaTest().get(idTemplate+"-0").getPunteggioComplessivo());
         } catch (NotAllowedException e) {
             fail("Eccezione inaspettata");
         } catch (StudentNotAllowedException e) {
